@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class UserDevice
 {
     /**
+     * UserDevice constructor.
+     */
+    public function __construct()
+    {
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
+    }
+
+    /**
      * @return string
      */
     public function getLabel()
@@ -122,21 +131,21 @@ class UserDevice
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=64, nullable=false)
+     * @ORM\Column(name="label", type="string", length=64, nullable=true)
      */
     private $label;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
      */
     private $createdat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
      */
     private $updatedat;
 

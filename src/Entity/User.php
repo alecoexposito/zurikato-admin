@@ -10,6 +10,9 @@ use FOS\UserBundle\Model\User as BaseUser;
  *
  * @ORM\Table(name="users", indexes={@ORM\Index(name="userType", columns={"userType"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "regularUser" = "RegularUser", "admin" = "Admin" })
  */
 class User extends BaseUser
 {
@@ -126,17 +129,69 @@ class User extends BaseUser
     protected $usertype;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     */
+    protected $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=60, nullable=true)
+     */
+    protected $lastName;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return is_null($this->lastName) ? '' : $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+        return $this;
+    }
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->setParent(0)
+            ->setUsername('')
         ->setActive(0)
         ->setCreatedat(new \DateTime())
         ->setUpdatedat(new \DateTime())
         ->setAuthToken('')
         ->setToken('')
-        ->setTelephone('');
+        ->setTelephone('')
+        ->setEnabled(true);
     }
 
 
@@ -353,6 +408,13 @@ class User extends BaseUser
     public function setUsertype($usertype)
     {
         $this->usertype = $usertype;
+        return $this;
+    }
+
+    public function setPassword($password)
+    {
+        parent::setPassword($password);
+        $this->pass = parent::getPassword();
         return $this;
     }
 

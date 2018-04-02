@@ -1,0 +1,100 @@
+easy_admin:
+    entities:
+        User:
+            class: App\Entity\User
+            form:
+                fields:
+                    - 'name'
+                    - 'lastName'
+                    - 'email'
+            edit:
+                fields:
+                    - { property: 'plainPassword', label: 'Password', type: 'password', type_options: { required: false} }
+                    # ...
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    # ...
+                    - { property: 'plainPassword', type: 'password', type_options: { required: true} }
+                    # ...
+                form_options: { validation_groups: ['Registration'] }
+
+        UserRole:
+            class: App\Entity\UserRole
+        Client:
+            class: App\Entity\Client
+            list:
+                fields:
+                    - 'name'
+                    - 'lastName'
+                    - 'email'
+                    - 'companyName'
+            form:
+                fields:
+                    - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'companyName', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'username', type: 'hidden', type_options: { required: false} }
+            edit:
+                fields:
+                    - { property: 'plainPassword', css_class: 'col-md-6', label: 'Password', type: 'password', type_options: { required: false} }
+                    # ...
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    # ...
+                    - { property: 'plainPassword', css_class: 'col-md-6', type: 'password', type_options: { required: true} }
+                    # ...
+                form_options: { validation_groups: ['Registration'] }
+        RegularUser:
+            class: App\Entity\RegularUser
+            list:
+                dql_filter: 'entity.parentUser = '
+                fields:
+                    - 'name'
+                    - 'lastName'
+                    - 'email'
+            form:
+                fields:
+                    - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'username', type: 'hidden', type_options: { required: false} }
+            edit:
+                fields:
+                    - { property: 'plainPassword', label: 'Password', css_class: 'col-md-6', type: 'password', type_options: { required: false} }
+                    - { property: 'devices', css_class: 'col-md-12', type_options: { required: false}}
+                    # ...
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    # ...
+                    - { property: 'plainPassword', type: 'password', css_class: 'col-md-6', type_options: { required: true} }
+                    - { property: 'devices', css_class: 'col-md-12', type_options: { required: false}}
+                    # ...
+                form_options: { validation_groups: ['Registration'] }
+        Admin:
+            class: App\Entity\Admin
+            list:
+                fields:
+                    - 'name'
+                    - 'lastName'
+                    - 'email'
+            form:
+                fields:
+                    - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'username', type: 'hidden', type_options: { required: false} }
+            edit:
+                fields:
+                    - { property: 'plainPassword', label: 'Password', css_class: 'col-md-6', type: 'password', type_options: { required: false} }
+                    # ...
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    # ...
+                    - { property: 'plainPassword', type: 'password', css_class: 'col-md-6', type_options: { required: true} }
+                    # ...
+                form_options: { validation_groups: ['Registration'] }

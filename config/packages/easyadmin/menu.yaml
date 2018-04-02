@@ -1,0 +1,10 @@
+easy_admin:
+  design:
+    menu:
+#      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
+#      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
+      - { entity: 'Client', label: 'Clients',  icon: 'users', role: 'ROLE_USER'}
+      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
+      - { entity: 'Device', label: 'Devices',  icon: 'truck', role: 'ROLE_USER'}
+      - { entity: 'RegularUser', label: 'Users',  icon: 'users', role: 'ROLE_CLIENT'}
+

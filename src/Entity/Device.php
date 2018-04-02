@@ -367,5 +367,38 @@ class Device
      */
     private $iddevicemodel;
 
+    /**
+     * @var \App\Entity\Client
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="idUser")
+     * })
+     */
+    private $client;
+
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param Client $client
+     * @return Device
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+    function __toString()
+    {
+        return $this->getLabel() . "(" . $this->getAuthDevice() . ")";
+    }
+
 
 }

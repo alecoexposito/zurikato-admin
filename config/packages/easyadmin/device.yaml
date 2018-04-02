@@ -1,0 +1,25 @@
+easy_admin:
+    entities:
+        Device:
+            class: App\Entity\Device
+            list:
+              fields:
+                - { property: 'authDevice', label: 'Imei' }
+                - 'label'
+                - { property: 'iddevicemodel', label: 'Model' }
+            form:
+              fields:
+                - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei' }
+                - { property: 'label', css_class: 'col-lg-6', type_options: {required: true} }
+                - { property: 'iddevicemodel', label: 'Model', css_class: 'col-lg-6' }
+                - { property: 'client', label: 'Client', css_class: 'col-lg-6' }
+
+        DeviceModel:
+            class: App\Entity\DeviceModel
+        ClientDevice:
+            class: App\Entity\Device
+            list:
+                fields:
+                  - { property: 'authDevice', label: 'Imei' }
+                  - 'label'
+                  - { property: 'iddevicemodel', label: 'Model' }

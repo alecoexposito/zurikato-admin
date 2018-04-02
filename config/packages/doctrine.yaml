@@ -28,3 +28,7 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        filters:
+            device_filter:
+                class:   App\Filter\DeviceFilter
+                enabled: false

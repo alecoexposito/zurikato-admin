@@ -1,7 +1,5 @@
-easy_admin:
-    entities:
-        # List the entity class name you want to manage
-        - App\Entity\User
-        - App\Entity\UserRole
-        - App\Entity\Device
-        - App\Entity\DeviceModel
+imports:
+  - { resource: easyadmin/menu.yaml }
+  - { resource: easyadmin/basic.yaml }
+  - { resource: easyadmin/user.yaml }
+  - { resource: easyadmin/device.yaml }
