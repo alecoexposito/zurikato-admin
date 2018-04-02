@@ -1,6 +1,7 @@
 easy_admin:
   design:
     menu:
+      - { label: 'Dashboard', route: 'backend_dashboard', default: true, icon: 'dashboard ', role: ROLE_USER }
 #      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
       - { entity: 'Client', label: 'Clients',  icon: 'users', role: 'ROLE_ADMIN'}

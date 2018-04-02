@@ -14,10 +14,22 @@ use App\Entity\Device;
 use App\Entity\RegularUser;
 use App\Entity\UserDevice;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class AdminController extends BaseAdminController
 {
-    public function createNewUserEntity()
+    /**
+     * @Route("/dashboard", name="backend_dashboard")
+     * @Template("dashboard.html.twig")
+     */
+    public function backendDashboardAction()
+    {
+        return array();
+    }
+
+
+        public function createNewUserEntity()
     {
         return $this->get('fos_user.user_manager')->createUser();
     }
