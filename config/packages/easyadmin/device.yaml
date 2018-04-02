@@ -16,6 +16,7 @@ easy_admin:
                 - { property: 'label', css_class: 'col-lg-6', type_options: {required: true} }
                 - { property: 'iddevicemodel', label: 'Model', css_class: 'col-lg-6' }
                 - { property: 'client', label: 'Client', css_class: 'col-lg-6' }
+                - { property: 'sim', label: 'Phone number', css_class: 'col-lg-6' }
                 - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
 
         DeviceModel:
