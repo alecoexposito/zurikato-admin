@@ -20,13 +20,13 @@ class RegularUser extends User
      */
     protected $parentUser;
 
-//    /**
-//     * @ORM\ManyToMany(targetEntity="Device")
-//     * @ORM\JoinTable(name="user_devices",
-//     *      joinColumns={@ORM\JoinColumn(name="idUser", referencedColumnName="idUser")},
-//     *      inverseJoinColumns={@ORM\JoinColumn(name="idDevice", referencedColumnName="idDevice")}
-//     * )
-//     */
+    /**
+     * @ORM\ManyToMany(targetEntity="Device")
+     * @ORM\JoinTable(name="user_devices",
+     *      joinColumns={@ORM\JoinColumn(name="idUser", referencedColumnName="idUser")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="idDevice", referencedColumnName="idDevice")}
+     * )
+     */
     protected $devices;
 
     /**
