@@ -45,7 +45,10 @@ class Client extends User
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->getName() . " " . $this->getLastName();
+    }
 
 
 }
