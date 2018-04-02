@@ -7,12 +7,14 @@ easy_admin:
                 - { property: 'authDevice', label: 'Imei' }
                 - 'label'
                 - { property: 'iddevicemodel', label: 'Model' }
+                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
               fields:
                 - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei' }
                 - { property: 'label', css_class: 'col-lg-6', type_options: {required: true} }
                 - { property: 'iddevicemodel', label: 'Model', css_class: 'col-lg-6' }
                 - { property: 'client', label: 'Client', css_class: 'col-lg-6' }
+                - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
 
         DeviceModel:
             class: App\Entity\DeviceModel

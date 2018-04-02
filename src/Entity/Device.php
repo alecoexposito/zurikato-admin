@@ -3,15 +3,38 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Devices
  *
  * @ORM\Table(name="devices", indexes={@ORM\Index(name="idDeviceModel", columns={"idDeviceModel"})})
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Device
 {
+
+    /**
+     * @ORM\Column(name="icon_map", type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $iconMap;
+
+    /**
+     * @Vich\UploadableField(mapping="icon_map", fileNameProperty="iconMap")
+     * @var File
+     */
+    private $iconMapFile;
+
+    /**
+     * @ORM\Column(name="icon_updated_at", type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $iconUpdatedAt;
+
+
     /**
      * @var string
      *
@@ -398,6 +421,67 @@ class Device
     function __toString()
     {
         return $this->getLabel() . "(" . $this->getAuthDevice() . ")";
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIconMap()
+    {
+        if(!is_null($this->iconMap))
+            return $this->iconMap;
+        else
+            return null;
+    }
+
+    /**
+     * @param mixed $iconMap
+     * @return Device
+     */
+    public function setIconMap($iconMap)
+    {
+        $this->iconMap = $iconMap;
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getIconMapFile()
+    {
+        return $this->iconMapFile;
+    }
+
+    /**
+     * @param File $iconMapFile
+     * @return Device
+     */
+    public function setIconMapFile(File $iconMap)
+    {
+        $this->iconMapFile = $iconMap;
+        if ($iconMap) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->iconUpdatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIconUpdatedAt()
+    {
+        return $this->iconUpdatedAt;
+    }
+
+    /**
+     * @param mixed $iconUpdatedAt
+     * @return Device
+     */
+    public function setIconUpdatedAt($iconUpdatedAt)
+    {
+        $this->iconUpdatedAt = $iconUpdatedAt;
+        return $this;
     }
 
 

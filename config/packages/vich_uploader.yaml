@@ -1,7 +1,11 @@
+parameters:
+    app.path.map_icons: /uploads/images/map-icons
+
 vich_uploader:
     db_driver: orm
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
+    mappings:
+        icon_map:
+            uri_prefix: /uploads/images/map-icons
+            upload_destination: '%kernel.project_dir%/public/uploads/images/map-icons'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
