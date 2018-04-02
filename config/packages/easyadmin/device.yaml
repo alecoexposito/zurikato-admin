@@ -8,6 +8,7 @@ easy_admin:
                 - 'label'
                 - { property: 'iddevicemodel', label: 'Model' }
                 - 'client'
+                - { property: 'sim', label: 'Phone number' }
                 - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
               fields:
