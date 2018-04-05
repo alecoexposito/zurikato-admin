@@ -446,7 +446,7 @@ class Device
 
     function __toString()
     {
-        return $this->getLabel() . "(" . $this->getAuthDevice() . ")";
+        return $this->getLabel() . " (" . $this->getDevicesGroup() . ")";
     }
 
     /**

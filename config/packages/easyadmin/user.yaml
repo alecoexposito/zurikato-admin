@@ -55,6 +55,7 @@ easy_admin:
                     - 'name'
                     - 'lastName'
                     - 'email'
+                    - 'devices'
             form:
                 fields:
                     - { property: 'username', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
