@@ -51,10 +51,15 @@ class FilterManager
         if(!is_array($roles))
             return;
         if(in_array('ROLE_CLIENT', $roles)){
-            $this->em->getConfiguration()->addFilter('device_filter', 'App\Filter\DeviceFilter');
             $userId = $this->session->get('userId');
+            $this->em->getConfiguration()->addFilter('device_filter', 'App\Filter\DeviceFilter');
+            $this->em->getConfiguration()->addFilter('devices_group_filter', 'App\Filter\DevicesGroupFilter');
 
+//            enabling filter for device table
             $filter = $this->em->getFilters()->enable('device_filter');
+            $filter->setParameter('userId', $userId);
+//            enabling filter for devices_group table
+            $filter = $this->em->getFilters()->enable('devices_group_filter');
             $filter->setParameter('userId', $userId);
         }
 

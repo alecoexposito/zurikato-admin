@@ -39,6 +39,5 @@ easy_admin:
             form:
                 fields:
                   - 'label'
-                  - 'client'
                   - { property: 'devices', type_options: {by_reference: false} }
 

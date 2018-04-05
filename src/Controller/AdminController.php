@@ -203,6 +203,18 @@ class AdminController extends BaseAdminController
         return parent::listAction();
     }
 
+    public function createNewDevicesGroupEntity()
+    {
+        $entity = parent::createNewEntity();
+        $loggedUser = $this->getUser();
+//        var_dump($entity);
+//        exit;
+        if(is_object($loggedUser)){
+            $entity->setClient($loggedUser);
+        }
+        return $entity;
+    }
+
 //    public function createEntityFormBuilder($entity, $view)
 //    {
 //        $formBuilder = parent::createEntityFormBuilder($entity, $view);
