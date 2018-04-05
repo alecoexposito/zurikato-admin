@@ -171,8 +171,7 @@ class AdminController extends BaseAdminController
     {
         if(!$user->hasRole('ROLE_REGULAR_USER'))
             $user->setRoles(['ROLE_REGULAR_USER']);
-        $user->setUsername($user->getEmail());
-        $user->setEnabled(true);
+        $user->setEnabled(false);
 
         $this->get('fos_user.user_manager')->updateUser($user, false);
         $parentId = $this->getUser()->getId();

@@ -55,7 +55,7 @@ class RegularUser extends User
     public function __construct()
     {
         parent::__construct();
-        $this->setUsername('algo');
+        $this->setEnabled(false);
         $this->devices = new ArrayCollection();
     }
 
