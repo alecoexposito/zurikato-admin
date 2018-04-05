@@ -11,14 +11,26 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
+use App\Entity\DevicesGroup;
 use App\Entity\RegularUser;
 use App\Entity\UserDevice;
+use App\Form\DevicesGroupType;
+use App\Repository\DeviceRepository;
+use Doctrine\DBAL\Types\ArrayType;
+use Doctrine\DBAL\Types\SimpleArrayType;
+use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\ResolvedFormType;
 
 class AdminController extends BaseAdminController
 {
+
     /**
      * @Route("/dashboard", name="backend_dashboard")
      * @Template("dashboard.html.twig")
@@ -192,5 +204,29 @@ class AdminController extends BaseAdminController
         return parent::listAction();
     }
 
+//    public function createEntityFormBuilder($entity, $view)
+//    {
+//        $formBuilder = parent::createEntityFormBuilder($entity, $view);
+//        $devices = $formBuilder->getData()->getDevices();
+////        var_dump($view);
+////        exit;
+////
+////
+//        $id = (null !== $entity->getId()) ? $entity->getId() : 0;
+//        $formBuilder->add('devices', EntityType::class, array(
+//                'data_class' => null,
+//                'class' => 'App\\Entity\\Device',
+//                'multiple' => true,
+//                'query_builder' => function (EntityRepository $repo) use ($id) {
+//                    return $repo->createQueryBuilder('d')
+//                        ->where('d.devicesGroup is null');
+//                },
+//            )
+//        );
+////        var_dump($formBuilder);
+////        exit;
+//
+//        return $formBuilder;
+//    }
 
 }

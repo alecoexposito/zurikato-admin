@@ -18,6 +18,7 @@ easy_admin:
                 - { property: 'client', label: 'Client', css_class: 'col-lg-6' }
                 - { property: 'sim', label: 'Phone number', css_class: 'col-lg-6' }
                 - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
+                - { property: 'devicesGroup', type_options: {by_reference: false} }
 
         DeviceModel:
             class: App\Entity\DeviceModel
@@ -28,3 +29,16 @@ easy_admin:
                   - { property: 'authDevice', label: 'Imei' }
                   - 'label'
                   - { property: 'iddevicemodel', label: 'Model' }
+        DevicesGroup:
+            class: App\Entity\DevicesGroup
+            list:
+                fields:
+#                  - 'id'
+                  - 'label'
+                  - 'devices'
+            form:
+                fields:
+                  - 'label'
+                  - 'client'
+                  - { property: 'devices', type_options: {by_reference: false} }
+

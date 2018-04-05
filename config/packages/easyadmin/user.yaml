@@ -31,11 +31,11 @@ easy_admin:
                     - 'companyName'
             form:
                 fields:
+                    - { property: 'username', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
                     - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'companyName', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'username', type: 'hidden', type_options: { required: false} }
             edit:
                 fields:
                     - { property: 'plainPassword', css_class: 'col-md-6', label: 'Password', type: 'password', type_options: { required: false} }
@@ -57,10 +57,10 @@ easy_admin:
                     - 'email'
             form:
                 fields:
+                    - { property: 'username', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
                     - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'username', type: 'hidden', type_options: { required: false} }
             edit:
                 fields:
                     - { property: 'plainPassword', label: 'Password', css_class: 'col-md-6', type: 'password', type_options: { required: false} }
