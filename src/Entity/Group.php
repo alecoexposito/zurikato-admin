@@ -6,10 +6,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="devices_group")
+ * @ORM\Table(name="dgroup")
  * @ORM\Entity
  */
-class DevicesGroup
+class Group
 {
 
     /**
@@ -29,10 +29,11 @@ class DevicesGroup
     protected $label;
 
     /**
-     *
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="App\Entity\Device", mappedBy="devicesGroup", cascade="all")
-     *
+     * @ORM\ManyToMany(targetEntity="Device")
+     * @ORM\JoinTable(name="device_group",
+     *      joinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="device_id", referencedColumnName="idDevice")}
+     * )
      */
     protected $devices;
 
@@ -56,7 +57,7 @@ class DevicesGroup
 
     /**
      * @param Client $client
-     * @return DevicesGroup
+     * @return Group
      */
     public function setClient($client)
     {
@@ -73,12 +74,11 @@ class DevicesGroup
      * Add device
      *
      * @param Device $device
-     * @return DevicesGroup
+     * @return Group
      */
     public function addDevice($device)
     {
         $this->devices[] = $device;
-        $device->setDevicesGroup($this);
         return $this;
     }
 
@@ -90,7 +90,6 @@ class DevicesGroup
     public function removeDevice($device)
     {
         $this->devices->removeElement($device);
-        $device->setDevicesGroup(null);
     }
 
     /**
@@ -114,7 +113,7 @@ class DevicesGroup
 
     /**
      * @param int $id
-     * @return DevicesGroup
+     * @return Group
      */
     public function setId($id)
     {
@@ -132,7 +131,7 @@ class DevicesGroup
 
     /**
      * @param string $label
-     * @return DevicesGroup
+     * @return Group
      */
     public function setLabel($label)
     {

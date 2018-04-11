@@ -401,32 +401,6 @@ class Device
     private $client;
 
     /**
-     * @var \App\Entity\DevicesGroup
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\DevicesGroup", inversedBy="devices", cascade="all")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="devices_group_id", referencedColumnName="id")
-     * })
-     */
-    private $devicesGroup;
-
-    /**
-     * @return DevicesGroup
-     */
-    public function getDevicesGroup()
-    {
-        return $this->devicesGroup;
-    }
-
-    /**
-     * @param DevicesGroup $devicesGroup
-     */
-    public function setDevicesGroup($devicesGroup)
-    {
-        $this->devicesGroup = $devicesGroup;
-    }
-
-    /**
      * @return Client
      */
     public function getClient()
@@ -446,7 +420,7 @@ class Device
 
     function __toString()
     {
-        return $this->getLabel() . " (" . $this->getDevicesGroup() . ")";
+        return $this->getLabel();
     }
 
     /**

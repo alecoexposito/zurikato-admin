@@ -11,10 +11,9 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
-use App\Entity\DevicesGroup;
+use App\Entity\Group;
 use App\Entity\RegularUser;
 use App\Entity\UserDevice;
-use App\Form\DevicesGroupType;
 use App\Repository\DeviceRepository;
 use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\DBAL\Types\SimpleArrayType;
@@ -203,7 +202,7 @@ class AdminController extends BaseAdminController
         return parent::listAction();
     }
 
-    public function createNewDevicesGroupEntity()
+    public function createNewGroupEntity()
     {
         $entity = parent::createNewEntity();
         $loggedUser = $this->getUser();

@@ -29,8 +29,8 @@ easy_admin:
                   - { property: 'authDevice', label: 'Imei' }
                   - 'label'
                   - { property: 'iddevicemodel', label: 'Model' }
-        DevicesGroup:
-            class: App\Entity\DevicesGroup
+        Group:
+            class: App\Entity\Group
             list:
                 fields:
 #                  - 'id'

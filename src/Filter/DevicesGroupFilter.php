@@ -27,13 +27,13 @@ class DevicesGroupFilter extends SQLFilter
     public function addFilterConstraint(ClassMetadata $targetEntity, $targetTableAlias)
     {
         $condition = "";
-        if($targetEntity->getTableName() == "devices_group") {
-            $userId = null;
-            if($this->hasParameter("userId")){
-                $userId = $this->getParameter("userId");
-                    $condition = $targetTableAlias . '.user_id = ' . $userId . ' ';
-            }
-        }
+//        if($targetEntity->getTableName() == "devices_group") {
+//            $userId = null;
+//            if($this->hasParameter("userId")){
+//                $userId = $this->getParameter("userId");
+//                    $condition = $targetTableAlias . '.user_id = ' . $userId . ' ';
+//            }
+//        }
 
         return $condition;
     }

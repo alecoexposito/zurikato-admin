@@ -59,8 +59,8 @@ class FilterManager
             $filter = $this->em->getFilters()->enable('device_filter');
             $filter->setParameter('userId', $userId);
 //            enabling filter for devices_group table
-            $filter = $this->em->getFilters()->enable('devices_group_filter');
-            $filter->setParameter('userId', $userId);
+//            $filter = $this->em->getFilters()->enable('devices_group_filter');
+//            $filter->setParameter('userId', $userId);
         }
 
     }
