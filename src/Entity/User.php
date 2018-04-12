@@ -13,6 +13,18 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "regularUser" = "RegularUser", "admin" = "Admin" })
+ * @AttributeOverrides({
+ *      @AttributeOverride(name="email",
+ *          column=@Column(
+ *              nullable = true,
+ *          )
+ *      ),
+ *      @AttributeOverride(name="email_canonical",
+ *          column=@Column(
+ *              nullable = true,
+ *          )
+ *      )
+ * })
  */
 class User extends BaseUser
 {
@@ -417,20 +429,5 @@ class User extends BaseUser
         $this->pass = parent::getPassword();
         return $this;
     }
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(nullable=true)
-     */
-    protected $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(nullable=true)
-     *
-     */
-    protected $emailCanonical;
-
+    
 }
