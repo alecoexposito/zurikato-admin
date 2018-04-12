@@ -15,12 +15,12 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "regularUser" = "RegularUser", "admin" = "Admin" })
  * @ORM\AttributeOverrides({
  *      @ORM\AttributeOverride(name="email",
- *          column=@Column(
+ *          column=@ORM\Column(
  *              nullable = true,
  *          )
  *      ),
  *      @ORM\AttributeOverride(name="email_canonical",
- *          column=@Column(
+ *          column=@ORM\Column(
  *              nullable = true,
  *          )
  *      )
