@@ -418,4 +418,19 @@ class User extends BaseUser
         return $this;
     }
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    protected $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     *
+     */
+    protected $emailCanonical;
+
 }
