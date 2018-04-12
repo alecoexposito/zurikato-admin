@@ -50,7 +50,7 @@ class Camera
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=240)
+     * @ORM\Column(name="password", type="string", length=240, nullable=true)
      */
     private $password;
 
@@ -78,14 +78,14 @@ class Camera
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
      */
     private $createdat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
      */
     private $updatedat;
 

@@ -23,7 +23,7 @@ class Device
     private $iconMap;
 
     /**
-     * @Vich\UploadableField(mapping="icon_map", fileNameProperty="iconMap")
+     * @Vich\UploadableField(mapping="icon_map", fileNameProperty="iconMap", nullable=true)
      * @var File
      */
     private $iconMapFile;
@@ -73,14 +73,14 @@ class Device
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
      */
     private $createdat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
      */
     private $updatedat;
 

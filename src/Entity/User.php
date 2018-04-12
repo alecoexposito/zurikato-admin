@@ -72,49 +72,49 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="parent", type="integer", nullable=false)
+     * @ORM\Column(name="parent", type="integer", nullable=true)
      */
     protected $parent;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="active", type="integer", nullable=false)
+     * @ORM\Column(name="active", type="integer", nullable=true)
      */
     protected $active;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
      */
     protected $createdat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
      */
     protected $updatedat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="auth_token", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="auth_token", type="text", length=65535, nullable=true)
      */
     protected $authToken;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="token", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="token", type="text", length=65535, nullable=true)
      */
     protected $token;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string", length=20, nullable=false)
+     * @ORM\Column(name="telephone", type="string", length=20, nullable=true)
      */
     protected $telephone;
 
@@ -131,7 +131,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     * @ORM\Column(name="name", type="string", length=30, nullable=true)
      */
     protected $name;
 
