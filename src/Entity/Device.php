@@ -23,7 +23,7 @@ class Device
     private $iconMap;
 
     /**
-     * @Vich\UploadableField(mapping="icon_map", fileNameProperty="iconMap", nullable=true)
+     * @Vich\UploadableField(mapping="icon_map", fileNameProperty="iconMap")
      * @var File
      */
     private $iconMapFile;
