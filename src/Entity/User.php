@@ -19,7 +19,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  *              nullable = true,
  *          )
  *      ),
- *      @ORM\AttributeOverride(name="email_canonical",
+ *      @ORM\AttributeOverride(name="emailCanonical",
  *          column=@ORM\Column(
  *              nullable = true,
  *          )
