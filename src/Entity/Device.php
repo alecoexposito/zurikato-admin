@@ -401,6 +401,31 @@ class Device
     private $client;
 
     /**
+     * @ORM\OneToOne(targetEntity="GovernmentData")
+     */
+    protected $governmentData;
+
+    /**
+     * @return mixed
+     */
+    public function getGovernmentData()
+    {
+        return $this->governmentData;
+    }
+
+    /**
+     * @param mixed $governmentData
+     * @return Device
+     */
+    public function setGovernmentData($governmentData)
+    {
+        $this->governmentData = $governmentData;
+        return $this;
+    }
+
+
+
+    /**
      * @return Client
      */
     public function getClient()
