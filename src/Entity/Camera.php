@@ -89,6 +89,33 @@ class Camera
      */
     private $updatedat;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url_camera", type="string", length=300)
+     */
+    private $urlCamera;
+
+    /**
+     * @return string
+     */
+    public function getUrlCamera()
+    {
+        return $this->urlCamera;
+    }
+
+    /**
+     * @param string $urlCamera
+     * @return Camera
+     */
+    public function setUrlCamera($urlCamera)
+    {
+        $this->urlCamera = $urlCamera;
+        return $this;
+    }
+
+
+
 
     /**
      * @var integer

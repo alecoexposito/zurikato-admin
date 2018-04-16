@@ -510,4 +510,106 @@ class Device
     }
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="route_name", type="string", length=30)
+     */
+    private $routeName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="economic_number", type="string", length=300)
+     */
+    private $economicNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vehicle_plate", type="string", length=300)
+     */
+    private $vehiclePlate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="panic_button", type="boolean")
+     */
+    private $panicButton;
+
+    /**
+     * @return string
+     */
+    public function getRouteName()
+    {
+        return $this->routeName;
+    }
+
+    /**
+     * @param string $routeName
+     * @return Device
+     */
+    public function setRouteName($routeName)
+    {
+        $this->routeName = $routeName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEconomicNumber()
+    {
+        return $this->economicNumber;
+    }
+
+    /**
+     * @param string $economicNumber
+     * @return Device
+     */
+    public function setEconomicNumber($economicNumber)
+    {
+        $this->economicNumber = $economicNumber;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVehiclePlate()
+    {
+        return $this->vehiclePlate;
+    }
+
+    /**
+     * @param string $vehiclePlate
+     * @return Device
+     */
+    public function setVehiclePlate($vehiclePlate)
+    {
+        $this->vehiclePlate = $vehiclePlate;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPanicButton()
+    {
+        return $this->panicButton;
+    }
+
+    /**
+     * @param string $panicButton
+     * @return Device
+     */
+    public function setPanicButton($panicButton)
+    {
+        $this->panicButton = $panicButton;
+        return $this;
+    }
+
+
+
 }
