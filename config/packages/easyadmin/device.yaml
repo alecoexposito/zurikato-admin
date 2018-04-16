@@ -17,8 +17,12 @@ easy_admin:
                 - { property: 'iddevicemodel', label: 'Model', css_class: 'col-lg-6' }
                 - { property: 'client', label: 'Client', css_class: 'col-lg-6' }
                 - { property: 'sim', label: 'Phone number', css_class: 'col-lg-6' }
+                - { property: 'routeName', css_class: 'col-lg-6' }
+                - { property: 'economicNumber', css_class: 'col-lg-6' }
+                - { property: 'vehiclePlate', css_class: 'col-lg-6' }
                 - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
-                - { property: 'devicesGroup', type_options: {by_reference: false} }
+                - { property: 'panicButton', label: 'Has panic button', css_class: 'col-lg-6' }
+#                - { property: 'devicesGroup', type_options: {by_reference: false} }
 
         DeviceModel:
             class: App\Entity\DeviceModel
