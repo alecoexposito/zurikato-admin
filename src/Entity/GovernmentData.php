@@ -53,7 +53,7 @@ class GovernmentData
     /**
      * @var string
      *
-     * @ORM\Column(name="fecha", type="datetime")
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
      */
     private $fecha;
 
@@ -82,28 +82,28 @@ class GovernmentData
     /**
      * @var float
      *
-     * @ORM\Column(name="latitud", type="float")
+     * @ORM\Column(name="latitud", type="float", nullable=true)
      */
     private $latitud;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="longitud", type="float")
+     * @ORM\Column(name="longitud", type="float", nullable=true)
      */
     private $longitud;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="altitud", type="float")
+     * @ORM\Column(name="altitud", type="float", nullable=true)
      */
     private $altitud;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="velocidad", type="float")
+     * @ORM\Column(name="velocidad", type="float", nullable=true)
      */
     private $velocidad;
 
@@ -119,7 +119,7 @@ class GovernmentData
      *
      * @ORM\Column(name="boton_panico", type="boolean")
      */
-    private $boton_panico;
+    private $botonPanico;
 
     /**
      * @var string
@@ -131,7 +131,7 @@ class GovernmentData
     /**
      * @var integer
      *
-     * @ORM\Column(name="pasajerosAbordo", type="integer", nullable=true)
+     * @ORM\Column(name="pasajeros_abordo", type="integer", nullable=true)
      */
     private $pasajerosAbordo;
 
@@ -173,7 +173,7 @@ class GovernmentData
     /**
      * @var integer
      *
-     * @ORM\Column(name="pasajerosBajaronPTrasera", type="integer", nullable=true)
+     * @ORM\Column(name="pasajeros_bajaron_p_trasera", type="integer", nullable=true)
      */
     private $pasajerosBajaronPTrasera;
 
@@ -422,16 +422,16 @@ class GovernmentData
      */
     public function isBotonPanico()
     {
-        return $this->boton_panico;
+        return $this->botonPanico;
     }
 
     /**
      * @param bool $boton_panico
      * @return GovernmentData
      */
-    public function setBotonPanico($boton_panico)
+    public function setBotonPanico($botonPanico)
     {
-        $this->boton_panico = $boton_panico;
+        $this->botonPanico = $botonPanico;
         return $this;
     }
 
