@@ -36,6 +36,13 @@ class PeripheralGpsData
     /**
      * @var string
      *
+     * @ORM\Column(name="orientation_plain", type="string", length=100, nullable=false)
+     */
+    private $orientationPlain;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="vDate", type="string", length=64, nullable=true)
      */
     private $vdate;
@@ -241,6 +248,24 @@ class PeripheralGpsData
      * })
      */
     private $iddevice;
+
+    /**
+     * @return string
+     */
+    public function getOrientationPlain()
+    {
+        return $this->orientationPlain;
+    }
+
+    /**
+     * @param string $orientationPlain
+     * @return PeripheralGpsData
+     */
+    public function setOrientationPlain($orientationPlain)
+    {
+        $this->orientationPlain = $orientationPlain;
+        return $this;
+    }
 
 
 }
