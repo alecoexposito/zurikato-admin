@@ -513,28 +513,28 @@ class Device
     /**
      * @var string
      *
-     * @ORM\Column(name="route_name", type="string", length=30)
+     * @ORM\Column(name="route_name", type="string", length=30, nullable=true)
      */
     private $routeName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="economic_number", type="string", length=300)
+     * @ORM\Column(name="economic_number", type="string", length=300, nullable=true)
      */
     private $economicNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="vehicle_plate", type="string", length=300)
+     * @ORM\Column(name="vehicle_plate", type="string", length=300, nullable=true)
      */
     private $vehiclePlate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="panic_button", type="boolean")
+     * @ORM\Column(name="panic_button", type="boolean", nullable=true)
      */
     private $panicButton;
 
