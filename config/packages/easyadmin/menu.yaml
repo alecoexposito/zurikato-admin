@@ -10,4 +10,4 @@ easy_admin:
       - { entity: 'RegularUser', label: 'Users',  icon: 'users', role: 'ROLE_CLIENT'}
       - { entity: 'Group', label: 'Device Groups',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}
-      - { entity: 'Camera', label: 'Camera',  icon: 'truck', role: 'ROLE_ADMIN'}
+      - { entity: 'Camera', label: 'Camera',  icon: 'camera', role: 'ROLE_ADMIN'}
