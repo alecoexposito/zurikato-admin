@@ -4,13 +4,13 @@ easy_admin:
             class: App\Entity\Camera
             list:
               fields:
-                - { property: 'device', css_class: 'col-lg-6', label: 'Device' }
-                - { property: 'ip', label: 'IP', css_class: 'col-lg-6' }
-                - { property: 'username', css_class: 'col-lg-6', label: 'Camera username' }
-                - { property: 'password', label: 'Camera password', css_class: 'col-lg-6' }
-                - { property: 'port', label: 'Port', css_class: 'col-lg-6' }
-                - { property: 'serial', css_class: 'col-lg-6' }
-                - { property: 'urlCamera', css_class: 'col-lg-6' }
+                - { property: 'device', label: 'Device' }
+                - { property: 'ip', label: 'IP' }
+                - { property: 'username', label: 'Camera username' }
+                - { property: 'password', label: 'Camera password' }
+                - { property: 'port', label: 'Port' }
+                - { property: 'serial' }
+                - { property: 'urlCamera' }
             form:
               fields:
                 - { property: 'device', css_class: 'col-lg-6', label: 'Device' }
