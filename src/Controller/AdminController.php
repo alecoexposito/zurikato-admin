@@ -213,30 +213,4 @@ class AdminController extends BaseAdminController
         }
         return $entity;
     }
-
-//    public function createEntityFormBuilder($entity, $view)
-//    {
-//        $formBuilder = parent::createEntityFormBuilder($entity, $view);
-//        $devices = $formBuilder->getData()->getDevices();
-////        var_dump($view);
-////        exit;
-////
-////
-//        $id = (null !== $entity->getId()) ? $entity->getId() : 0;
-//        $formBuilder->add('devices', EntityType::class, array(
-//                'data_class' => null,
-//                'class' => 'App\\Entity\\Device',
-//                'multiple' => true,
-//                'query_builder' => function (EntityRepository $repo) use ($id) {
-//                    return $repo->createQueryBuilder('d')
-//                        ->where('d.devicesGroup is null');
-//                },
-//            )
-//        );
-////        var_dump($formBuilder);
-////        exit;
-//
-//        return $formBuilder;
-//    }
-
 }

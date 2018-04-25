@@ -3,4 +3,4 @@ imports:
   - { resource: easyadmin/basic.yaml }
   - { resource: easyadmin/user.yaml }
   - { resource: easyadmin/device.yaml }
-#  - { resource: easyadmin/government_data.yaml }
+  - { resource: easyadmin/camera.yaml }
