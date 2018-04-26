@@ -47,7 +47,6 @@ class AdminController extends BaseAdminController
 
     public function persistUserEntity($user)
     {
-        $user->setUsername($user->getEmail());
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::persistEntity($user);
     }
@@ -76,7 +75,6 @@ class AdminController extends BaseAdminController
     {
         if(!$user->hasRole('ROLE_CLIENT'))
             $user->setRoles(['ROLE_CLIENT']);
-        $user->setUsername($user->getEmail());
         $user->setEnabled(true);
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::persistEntity($user);
@@ -134,7 +132,6 @@ class AdminController extends BaseAdminController
     {
         if(!$user->hasRole('ROLE_ADMIN'))
             $user->setRoles(['ROLE_ADMIN']);
-        $user->setUsername($user->getEmail());
         $user->setEnabled(true);
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::persistEntity($user);
