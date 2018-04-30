@@ -158,7 +158,11 @@ class Alarm
     /**
      * @var integer
      *
-     * @ORM\Column(name="device", type="bigint", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Device")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="device", referencedColumnName="idDevice")
+     * })
+     *
      */
     private $device;
 
