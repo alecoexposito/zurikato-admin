@@ -97,6 +97,33 @@ class Camera
     private $urlCamera;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Camera
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+
+
+    /**
      * @return string
      */
     public function getUrlCamera()
