@@ -13,7 +13,7 @@ class Client extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="company_name", type="string", length=30, nullable=true)
+     * @ORM\Column(name="company_name", type="string", length=500, nullable=true)
      */
     protected $companyName;
 
