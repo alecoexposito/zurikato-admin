@@ -47,8 +47,10 @@ easy_admin:
 #                  - 'id'
                   - 'label'
                   - 'devices'
+                  - { property: 'label', label: 'Nombre' }
+                  - { property: 'devices', label: 'Dispositivos' }
             form:
                 fields:
-                  - 'label'
+                  - { property: 'label', label: 'Nombre' }
                   - { property: 'devices', type_options: {by_reference: false} }
 
