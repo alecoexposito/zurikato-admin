@@ -210,4 +210,22 @@ class AdminController extends BaseAdminController
         }
         return $entity;
     }
+
+    public function deleteDeviceAction()
+    {
+        $keepData = $this->request->query->get('keep_data');
+        if($keepData == "0")
+            parent::deleteAction();
+        else {
+//            $device = $easyadmin['item'];
+//            echo "todavia";
+//            $id = $this->request->query->get('id');
+            $easyadmin = $this->request->attributes->get('easyadmin');
+            $device = $easyadmin['item'];
+//            $device = $this->findBy('Device', $id);
+            $device->setTrashed(true);
+            $this->updateDeviceEntity($device);
+        }
+        return $this->redirectToReferrer();
+    }
 }

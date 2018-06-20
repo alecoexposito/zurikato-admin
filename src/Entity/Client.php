@@ -18,6 +18,30 @@ class Client extends User
     protected $companyName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=30, nullable=true)
+     */
+    protected $phoneNumber;
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber(): string
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     */
+    public function setPhoneNumber(string $phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+
+    /**
      * Client constructor.
      * @param string $companyName
      */

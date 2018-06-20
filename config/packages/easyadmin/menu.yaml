@@ -4,9 +4,9 @@ easy_admin:
       - { label: 'Dashboard', route: 'backend_dashboard', default: true, icon: 'dashboard ', role: ROLE_USER }
 #      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
-      - { entity: 'Client', label: 'Clients',  icon: 'users', role: 'ROLE_ADMIN'}
+      - { entity: 'Cliente', label: 'Clientes',  icon: 'users', role: 'ROLE_ADMIN'}
 #      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
-      - { entity: 'Device', label: 'Devices',  icon: 'truck', role: 'ROLE_USER'}
+      - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_USER'}
       - { entity: 'RegularUser', label: 'Users',  icon: 'users', role: 'ROLE_CLIENT'}
       - { entity: 'Group', label: 'Device Groups',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}

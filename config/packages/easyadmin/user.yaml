@@ -21,24 +21,27 @@ easy_admin:
 
         UserRole:
             class: App\Entity\UserRole
-        Client:
+        Cliente:
             class: App\Entity\Client
             list:
                 fields:
-                    - 'name'
-                    - 'lastName'
-                    - 'email'
-                    - 'companyName'
+                    - { property: 'username', label: 'Cuenta' }
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'lastName', label: 'Apellidos' }
+                    - { property: 'email', label: 'Correo electrónico' }
+                    - { property: 'phoneNumber', label: 'Número de teléfono' }
+                    - { property: 'companyName', label: 'Compañía' }
             form:
                 fields:
-                    - { property: 'username', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
-                    - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'companyName', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'username', label: 'Cuenta', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
+                    - { property: 'name', label: 'Nombre', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'lastName', label: 'Apellidos', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'email', label: 'Correo electrónico', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'phoneNumber', label: 'Número de teléfono', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'companyName', label: 'Compañía', css_class: 'col-md-6', type_options: { required: false}}
             edit:
                 fields:
-                    - { property: 'plainPassword', css_class: 'col-md-6', label: 'Password', type: 'password', type_options: { required: false} }
+                    - { property: 'plainPassword', css_class: 'col-md-6', label: 'Contraseña', type: 'password', type_options: { required: false} }
                     # ...
                 form_options: { validation_groups: ['Profile'] }
             new:

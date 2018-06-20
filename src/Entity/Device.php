@@ -406,6 +406,30 @@ class Device
     protected $governmentData;
 
     /**
+     * @ORM\Column(name="trashed", type="boolean", nullable=true)
+     * @var boolean
+     */
+    private $trashed;
+
+    /**
+     * @return bool
+     */
+    public function isTrashed(): bool
+    {
+        return $this->trashed;
+    }
+
+    /**
+     * @param bool $trashed
+     * @return Device
+     */
+    public function setTrashed(bool $trashed): Device
+    {
+        $this->trashed = $trashed;
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getGovernmentData()
