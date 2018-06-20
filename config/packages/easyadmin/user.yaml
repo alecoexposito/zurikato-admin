@@ -50,32 +50,33 @@ easy_admin:
                     - { property: 'plainPassword', css_class: 'col-md-6', type: 'password', type_options: { required: true} }
                     # ...
                 form_options: { validation_groups: ['Registration'] }
-        RegularUser:
+        Usuario:
             class: App\Entity\RegularUser
             list:
-                dql_filter: 'entity.parentUser = '
+#                dql_filter: 'entity.parentUser = '
                 fields:
-                    - 'name'
-                    - 'lastName'
-                    - 'email'
-                    - 'devices'
+                    - { property: 'username', label: 'Cuenta' }
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'lastName', label: 'Apellidos' }
+                    - { property: 'email', label: 'Correo electrónico' }
+                    - { property: 'devices', label: 'Dispositivos' }
             form:
                 fields:
-                    - { property: 'username', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
-                    - { property: 'name', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'lastName', css_class: 'col-md-6', type_options: { required: false}}
-                    - { property: 'email', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'username', label: 'Cuenta', css_class: 'col-md-6', type: 'text', type_options: { required: true} }
+                    - { property: 'name', label: 'Nombre', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'lastName', label: 'Apellidos', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'email', label: 'Correo electrónico', css_class: 'col-md-6', type_options: { required: false}}
             edit:
                 fields:
-                    - { property: 'plainPassword', label: 'Password', css_class: 'col-md-6', type: 'password', type_options: { required: false} }
-                    - { property: 'devices', css_class: 'col-md-12', type_options: { required: false}}
+                    - { property: 'plainPassword', label: 'Contraseña', css_class: 'col-md-6', type: 'password', type_options: { required: false} }
+                    - { property: 'devices', label: 'Dispositivos', css_class: 'col-md-12', type_options: { required: false}}
                     # ...
                 form_options: { validation_groups: ['Profile'] }
             new:
                 fields:
                     # ...
-                    - { property: 'plainPassword', type: 'password', css_class: 'col-md-6', type_options: { required: true} }
-                    - { property: 'devices', css_class: 'col-md-12', type_options: { required: false}}
+                    - { property: 'plainPassword', label: 'Contraseña', type: 'password', css_class: 'col-md-6', type_options: { required: true} }
+                    - { property: 'devices', label: 'Dispositivos', css_class: 'col-md-12', type_options: { required: false}}
                     # ...
                 form_options: { validation_groups: ['Registration'] }
         Admin:
