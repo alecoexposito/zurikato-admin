@@ -45,8 +45,6 @@ easy_admin:
             list:
                 fields:
 #                  - 'id'
-                  - 'label'
-                  - 'devices'
                   - { property: 'label', label: 'Nombre' }
                   - { property: 'devices', label: 'Dispositivos' }
             form:
