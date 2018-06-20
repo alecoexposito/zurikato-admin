@@ -28,7 +28,7 @@ easy_admin:
                 - { property: 'economicNumber', label: 'Número económico', css_class: 'col-lg-6' }
                 - { property: 'vehiclePlate', label: 'Número de placa', css_class: 'col-lg-6' }
 #                - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
-#                - { property: 'panicButton', label: 'Tiene botón de pánico', css_class: 'col-lg-6' }
+                - { property: 'panicButton', label: 'Transporte público', css_class: 'col-lg-6' }
 #                - { property: 'devicesGroup', type_options: {by_reference: false} }
 
         DeviceModel:
