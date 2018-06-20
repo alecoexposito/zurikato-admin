@@ -27,7 +27,7 @@ class Client extends User
     /**
      * @return string
      */
-    public function getPhoneNumber(): string
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -35,7 +35,7 @@ class Client extends User
     /**
      * @param string $phoneNumber
      */
-    public function setPhoneNumber(string $phoneNumber): void
+    public function setPhoneNumber(string $phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
     }
