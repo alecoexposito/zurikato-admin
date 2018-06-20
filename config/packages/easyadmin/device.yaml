@@ -49,6 +49,6 @@ easy_admin:
                   - { property: 'devices', label: 'Dispositivos' }
             form:
                 fields:
-                  - { property: 'label', label: 'Nombre' }
+                  - { property: 'label', label: 'Nombre', css_class: 'col-lg-6' }
                   - { property: 'devices', type_options: {by_reference: false} }
 
