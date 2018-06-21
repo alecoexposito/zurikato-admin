@@ -6,7 +6,8 @@ easy_admin:
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
       - { entity: 'Cliente', label: 'Clientes',  icon: 'users', role: 'ROLE_ADMIN'}
 #      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
-      - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_USER'}
+      - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_ADMIN'}
+      - { entity: 'DispositivoDeCliente', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_CLIENT'}
       - { entity: 'Usuario', label: 'Usuarios',  icon: 'users', role: 'ROLE_CLIENT'}
       - { entity: 'Grupo', label: 'Grupos',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}

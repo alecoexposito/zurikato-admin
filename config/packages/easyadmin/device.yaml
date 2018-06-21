@@ -51,4 +51,37 @@ easy_admin:
                 fields:
                   - { property: 'label', label: 'Nombre', css_class: 'col-lg-6' }
                   - { property: 'devices', type_options: {by_reference: false} }
-
+        DispositivoDeCliente:
+            disabled_actions: ['show', 'delete', 'new']
+            class: App\Entity\Device
+#            disabled_actions: ['delete', 'show']
+            templates:
+              list: 'easyadmin/device/list.html.twig'
+            list:
+              title: 'Dispositivos'
+              dql_filter: "entity.trashed != 1 or entity.trashed is null"
+              fields:
+                - { property: 'authDevice', label: 'Imei' }
+                - { property: 'label', label: 'Nombre' }
+                - { property: 'iddevicemodel', label: 'Modelo' }
+                - { property: 'client', label: 'Cliente' }
+                - { property: 'sim', label: 'Número de teléfono' }
+                - { property: 'routeName', label: 'Ruta' }
+                - { property: 'economicNumber', label: 'Número económico' }
+                - { property: 'vehiclePlate', label: 'Número de placa' }
+#                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
+            form:
+              fields:
+#                        - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei' }
+                - { property: 'label', label: 'Nombre', css_class: 'col-lg-6', type_options: {required: true} }
+#                        - { property: 'iddevicemodel', label: 'Modelo', css_class: 'col-lg-6' }
+#                        - { property: 'client', label: 'Cliente', css_class: 'col-lg-6' }
+                - { property: 'sim', label: 'Número de teléfono', css_class: 'col-lg-6' }
+                - { property: 'routeName', label: 'Ruta', css_class: 'col-lg-6' }
+                - { property: 'economicNumber', label: 'Número económico', css_class: 'col-lg-6' }
+                - { property: 'vehiclePlate', label: 'Número de placa', css_class: 'col-lg-6' }
+#                - { property: 'iconMapFile', type: 'vich_image', css_class: 'col-lg-6' }
+#                        - { property: 'panicButton', label: 'Transporte público', css_class: 'col-lg-6' }
+#                - { property: 'devicesGroup', type_options: {by_reference: false} }
+            edit:
+              title: 'Modificar Dispositivo'
