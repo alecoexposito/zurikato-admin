@@ -556,7 +556,7 @@ class Device
     private $vehiclePlate;
 
     /**
-     * @var string
+     * @var boolean
      *
      * @ORM\Column(name="panic_button", type="boolean", nullable=true)
      */
@@ -617,7 +617,7 @@ class Device
     }
 
     /**
-     * @return string
+     * @return boolean
      */
     public function getPanicButton()
     {
@@ -625,7 +625,7 @@ class Device
     }
 
     /**
-     * @param string $panicButton
+     * @param boolean $panicButton
      * @return Device
      */
     public function setPanicButton($panicButton)
