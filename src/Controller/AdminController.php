@@ -36,6 +36,9 @@ class AdminController extends BaseAdminController
      */
     public function backendDashboardAction()
     {
+        // devices per client
+        $repository = $this->getDoctrine()->getManager()->getRepository('App\Entity\Device');
+//        $repository->findBy()
         return array();
     }
 
@@ -60,7 +63,7 @@ class AdminController extends BaseAdminController
     /**
      *
      */
-    public function createNewClientEntity()
+    public function createNewClienteEntity()
     {
 //        $user = $this->get('fos_user.user_manager')->createUser();
         $client = new Client();
@@ -71,7 +74,7 @@ class AdminController extends BaseAdminController
     /**
      * @param Client $user
      */
-    public function persistClientEntity($user)
+    public function persistClienteEntity($user)
     {
         if(!$user->hasRole('ROLE_CLIENT'))
             $user->setRoles(['ROLE_CLIENT']);
@@ -83,7 +86,7 @@ class AdminController extends BaseAdminController
     /**
      * @param Client $user
      */
-    public function updateClientEntity($user)
+    public function updateClienteEntity($user)
     {
         if(!$user->hasRole('ROLE_CLIENT'))
             $user->addRole('ROLE_CLIENT');
@@ -94,7 +97,7 @@ class AdminController extends BaseAdminController
     /**
      * @param Device $device
      */
-    public function persistDeviceEntity($device)
+    public function persistDispositivoEntity($device)
     {
         $client = $device->getClient();
         if(!is_null($client)){
@@ -105,7 +108,7 @@ class AdminController extends BaseAdminController
         }
     }
 
-    public function updateDeviceEntity($device)
+    public function updateDispositivoEntity($device)
     {
         $client = $device->getClient();
         if(!is_null($client)){
@@ -152,7 +155,7 @@ class AdminController extends BaseAdminController
         parent::updateEntity($user);
     }
 
-    public function createNewRegularUserEntity()
+    public function createNewUsuarioEntity()
     {
 //        $user = $this->get('fos_user.user_manager')->createUser();
         $regularUser = new RegularUser();
@@ -163,7 +166,7 @@ class AdminController extends BaseAdminController
     /**
      * @param RegularUser $user
      */
-    public function persistRegularUserEntity($user)
+    public function persistUsuarioEntity($user)
     {
         if(!$user->hasRole('ROLE_REGULAR_USER'))
             $user->setRoles(['ROLE_REGULAR_USER']);
@@ -179,7 +182,7 @@ class AdminController extends BaseAdminController
     /**
      * @param RegularUser $user
      */
-    public function updateRegularUserEntity($user)
+    public function updateUsuarioEntity($user)
     {
         if(!$user->hasRole('ROLE_REGULAR_USER'))
             $user->addRole('ROLE_REGULAR_USER');
@@ -193,13 +196,16 @@ class AdminController extends BaseAdminController
 
     /**
      */
-    public function listRegularUserAction()
+    public function listUsuarioAction()
     {
         $this->entity['list']['dql_filter'] = 'entity.parentUser = ' . $this->getUser()->getId();
         return parent::listAction();
     }
 
-    public function createNewGroupEntity()
+    /**
+     * @return Group
+     */
+    public function createNewGrupoEntity()
     {
         $entity = parent::createNewEntity();
         $loggedUser = $this->getUser();
@@ -211,7 +217,7 @@ class AdminController extends BaseAdminController
         return $entity;
     }
 
-    public function deleteDeviceAction()
+    public function deleteDispositivoAction()
     {
         $keepData = $this->request->query->get('keep_data');
         if($keepData == "0")
@@ -224,7 +230,7 @@ class AdminController extends BaseAdminController
             $device = $easyadmin['item'];
 //            $device = $this->findBy('Device', $id);
             $device->setTrashed(true);
-            $this->updateDeviceEntity($device);
+            $this->updateDispositivoEntity($device);
         }
         return $this->redirectToReferrer();
     }
