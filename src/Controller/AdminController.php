@@ -17,6 +17,7 @@ use App\Entity\UserDevice;
 use App\Repository\DeviceRepository;
 use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\DBAL\Types\SimpleArrayType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
@@ -29,6 +30,13 @@ use Symfony\Component\Form\ResolvedFormType;
 
 class AdminController extends BaseAdminController
 {
+    /**
+     * @return EntityManager
+     */
+    private function getEm()
+    {
+        return $this->get("doctrine.orm.entity_manager");
+    }
 
     /**
      * @Route("/dashboard", name="backend_dashboard")
@@ -38,8 +46,60 @@ class AdminController extends BaseAdminController
     {
         // devices per client
         $repository = $this->getDoctrine()->getManager()->getRepository('App\Entity\Device');
-//        $repository->findBy()
-        return array();
+        $result = array();
+//      chart1
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('client.name as cliente')
+            ->addSelect($qb->expr()->count('device.iddevice') . 'as cantidad')
+            ->from('App\Entity\Device', 'device')
+            ->join('device.client', 'client')
+            ->groupBy('device.client');
+        $clientDevices = $qb->getQuery()->getArrayResult();
+        $chart1Labels = array();
+        $chart1Data = array();
+        foreach ($clientDevices as $index => $clientDevice) {
+            $chart1Labels[] = $clientDevice['cliente'];
+            $chart1Data[] = $clientDevice['cantidad'];
+        }
+        $result['chart1']['labels'] =  $chart1Labels;
+        $result['chart1']['data'] =  $chart1Data;
+//        chart2
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('ru.name as usuario')
+            ->addSelect($qb->expr()->count('device.iddevice') . 'as cantidad')
+            ->from('App\Entity\RegularUser', 'ru')
+            ->join('ru.devices', 'device')
+            ->groupBy('ru.id');
+        $userDevices = $qb->getQuery()->getArrayResult();
+        $chart2Labels = array();
+        $chart2Data = array();
+        foreach ($userDevices as $index => $userDevice) {
+            $chart2Labels[] = $userDevice['usuario'];
+            $chart2Data[] = $userDevice['cantidad'];
+        }
+        $result['chart2']['labels'] =  $chart2Labels;
+        $result['chart2']['data'] =  $chart2Data;
+//        chart3
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('g.label as grupo')
+            ->addSelect($qb->expr()->count('device.iddevice') . 'as cantidad')
+            ->from('App\Entity\Group', 'g')
+            ->join('g.devices', 'device')
+            ->groupBy('g.id');
+        $groupDevices = $qb->getQuery()->getArrayResult();
+        $chart3Labels = array();
+        $chart3Data = array();
+        foreach ($groupDevices as $index => $groupDevice) {
+            $chart3Labels[] = $groupDevice['grupo'];
+            $chart3Data[] = $groupDevice['cantidad'];
+        }
+        $result['chart3']['labels'] =  $chart3Labels;
+        $result['chart3']['data'] =  $chart3Data;
+
+
+//        var_dump($result);
+//        exit;
+        return $result;
     }
 
 
@@ -185,7 +245,7 @@ class AdminController extends BaseAdminController
     public function updateUsuarioEntity($user)
     {
         if(!$user->hasRole('ROLE_REGULAR_USER'))
-            $user->addRole('ROLE_REGULAR_USER');
+            $user->setRoles(['ROLE_REGULAR_USER']);
 //        $newPass = $user->getPlainPassword();
 //        if(!is_null($newPass) || $newPass != "" ) {
 //

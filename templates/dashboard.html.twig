@@ -1,6 +1,227 @@
 {% extends '@EasyAdmin/default/layout.html.twig' %}
 {% block main %}
-    <div class=" col-md-4 col-md-offset-4" style="border: 2px solid grey;">
-        <h1>Aquí irán gráficas y estadísticas útiles para el usuario</h1>
+    <div class="row charts-row">
+        {% if app.user.hasRole('ROLE_ADMIN') %}
+            <div class="col-lg-6">
+                <canvas id="chart1"></canvas>
+            </div>
+        {% elseif app.user.hasRole('ROLE_CLIENT') %}
+            <div class="col-lg-6">
+                <canvas id="chart2"></canvas>
+            </div>
+            <div class="col-lg-6">
+            <canvas id="chart3"></canvas>
+            </div>
+        {% endif %}
+        {#<div class="col-lg-6">#}
+            {#<canvas id="chart1"></canvas>#}
+        {#</div>#}
+        {#<div class="col-lg-6">#}
+            {#<canvas id="chart2"></canvas>#}
+        {#</div>#}
+        {#<div class="col-lg-6" style="padding-top: 30px;">#}
+            {#<canvas id="chart3"></canvas>#}
+        {#</div>#}
+        {#<div class="col-lg-6" style="padding-top: 30px;">#}
+            {#<canvas id="chart4"></canvas>#}
+        {#</div>#}
     </div>
 {% endblock %}
+
+{% block body_javascript %}
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            {% if app.user.hasRole('ROLE_ADMIN') %}
+                var ctx = document.getElementById("chart1").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            {% for label in chart1['labels'] %}
+                            "{{ label }}",
+                            {% endfor %}
+                        ],
+                        datasets: [{
+                            label: 'Dispositivos por cliente',
+                            data: [
+                                {% for data in chart1['data'] %}
+                                {{ data }},
+                                {% endfor %}
+                            ],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                });
+            {% elseif app.user.hasRole('ROLE_CLIENT') %}
+                var ctx2 = document.getElementById("chart2").getContext('2d');
+                var myChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            {% for label in chart2['labels'] %}
+                            "{{ label }}",
+                            {% endfor %}
+                        ],
+                        datasets: [{
+                            label: 'Dispositivos por cliente',
+                            data: [
+                                {% for data in chart2['data'] %}
+                                {{ data }},
+                                {% endfor %}
+                            ],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                var ctx3 = document.getElementById("chart3").getContext('2d');
+                var myChart = new Chart(ctx3, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            {% for label in chart3['labels'] %}
+                                "{{ label }}",
+                            {% endfor %}
+                        ],
+                        datasets: [{
+                            label: 'Dispositivos por grupo',
+                            data: [
+                                {% for data in chart3['data'] %}
+                                    {{ data }},
+                                {% endfor %}
+                            ],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                });
+            {% endif %}
+        });
+    </script>
+    {#<script>#}
+        {#window.chartColors = {#}
+            {#red: 'rgb(255, 99, 132)',#}
+            {#orange: 'rgb(255, 159, 64)',#}
+            {#yellow: 'rgb(255, 205, 86)',#}
+            {#green: 'rgb(75, 192, 192)',#}
+            {#blue: 'rgb(54, 162, 235)',#}
+            {#purple: 'rgb(153, 102, 255)',#}
+            {#grey: 'rgb(231,233,237)'#}
+        {#};#}
+        {#jQuery(document).ready(function () {#}
+            {#var ctx = jQuery("#chart1")[0];#}
+            {#var chartRegistered = {#}
+                {#type: 'bar',#}
+                {#data: {#}
+                    {#labels: ['Casting', 'Makeup', 'Location', 'Equipment', 'Object', 'Car'],#}
+                    {#datasets: [#}
+                        {#{#}
+                            {#label: '',#}
+                            {#data: [1, 2, 3, 4, 5, 6],#}
+                            {#borderColor: [#}
+                                {#window.chartColors.green,#}
+                                {#window.chartColors.yellow,#}
+                                {#window.chartColors.red,#}
+                                {#window.chartColors.blue,#}
+                                {#window.chartColors.orange,#}
+                                {#window.chartColors.purple#}
+                            {#],#}
+                            {#borderWidth: 2#}
+                        {#}#}
+                    {#]#}
+
+                {#},#}
+                {#options: {#}
+                    {#legend: {#}
+                        {#display: false,#}
+                    {#},#}
+                    {#title: {#}
+                        {#display: true,#}
+                        {#text: 'Registrations',#}
+                        {#fontSize: 24,#}
+                        {#padding: 15#}
+                    {#},#}
+                    {#scales: {#}
+                        {#xAxes: [{#}
+                            {#stacked: true,#}
+                        {#}],#}
+                        {#yAxes: [{#}
+                            {#stacked: true#}
+                        {#}]#}
+                    {#}#}
+                {#}#}
+            {#};#}
+            {#new Chart(ctx, chartRegistered);#}
+
+        {#});#}
+    {#</script>#}
+{% endblock body_javascript %}
