@@ -155,6 +155,59 @@ class User extends BaseUser
     protected $lastName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="automatic_imeis", type="string", length=4000, nullable=true)
+     */
+    protected $automaticImeis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fences", type="text", nullable=true)
+     */
+    protected $fences;
+
+    /**
+     * @return string
+     */
+    public function getAutomaticImeis(): string
+    {
+        return $this->automaticImeis;
+    }
+
+    /**
+     * @param string $automaticImeis
+     * @return User
+     */
+    public function setAutomaticImeis(string $automaticImeis): User
+    {
+        $this->automaticImeis = $automaticImeis;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFences(): string
+    {
+        return $this->fences;
+    }
+
+    /**
+     * @param string $fences
+     * @return User
+     */
+    public function setFences(string $fences): User
+    {
+        $this->fences = $fences;
+        return $this;
+    }
+
+
+
+
+    /**
      * @return string
      */
     public function getName()

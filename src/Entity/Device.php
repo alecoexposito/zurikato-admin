@@ -416,6 +416,8 @@ class Device
      */
     public function isTrashed(): bool
     {
+        if(is_null($this->trashed))
+            return 0;
         return $this->trashed;
     }
 

@@ -78,6 +78,31 @@ class PeripheralGpsData
     private $idperipheralgps;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="gps_status", type="integer", nullable=true)
+     */
+    private $gpsStatus;
+
+    /**
+     * @return int
+     */
+    public function getGpsStatus(): int
+    {
+        return $this->gpsStatus;
+    }
+
+    /**
+     * @param int $gpsStatus
+     * @return PeripheralGpsData
+     */
+    public function setGpsStatus(int $gpsStatus): PeripheralGpsData
+    {
+        $this->gpsStatus = $gpsStatus;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getLat()
