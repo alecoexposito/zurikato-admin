@@ -1,0 +1,25 @@
+{% block _neumatico_custom_type_widget %}
+    <div class="form-group  field-text">
+        <select id="neumatico_type" name="neumatico[type]" class="form-control" data-widget="select2" type="text">
+            <option value="Nuevo" {% if data == 'Nuevo' %} selected {% endif %}>Nuevo</option>
+            <option value="Usado" {% if data == 'Usado' %} selected {% endif %}>Usado</option>
+        </select>
+    </div>
+{% endblock %}
+{% block _neumatico_custom_type_all_widget %}
+    <div class="form-group  field-text">
+        <select id="neumatico_type" name="neumatico[type]" class="form-control" data-widget="select2" type="text">
+            <option value="Nuevo" {% if data == 'Nuevo' %} selected {% endif %}>Nuevo</option>
+            <option value="Usado" {% if data == 'Usado' %} selected {% endif %}>Usado</option>
+            <option value="Renovado" {% if data == 'Renovado' %} selected {% endif %}>Renovado</option>
+        </select>
+    </div>
+{% endblock %}
+{% block _empleado_custom_sex_widget %}
+    <div class="form-group  field-text">
+        <select id="empleado_sex" name="empleado[sex]" class="form-control" data-widget="select2" type="text">
+            <option value="M" {% if data == 'M' %} selected {% endif %}>Masculino</option>
+            <option value="F" {% if data == 'F' %} selected {% endif %}>Femenino</option>
+        </select>
+    </div>
+{% endblock %}

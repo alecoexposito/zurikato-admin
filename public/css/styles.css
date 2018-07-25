@@ -16,3 +16,23 @@ body {
 label.required::after {
     font-size: 14px !important;
 }
+
+#neumatico_observations label {
+    display: none;
+}
+
+#neumatico_observations_0 {
+    border: none;
+}
+
+div.field-collection-action {
+    display: none;
+}
+
+#easyadmin-list-Deposito table .action-edit {
+    display: none;
+}
+
+#easyadmin-list-Renovar table thead th:last-child, #easyadmin-list-Renovar table td.actions {
+    display: none;
+}

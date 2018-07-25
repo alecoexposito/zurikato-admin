@@ -39,6 +39,7 @@ easy_admin:
                     - { property: 'email', label: 'Correo electrónico', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'phoneNumber', label: 'Número de teléfono', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'companyName', label: 'Compañía', css_class: 'col-md-6', type_options: { required: false}}
+
             edit:
                 fields:
                     - { property: 'plainPassword', css_class: 'col-md-6', label: 'Contraseña', type: 'password', type_options: { required: false} }

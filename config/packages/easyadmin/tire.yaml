@@ -1,0 +1,158 @@
+easy_admin:
+  entities:
+    Baja:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      list:
+        dql_filter: "entity.status = 'Dado de baja'"
+        title: 'Dados de baja'
+        actions: ['-new', '-edit', '-delete']
+        fields:
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'observations', label: 'Observaciones' }
+      edit:
+        title: 'Dar baja'
+        fields:
+          - { property: 'observation', label: 'Motivo de la baja', css_class: 'col-lg-6' }
+          - { property: 'status', type: 'hidden', type_options: { data: 'Dado de baja' } }
+
+    Renovar:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      list:
+#        dql_filter: "entity.status = 'Enviado a renovar'"
+        title: 'Enviados a renovar'
+        actions: ['-new', '-edit', '-delete']
+        fields:
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'observations', label: 'Observaciones' }
+      edit:
+        title: 'Enviar a renovar'
+        fields:
+          - { property: 'observation', label: 'Observación', css_class: 'col-lg-6' }
+          - { property: 'status', type: 'hidden', type_options: { data: 'Enviado a renovar' } }
+
+    Deposito:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      list:
+#        dql_filter: "entity.status = 'En depósito'"
+        actions:
+          - { name: 'renew', icon: 'refresh', label: '' }
+          - { name: 'remove', icon: 'trash', label: '' }
+          - { name: '-edit' }
+        fields:
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'observations', label: 'Observaciones' }
+      edit:
+        title: 'Enviar a deposito'
+        fields:
+          - { property: 'observation', label: 'Observación', css_class: 'col-lg-6' }
+          - { property: 'status', type: 'hidden', type_options: { data: 'En depósito' } }
+    Asignar:
+      class: App\Entity\Tire
+      actions: ['edit']
+      disabled_actions: ['list']
+      form:
+        title: 'Asignar neumático a vehículo'
+        fields:
+          - { property: 'vehicle', css_class: 'col-lg-6', label: 'Vehículo', type_options: {required: true} }
+          - { property: 'position', label: 'Posición', css_class: 'col-lg-6', type_options: {required: true} }
+          - { property: 'observation', label: 'Observación', css_class: 'col-lg-6' }
+    Neumatico:
+      class: App\Entity\Tire
+      list:
+#        dql_filter: "entity.status = 'Activo'"
+        actions:
+          - { name: 'edit', icon: 'pencil', label: '' }
+          - { name: 'delete', icon: 'trash', label: '' }
+          - { name: 'asignar', icon: 'truck', label: '' }
+          - { name: 'adeposito', icon: 'send', label: '' }
+          - { name: '-new' }
+        fields:
+          - { property: 'type', label: 'Tipo' }
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'dot', label: 'DOT' }
+          - { property: 'controlTag', label: 'Tag' }
+          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'observations', label: 'Observaciones' }
+      form:
+        actions: ['-list']
+        title: 'Dar de alta a neumático nuevo/usado'
+        fields:
+          - { property: 'type', css_class: 'col-lg-4', label: 'Tipo', type_options: { block_name: 'custom_type' } }
+          - { property: 'brand', label: 'Marca', css_class: 'col-lg-4' }
+          - { property: 'serial', label: 'No. rie', css_class: 'col-lg-4' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-4' }
+          - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
+          - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
+          - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
+      edit:
+        title: 'Editar neumático'
+        fields:
+          - { property: 'type', css_class: 'col-lg-4', label: 'Tipo', type_options: { block_name: 'custom_type_all' } }
+          - { property: 'brand', label: 'Marca', css_class: 'col-lg-4' }
+          - { property: 'serial', label: 'No. rie', css_class: 'col-lg-4' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-4' }
+          - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
+          - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
+          - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
+          - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
+          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
+    NeumaticoRenovado:
+      class: App\Entity\Tire
+      list:
+        fields:
+          - { property: 'type', label: 'Tipo' }
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'dot', label: 'DOT' }
+          - { property: 'renovatedNumber', label: 'Número de renovado' }
+          - { property: 'controlTag', label: 'Tag' }
+      form:
+        actions: ['-list']
+        title: 'Dar de alta a neumático renovado'
+        fields:
+          - { property: 'type', css_class: 'col-lg-4 readonly', label: 'Tipo', type_options: { data: 'Renovado' } }
+          - { property: 'brand', label: 'Marca', css_class: 'col-lg-4' }
+          - { property: 'serial', label: 'No. Serie', css_class: 'col-lg-4' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-4' }
+          - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
+          - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
+          - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
+          - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
+          - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-2' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-2' }
+    Tag:
+      class: App\Entity\ControlTag
+      list:
+        fields: [id, rfid]
+      form:
+        fields:
+          - { property: 'rfid', css_class: 'col-lg-6'}

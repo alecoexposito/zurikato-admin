@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +26,27 @@ class Client extends User
     protected $phoneNumber;
 
     /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="client")
+     */
+    protected $tires;
+
+    /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Vehicle", mappedBy="client")
+     */
+    protected $vehicles;
+
+    /**
+     * Client constructor.
+     * @param string $companyName
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * @return string
      */
     public function getPhoneNumber()
@@ -38,16 +60,6 @@ class Client extends User
     public function setPhoneNumber(string $phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
-    }
-
-
-    /**
-     * Client constructor.
-     * @param string $companyName
-     */
-    public function __construct()
-    {
-        parent::__construct();
     }
 
     /**
@@ -71,6 +83,42 @@ class Client extends User
     public function __toString()
     {
         return $this->getName() . " " . $this->getLastName();
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTires()
+    {
+        return $this->tires;
+    }
+
+    /**
+     * @param Collection $tires
+     * @return Client
+     */
+    public function setTires($tires)
+    {
+        $this->tires = $tires;
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getVehicles()
+    {
+        return $this->vehicles;
+    }
+
+    /**
+     * @param Collection $vehicles
+     * @return Client
+     */
+    public function setVehicles($vehicles)
+    {
+        $this->vehicles = $vehicles;
+        return $this;
     }
 
 

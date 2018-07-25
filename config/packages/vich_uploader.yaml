@@ -1,5 +1,6 @@
 parameters:
     app.path.map_icons: /uploads/images/map-icons
+    app.path.employee_photos: /uploads/images/employee-photos
 
 vich_uploader:
     db_driver: orm
@@ -8,4 +9,8 @@ vich_uploader:
         icon_map:
             uri_prefix: /uploads/images/map-icons
             upload_destination: '%kernel.project_dir%/public/uploads/images/map-icons'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+        employee_photo:
+            uri_prefix: /uploads/images/employee-photos
+            upload_destination: '%kernel.project_dir%/public/uploads/images/employee-photos'
             namer: Vich\UploaderBundle\Naming\UniqidNamer

@@ -13,6 +13,7 @@ use App\Entity\Client;
 use App\Entity\Device;
 use App\Entity\Group;
 use App\Entity\RegularUser;
+use App\Entity\Tire;
 use App\Entity\UserDevice;
 use App\Repository\DeviceRepository;
 use Doctrine\DBAL\Types\ArrayType;
@@ -38,6 +39,61 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    /**
+     * @param Tire $entity
+     */
+//    public function updateNeumaticoEntity($entity)
+//    {
+//        var_dump($entity);
+//        exit;
+//    }
+    public function removeAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Baja',
+        ));
+    }
+
+    public function renewAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Renovar',
+        ));
+    }
+
+    public function adepositoAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Deposito',
+        ));
+    }
+
+    public function asignarAction()
+    {
+        $id = $this->request->query->get('id');
+//        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Asignar',
+        ));
+    }
     /**
      * @Route("/dashboard", name="backend_dashboard")
      * @Template("dashboard.html.twig")
@@ -294,4 +350,59 @@ class AdminController extends BaseAdminController
         }
         return $this->redirectToReferrer();
     }
+
+    public function listNeumaticoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.status = 'Activo' and entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
+    public function listDepositoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.status = 'En depósito' and entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
+    public function listRenovarAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.status = 'Enviado a renovar' and entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
+    public function listBajaAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.status = 'Dado de baja' and entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
+    public function listVehiculoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
+    public function listEmpleadoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
+        }
+        return parent::listAction();
+
+    }
+
 }

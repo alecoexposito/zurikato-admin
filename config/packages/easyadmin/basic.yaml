@@ -8,9 +8,14 @@ easy_admin:
     design:
         form_theme:
             - 'vertical'
+            - 'easyadmin/form/fields.html.twig'
         assets:
             css:
+                - '/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
                 - '/css/styles.css'
+            js:
+                - '/bootstrap-datepicker/js/bootstrap-datepicker.min.js'
+                - '/js/custom-js.js'
 #    entities:
 #         List the entity class name you want to manage
 #        - App\Entity\Camera

@@ -4,3 +4,6 @@ imports:
   - { resource: easyadmin/user.yaml }
   - { resource: easyadmin/device.yaml }
   - { resource: easyadmin/camera.yaml }
+  - { resource: easyadmin/tire.yaml }
+  - { resource: easyadmin/vehicle.yaml }
+  - { resource: easyadmin/employee.yaml }

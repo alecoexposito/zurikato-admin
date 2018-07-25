@@ -35,3 +35,7 @@ services:
         arguments: ['@doctrine.orm.entity_manager', '@session']
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    form_types.tire_observation_type:
+            class: App\Form\TireObservationType
+            tags:
+                - { name: form.type, alias: tire_observation_type }

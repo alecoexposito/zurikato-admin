@@ -1,6 +1,7 @@
 easy_admin:
   design:
     menu:
+      - { label: 'GPS', role: 'ROLE_USER' }
       - { label: 'Dashboard', route: 'backend_dashboard', default: true, icon: 'dashboard ', role: ROLE_USER }
 #      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
@@ -12,3 +13,21 @@ easy_admin:
       - { entity: 'Grupo', label: 'Grupos',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}
       - { entity: 'Camera', label: 'Cameras',  icon: 'camera', role: 'ROLE_ADMIN'}
+
+      - { label: 'Neumáticos', role: 'ROLE_ADMIN, ROLE_CLIENT' }
+      - { entity: 'Neumatico', label: 'Listar Neumáticos', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Neumatico', label: 'Alta Nuevo/Usado', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'NeumaticoRenovado', label: ' Alta Renovado', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Deposito', label: 'En Deposito', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Renovar', label: 'Enviados a renovar', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Baja', label: 'Dados de baja', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+
+      - { label: 'Tags',  icon: 'tag', role: 'ROLE_ADMIN, ROLE_CLIENT' }
+      - { entity: 'Tag', label: 'Listar Tags', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Tag', label: 'Nuevo Tag', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { label: 'Vehículos', role: 'ROLE_ADMIN, ROLE_CLIENT' }
+      - { entity: 'Vehiculo', label: 'Listar Vehículos', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Vehiculo', label: 'Adicionar vehículo', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { label: 'Empleados', role: 'ROLE_ADMIN, ROLE_CLIENT' }
+      - { entity: 'Empleado', label: 'Listar Empleados', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN, ROLE_CLIENT'}
+      - { entity: 'Empleado', label: 'Nuevo Empleado', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN, ROLE_CLIENT'}

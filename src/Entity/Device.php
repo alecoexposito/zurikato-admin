@@ -17,6 +17,14 @@ class Device
 {
 
     /**
+     * Devuelve el Vehículo al que está asociado este dispositivo
+     * @var Vehicle
+     *
+     * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="device")
+     */
+    private $vehicle;
+
+    /**
      * @ORM\Column(name="icon_map", type="string", length=255, nullable=true)
      * @var string
      */
@@ -406,7 +414,7 @@ class Device
     protected $governmentData;
 
     /**
-     * @ORM\Column(name="trashed", type="boolean", nullable=true)
+     * @ORM\Column(name="trashed", type="boolean", nullable=true, options={"default" = 0})
      * @var boolean
      */
     private $trashed;
@@ -471,7 +479,7 @@ class Device
 
     function __toString()
     {
-        return $this->getLabel();
+        return is_null($this->getLabel()) ? '' : $this->getLabel();
     }
 
     /**
