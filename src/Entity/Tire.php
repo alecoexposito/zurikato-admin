@@ -512,4 +512,24 @@ class Tire
      */
     private $client;
 
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param Client $client
+     * @return Tire
+     */
+    public function setClient($client): Tire
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+
+
 }

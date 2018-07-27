@@ -33,6 +33,6 @@ div.field-collection-action {
     display: none;
 }
 
-#easyadmin-list-Renovar table thead th:last-child, #easyadmin-list-Renovar table td.actions {
+#easyadmin-list-Renovar table .action-edit {
     display: none;
 }

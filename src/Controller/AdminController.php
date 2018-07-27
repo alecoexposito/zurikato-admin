@@ -40,6 +40,75 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * @param Tire $tire
+     */
+    public function updateNeumaticoRenovadoEntity($tire)
+    {
+        $tire->setStatus("Activo");
+        parent::updateEntity($tire);
+    }
+
+    public function renewedAltaAction()
+    {
+        $id = $this->request->query->get('id');
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'NeumaticoRenovado',
+        ));
+    }
+    /**
+     * @param Tire $entity
+     */
+    public function persistNeumaticoEntity($entity)
+    {
+        $user = $this->getUser();
+        if($user->hasRole('ROLE_CLIENT')) {
+            $id = $user->getId();
+            $client = $this->em->getRepository('App\Entity\Client')->find($id);
+            $entity->setClient($client);
+        }
+
+        parent::persistEntity($entity);
+    }
+
+    public function persistNeumaticoRenovadoEntity($entity)
+    {
+        $user = $this->getUser();
+        if($user->hasRole('ROLE_CLIENT')) {
+            $id = $user->getId();
+            $client = $this->em->getRepository('App\Entity\Client')->find($id);
+            $entity->setClient($client);
+        }
+
+        parent::persistEntity($entity);
+    }
+
+    public function persistVehiculoEntity($entity)
+    {
+        $user = $this->getUser();
+        if($user->hasRole('ROLE_CLIENT')) {
+            $id = $user->getId();
+            $client = $this->em->getRepository('App\Entity\Client')->find($id);
+            $entity->setClient($client);
+        }
+
+        parent::persistEntity($entity);
+    }
+
+    public function persistEmpleadoEntity($entity)
+    {
+        $user = $this->getUser();
+        if($user->hasRole('ROLE_CLIENT')) {
+            $id = $user->getId();
+            $client = $this->em->getRepository('App\Entity\Client')->find($id);
+            $entity->setClient($client);
+        }
+
+        parent::persistEntity($entity);
+    }
+
+    /**
      * @param Tire $entity
      */
 //    public function updateNeumaticoEntity($entity)

@@ -1,3 +1,5 @@
 jQuery(document).ready(function() {
-    jQuery(".custom-date input").datepicker();
+    jQuery(".custom-date input").datepicker({
+        language: 'es'
+    });
 });
