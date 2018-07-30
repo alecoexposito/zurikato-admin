@@ -83,10 +83,10 @@ class AdminController extends BaseAdminController
 
         parent::persistEntity($entity);
 
-        return $this->redirectToRoute('admin', array(
-            'action' => 'list',
-            'entity' => 'Neumatico',
-        ));
+//        return $this->redirectToRoute('admin', array(
+//            'action' => 'list',
+//            'entity' => 'Neumatico',
+//        ));
     }
 
     public function persistVehiculoEntity($entity)
