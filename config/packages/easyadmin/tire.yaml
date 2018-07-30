@@ -110,6 +110,7 @@ easy_admin:
           - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
+          - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
       edit:
         title: 'Editar neumático'
@@ -121,8 +122,8 @@ easy_admin:
           - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
-          - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
+          - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
     NeumaticoRenovado:
       class: App\Entity\Tire

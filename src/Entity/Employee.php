@@ -523,4 +523,34 @@ class Employee
         return $this;
     }
 
+    /**
+     * @var Vehicle
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     * })
+     */
+    private $vehicle;
+
+    /**
+     * @return Vehicle
+     */
+    public function getVehicle()
+    {
+        return $this->vehicle;
+    }
+
+    /**
+     * @param Vehicle $vehicle
+     * @return Employee
+     */
+    public function setVehicle($vehicle): Employee
+    {
+        $this->vehicle = $vehicle;
+        return $this;
+    }
+
+
+
 }

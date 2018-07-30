@@ -1,5 +1,6 @@
 jQuery(document).ready(function() {
     jQuery(".custom-date input").datepicker({
-        language: 'es'
+        language: 'es',
+        format: 'mm/dd/yyyy'
     });
 });

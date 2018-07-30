@@ -17,7 +17,8 @@ easy_admin:
           - { property: 'homeNumber', label: 'Teléfono particular' }
           - { property: 'licenseNumber', label: 'No. licencia' }
           - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia' }
-          - { property: 'photoFile', label: 'Foto', type: 'image' }
+          - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-4' }
+#          - { property: 'photoFile', label: 'Foto', type: 'image' }
       form:
         title: 'Adicionar empleado'
         fields:
@@ -34,6 +35,8 @@ easy_admin:
           - { property: 'homeNumber', label: 'Teléfono particular', length: 20, type: text, css_class: 'col-lg-4' }
           - { property: 'licenseNumber', label: 'No. licencia', length: 40, css_class: 'col-lg-4' }
           - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia', type_options: { widget: 'single_text' }, length: 40, css_class: 'col-lg-4 custom-date' }
+          - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-4' }
           - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-4' }
+
       edit:
         title: 'Editar empleado'
