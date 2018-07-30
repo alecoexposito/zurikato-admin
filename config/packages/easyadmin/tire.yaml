@@ -127,6 +127,7 @@ easy_admin:
           - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
     NeumaticoRenovado:
       class: App\Entity\Tire
+      disabled_actions: ['list']
       list:
         fields:
           - { property: 'type', label: 'Tipo' }
