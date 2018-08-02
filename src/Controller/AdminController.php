@@ -28,6 +28,10 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\ResolvedFormType;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class AdminController extends BaseAdminController
 {
@@ -40,11 +44,71 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * @Route("/custom/employee-update-vehicle", name="employee_update_vehicle")
+     * @Method("POST")
+     * @Template()
+     */
+    public function updateVehicleForEmployeeAction(Request $request)
+    {
+        /**
+         * @var Employee $employee
+         * @var Vehicle $vehicle
+         */
+        $employeeId = $request->get('employeeId');
+        $vehicleId = $request->get('vehicleId');
+
+        $em = $this->getDoctrine()->getManager();
+        $response = new JsonResponse();
+        try {
+            $employee = $em->getRepository('App\Entity\Employee')->find($employeeId);
+            $vehicle = $em->getRepository('App\Entity\Vehicle')->find($vehicleId);
+            $employee->setVehicle($vehicle);
+            $em->merge($employee);
+            $em->flush();
+            $response->setData(array(
+                'success' => true,
+            ));
+        } catch (\Exception $e) {
+
+            $response->setData(array(
+                'success' => false,
+            ));
+        }
+        return $response;
+    }
+
+    /**
+     * @param Tire $tire
+     */
+    public function updateNeumaticoEntity($tire)
+    {
+        $this->setObservationsAndDepthsToTire($tire);
+        parent::updateEntity($tire);
+    }
+
+    /**
+     * @param Tire $tire
+     */
+    private function setObservationsAndDepthsToTire($tire)
+    {
+        $observations = $tire->getObservations();
+        foreach ($observations as $index => $observation) {
+            $observation->setTire($tire);
+        }
+
+        $depths = $tire->getDepths();
+        foreach ($depths as $index => $depth) {
+            $depth->setTire($tire);
+        }
+    }
+
+    /**
      * @param Tire $tire
      */
     public function updateNeumaticoRenovadoEntity($tire)
     {
         $tire->setStatus("Activo");
+        $this->setObservationsAndDepthsToTire($tire);
         parent::updateEntity($tire);
     }
 
@@ -68,6 +132,7 @@ class AdminController extends BaseAdminController
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
         }
+        $this->setObservationsAndDepthsToTire($entity);
 
         parent::persistEntity($entity);
     }
@@ -80,13 +145,10 @@ class AdminController extends BaseAdminController
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
         }
+        $this->setObservationsAndDepthsToTire($entity);
 
         parent::persistEntity($entity);
 
-//        return $this->redirectToRoute('admin', array(
-//            'action' => 'list',
-//            'entity' => 'Neumatico',
-//        ));
     }
 
     public function persistVehiculoEntity($entity)
@@ -463,19 +525,68 @@ class AdminController extends BaseAdminController
 
     public function listVehiculoAction()
     {
+
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('e')
+            ->from('App\Entity\Employee', 'e')
+            ->join('e.client', 'c')
+            ->where('c.id = :clientId')
+            ->andWhere('e.vehicle is null');
+        $qb->setParameter("clientId", $this->getUser()->getId());
+        $employees = $qb->getQuery()->getResult();
+
         if($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
         }
-        return parent::listAction();
+
+//        $this->dispatch(EasyAdminEvents::PRE_LIST);
+
+        $fields = $this->entity['list']['fields'];
+        $paginator = $this->findAll($this->entity['class'], $this->request->query->get('page', 1), $this->entity['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'), $this->entity['list']['dql_filter']);
+
+//        $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
+
+        $parameters = array(
+            'paginator' => $paginator,
+            'fields' => $fields,
+            'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            'employees' => $employees
+        );
+
+        return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
+
 
     }
 
     public function listEmpleadoAction()
     {
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('v')
+            ->from('App\Entity\Vehicle', 'v')
+            ->join('v.client', 'c')
+            ->where('c.id = :clientId');
+        $qb->setParameter("clientId", $this->getUser()->getId());
+        $vehicles = $qb->getQuery()->getResult();
+
         if($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
         }
-        return parent::listAction();
+
+//        $this->dispatch(EasyAdminEvents::PRE_LIST);
+
+        $fields = $this->entity['list']['fields'];
+        $paginator = $this->findAll($this->entity['class'], $this->request->query->get('page', 1), $this->entity['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'), $this->entity['list']['dql_filter']);
+
+//        $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
+
+        $parameters = array(
+            'paginator' => $paginator,
+            'fields' => $fields,
+            'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            'vehicles' => $vehicles
+        );
+
+        return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
 
     }
 

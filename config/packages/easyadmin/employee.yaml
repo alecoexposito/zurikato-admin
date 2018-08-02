@@ -2,13 +2,15 @@ easy_admin:
   entities:
     Empleado:
       class: App\Entity\Employee
+      templates:
+        list: 'easyadmin/empleado/list.html.twig'
       list:
         fields:
           - { property: 'employeeNumber', label: 'No. empleado' }
           - { property: 'alias', label: 'Alias' }
           - { property: 'name', label: 'Nombre' }
-          - { property: 'fatherLastname', label: 'Apellido padre' }
-          - { property: 'motherLastname', label: 'Apellido madre' }
+          - { property: 'fatherLastname', label: 'Apellido paterno' }
+          - { property: 'motherLastname', label: 'Apellido materno' }
           - { property: 'sex', label: 'sexo' }
           - { property: 'civilState', label: 'Estado civil' }
           - { property: 'curp', label: 'Curp' }
@@ -16,7 +18,7 @@ easy_admin:
           - { property: 'movileNumber', label: 'Teléfono móvil' }
           - { property: 'homeNumber', label: 'Teléfono particular' }
           - { property: 'licenseNumber', label: 'No. licencia' }
-          - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia' }
+          - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia', type: 'date' }
           - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-4' }
 #          - { property: 'photoFile', label: 'Foto', type: 'image' }
       form:
@@ -25,16 +27,16 @@ easy_admin:
           - { property: 'employeeNumber', label: 'No. empleado', css_class: 'col-lg-4' }
           - { property: 'alias', label: 'Alias', css_class: 'col-lg-4' }
           - { property: 'name', label: 'Nombre', length: 40, type: 'text', css_class: 'col-lg-4' }
-          - { property: 'fatherLastname', label: 'Apellido padre', type: text, length: 40, css_class: 'col-lg-4' }
-          - { property: 'motherLastname', label: 'Apellido madre', length: 40, css_class: 'col-lg-4' }
+          - { property: 'fatherLastname', label: 'Apellido paterno', type: text, length: 40, css_class: 'col-lg-4' }
+          - { property: 'motherLastname', label: 'Apellido materno', length: 40, css_class: 'col-lg-4' }
           - { property: 'sex', label: 'sexo', css_class: 'col-lg-4', type_options: { block_name: 'custom_sex' } }
           - { property: 'civilState', label: 'Estado civil', length: 40, css_class: 'col-lg-4' }
           - { property: 'curp', label: 'Curp', css_class: 'col-lg-4' }
           - { property: 'socialNumber', label: 'No. seguridad social', css_class: 'col-lg-4' }
-          - { property: 'movileNumber', label: 'Teléfono mobil', length: 20, css_class: 'col-lg-4' }
+          - { property: 'movileNumber', label: 'Teléfono celular', length: 20, css_class: 'col-lg-4' }
           - { property: 'homeNumber', label: 'Teléfono particular', length: 20, type: text, css_class: 'col-lg-4' }
           - { property: 'licenseNumber', label: 'No. licencia', length: 40, css_class: 'col-lg-4' }
-          - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia', type_options: { widget: 'single_text' }, length: 40, css_class: 'col-lg-4 custom-date' }
+          - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia', type_options: { widget: 'single_text' }, length: 40, css_class: 'col-lg-4 custom-date', default: null }
           - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-4' }
           - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-4' }
 

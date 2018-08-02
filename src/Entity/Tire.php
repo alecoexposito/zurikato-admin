@@ -34,6 +34,11 @@ class Tire
     private $observations;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TireDepth", mappedBy="tire", cascade={"persist", "merge", "remove"}, orphanRemoval=true)
+     */
+    private $depths;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="dot", type="string", nullable=true)
@@ -160,6 +165,7 @@ class Tire
     {
         $this->observations = new ArrayCollection();
         $this->status = Tire::STATUS_ACTIVE;
+        $this->depths = new ArrayCollection();
     }
 
     /**
@@ -530,6 +536,36 @@ class Tire
         return $this;
     }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getDepths()
+    {
+        return $this->depths;
+    }
+
+    /**
+     * Add depth
+     *
+     * @param TireDepth $depth
+     * @return Tire
+     */
+    public function addDepth(TireDepth $depth)
+    {
+        $this->depths[] = $depth;
+
+        return $this;
+    }
+
+    /**
+     * Remove depth
+     *
+     * @param TireDepth $depth
+     */
+    public function removeDepth(TireDepth $depth)
+    {
+        $this->depths->removeElement($depth);
+    }
 
 
 }

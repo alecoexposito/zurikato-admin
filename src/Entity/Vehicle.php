@@ -87,6 +87,12 @@ class Vehicle
     protected $tires;
 
     /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Employee", mappedBy="vehicle", cascade="all")
+     */
+    protected $employees;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime", nullable=true)
@@ -114,6 +120,7 @@ class Vehicle
     public function __construct()
     {
         $this->tires = new ArrayCollection();
+        $this->employees = new ArrayCollection();
     }
 
     /**
@@ -394,6 +401,37 @@ class Vehicle
     public function removeTire(Tire $tire)
     {
         $this->tires->removeElement($tire);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEmployees()
+    {
+        return $this->tires;
+    }
+
+    /**
+     * Add employee
+     *
+     * @param Employee $employee
+     * @return Employee
+     */
+    public function addEmployee(Employee $employee)
+    {
+        $this->employees[] = $employee;
+
+        return $this;
+    }
+
+    /**
+     * Remove employee
+     *
+     * @param Employee $employee
+     */
+    public function removeEmployee(Employee $employee)
+    {
+        $this->employees->removeElement($employee);
     }
 
 }

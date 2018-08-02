@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ControlTag
  *
  * @ORM\Table(name="control_tag")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TagsRepository")
  */
 class ControlTag
 {
@@ -33,9 +33,16 @@ class ControlTag
     /**
      * @var string
      *
-     * @ORM\Column(name="rfid", type="string", nullable=true)
+     * @ORM\Column(name="rfid", type="string", length=40, nullable=true)
      */
     private $rfid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="internal_code", type="string", length=40, nullable=true)
+     */
+    private $internalCode;
 
     /**
      * @var \DateTime
@@ -143,8 +150,28 @@ class ControlTag
 
     public function __toString()
     {
-        return $this->getRfid();
+        return $this->internalCode . "/" . $this->getRfid();
     }
+
+    /**
+     * @return string
+     */
+    public function getInternalCode()
+    {
+        return $this->internalCode;
+    }
+
+    /**
+     * @param string $internalCode
+     * @return ControlTag
+     */
+    public function setInternalCode($internalCode): ControlTag
+    {
+        $this->internalCode = $internalCode;
+        return $this;
+    }
+
+
 
 
 }

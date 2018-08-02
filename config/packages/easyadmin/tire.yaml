@@ -79,6 +79,8 @@ easy_admin:
           - { property: 'observation', label: 'Observación', css_class: 'col-lg-6' }
     Neumatico:
       class: App\Entity\Tire
+      templates:
+        list: 'easyadmin/neumatico/list.html.twig'
       list:
 #        dql_filter: "entity.status = 'Activo'"
         actions:
@@ -86,7 +88,7 @@ easy_admin:
           - { name: 'delete', icon: 'trash', label: '' }
           - { name: 'asignar', icon: 'truck', label: '' }
           - { name: 'adeposito', icon: 'send', label: '' }
-          - { name: '-new' }
+          - { name: 'new', label: 'Alta Nuevo/Usado' }
         fields:
           - { property: 'type', label: 'Tipo' }
           - { property: 'brand', label: 'Marca' }
@@ -112,6 +114,9 @@ easy_admin:
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
+          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
+          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
+
       edit:
         title: 'Editar neumático'
         fields:
@@ -122,8 +127,9 @@ easy_admin:
           - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
+          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
           - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
     NeumaticoRenovado:
       class: App\Entity\Tire
@@ -154,10 +160,18 @@ easy_admin:
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-2' }
           - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-2' }
+          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
+          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
+
     Tag:
       class: App\Entity\ControlTag
       list:
-        fields: [id, rfid]
+        fields:
+          - { property: 'rfid', label: 'RFID'}
+          - { property: 'internalCode', label: 'Codigo Interno'}
+          - { property: 'tire', label: 'Neumático'}
       form:
         fields:
-          - { property: 'rfid', css_class: 'col-lg-6'}
+          - { property: 'rfid', label: 'RFID', css_class: 'col-lg-4'}
+          - { property: 'internalCode', label: 'Codigo Interno', css_class: 'col-lg-4'}
+          - { property: 'tire', label: 'Neumático', css_class: 'col-lg-4'}

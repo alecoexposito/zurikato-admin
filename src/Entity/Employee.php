@@ -116,13 +116,58 @@ class Employee
      * @var File
      */
     private $photoFile;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdat;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     */
+    private $updatedat;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+    /**
+     * @var Client
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="client_id", referencedColumnName="idUser")
+     * })
+     */
+    private $client;
+    /**
+     * @var Vehicle
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     * })
+     */
+    private $vehicle;
+
+    /**
+     * Tire constructor.
+     */
+    public function __construct()
+    {
+    }
 
     /**
      * @return mixed
      */
     public function getPhoto()
     {
-        if(!is_null($this->photo))
+        if (!is_null($this->photo))
             return $this->photo;
         else
             return null;
@@ -158,35 +203,6 @@ class Employee
             $this->updatedat = new \DateTime('now');
         }
         return $this;
-    }
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
-     */
-    private $createdat;
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
-     */
-    private $updatedat;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-    /**
-     * Tire constructor.
-     */
-    public function __construct()
-    {
     }
 
     /**
@@ -496,16 +512,6 @@ class Employee
     }
 
     /**
-     * @var Client
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Client")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_id", referencedColumnName="idUser")
-     * })
-     */
-    private $client;
-
-    /**
      * @return Client
      */
     public function getClient()
@@ -522,16 +528,6 @@ class Employee
         $this->client = $client;
         return $this;
     }
-
-    /**
-     * @var Vehicle
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
-     * })
-     */
-    private $vehicle;
 
     /**
      * @return Vehicle
@@ -551,6 +547,15 @@ class Employee
         return $this;
     }
 
+    public function getSexString()
+    {
+        if($this->sex == 'M')
+            return 'Masculino';
+        if($this->sex == 'F')
+            return 'Femenino';
+        if($this->sex == 'O')
+            return 'Otro';
+    }
 
 
 }

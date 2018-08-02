@@ -13,6 +13,7 @@ easy_admin:
           - { property: 'route', label: 'Ruta' }
           - { property: 'odometer', label: 'Odómetro' }
           - { property: 'device', label: 'Dispositivo' }
+          - { property: 'employees', label: 'Empleados' }
       form:
 #        actions: ['-list']
         title: 'Adicionar vehículo'

@@ -1,6 +1,10 @@
 easy_admin:
     site_name: 'Administration backend'
     disabled_actions: ['show']
+    formats:
+        date:     'm/d/Y'
+        time:     'H:i'
+        datetime: 'm/d/Y H:i'
     list:
         actions:
             - { name: 'edit', icon: 'pencil', label: '' }

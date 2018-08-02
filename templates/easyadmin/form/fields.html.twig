@@ -20,6 +20,7 @@
         <select id="empleado_sex" name="empleado[sex]" class="form-control" data-widget="select2" type="text">
             <option value="M" {% if data == 'M' %} selected {% endif %}>Masculino</option>
             <option value="F" {% if data == 'F' %} selected {% endif %}>Femenino</option>
+            <option value="O" {% if data == 'O' %} selected {% endif %}>Otro</option>
         </select>
     </div>
 {% endblock %}

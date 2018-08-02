@@ -39,3 +39,7 @@ services:
             class: App\Form\TireObservationType
             tags:
                 - { name: form.type, alias: tire_observation_type }
+    form_types.tire_depth_type:
+            class: App\Form\TireDepthType
+            tags:
+                - { name: form.type, alias: tire_depth_type }
