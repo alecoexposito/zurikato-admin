@@ -15,6 +15,7 @@ use App\Entity\Group;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
 use App\Entity\UserDevice;
+use App\Entity\Vehicle;
 use App\Repository\DeviceRepository;
 use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\DBAL\Types\SimpleArrayType;
@@ -41,6 +42,38 @@ class AdminController extends BaseAdminController
     private function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    /**
+     * @param Vehicle $entity
+     */
+    public function updateVehiculoEntity($entity)
+    {
+        $employees = $entity->getEmployees();
+        foreach ($employees as $index => $employee) {
+            $employee->setVehicle($entity);
+        }
+        parent::updateEntity($entity);
+    }
+    public function createVehiculoEntityFormBuilder($entity, $view)
+    {
+        $formBuilder = parent::createEntityFormBuilder($entity, $view);
+
+        $id = (null !== $entity->getId()) ? $entity->getId() : 0;
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('e')
+            ->from('App\Entity\Employee', 'e')
+            ->leftJoin('e.vehicle', 'v')
+            ->where('v is null')
+            ->orWhere('v.id = :id');
+        $qb->setParameter('id', $id);
+        $formBuilder->add('employees', EntityType::class, array(
+                'class' => 'App\Entity\Employee',
+                'query_builder' => $qb,
+                'multiple' => true,
+            )
+        );
+        return $formBuilder;
     }
 
     /**
@@ -151,6 +184,9 @@ class AdminController extends BaseAdminController
 
     }
 
+    /**
+     * @param Vehicle $entity
+     */
     public function persistVehiculoEntity($entity)
     {
         $user = $this->getUser();
@@ -158,6 +194,11 @@ class AdminController extends BaseAdminController
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
+        }
+
+        $employees = $entity->getEmployees();
+        foreach ($employees as $index => $employee) {
+            $employee->setVehicle($entity);
         }
 
         parent::persistEntity($entity);
@@ -589,5 +630,28 @@ class AdminController extends BaseAdminController
         return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
 
     }
+
+    public function vehicleTiresAction()
+    {
+        $id = $this->request->query->get('id');
+
+        return $this->redirectToRoute('tires_vehicle', array(
+            'id' => $id,
+        ));
+
+    }
+
+    /**
+     * @Route("/vehicle/{id}", name="tires_vehicle")
+     * @Template("tires_vehicle.html.twig")
+     */
+    public function tiresVehiclesAction($id)
+    {
+        $vehicle = $this->getEm()->getRepository('App\Entity\Vehicle')->find($id);
+        return array(
+            'vehicle' => $vehicle
+        );
+    }
+
 
 }
