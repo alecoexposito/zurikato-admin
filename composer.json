@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "easycorp/easyadmin-bundle": "^1.17",
         "friendsofsymfony/user-bundle": "~2.0",
+        "knplabs/knp-snappy-bundle": "^1.5",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
@@ -18,7 +19,8 @@
     },
     "require-dev": {
         "symfony/dotenv": "^4.0",
-        "symfony/maker-bundle": "^1.5"
+        "symfony/maker-bundle": "^1.5",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {
