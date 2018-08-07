@@ -171,7 +171,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getAutomaticImeis(): string
+    public function getAutomaticImeis()
     {
         return $this->automaticImeis;
     }
@@ -189,7 +189,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFences(): string
+    public function getFences()
     {
         return $this->fences;
     }
