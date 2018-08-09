@@ -1,0 +1,39 @@
+{% extends '@EasyAdmin/default/list.html.twig' %}
+{% block delete_form %}
+    {% set referer = paginator.currentPage == paginator.nbPages and 1 != paginator.currentPage and 1 == paginator.currentPageResults|length
+        ? path('easyadmin', app.request.query|merge({ page: app.request.query.get('page') - 1 }))
+        : app.request.requestUri %}
+
+    {{ include('easyadmin/device/includes/_delete_form.html.twig', {
+        view: 'list',
+        referer: referer|url_encode,
+        delete_form: delete_form_template,
+        _translation_domain: _entity_config.translation_domain,
+        _trans_parameters: _trans_parameters,
+        _entity_config: _entity_config,
+    }, with_context = false) }}
+{% endblock delete_form %}
+
+{% block body_javascript %}
+    {{ parent() }}
+    <script>
+        jQuery("#keepData").click(function() {
+            var actionStr = $("form#delete-form").attr("action");
+            if(jQuery("#keepData")[0].checked)
+                actionStr = actionStr.replace("keep_data=0", "keep_data=1");
+            else
+                actionStr = actionStr.replace("keep_data=1", "keep_data=0");
+            $("form#delete-form").attr("action", actionStr);
+            console.log($("form#delete-form").attr("action"));
+        });
+
+        {#jQuery("#modal-delete-button").click(function() {#}
+            {#var actionStr = $("form#delete-form").attr("action");#}
+            {#actionStr = actionStr.replace("action=delete", "action=remove");#}
+            {#var actionStr = $("form#delete-form").attr("action", actionStr + "&remove=false");#}
+            {#console.log($("form#delete-form").attr("action"));#}
+            {#// $("form#delete-form").submit();#}
+        {#});#}
+
+    </script>
+{% endblock %}
