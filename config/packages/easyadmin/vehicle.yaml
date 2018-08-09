@@ -2,6 +2,8 @@ easy_admin:
   entities:
     Vehiculo:
       class: App\Entity\Vehicle
+      templates:
+        edit: 'easyadmin/vehiculo/edit.html.twig'
       list:
         actions:
           - { name: 'vehicleTires', icon: 'truck', label: '' }
@@ -26,7 +28,14 @@ easy_admin:
           - { property: 'year', label: 'Año', css_class: 'col-lg-4' }
           - { property: 'route', label: 'Ruta', css_class: 'col-lg-4' }
           - { property: 'odometer', label: 'Odómetro', css_class: 'col-lg-4' }
-          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-4' }
-          - { property: 'employees', label: 'Empleados', css_class: 'col-lg-4' }
+          - { type: 'group', label: 'Asignar dispositivo', icon: 'podcast', css_class: 'col-lg-8' }
+          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-12' }
+          - { type: 'group', label: 'Foto', icon: 'camera', css_class: 'col-lg-4' }
+          - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-12' }
+          - { type: 'group', label: 'Empleados', icon: 'users', css_class: 'col-lg-12' }
+          - { property: 'employees', label: ' ', css_class: 'col-lg-12', type_options: { by_reference: true, block_name: 'custom_employees', required: false } }
+          - { type: 'group', label: 'Neumáticos', icon: 'truck', css_class: 'col-lg-12' }
+          - { property: tires, label: ' ', type_options: { block_name: 'custom_neumaticos' } }
+
       edit:
         title: 'Editar vehículo'

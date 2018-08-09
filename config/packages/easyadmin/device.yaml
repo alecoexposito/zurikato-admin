@@ -16,6 +16,7 @@ easy_admin:
                 - { property: 'routeName', label: 'Ruta' }
                 - { property: 'economicNumber', label: 'Número económico' }
                 - { property: 'vehiclePlate', label: 'Número de placa' }
+                - { property: 'vehicle', label: 'Vehículo' }
 #                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
               fields:
@@ -69,6 +70,8 @@ easy_admin:
                 - { property: 'routeName', label: 'Ruta' }
                 - { property: 'economicNumber', label: 'Número económico' }
                 - { property: 'vehiclePlate', label: 'Número de placa' }
+                - { property: 'vehicle', label: 'Vehículo' }
+
 #                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
               fields:

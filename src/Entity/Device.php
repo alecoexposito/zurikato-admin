@@ -627,6 +627,24 @@ class Device
     }
 
     /**
+     * @return Vehicle
+     */
+    public function getVehicle()
+    {
+        return $this->vehicle;
+    }
+
+    /**
+     * @param Vehicle $vehicle
+     * @return Device
+     */
+    public function setVehicle($vehicle): Device
+    {
+        $this->vehicle = $vehicle;
+        return $this;
+    }
+
+    /**
      * @return boolean
      */
     public function getPanicButton()

@@ -23,6 +23,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -44,11 +45,23 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function updateAgregarProfundidadEntity($tire)
+    {
+        $this->setObservationsAndDepthsToTire($tire);
+        return parent::updateEntity($tire);
+    }
     /**
      * @param Vehicle $entity
      */
     public function updateVehiculoEntity($entity)
     {
+        $allEmployees = $this->getEm()->getRepository("App\Entity\Employee")->findBy(array(
+            'vehicle' => $entity->getId()
+        ));
+        foreach ($allEmployees as $index => $emp) {
+            $emp->setVehicle(null);
+            $this->getEm()->merge($emp);
+        }
         $employees = $entity->getEmployees();
         foreach ($employees as $index => $employee) {
             $employee->setVehicle($entity);
@@ -61,18 +74,21 @@ class AdminController extends BaseAdminController
 
         $id = (null !== $entity->getId()) ? $entity->getId() : 0;
         $qb = $this->getEm()->createQueryBuilder();
-        $qb->select('e')
-            ->from('App\Entity\Employee', 'e')
-            ->leftJoin('e.vehicle', 'v')
-            ->where('v is null')
-            ->orWhere('v.id = :id');
-        $qb->setParameter('id', $id);
-        $formBuilder->add('employees', EntityType::class, array(
-                'class' => 'App\Entity\Employee',
-                'query_builder' => $qb,
-                'multiple' => true,
-            )
-        );
+//        $qb->select('e')
+//            ->from('App\Entity\Employee', 'e')
+//            ->leftJoin('e.vehicle', 'v')
+//            ->where('v is null')
+//            ->orWhere('v.id = :id');
+//        $qb->setParameter('id', $id);
+//        dump($formBuilder);
+//        $formBuilder->add('employees', EntityType::class, array(
+//                'class' => 'App\Entity\Employee',
+//                'query_builder' => $qb,
+//                'multiple' => true,
+//                'block_name' => 'custom_employees',
+//                'label' => ''
+//            )
+//        );
         return $formBuilder;
     }
 

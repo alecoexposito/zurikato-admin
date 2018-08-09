@@ -137,6 +137,34 @@ class Tire
     private $position;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="back_renovated", type="boolean", nullable=false, options={"default" = 0})
+     */
+    private $backRenovated;
+
+    /**
+     * @return bool
+     */
+    public function isBackRenovated()
+    {
+        return $this->backRenovated;
+    }
+
+    /**
+     * @param boolean $backRenovated
+     * @return Tire
+     */
+    public function setBackRenovated($backRenovated): Tire
+    {
+        $this->backRenovated = $backRenovated;
+        return $this;
+    }
+
+
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime", nullable=true)
@@ -386,6 +414,8 @@ class Tire
 
     public function __toString()
     {
+        if(is_null($this->serial))
+            return "";
         return $this->getSerial();
     }
 
@@ -567,5 +597,15 @@ class Tire
         $this->depths->removeElement($depth);
     }
 
+    public function setInitialDepth(TireDepth $depth)
+    {
+        $depth->setTire($this);
+        $this->addDepth($depth);
+    }
+
+    public function getInitialDepth()
+    {
+        return new TireDepth();
+    }
 
 }
