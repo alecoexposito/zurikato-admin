@@ -14,6 +14,7 @@ use App\Entity\Device;
 use App\Entity\Group;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
+use App\Entity\TireDepth;
 use App\Entity\UserDevice;
 use App\Entity\Vehicle;
 use App\Repository\DeviceRepository;
@@ -22,6 +23,7 @@ use Doctrine\DBAL\Types\SimpleArrayType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -43,6 +45,21 @@ class AdminController extends BaseAdminController
     private function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    /**
+     * @param Vehicle $vehicle
+     */
+    public function removeVehiculoEntity($vehicle)
+    {
+        foreach ($vehicle->getTires() as $index => $tire) {
+            $tire->setVehicle(null);
+        }
+        foreach ($vehicle->getEmployees() as $index => $employee) {
+            $employee->setVehicle(null);
+        }
+        $vehicle->setDevice(null);
+        parent::removeEntity($vehicle);
     }
 
     public function updateAgregarProfundidadEntity($tire)
@@ -644,6 +661,59 @@ class AdminController extends BaseAdminController
         );
 
         return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
+
+    }
+
+    public function searchEmpleadoAction()
+    {
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('v')
+            ->from('App\Entity\Vehicle', 'v')
+            ->join('v.client', 'c')
+            ->where('c.id = :clientId');
+        $qb->setParameter("clientId", $this->getUser()->getId());
+        $vehicles = $qb->getQuery()->getResult();
+
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['search']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
+        }
+        $this->dispatch(EasyAdminEvents::PRE_SEARCH);
+
+        $query = trim($this->request->query->get('query'));
+        // if the search query is empty, redirect to the 'list' action
+        if ('' === $query) {
+            $queryParameters = array_replace($this->request->query->all(), array('action' => 'list', 'query' => null));
+            $queryParameters = array_filter($queryParameters);
+
+            return $this->redirect($this->get('router')->generate('easyadmin', $queryParameters));
+        }
+
+        $searchableFields = $this->entity['search']['fields'];
+        $paginator = $this->findBy(
+            $this->entity['class'],
+            $query,
+            $searchableFields,
+            $this->request->query->get('page', 1),
+            $this->entity['list']['max_results'],
+            isset($this->entity['search']['sort']['field']) ? $this->entity['search']['sort']['field'] : $this->request->query->get('sortField'),
+            isset($this->entity['search']['sort']['direction']) ? $this->entity['search']['sort']['direction'] : $this->request->query->get('sortDirection'),
+            $this->entity['search']['dql_filter']
+        );
+        $fields = $this->entity['list']['fields'];
+
+        $this->dispatch(EasyAdminEvents::POST_SEARCH, array(
+            'fields' => $fields,
+            'paginator' => $paginator,
+        ));
+
+        $parameters = array(
+            'paginator' => $paginator,
+            'fields' => $fields,
+            'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            'vehicles' => $vehicles
+        );
+
+        return $this->executeDynamicMethod('render<EntityName>Template', array('search', $this->entity['templates']['list'], $parameters));
 
     }
 

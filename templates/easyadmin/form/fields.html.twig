@@ -32,8 +32,9 @@
             class="form-control" multiple="multiple">
         {% for key,choice in choices %}
             {#{{ dump(choice.data.vehicle) }}#}
-            {% if choice.data.vehicle is null or choice.data.vehicle.id == data.owner.id %}
-                {{ dump(choice.data.vehicle) }}
+            {% if data.owner is not defined and choice.data.vehicle is null %}
+                <option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>
+            {% elseif data.owner is defined and (choice.data.vehicle is null or choice.data.vehicle.id == data.owner.id) %}
                 <option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>
             {% endif %}
         {% endfor %}
@@ -44,28 +45,30 @@
 {% endblock %}
 
 {% block _vehiculo_custom_neumaticos_widget %}
-    {% set vehicle = data.owner %}
-    <table class="table table-bordered table-stripped">
-        <thead>
-            <th class="text-center">Tipo</th>
-            <th class="text-center">Marca</th>
-            <th class="text-center">No. Serie</th>
-            <th class="text-center">Código Interno</th>
-            <th class="text-center">Acciones</th>
-        </thead>
-        <tbody>
-            {% for tire in vehicle.tires %}
-                <tr>
-                    <td class="text-center">{{ tire.type }}</td>
-                    <td class="text-center">{{ tire.brand }}</td>
-                    <td class="text-center">{{ tire.serial }}</td>
-                    <td class="text-center">{{ tire.internalCode }}</td>
-                    <td class="text-center"><a class="btn btn-primary" href="/admin/?action=edit&id={{ tire.id }}&entity=AgregarProfundidad"><i class="fa fa-plus"></i> Agregar Profundidad</a></td>
-                </tr>
+    {% if data.owner is defined %}
+        {% set vehicle = data.owner %}
+        <table class="table table-bordered table-stripped">
+            <thead>
+                <th class="text-center">Tipo</th>
+                <th class="text-center">Marca</th>
+                <th class="text-center">No. Serie</th>
+                <th class="text-center">Código Interno</th>
+                <th class="text-center">Acciones</th>
+            </thead>
+            <tbody>
+                {% for tire in vehicle.tires %}
+                    <tr>
+                        <td class="text-center">{{ tire.type }}</td>
+                        <td class="text-center">{{ tire.brand }}</td>
+                        <td class="text-center">{{ tire.serial }}</td>
+                        <td class="text-center">{{ tire.internalCode }}</td>
+                        <td class="text-center"><a class="btn btn-primary" href="/admin/?action=edit&id={{ tire.id }}&entity=AgregarProfundidad"><i class="fa fa-plus"></i> Agregar Profundidad</a></td>
+                    </tr>
 
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 {% endblock %}
 
 {% block _asignar_custom_position_widget %}

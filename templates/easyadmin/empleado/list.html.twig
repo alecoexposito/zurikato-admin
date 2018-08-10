@@ -1,5 +1,6 @@
 {% extends 'easyadmin/default/list.html.twig' %}
 {% block table_body %}
+    {#{{ dump() }}#}
     {% for item in paginator.currentPageResults %}
         {# the empty string concatenation is needed when the primary key is an object (e.g. an Uuid object) #}
         {% set _item_id = '' ~ attribute(item, _entity_config.primary_key_field_name) %}

@@ -86,7 +86,7 @@ class Vehicle
 
     /**
      * @var Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="vehicle")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="vehicle", cascade="all")
      */
     protected $tires;
 

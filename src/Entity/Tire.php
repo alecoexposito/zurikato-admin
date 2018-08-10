@@ -125,7 +125,7 @@ class Tire
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $vehicle;
@@ -194,6 +194,7 @@ class Tire
         $this->observations = new ArrayCollection();
         $this->status = Tire::STATUS_ACTIVE;
         $this->depths = new ArrayCollection();
+        $this->setBackRenovated(false);
     }
 
     /**
@@ -431,7 +432,7 @@ class Tire
      * @param Vehicle $vehicle
      * @return Tire
      */
-    public function setVehicle(Vehicle $vehicle): Tire
+    public function setVehicle($vehicle): Tire
     {
         $this->vehicle = $vehicle;
         return $this;

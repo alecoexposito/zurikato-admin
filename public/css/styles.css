@@ -71,3 +71,19 @@ label.required::after {
 #easyadmin-list-Baja td .action-edit {
     display: none;
 }
+
+#easyadmin-list-Renovar thead th:last-child {
+    display: none;
+}
+
+#easyadmin-list-Renovar tbody tr td:last-child {
+    display: none;
+}
+
+#easyadmin-list-Baja thead th:last-child {
+    display: none;
+}
+
+#easyadmin-list-Baja tbody tr td:last-child {
+    display: none;
+}
