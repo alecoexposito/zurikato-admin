@@ -87,3 +87,7 @@ label.required::after {
 #easyadmin-list-Baja tbody tr td:last-child {
     display: none;
 }
+
+#vehicle-tires-table thead th {
+    background-color: #EEE;
+}

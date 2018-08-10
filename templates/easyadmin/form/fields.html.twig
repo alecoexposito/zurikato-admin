@@ -47,7 +47,7 @@
 {% block _vehiculo_custom_neumaticos_widget %}
     {% if data.owner is defined %}
         {% set vehicle = data.owner %}
-        <table class="table table-bordered table-stripped">
+        <table id="vehicle-tires-table" class="table table-bordered">
             <thead>
                 <th class="text-center">Tipo</th>
                 <th class="text-center">Marca</th>
@@ -62,7 +62,7 @@
                         <td class="text-center">{{ tire.brand }}</td>
                         <td class="text-center">{{ tire.serial }}</td>
                         <td class="text-center">{{ tire.internalCode }}</td>
-                        <td class="text-center"><a class="btn btn-primary" href="/admin/?action=edit&id={{ tire.id }}&entity=AgregarProfundidad"><i class="fa fa-plus"></i> Agregar Profundidad</a></td>
+                        <td class="text-center"><a class="" href="/admin/?action=edit&id={{ tire.id }}&entity=AgregarProfundidad"><i class="fa fa-plus"></i></a></td>
                     </tr>
 
                 {% endfor %}
