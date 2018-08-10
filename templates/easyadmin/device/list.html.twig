@@ -1,4 +1,4 @@
-{% extends '@EasyAdmin/default/list.html.twig' %}
+{% extends 'easyadmin/default/list.html.twig' %}
 {% block delete_form %}
     {% set referer = paginator.currentPage == paginator.nbPages and 1 != paginator.currentPage and 1 == paginator.currentPageResults|length
         ? path('easyadmin', app.request.query|merge({ page: app.request.query.get('page') - 1 }))

@@ -48,7 +48,7 @@ label.required::after {
     /*margin-right: 5px;*/
 }
 
-#neumatico_initialDepth .form-group {
+#neumatico_initialDepth .form-group, #neumaticorenovado_initialDepth .form-group {
     width: 33.33333%;
     float: left;
     padding-right: 5px;
