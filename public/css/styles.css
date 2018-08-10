@@ -48,7 +48,7 @@ label.required::after {
     /*margin-right: 5px;*/
 }
 
-#neumatico_initialDepth .form-group, #neumaticorenovado_initialDepth .form-group {
+#neumatico_initialDepth .field-number, #neumaticorenovado_initialDepth .field-number, #agregarprofundidad_initialDepth .field-number {
     width: 33.33333%;
     float: left;
     padding-right: 5px;
@@ -90,4 +90,12 @@ label.required::after {
 
 #vehicle-tires-table thead th {
     background-color: #EEE;
+}
+
+#tire-depths-table tr td div.form-group {
+    display: none;
+}
+
+#edit-agregarprofundidad-form .field-collection-action {
+    display: none;
 }

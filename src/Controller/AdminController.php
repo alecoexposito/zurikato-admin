@@ -47,6 +47,24 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function getAgregarProfundidadFormOptions($entity, $view)
+    {
+        $formOptions = parent::getEntityFormOptions($entity, $view);
+        $formOptions["allow_extra_fields"] = true;
+        return $formOptions;
+    }
+
+    public function agregarprofundidadAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'AgregarProfundidad',
+        ));
+    }
     /**
      * @param Vehicle $vehicle
      */
@@ -65,8 +83,14 @@ class AdminController extends BaseAdminController
     public function updateAgregarProfundidadEntity($tire)
     {
         $this->setObservationsAndDepthsToTire($tire);
-        return parent::updateEntity($tire);
+        parent::updateEntity($tire);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
     }
+
     /**
      * @param Vehicle $entity
      */
@@ -84,7 +108,12 @@ class AdminController extends BaseAdminController
             $employee->setVehicle($entity);
         }
         parent::updateEntity($entity);
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
     }
+
     public function createVehiculoEntityFormBuilder($entity, $view)
     {
         $formBuilder = parent::createEntityFormBuilder($entity, $view);

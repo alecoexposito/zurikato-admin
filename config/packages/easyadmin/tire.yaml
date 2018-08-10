@@ -6,10 +6,12 @@ easy_admin:
       edit:
         title: 'Agregar profundidad'
         fields:
-          - { type: 'group', label: 'Edita o agrega profundidades', icon: 'thermometer', css_class: 'col-lg-6' }
-          - { property: 'depths', css_class: 'col-lg-12', label: ' ', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
-          - { type: 'group', label: 'Agrega una observación al neumático', icon: 'document', css_class: 'col-lg-6' }
-          - { property: 'observation', label: ' ' }
+          - { type: 'group', label: 'Profundidad', icon: 'thermometer', css_class: 'col-lg-6' }
+          - { property: 'initialDepth', label: ' ', type: 'App\Form\TireDepthType', type_options: { block_name: 'custom_profundidad' } }
+          - { type: 'group', label: 'Profundidades existentes', icon: 'thermometer', css_class: 'col-lg-12' }
+          - { property: 'depths', css_class: 'col-lg-12', label: ' ', type: 'collection', type_options: { entry_type: 'App\Form\TireDepthType', by_reference: false, block_name: 'custom_profundidades', allow_add: true }}
+#          - { type: 'group', label: 'Agrega una observación al neumático', icon: 'document', css_class: 'col-lg-6' }
+#          - { property: 'observation', label: ' ' }
     Baja:
       class: App\Entity\Tire
       disabled_actions: ['new', 'delete']
@@ -100,6 +102,7 @@ easy_admin:
           - { name: 'asignar', icon: 'truck', label: '' }
           - { name: 'adeposito', icon: 'send', label: '' }
           - { name: 'new', label: 'Alta Nuevo/Usado' }
+          - { name: 'agregarprofundidad', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
         fields:
           - { property: 'type', label: 'Tipo' }
           - { property: 'brand', label: 'Marca' }
@@ -128,6 +131,8 @@ easy_admin:
           - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
           - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
           - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12' }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'observation', label: ' ' }
       edit:
         title: 'Editar neumático'
         fields:

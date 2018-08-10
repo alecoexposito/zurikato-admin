@@ -28,6 +28,8 @@ class Tire
     const STATUS_TO_RENOVATE = 'Enviado a renovar';
     const STATUS_REMOVED = 'Dado de baja';
 
+    private $tireDepthTemp;
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\TireObservation", mappedBy="tire", cascade={"persist", "merge", "remove"}, orphanRemoval=true)
      */
@@ -131,8 +133,8 @@ class Tire
     private $vehicle;
 
     /**
-     * @var integer
-     * @ORM\Column(name="position", type="integer", nullable=true)
+     * @var string
+     * @ORM\Column(name="position", type="string", length=4, nullable=true)
      */
     private $position;
 
@@ -195,6 +197,7 @@ class Tire
         $this->status = Tire::STATUS_ACTIVE;
         $this->depths = new ArrayCollection();
         $this->setBackRenovated(false);
+        $this->tireDepthTemp = new TireDepth();
     }
 
     /**
@@ -439,7 +442,7 @@ class Tire
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getPosition()
     {
@@ -447,7 +450,7 @@ class Tire
     }
 
     /**
-     * @param int $position
+     * @param string $position
      * @return Tire
      */
     public function setPosition($position)
@@ -600,13 +603,28 @@ class Tire
 
     public function setInitialDepth(TireDepth $depth)
     {
+        dump($this->getDepths());
         $depth->setTire($this);
         $this->addDepth($depth);
+        $this->tireDepthTemp = $depth;
+        dump($this->getDepths());
     }
 
     public function getInitialDepth()
     {
-        return new TireDepth();
+        return $this->tireDepthTemp;
     }
 
+//    public function setDepth($depth)
+//    {
+//        if(!is_null($depth)) {
+//            $this->addDepth($depth);
+//        }
+//        return $this;
+//    }
+//
+//    public function getDepth()
+//    {
+//        return "";
+//    }
 }

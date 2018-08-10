@@ -140,6 +140,33 @@ class TireDepth
     private $depthC;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="observation", type="string", nullable=true)
+     */
+    private $observation;
+
+    /**
+     * @return string
+     */
+    public function getObservation()
+    {
+        return $this->observation;
+    }
+
+    /**
+     * @param string $observation
+     * @return TireDepth
+     */
+    public function setObservation($observation): TireDepth
+    {
+        $this->observation = $observation;
+        return $this;
+    }
+
+
+
+    /**
      * @return float
      */
     public function getDepthA()

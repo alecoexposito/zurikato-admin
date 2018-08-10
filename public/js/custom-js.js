@@ -3,14 +3,24 @@ var customjs = {
         init: function() {
             if($(".edit-vehiculo").length == 0)
                 return;
-            console.log("estoy en el init");
             // jQuery("#vehiculo_employees").find("option")
             jQuery("#vehiculo_employees").select2();
+        }
+    },
+    addTireDepth: {
+        init: function() {
+            if($(".edit-agregarprofundidad").length == 0)
+                return;
+            $(".edit-depth-row").click(function() {
+                $("#tire-depths-table tr td span").hide("fast");
+                $("#tire-depths-table tr td div.form-group").show();
+            });
         }
     }
 };
 jQuery(document).ready(function() {
     customjs.createEditVehicle.init();
+    customjs.addTireDepth.init();
 
     jQuery(".app-select2").select2();
 
