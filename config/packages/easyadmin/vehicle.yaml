@@ -36,8 +36,8 @@ easy_admin:
 
       edit:
         title: 'Editar vehículo'
-        fields:
+#        fields:
 #          - { type: 'group', label: 'Empleados', icon: 'users', css_class: 'col-lg-12' }
 #          - { property: 'employees', label: ' ', css_class: 'col-lg-12', type_options: { by_reference: true, block_name: 'custom_employees', required: false } }
-          - { type: 'group', label: 'Neumáticos', icon: 'truck', css_class: 'col-lg-12' }
-          - { property: tires, label: ' ', type_options: { block_name: 'custom_neumaticos' } }
+#          - { type: 'group', label: 'Neumáticos', icon: 'truck', css_class: 'col-lg-12' }
+#          - { property: tires, label: ' ', type_options: { block_name: 'custom_neumaticos' } }

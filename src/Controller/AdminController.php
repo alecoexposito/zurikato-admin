@@ -47,6 +47,14 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function listAsignarAction()
+    {
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
+    }
+
     public function getAgregarProfundidadFormOptions($entity, $view)
     {
         $formOptions = parent::getEntityFormOptions($entity, $view);
@@ -85,6 +93,10 @@ class AdminController extends BaseAdminController
         $this->setObservationsAndDepthsToTire($tire);
         parent::updateEntity($tire);
 
+    }
+
+    public function listAgregarProfundidadAction()
+    {
         return $this->redirectToRoute('easyadmin', array(
             'action' => 'list',
             'entity' => 'Neumatico',

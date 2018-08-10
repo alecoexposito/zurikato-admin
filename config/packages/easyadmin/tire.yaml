@@ -2,7 +2,7 @@ easy_admin:
   entities:
     AgregarProfundidad:
       class: App\Entity\Tire
-      disabled_actions: ['new', 'list', 'delete']
+      disabled_actions: ['new', 'delete']
       edit:
         title: 'Agregar profundidad'
         fields:
@@ -83,7 +83,7 @@ easy_admin:
     Asignar:
       class: App\Entity\Tire
       actions: ['edit']
-      disabled_actions: ['list']
+#      disabled_actions: ['list']
       form:
         title: 'Asignar neumático a vehículo'
         fields:
