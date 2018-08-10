@@ -47,6 +47,15 @@ class TireDepth
     private $tire;
 
     /**
+     * TireDepth constructor.
+     */
+    public function __construct()
+    {
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
+    }
+
+    /**
      * @return \DateTime
      */
     public function getCreatedat()

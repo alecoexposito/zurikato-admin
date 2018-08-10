@@ -88,7 +88,7 @@ label.required::after {
     display: none;
 }
 
-#vehicle-tires-table thead th {
+#vehicle-tires-table thead th, #tire-depths-table thead th {
     background-color: #EEE;
 }
 
