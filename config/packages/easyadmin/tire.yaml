@@ -1,5 +1,27 @@
 easy_admin:
   entities:
+    NeumaticosVehiculo:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'edit', 'delete']
+#      templates:
+#        list: 'easyadmin/neumatico/list.html.twig'
+      list:
+        title: 'Neumaticos del vehiculo'
+#        dql_filter: "entity.status = 'Activo'"
+        actions:
+          - { name: 'agregarprofundidad', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
+        fields:
+          - { property: 'type', label: 'Tipo' }
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'dot', label: 'DOT' }
+          - { property: 'controlTag', label: 'Tag' }
+          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'observations', label: 'Observaciones' }
     AgregarProfundidad:
       class: App\Entity\Tire
       disabled_actions: ['new', 'delete']

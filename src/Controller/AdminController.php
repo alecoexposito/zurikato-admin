@@ -47,6 +47,27 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+
+    public function listNeumaticosVehiculoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.vehicle = " . $this->request->query->get("idVehicle");
+        }
+        return parent::listAction();
+    }
+
+    public function vehicleTiresListAction()
+    {
+        $id = $this->request->query->get('id');
+//        $entity = $this->em->getRepository('App\Entity\Vehicle')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'NeumaticosVehiculo',
+            'idVehicle' => $id
+        ));
+    }
+
     public function listAsignarAction()
     {
         return $this->redirectToRoute('easyadmin', array(
@@ -97,6 +118,7 @@ class AdminController extends BaseAdminController
 
     public function listAgregarProfundidadAction()
     {
+//        return $this->redirectToReferrer();
         return $this->redirectToRoute('easyadmin', array(
             'action' => 'list',
             'entity' => 'Neumatico',
@@ -617,7 +639,6 @@ class AdminController extends BaseAdminController
             $this->entity['list']['dql_filter'] = "entity.status = 'En depósito' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
-
     }
 
     public function listRenovarAction()
