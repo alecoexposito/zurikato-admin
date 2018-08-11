@@ -6,7 +6,7 @@ easy_admin:
         edit: 'easyadmin/vehiculo/edit.html.twig'
       list:
         actions:
-          - { name: 'vehicleTires', icon: 'truck', label: '', title: 'Mapa del vehículo' }
+#          - { name: 'vehicleTires', icon: 'truck', label: '', title: 'Mapa del vehículo' }
           - { name: 'vehicleTiresList', icon: 'thermometer', label: '', title: 'Agregar profundidad a neumatico' }
         fields:
           - { property: 'name', label: 'Nombre o número económico', type_options: { block_name: 'custom_type' } }
