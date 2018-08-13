@@ -166,16 +166,20 @@
 {% block _agregarprofundidad_custom_profundidad_widget %}
     <div id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}">
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
+                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
+                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
+                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-text col-lg-12"><label class="control-label">Observación</label><input
-                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
+                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation"
+                    name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
                     class="form-control" type="text"></div>
     </div>
 {% endblock %}
@@ -243,16 +247,43 @@
 {% block _agregarprofundidad2_custom_profundidad_widget %}
     <div id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}">
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
+                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
+                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
-                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
+                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
                                 class="form-control" type="text"></div>
         <div class="form-group  field-text col-lg-12"><label class="control-label">Observación</label><input
-                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation" name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
+                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation"
+                    name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
                     class="form-control" type="text"></div>
     </div>
+{% endblock %}
+
+{% block _neumatico_custom_tag_widget %}
+    <select id="neumatico_controlTag" name="neumatico[controlTag]" class="app-select2">
+        <option value="">Ninguno</option>
+        {% if form.vars.data is defined and form.vars.data is not null %}
+            <option value="{{ form.vars.data.id }}" selected>{{ form.vars.data.__toString() }}</option>
+        {% endif %}
+        {% for key,choice in choices %}
+            <option value="{{ choice.value }}">{{ choice.label }}</option>
+            {#{% if data.owner is not defined and choice.data.vehicle is null %}#}
+                {#<option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>#}
+            {#{% elseif data.owner is defined and (choice.data.vehicle is null or choice.data.vehicle.id == data.owner.id) %}#}
+                {#<option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>#}
+            {#{% endif %}#}
+        {% endfor %}
+
+        {#<option value="2">2222/2222</option>#}
+        {#<option value="3">33232/323232</option>#}
+        {#<option value="4">54/</option>#}
+        {#<option value="5">ss/</option>#}
+    </select>
+
 {% endblock %}

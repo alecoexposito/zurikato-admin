@@ -182,7 +182,7 @@ easy_admin:
           - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
           - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
           - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { block_name: 'custom_tag', query_builder: ['App\Repository\TagsRepository', 'available'] } }
           - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
           - { property: 'initialObservation', label: ' ' }
     NeumaticoRenovado:
