@@ -47,6 +47,15 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    /**
+     * @param Tire $entity
+     */
+    public function updateDepositoEntity($entity)
+    {
+        $entity->setVehicle(null);
+        parent::updateEntity($entity);
+    }
+
     public function listAgregarProfundidad2Action()
     {
 //        return $this->redirectToReferrer();
