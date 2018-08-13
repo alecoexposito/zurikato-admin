@@ -9,11 +9,11 @@ var customjs = {
     },
     addTireDepth: {
         init: function() {
-            if($(".edit-agregarprofundidad").length == 0)
+            if($(".edit-agregarprofundidad, .edit-agregarprofundidad2").length == 0)
                 return;
             $(".edit-depth-row").click(function() {
-                $("#tire-depths-table tr td span").hide("fast");
-                $("#tire-depths-table tr td div.form-group").show();
+                $(this).closest("tr").find("td span").hide("fast");
+                $(this).closest("tr").find("td div.form-group").show();
             });
         }
     }

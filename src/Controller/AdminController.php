@@ -47,6 +47,26 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function listAgregarProfundidad2Action()
+    {
+//        return $this->redirectToReferrer();
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Vehiculo',
+        ));
+    }
+
+    public function agregarprofundidad2Action()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'AgregarProfundidad2',
+        ));
+    }
 
     public function listNeumaticosVehiculoAction()
     {

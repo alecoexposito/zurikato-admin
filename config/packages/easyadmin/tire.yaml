@@ -1,5 +1,16 @@
 easy_admin:
   entities:
+    AgregarProfundidad2:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      edit:
+        title: 'Agregar profundidad'
+        actions: ["-list"]
+        fields:
+          - { type: 'group', label: 'Profundidad', icon: 'thermometer', css_class: 'col-lg-6' }
+          - { property: 'initialDepth', label: ' ', type: 'App\Form\TireDepthType', type_options: { block_name: 'custom_profundidad' } }
+          - { type: 'group', label: 'Profundidades existentes', icon: 'thermometer', css_class: 'col-lg-12' }
+          - { property: 'depths', css_class: 'col-lg-12', label: ' ', type: 'collection', type_options: { entry_type: 'App\Form\TireDepthType', by_reference: false, block_name: 'custom_profundidades', allow_add: true }}
     NeumaticosVehiculo:
       class: App\Entity\Tire
       disabled_actions: ['new', 'edit', 'delete']
@@ -9,7 +20,7 @@ easy_admin:
         title: 'Neumaticos del vehiculo'
 #        dql_filter: "entity.status = 'Activo'"
         actions:
-          - { name: 'agregarprofundidad', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
+          - { name: 'agregarprofundidad2', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
         fields:
           - { property: 'type', label: 'Tipo' }
           - { property: 'brand', label: 'Marca' }
@@ -27,6 +38,7 @@ easy_admin:
       disabled_actions: ['new', 'delete']
       edit:
         title: 'Agregar profundidad'
+        actions: ["-list"]
         fields:
           - { type: 'group', label: 'Profundidad', icon: 'thermometer', css_class: 'col-lg-6' }
           - { property: 'initialDepth', label: ' ', type: 'App\Form\TireDepthType', type_options: { block_name: 'custom_profundidad' } }

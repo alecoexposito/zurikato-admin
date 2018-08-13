@@ -48,7 +48,7 @@ label.required::after {
     /*margin-right: 5px;*/
 }
 
-#neumatico_initialDepth .field-number, #neumaticorenovado_initialDepth .field-number, #agregarprofundidad_initialDepth .field-number {
+#neumatico_initialDepth .field-number, #neumaticorenovado_initialDepth .field-number, #agregarprofundidad_initialDepth .field-number, #agregarprofundidad2_initialDepth .field-number {
     width: 33.33333%;
     float: left;
     padding-right: 5px;
@@ -96,6 +96,6 @@ label.required::after {
     display: none;
 }
 
-#edit-agregarprofundidad-form .field-collection-action {
+#edit-agregarprofundidad-form .field-collection-action, #edit-agregarprofundidad2-form .field-collection-action {
     display: none;
 }
