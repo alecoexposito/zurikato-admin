@@ -99,3 +99,8 @@ label.required::after {
 #edit-agregarprofundidad-form .field-collection-action, #edit-agregarprofundidad2-form .field-collection-action {
     display: none;
 }
+
+#neumatico_initialDepth_observation, label[for=neumatico_initialDepth_observation],
+#neumaticorenovado_initialDepth_observation, label[for=neumaticorenovado_initialDepth_observation]{
+    display: none;
+}

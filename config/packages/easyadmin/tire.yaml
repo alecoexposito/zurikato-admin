@@ -164,7 +164,7 @@ easy_admin:
           - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
           - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
           - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
           - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
           - { property: 'observation', label: ' ' }
       edit:
@@ -172,17 +172,19 @@ easy_admin:
         fields:
           - { property: 'type', css_class: 'col-lg-4', label: 'Tipo', type_options: { block_name: 'custom_type_all' } }
           - { property: 'brand', label: 'Marca', css_class: 'col-lg-4' }
-          - { property: 'serial', label: 'No. rie', css_class: 'col-lg-4' }
+          - { property: 'serial', label: 'No. serie', css_class: 'col-lg-4' }
           - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-4' }
           - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
-          - { type: 'group', label: 'Profundiades', icon: 'thermometer', css_class: 'col-lg-6' }
-          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
-          - { type: 'group', label: 'Observaciones', icon: 'document', css_class: 'col-lg-6' }
-          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
+          - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-2' }
+          - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
+          - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
+          - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'initialObservation', label: ' ' }
     NeumaticoRenovado:
       class: App\Entity\Tire
       disabled_actions: ['list']
@@ -214,8 +216,9 @@ easy_admin:
           - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
           - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
           - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12' }
-
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'observation', label: ' ' }
     Tag:
       class: App\Entity\ControlTag
       list:

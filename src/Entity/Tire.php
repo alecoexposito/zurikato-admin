@@ -275,7 +275,7 @@ class Tire
     /**
      * @return \DateTime
      */
-    public function getCreatedat(): \DateTime
+    public function getCreatedat()
     {
         return $this->createdat;
     }
@@ -293,7 +293,7 @@ class Tire
     /**
      * @return \DateTime
      */
-    public function getUpdatedat(): \DateTime
+    public function getUpdatedat()
     {
         return $this->updatedat;
     }
@@ -603,16 +603,39 @@ class Tire
 
     public function setInitialDepth(TireDepth $depth)
     {
-        dump($this->getDepths());
         $depth->setTire($this);
-        $this->addDepth($depth);
-        $this->tireDepthTemp = $depth;
-        dump($this->getDepths());
+        if($this->depths->count() > 0) {
+            $this->depths[0] = $depth;
+        } else {
+            $this->addDepth($depth);
+        }
+        return $this;
     }
 
     public function getInitialDepth()
     {
-        return $this->tireDepthTemp;
+        if($this->depths->count() > 0) {
+            return $this->depths[0];
+        }
+        return new TireDepth();
+    }
+
+    public function getInitialObservation()
+    {
+        if($this->observations->count() > 0) {
+            return $this->observations[0];
+        }
+        return "";
+    }
+
+    public function setInitialObservation($observation)
+    {
+        if($this->observations->count() > 0) {
+            $this->observations[0]->setObservation($observation);
+        } else {
+            $this->setObservation($observation);
+        }
+        return $this;
     }
 
 //    public function setDepth($depth)

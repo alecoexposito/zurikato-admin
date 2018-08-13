@@ -16,11 +16,31 @@ var customjs = {
                 $(this).closest("tr").find("td div.form-group").show();
             });
         }
+    },
+    editNeumatic: {
+        init: function() {
+            if(jQuery(".edit-neumatico").length == 0)
+                return;
+            var tipo = jQuery("#neumatico_type").val();
+            if(tipo != "Renovado") {
+                jQuery("#neumatico_renovatedNumber").parent().hide();
+            }
+            jQuery("#neumatico_type").change(function() {
+                var tipo = jQuery("#neumatico_type").val();
+                if(tipo != "Renovado") {
+                    jQuery("#neumatico_renovatedNumber").parent().hide();
+                } else {
+                    jQuery("#neumatico_renovatedNumber").parent().show();
+                }
+
+            });
+        }
     }
 };
 jQuery(document).ready(function() {
     customjs.createEditVehicle.init();
     customjs.addTireDepth.init();
+    customjs.editNeumatic.init();
 
     jQuery(".app-select2").select2();
 
