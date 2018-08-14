@@ -823,7 +823,7 @@ class AdminController extends BaseAdminController
     {
         $id = $this->request->query->get('id');
 
-        return $this->redirectToRoute('tires_vehicle', array(
+        return $this->redirectToRoute('tires_vehicle_information', array(
             'id' => $id,
         ));
 
