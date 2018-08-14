@@ -31,7 +31,7 @@ easy_admin:
           - { property: 'route', label: 'Ruta', css_class: 'col-lg-4' }
           - { property: 'odometer', label: 'Odómetro', css_class: 'col-lg-4' }
           - { type: 'group', label: 'Asignar dispositivo', icon: 'podcast', css_class: 'col-lg-8' }
-          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-12' }
+          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-12', type_options: { block_name: 'custom_device' } }
           - { type: 'group', label: 'Foto', icon: 'camera', css_class: 'col-lg-4' }
           - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-12' }
 

@@ -14,7 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * Vehicle
  *
  * @ORM\Table(name="vehicle")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\VehicleRepository")
  * @Vich\Uploadable
  */
 class Vehicle
@@ -493,6 +493,18 @@ class Vehicle
             $this->updatedat = new \DateTime('now');
         }
         return $this;
+    }
+
+    public function getPositions()
+    {
+        /**
+         * @var Tire $tire
+         */
+        $positions = array();
+        foreach ($this->tires as $index => $tire) {
+            $positions[] = $tire->getPosition();
+        }
+        return $positions;
     }
 
 }

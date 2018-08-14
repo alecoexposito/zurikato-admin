@@ -47,6 +47,7 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+
     /**
      * @param Tire $entity
      */
@@ -159,17 +160,17 @@ class AdminController extends BaseAdminController
      */
     public function updateVehiculoEntity($entity)
     {
-        $allEmployees = $this->getEm()->getRepository("App\Entity\Employee")->findBy(array(
-            'vehicle' => $entity->getId()
-        ));
-        foreach ($allEmployees as $index => $emp) {
-            $emp->setVehicle(null);
-            $this->getEm()->merge($emp);
-        }
-        $employees = $entity->getEmployees();
-        foreach ($employees as $index => $employee) {
-            $employee->setVehicle($entity);
-        }
+//        $allEmployees = $this->getEm()->getRepository("App\Entity\Employee")->findBy(array(
+//            'vehicle' => $entity->getId()
+//        ));
+//        foreach ($allEmployees as $index => $emp) {
+//            $emp->setVehicle(null);
+//            $this->getEm()->merge($emp);
+//        }
+//        $employees = $entity->getEmployees();
+//        foreach ($employees as $index => $employee) {
+//            $employee->setVehicle($entity);
+//        }
         parent::updateEntity($entity);
         return $this->redirectToRoute('easyadmin', array(
             'action' => 'list',

@@ -31,7 +31,7 @@ easy_admin:
           - { property: 'netPrice', label: 'Precio neto' }
           - { property: 'dot', label: 'DOT' }
           - { property: 'controlTag', label: 'Tag' }
-          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'vehicleAndPos', label: 'Vehículo' }
           - { property: 'observations', label: 'Observaciones' }
     AgregarProfundidad:
       class: App\Entity\Tire
@@ -121,7 +121,7 @@ easy_admin:
       form:
         title: 'Asignar neumático a vehículo'
         fields:
-          - { property: 'vehicle', css_class: 'col-lg-6', label: 'Vehículo', type_options: {required: true} }
+          - { property: 'vehicle', css_class: 'col-lg-6', label: 'Vehículo', type_options: {required: true, block_name: 'custom_vehicle' } }
           - { property: 'position', label: 'Posición', css_class: 'col-lg-4', type_options: {required: true, block_name: 'custom_position' } }
           - { property: 'observation', label: 'Observación', css_class: 'col-lg-10' }
     Neumatico:
@@ -147,7 +147,7 @@ easy_admin:
           - { property: 'netPrice', label: 'Precio neto' }
           - { property: 'dot', label: 'DOT' }
           - { property: 'controlTag', label: 'Tag' }
-          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'vehicleAndPos', label: 'Vehículo' }
           - { property: 'observations', label: 'Observaciones' }
       new:
         actions: ['-list']
@@ -182,7 +182,7 @@ easy_admin:
           - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
           - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
           - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { block_name: 'custom_tag', query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { block_name: 'custom_tag' } }
           - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
           - { property: 'initialObservation', label: ' ' }
     NeumaticoRenovado:

@@ -10,7 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * Devices
  *
  * @ORM\Table(name="devices", indexes={@ORM\Index(name="idDeviceModel", columns={"idDeviceModel"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\DeviceRepository")
  * @Vich\Uploadable
  */
 class Device

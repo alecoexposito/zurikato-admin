@@ -1,10 +1,37 @@
 var customjs = {
+    assignVehicle: {
+        originalHtml: jQuery("#asignar_position").html(),
+        init: function() {
+            if($(".edit-asignar").length == 0)
+                return;
+            customjs.assignVehicle.setPositions();
+            jQuery("#asignar_vehicle").change(function() {
+                customjs.assignVehicle.initializePositions();
+                customjs.assignVehicle.setPositions();
+            });
+        },
+        setPositions: function() {
+            var valueOption = jQuery("#asignar_vehicle").val();
+            var positions = jQuery("option[value=" + valueOption + "]").attr("positions");
+            positions = JSON.parse(positions);
+            console.log(positions);
+            jQuery("#asignar_position option").each(function(elem) {
+                var optionText = $(this).html();
+                if($.inArray(optionText, positions) != -1){
+                    $(this).remove();
+                }
+            });
+        },
+        initializePositions: function() {
+            jQuery("#asignar_position").html(customjs.assignVehicle.originalHtml);
+        }
+    },
     createEditVehicle: {
         init: function() {
             if($(".edit-vehiculo").length == 0)
                 return;
             // jQuery("#vehiculo_employees").find("option")
-            jQuery("#vehiculo_employees").select2();
+            // jQuery("#vehiculo_employees").select2();
         }
     },
     addTireDepth: {
@@ -41,6 +68,7 @@ jQuery(document).ready(function() {
     customjs.createEditVehicle.init();
     customjs.addTireDepth.init();
     customjs.editNeumatic.init();
+    customjs.assignVehicle.init();
 
     jQuery(".app-select2").select2();
 

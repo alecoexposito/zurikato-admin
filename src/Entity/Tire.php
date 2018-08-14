@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tire
  *
  * @ORM\Table(name="tire")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TireRepository")
  */
 class Tire
 {
@@ -636,6 +636,15 @@ class Tire
             $this->setObservation($observation);
         }
         return $this;
+    }
+
+    public function getVehicleAndPos()
+    {
+        if(is_null($this->vehicle))
+            return "-";
+        else {
+            return $this->vehicle . "(" . $this->getPosition() . ")";
+        }
     }
 
 //    public function setDepth($depth)
