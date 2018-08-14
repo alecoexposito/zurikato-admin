@@ -231,4 +231,4 @@ easy_admin:
         fields:
           - { property: 'rfid', label: 'RFID', css_class: 'col-lg-4'}
           - { property: 'internalCode', label: 'Codigo Interno', css_class: 'col-lg-4'}
-          - { property: 'tire', label: 'Neumático', css_class: 'col-lg-4'}
+#          - { property: 'tire', label: 'Neumático', css_class: 'col-lg-4'}
