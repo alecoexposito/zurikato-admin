@@ -36,6 +36,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class AdminController extends BaseAdminController
 {
@@ -826,10 +830,59 @@ class AdminController extends BaseAdminController
     public function tiresVehiclesAction($id)
     {
         $vehicle = $this->getEm()->getRepository('App\Entity\Vehicle')->find($id);
+        $arrayIdTags = array(1);
+
+        $returnTires = array();
+        $vehicleTires = $vehicle->getTires();
+        $state = '1'; //comentar los estados ke estoy usando
+
+        foreach ($vehicleTires as $tire){
+            $tag = $tire->getControlTag();
+            if($tag != null) {
+                $inArray = in_array($tag->getId(), $arrayIdTags);
+                if ($inArray == true) {
+                    $state = '1';//Neumático con tag ok
+                } else if ($inArray == false) {
+                    $state = '0';//Neumático que tiene tag pero no es un tag autorizado
+                }
+            }else {
+                $state = '2';//Neumático sin tag
+            }
+            $returnTires[(string)$tire->getPosition()] = [$state,$tire];
+        }
+
         return array(
-            'vehicle' => $vehicle
+            'vehicle' =>  $vehicle,
+            'tires' => $returnTires
         );
     }
 
+    /**
+     * @Route("/vehicle/tiresinformation/{id}", name="tires_vehicle_information")
+     * @Template("tires_vehicle_information.html.twig")
+     */
+    public function tiresVehiclesInformationAction($id)
+    {
+        $vehicle = $this->getEm()->getRepository('App\Entity\Vehicle')->find($id);
+
+        $returnTires = array();
+        $vehicleTires = $vehicle->getTires();
+        $state = '1'; //comentar los estados ke estoy usando
+
+        foreach ($vehicleTires as $tire){
+            $tag = $tire->getControlTag();
+            if($tag != null) {
+                    $state = '1';//Neumático con tag ok
+            }else {
+                $state = '2';//Neumático sin tag
+            }
+            $returnTires[(string)$tire->getPosition()] = [$state,$tire];
+        }
+
+        return array(
+            'vehicle' =>  $vehicle,
+            'tires' => $returnTires
+        );
+    }
 
 }
