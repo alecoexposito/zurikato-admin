@@ -1,5 +1,51 @@
 easy_admin:
   entities:
+    AgregarProfundidad2:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      edit:
+        title: 'Agregar profundidad'
+        actions: ["-list"]
+        fields:
+          - { type: 'group', label: 'Profundidad', icon: 'thermometer', css_class: 'col-lg-6' }
+          - { property: 'initialDepth', label: ' ', type: 'App\Form\TireDepthType', type_options: { block_name: 'custom_profundidad' } }
+          - { type: 'group', label: 'Profundidades existentes', icon: 'thermometer', css_class: 'col-lg-12' }
+          - { property: 'depths', css_class: 'col-lg-12', label: ' ', type: 'collection', type_options: { entry_type: 'App\Form\TireDepthType', by_reference: false, block_name: 'custom_profundidades', allow_add: true }}
+    NeumaticosVehiculo:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'edit', 'delete']
+#      templates:
+#        list: 'easyadmin/neumatico/list.html.twig'
+      list:
+        title: 'Neumaticos del vehiculo'
+#        dql_filter: "entity.status = 'Activo'"
+        actions:
+          - { name: 'agregarprofundidad2', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
+        fields:
+          - { property: 'type', label: 'Tipo' }
+          - { property: 'brand', label: 'Marca' }
+          - { property: 'serial', label: 'No. Serie' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text' }
+          - { property: 'measure', label: 'Medidas' }
+          - { property: 'warranty', label: 'Garantía/Vida útil' }
+          - { property: 'netPrice', label: 'Precio neto' }
+          - { property: 'dot', label: 'DOT' }
+          - { property: 'controlTag', label: 'Tag' }
+          - { property: 'vehicleAndPos', label: 'Vehículo' }
+          - { property: 'observations', label: 'Observaciones' }
+    AgregarProfundidad:
+      class: App\Entity\Tire
+      disabled_actions: ['new', 'delete']
+      edit:
+        title: 'Agregar profundidad'
+        actions: ["-list"]
+        fields:
+          - { type: 'group', label: 'Profundidad', icon: 'thermometer', css_class: 'col-lg-6' }
+          - { property: 'initialDepth', label: ' ', type: 'App\Form\TireDepthType', type_options: { block_name: 'custom_profundidad' } }
+          - { type: 'group', label: 'Profundidades existentes', icon: 'thermometer', css_class: 'col-lg-12' }
+          - { property: 'depths', css_class: 'col-lg-12', label: ' ', type: 'collection', type_options: { entry_type: 'App\Form\TireDepthType', by_reference: false, block_name: 'custom_profundidades', allow_add: true }}
+#          - { type: 'group', label: 'Agrega una observación al neumático', icon: 'document', css_class: 'col-lg-6' }
+#          - { property: 'observation', label: ' ' }
     Baja:
       class: App\Entity\Tire
       disabled_actions: ['new', 'delete']
@@ -30,7 +76,7 @@ easy_admin:
         actions:
           - { name: '-new' }
           - { name: '-delete', icon: 'refresh', label: '' }
-          - { name: 'renewedAlta', icon: 'truck', label: '' }
+#          - { name: 'renewedAlta', icon: 'truck', label: '' }
         fields:
           - { property: 'brand', label: 'Marca' }
           - { property: 'serial', label: 'No. Serie' }
@@ -39,6 +85,7 @@ easy_admin:
           - { property: 'warranty', label: 'Garantía/Vida útil' }
           - { property: 'netPrice', label: 'Precio neto' }
           - { property: 'observations', label: 'Observaciones' }
+          - { property: 'backRenovated', label: 'Regresado' }
       edit:
         title: 'Enviar a renovar'
         fields:
@@ -70,13 +117,13 @@ easy_admin:
     Asignar:
       class: App\Entity\Tire
       actions: ['edit']
-      disabled_actions: ['list']
+#      disabled_actions: ['list']
       form:
         title: 'Asignar neumático a vehículo'
         fields:
-          - { property: 'vehicle', css_class: 'col-lg-6', label: 'Vehículo', type_options: {required: true} }
-          - { property: 'position', label: 'Posición', css_class: 'col-lg-6', type_options: {required: true} }
-          - { property: 'observation', label: 'Observación', css_class: 'col-lg-6' }
+          - { property: 'vehicle', css_class: 'col-lg-6', label: 'Vehículo', type_options: {required: true, block_name: 'custom_vehicle' } }
+          - { property: 'position', label: 'Posición', css_class: 'col-lg-4', type_options: {required: true, block_name: 'custom_position' } }
+          - { property: 'observation', label: 'Observación', css_class: 'col-lg-10' }
     Neumatico:
       class: App\Entity\Tire
       templates:
@@ -89,6 +136,7 @@ easy_admin:
           - { name: 'asignar', icon: 'truck', label: '' }
           - { name: 'adeposito', icon: 'send', label: '' }
           - { name: 'new', label: 'Alta Nuevo/Usado' }
+          - { name: 'agregarprofundidad', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
         fields:
           - { property: 'type', label: 'Tipo' }
           - { property: 'brand', label: 'Marca' }
@@ -99,9 +147,9 @@ easy_admin:
           - { property: 'netPrice', label: 'Precio neto' }
           - { property: 'dot', label: 'DOT' }
           - { property: 'controlTag', label: 'Tag' }
-          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'vehicleAndPos', label: 'Vehículo' }
           - { property: 'observations', label: 'Observaciones' }
-      form:
+      new:
         actions: ['-list']
         title: 'Dar de alta a neumático nuevo/usado'
         fields:
@@ -113,24 +161,30 @@ easy_admin:
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4' }
-          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
-          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
-
+          - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
+          - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
+          - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'observation', label: ' ' }
       edit:
         title: 'Editar neumático'
         fields:
           - { property: 'type', css_class: 'col-lg-4', label: 'Tipo', type_options: { block_name: 'custom_type_all' } }
           - { property: 'brand', label: 'Marca', css_class: 'col-lg-4' }
-          - { property: 'serial', label: 'No. rie', css_class: 'col-lg-4' }
+          - { property: 'serial', label: 'No. serie', css_class: 'col-lg-4' }
           - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-4' }
           - { property: 'measure', label: 'Medidas', css_class: 'col-lg-4' }
           - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-4' }
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-4', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
-          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
-          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
+          - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-2' }
+          - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
+          - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
+          - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { block_name: 'custom_tag' } }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'initialObservation', label: ' ' }
     NeumaticoRenovado:
       class: App\Entity\Tire
       disabled_actions: ['list']
@@ -146,7 +200,7 @@ easy_admin:
           - { property: 'dot', label: 'DOT' }
           - { property: 'renovatedNumber', label: 'Número de renovado' }
           - { property: 'controlTag', label: 'Tag' }
-      form:
+      new:
         actions: ['-list']
         title: 'Dar de alta a neumático renovado'
         fields:
@@ -159,10 +213,12 @@ easy_admin:
           - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-4' }
           - { property: 'dot', label: 'DOT', css_class: 'col-lg-4' }
           - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-2' }
-          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-2' }
-          - { property: 'depths', css_class: 'col-lg-8', label: 'Profundidades', type: 'collection', type_options: { entry_type: App\Form\TireDepthType, by_reference: false }}
-          - { property: 'observations', css_class: 'col-lg-8', label: 'Observaciones', type: 'collection', type_options: { entry_type: App\Form\TireObservationType, by_reference: false }}
-
+          - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-4' }
+          - { property: 'initialDepth', label: 'Profundidad Inicial', css_class: 'col-lg-12', type: 'App\Form\TireDepthType' }
+          - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-12', type_options: { query_builder: ['App\Repository\TagsRepository', 'available'] } }
+          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-4' }
+          - { property: 'observation', label: ' ' }
     Tag:
       class: App\Entity\ControlTag
       list:

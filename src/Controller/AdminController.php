@@ -14,6 +14,7 @@ use App\Entity\Device;
 use App\Entity\Group;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
+use App\Entity\TireDepth;
 use App\Entity\UserDevice;
 use App\Entity\Vehicle;
 use App\Repository\DeviceRepository;
@@ -22,7 +23,9 @@ use Doctrine\DBAL\Types\SimpleArrayType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -44,35 +47,158 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+
+    /**
+     * @param Tire $entity
+     */
+    public function updateDepositoEntity($entity)
+    {
+        $entity->setVehicle(null);
+        parent::updateEntity($entity);
+    }
+
+    public function listAgregarProfundidad2Action()
+    {
+//        return $this->redirectToReferrer();
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Vehiculo',
+        ));
+    }
+
+    public function agregarprofundidad2Action()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'AgregarProfundidad2',
+        ));
+    }
+
+    public function listNeumaticosVehiculoAction()
+    {
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['list']['dql_filter'] = "entity.vehicle = " . $this->request->query->get("idVehicle");
+        }
+        return parent::listAction();
+    }
+
+    public function vehicleTiresListAction()
+    {
+        $id = $this->request->query->get('id');
+//        $entity = $this->em->getRepository('App\Entity\Vehicle')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'NeumaticosVehiculo',
+            'idVehicle' => $id
+        ));
+    }
+
+    public function listAsignarAction()
+    {
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
+    }
+
+    public function getAgregarProfundidadFormOptions($entity, $view)
+    {
+        $formOptions = parent::getEntityFormOptions($entity, $view);
+        $formOptions["allow_extra_fields"] = true;
+        return $formOptions;
+    }
+
+    public function agregarprofundidadAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Tire')->find($id);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'AgregarProfundidad',
+        ));
+    }
+    /**
+     * @param Vehicle $vehicle
+     */
+    public function removeVehiculoEntity($vehicle)
+    {
+        foreach ($vehicle->getTires() as $index => $tire) {
+            $tire->setVehicle(null);
+        }
+        foreach ($vehicle->getEmployees() as $index => $employee) {
+            $employee->setVehicle(null);
+        }
+        $vehicle->setDevice(null);
+        parent::removeEntity($vehicle);
+    }
+
+    public function updateAgregarProfundidadEntity($tire)
+    {
+        $this->setObservationsAndDepthsToTire($tire);
+        parent::updateEntity($tire);
+
+    }
+
+    public function listAgregarProfundidadAction()
+    {
+//        return $this->redirectToReferrer();
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
+    }
+
     /**
      * @param Vehicle $entity
      */
     public function updateVehiculoEntity($entity)
     {
-        $employees = $entity->getEmployees();
-        foreach ($employees as $index => $employee) {
-            $employee->setVehicle($entity);
-        }
+//        $allEmployees = $this->getEm()->getRepository("App\Entity\Employee")->findBy(array(
+//            'vehicle' => $entity->getId()
+//        ));
+//        foreach ($allEmployees as $index => $emp) {
+//            $emp->setVehicle(null);
+//            $this->getEm()->merge($emp);
+//        }
+//        $employees = $entity->getEmployees();
+//        foreach ($employees as $index => $employee) {
+//            $employee->setVehicle($entity);
+//        }
         parent::updateEntity($entity);
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Neumatico',
+        ));
     }
+
     public function createVehiculoEntityFormBuilder($entity, $view)
     {
         $formBuilder = parent::createEntityFormBuilder($entity, $view);
 
         $id = (null !== $entity->getId()) ? $entity->getId() : 0;
         $qb = $this->getEm()->createQueryBuilder();
-        $qb->select('e')
-            ->from('App\Entity\Employee', 'e')
-            ->leftJoin('e.vehicle', 'v')
-            ->where('v is null')
-            ->orWhere('v.id = :id');
-        $qb->setParameter('id', $id);
-        $formBuilder->add('employees', EntityType::class, array(
-                'class' => 'App\Entity\Employee',
-                'query_builder' => $qb,
-                'multiple' => true,
-            )
-        );
+//        $qb->select('e')
+//            ->from('App\Entity\Employee', 'e')
+//            ->leftJoin('e.vehicle', 'v')
+//            ->where('v is null')
+//            ->orWhere('v.id = :id');
+//        $qb->setParameter('id', $id);
+//        dump($formBuilder);
+//        $formBuilder->add('employees', EntityType::class, array(
+//                'class' => 'App\Entity\Employee',
+//                'query_builder' => $qb,
+//                'multiple' => true,
+//                'block_name' => 'custom_employees',
+//                'label' => ''
+//            )
+//        );
         return $formBuilder;
     }
 
@@ -543,7 +669,6 @@ class AdminController extends BaseAdminController
             $this->entity['list']['dql_filter'] = "entity.status = 'En depósito' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
-
     }
 
     public function listRenovarAction()
@@ -628,6 +753,59 @@ class AdminController extends BaseAdminController
         );
 
         return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
+
+    }
+
+    public function searchEmpleadoAction()
+    {
+        $qb = $this->getEm()->createQueryBuilder();
+        $qb->select('v')
+            ->from('App\Entity\Vehicle', 'v')
+            ->join('v.client', 'c')
+            ->where('c.id = :clientId');
+        $qb->setParameter("clientId", $this->getUser()->getId());
+        $vehicles = $qb->getQuery()->getResult();
+
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->entity['search']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
+        }
+        $this->dispatch(EasyAdminEvents::PRE_SEARCH);
+
+        $query = trim($this->request->query->get('query'));
+        // if the search query is empty, redirect to the 'list' action
+        if ('' === $query) {
+            $queryParameters = array_replace($this->request->query->all(), array('action' => 'list', 'query' => null));
+            $queryParameters = array_filter($queryParameters);
+
+            return $this->redirect($this->get('router')->generate('easyadmin', $queryParameters));
+        }
+
+        $searchableFields = $this->entity['search']['fields'];
+        $paginator = $this->findBy(
+            $this->entity['class'],
+            $query,
+            $searchableFields,
+            $this->request->query->get('page', 1),
+            $this->entity['list']['max_results'],
+            isset($this->entity['search']['sort']['field']) ? $this->entity['search']['sort']['field'] : $this->request->query->get('sortField'),
+            isset($this->entity['search']['sort']['direction']) ? $this->entity['search']['sort']['direction'] : $this->request->query->get('sortDirection'),
+            $this->entity['search']['dql_filter']
+        );
+        $fields = $this->entity['list']['fields'];
+
+        $this->dispatch(EasyAdminEvents::POST_SEARCH, array(
+            'fields' => $fields,
+            'paginator' => $paginator,
+        ));
+
+        $parameters = array(
+            'paginator' => $paginator,
+            'fields' => $fields,
+            'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            'vehicles' => $vehicles
+        );
+
+        return $this->executeDynamicMethod('render<EntityName>Template', array('search', $this->entity['templates']['list'], $parameters));
 
     }
 

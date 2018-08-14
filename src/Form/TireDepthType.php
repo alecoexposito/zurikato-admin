@@ -15,6 +15,7 @@ class TireDepthType extends AbstractType
             ->add('depthA',null, array('label' => 'Profundidad A'))
             ->add('depthB',null, array('label' => 'Profundidad B'))
             ->add('depthC',null, array('label' => 'Profundidad C'))
+            ->add('observation', null, array('label' => 'Observación'))
         ;
     }
 

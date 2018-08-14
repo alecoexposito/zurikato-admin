@@ -6,18 +6,22 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * Vehicle
  *
  * @ORM\Table(name="vehicle")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\VehicleRepository")
+ * @Vich\Uploadable
  */
 class Vehicle
 {
 
     /**
-     * @var Vehicle
+     * @var Device
      *
      * @ORM\OneToOne(targetEntity="Device", inversedBy="vehicle")
      * @ORM\JoinColumn(name="device_id", referencedColumnName="idDevice")
@@ -82,7 +86,7 @@ class Vehicle
 
     /**
      * @var Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="vehicle")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="vehicle", cascade="all")
      */
     protected $tires;
 
@@ -142,7 +146,7 @@ class Vehicle
     }
 
     /**
-     * @return Vehicle
+     * @return Device
      */
     public function getDevice()
     {
@@ -150,10 +154,10 @@ class Vehicle
     }
 
     /**
-     * @param Vehicle $device
+     * @param Device $device
      * @return Vehicle
      */
-    public function setDevice(Vehicle $device)
+    public function setDevice($device)
     {
         $this->device = $device;
         return $this;
@@ -408,7 +412,7 @@ class Vehicle
      */
     public function getEmployees()
     {
-        return $this->tires;
+        return $this->employees;
     }
 
     /**
@@ -431,7 +435,76 @@ class Vehicle
      */
     public function removeEmployee(Employee $employee)
     {
+        dump($employee);
         $this->employees->removeElement($employee);
+        $employee->setVehicle(null);
+    }
+
+    /**
+     * @ORM\Column(name="photo", type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $photo;
+
+    /**
+     * @Vich\UploadableField(mapping="vehicle_photo", fileNameProperty="photo")
+     * @var File
+     */
+    private $photoFile;
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        if (!is_null($this->photo))
+            return $this->photo;
+        else
+            return null;
+    }
+
+    /**
+     * @param mixed $photo
+     * @return Device
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
+
+    /**
+     * @param File $photoFile
+     * @return Device
+     */
+    public function setPhotoFile($photo)
+    {
+        $this->photoFile = $photo;
+        if ($photo) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedat = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getPositions()
+    {
+        /**
+         * @var Tire $tire
+         */
+        $positions = array();
+        foreach ($this->tires as $index => $tire) {
+            $positions[] = $tire->getPosition();
+        }
+        return $positions;
     }
 
 }

@@ -148,9 +148,9 @@ class Employee
     /**
      * @var Vehicle
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle", inversedBy="employees")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $vehicle;
@@ -555,6 +555,11 @@ class Employee
             return 'Femenino';
         if($this->sex == 'O')
             return 'Otro';
+    }
+
+    public function __toString()
+    {
+        return $this->alias;
     }
 
 

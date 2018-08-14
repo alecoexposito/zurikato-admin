@@ -2,9 +2,12 @@ easy_admin:
   entities:
     Vehiculo:
       class: App\Entity\Vehicle
+      templates:
+        edit: 'easyadmin/vehiculo/edit.html.twig'
       list:
         actions:
-          - { name: 'vehicleTires', icon: 'truck', label: '' }
+#          - { name: 'vehicleTires', icon: 'truck', label: '', title: 'Mapa del vehículo' }
+          - { name: 'vehicleTiresList', icon: 'thermometer', label: '', title: 'Agregar profundidad a neumatico' }
         fields:
           - { property: 'name', label: 'Nombre o número económico', type_options: { block_name: 'custom_type' } }
           - { property: 'plateNumber', label: 'Número de placa' }
@@ -15,6 +18,7 @@ easy_admin:
           - { property: 'odometer', label: 'Odómetro' }
           - { property: 'device', label: 'Dispositivo' }
           - { property: 'employees', label: 'Empleados' }
+          - { property: 'tires', label: 'Neumáticos' }
       form:
 #        actions: ['-list']
         title: 'Adicionar vehículo'
@@ -26,7 +30,15 @@ easy_admin:
           - { property: 'year', label: 'Año', css_class: 'col-lg-4' }
           - { property: 'route', label: 'Ruta', css_class: 'col-lg-4' }
           - { property: 'odometer', label: 'Odómetro', css_class: 'col-lg-4' }
-          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-4' }
-          - { property: 'employees', label: 'Empleados', css_class: 'col-lg-4' }
+          - { type: 'group', label: 'Asignar dispositivo', icon: 'podcast', css_class: 'col-lg-8' }
+          - { property: 'device', label: 'Dispositivo', css_class: 'col-lg-12', type_options: { block_name: 'custom_device' } }
+          - { type: 'group', label: 'Foto', icon: 'camera', css_class: 'col-lg-4' }
+          - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-12' }
+
       edit:
         title: 'Editar vehículo'
+#        fields:
+#          - { type: 'group', label: 'Empleados', icon: 'users', css_class: 'col-lg-12' }
+#          - { property: 'employees', label: ' ', css_class: 'col-lg-12', type_options: { by_reference: true, block_name: 'custom_employees', required: false } }
+#          - { type: 'group', label: 'Neumáticos', icon: 'truck', css_class: 'col-lg-12' }
+#          - { property: tires, label: ' ', type_options: { block_name: 'custom_neumaticos' } }

@@ -41,13 +41,66 @@ label.required::after {
     display: none;
 }
 
-#neumatico_depths [id*=neumatico_depths] div.form-group {
+#neumatico_depths [id*=neumatico_depths] div.form-group, #agregarprofundidad_depths [id*=agregarprofundidad_depths] div.form-group {
     width: 33.33333%;
     float: left;
     padding-right: 5px;
     /*margin-right: 5px;*/
 }
 
+#neumatico_initialDepth .field-number, #neumaticorenovado_initialDepth .field-number, #agregarprofundidad_initialDepth .field-number, #agregarprofundidad2_initialDepth .field-number {
+    width: 33.33333%;
+    float: left;
+    padding-right: 5px;
+}
+
 .field-collection-action {
     float: left;
+}
+
+.select2-selection__rendered li {
+    color: black !important;
+}
+.select2-selection {
+    border: 1px solid #d2d6de !important;
+    border-radius: 0 !important;
+    padding: 6px 12px !important;
+    height: 34px !important;
+}
+
+#easyadmin-list-Baja td .action-edit {
+    display: none;
+}
+
+#easyadmin-list-Renovar thead th:last-child {
+    display: none;
+}
+
+#easyadmin-list-Renovar tbody tr td:last-child {
+    display: none;
+}
+
+#easyadmin-list-Baja thead th:last-child {
+    display: none;
+}
+
+#easyadmin-list-Baja tbody tr td:last-child {
+    display: none;
+}
+
+#vehicle-tires-table thead th, #tire-depths-table thead th {
+    background-color: #EEE;
+}
+
+#tire-depths-table tr td div.form-group {
+    display: none;
+}
+
+#edit-agregarprofundidad-form .field-collection-action, #edit-agregarprofundidad2-form .field-collection-action {
+    display: none;
+}
+
+#neumatico_initialDepth_observation, label[for=neumatico_initialDepth_observation],
+#neumaticorenovado_initialDepth_observation, label[for=neumaticorenovado_initialDepth_observation]{
+    display: none;
 }

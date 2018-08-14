@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tire
  *
  * @ORM\Table(name="tire")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TireRepository")
  */
 class Tire
 {
@@ -27,6 +27,8 @@ class Tire
     const STATUS_IN_DEPOSIT = 'En deposito';
     const STATUS_TO_RENOVATE = 'Enviado a renovar';
     const STATUS_REMOVED = 'Dado de baja';
+
+    private $tireDepthTemp;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\TireObservation", mappedBy="tire", cascade={"persist", "merge", "remove"}, orphanRemoval=true)
@@ -125,16 +127,44 @@ class Tire
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $vehicle;
 
     /**
-     * @var integer
-     * @ORM\Column(name="position", type="integer", nullable=true)
+     * @var string
+     * @ORM\Column(name="position", type="string", length=4, nullable=true)
      */
     private $position;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="back_renovated", type="boolean", nullable=false, options={"default" = 0})
+     */
+    private $backRenovated;
+
+    /**
+     * @return bool
+     */
+    public function isBackRenovated()
+    {
+        return $this->backRenovated;
+    }
+
+    /**
+     * @param boolean $backRenovated
+     * @return Tire
+     */
+    public function setBackRenovated($backRenovated): Tire
+    {
+        $this->backRenovated = $backRenovated;
+        return $this;
+    }
+
+
+
 
     /**
      * @var \DateTime
@@ -166,6 +196,8 @@ class Tire
         $this->observations = new ArrayCollection();
         $this->status = Tire::STATUS_ACTIVE;
         $this->depths = new ArrayCollection();
+        $this->setBackRenovated(false);
+        $this->tireDepthTemp = new TireDepth();
     }
 
     /**
@@ -243,7 +275,7 @@ class Tire
     /**
      * @return \DateTime
      */
-    public function getCreatedat(): \DateTime
+    public function getCreatedat()
     {
         return $this->createdat;
     }
@@ -261,7 +293,7 @@ class Tire
     /**
      * @return \DateTime
      */
-    public function getUpdatedat(): \DateTime
+    public function getUpdatedat()
     {
         return $this->updatedat;
     }
@@ -386,6 +418,8 @@ class Tire
 
     public function __toString()
     {
+        if(is_null($this->serial))
+            return "";
         return $this->getSerial();
     }
 
@@ -401,14 +435,14 @@ class Tire
      * @param Vehicle $vehicle
      * @return Tire
      */
-    public function setVehicle(Vehicle $vehicle): Tire
+    public function setVehicle($vehicle): Tire
     {
         $this->vehicle = $vehicle;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getPosition()
     {
@@ -416,7 +450,7 @@ class Tire
     }
 
     /**
-     * @param int $position
+     * @param string $position
      * @return Tire
      */
     public function setPosition($position)
@@ -567,5 +601,62 @@ class Tire
         $this->depths->removeElement($depth);
     }
 
+    public function setInitialDepth(TireDepth $depth)
+    {
+        $depth->setTire($this);
+        if($this->depths->count() > 0) {
+            $this->depths[0] = $depth;
+        } else {
+            $this->addDepth($depth);
+        }
+        return $this;
+    }
 
+    public function getInitialDepth()
+    {
+        if($this->depths->count() > 0) {
+            return $this->depths[0];
+        }
+        return new TireDepth();
+    }
+
+    public function getInitialObservation()
+    {
+        if($this->observations->count() > 0) {
+            return $this->observations[0];
+        }
+        return "";
+    }
+
+    public function setInitialObservation($observation)
+    {
+        if($this->observations->count() > 0) {
+            $this->observations[0]->setObservation($observation);
+        } else {
+            $this->setObservation($observation);
+        }
+        return $this;
+    }
+
+    public function getVehicleAndPos()
+    {
+        if(is_null($this->vehicle))
+            return "-";
+        else {
+            return $this->vehicle . "(" . $this->getPosition() . ")";
+        }
+    }
+
+//    public function setDepth($depth)
+//    {
+//        if(!is_null($depth)) {
+//            $this->addDepth($depth);
+//        }
+//        return $this;
+//    }
+//
+//    public function getDepth()
+//    {
+//        return "";
+//    }
 }

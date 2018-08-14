@@ -47,6 +47,15 @@ class TireDepth
     private $tire;
 
     /**
+     * TireDepth constructor.
+     */
+    public function __construct()
+    {
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
+    }
+
+    /**
      * @return \DateTime
      */
     public function getCreatedat()
@@ -138,6 +147,33 @@ class TireDepth
      * @ORM\Column(name="depth_c", type="float")
      */
     private $depthC;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observation", type="string", nullable=true)
+     */
+    private $observation;
+
+    /**
+     * @return string
+     */
+    public function getObservation()
+    {
+        return $this->observation;
+    }
+
+    /**
+     * @param string $observation
+     * @return TireDepth
+     */
+    public function setObservation($observation): TireDepth
+    {
+        $this->observation = $observation;
+        return $this;
+    }
+
+
 
     /**
      * @return float

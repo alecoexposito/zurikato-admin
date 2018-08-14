@@ -10,6 +10,8 @@ easy_admin:
             - { name: 'edit', icon: 'pencil', label: '' }
             - { name: 'delete', icon: 'trash', label: '' }
     design:
+        templates:
+          list: 'easyadmin/default/list.html.twig'
         form_theme:
             - 'vertical'
             - 'easyadmin/form/fields.html.twig'

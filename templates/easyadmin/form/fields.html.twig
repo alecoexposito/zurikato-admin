@@ -24,3 +24,264 @@
         </select>
     </div>
 {% endblock %}
+
+{% block _vehiculo_custom_employees_widget %}
+    {#{{ data.owner.id }}#}
+    {#{{ dump(choices[3].data.vehicle.id) }}#}
+    <select id="vehiculo_employees" name="vehiculo[employees][]" required="required"
+            class="form-control" multiple="multiple">
+        {% for key,choice in choices %}
+            {#{{ dump(choice.data.vehicle) }}#}
+            {% if data.owner is not defined and choice.data.vehicle is null %}
+                <option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>
+            {% elseif data.owner is defined and (choice.data.vehicle is null or choice.data.vehicle.id == data.owner.id) %}
+                <option value="{{ choice.value }}" {% if choice.data.vehicle is not null %} selected="selected" {% endif %}> {{ choice.label }}</option>
+            {% endif %}
+        {% endfor %}
+        {#{% for e in data %}#}
+        {#<option value="{{ e.id }}" {% if e.vehicle is not null %} selected="selected" class="vehicle-{{ e.vehicle.id }}" {% endif %}> {{ e }}</option>#}
+        {#{% endfor %}#}
+    </select>
+{% endblock %}
+
+{% block _vehiculo_custom_neumaticos_widget %}
+    {% if data.owner is defined %}
+        {% set vehicle = data.owner %}
+        <table id="vehicle-tires-table" class="table table-bordered">
+            <thead>
+            <th class="text-center">Tipo</th>
+            <th class="text-center">Marca</th>
+            <th class="text-center">No. Serie</th>
+            <th class="text-center">Código Interno</th>
+            <th class="text-center">Acciones</th>
+            </thead>
+            <tbody>
+            {% for tire in vehicle.tires %}
+                <tr>
+                    <td class="text-center">{{ tire.type }}</td>
+                    <td class="text-center">{{ tire.brand }}</td>
+                    <td class="text-center">{{ tire.serial }}</td>
+                    <td class="text-center">{{ tire.internalCode }}</td>
+                    <td class="text-center">
+                        <a class="" href="/admin/?action=edit&id={{ tire.id }}&entity=AgregarProfundidad"><i
+                                    class="fa fa-plus"></i></a></td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+
+{% block _asignar_custom_position_widget %}
+    <select id="asignar_position" name="asignar[position]" required="required" class="form-control app-select2"
+            data-widget="select-2">
+        {% for i in range(1, 22) %}
+
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+        <option value="R-1">R-1</option>
+        <option value="R-2">R-2</option>
+        <option value="R-3">R-3</option>
+    </select>
+{% endblock %}
+
+{% block _agregarprofundidad_custom_profundidades_widget %}
+    <table id="tire-depths-table" class="table table-bordered">
+        <thead>
+        <th class="text-center">Profundidad A</th>
+        <th class="text-center">Profundiad B</th>
+        <th class="text-center">Profundidad C</th>
+        <th class="text-center">Observación</th>
+        <th class="text-center">Fecha</th>
+        <th class="text-center">Editar</th>
+        </thead>
+        <tbody>
+        {% for depth in data %}
+            <tr>
+                <td class="text-center">
+                    <span>{{ depth.depthA }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthA"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthA]" type="text"
+                               value="{{ depth.depthA }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.depthB }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthB"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthB]" type="text"
+                               value="{{ depth.depthB }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.depthC }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthC"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthC]" type="text"
+                               value="{{ depth.depthC }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.observation }}</span>
+                    <div class="form-group field-text">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_observation"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][observation]" type="text"
+                               value="{{ depth.observation }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    {{ depth.createdat | date('m/d/Y H:m') }}
+                </td>
+                <td class="d-flex justify-content-center text-center">
+                    <button type="button" class="btn edit-depth-row" style="background-color: transparent;"><i
+                                class="fa fa-edit"></i></button>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block _agregarprofundidad_custom_profundidad_widget %}
+    <div id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}">
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-text col-lg-12"><label class="control-label">Observación</label><input
+                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation"
+                    name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
+                    class="form-control" type="text"></div>
+    </div>
+{% endblock %}
+
+
+{% block _agregarprofundidad2_custom_profundidades_widget %}
+    <table id="tire-depths-table" class="table table-bordered">
+        <thead>
+        <th class="text-center">Profundidad A</th>
+        <th class="text-center">Profundiad B</th>
+        <th class="text-center">Profundidad C</th>
+        <th class="text-center">Observación</th>
+        <th class="text-center">Fecha</th>
+        <th class="text-center">Editar</th>
+        </thead>
+        <tbody>
+        {% for depth in data %}
+            <tr>
+                <td class="text-center">
+                    <span>{{ depth.depthA }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthA"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthA]" type="text"
+                               value="{{ depth.depthA }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.depthB }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthB"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthB]" type="text"
+                               value="{{ depth.depthB }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.depthC }}</span>
+                    <div class="form-group field-number">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_depthC"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][depthC]" type="text"
+                               value="{{ depth.depthC }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span>{{ depth.observation }}</span>
+                    <div class="form-group field-text">
+                        <input id="agregarprofundidad_depths_{{ loop.index - 1 }}_observation"
+                               name="agregarprofundidad[depths][{{ loop.index - 1 }}][observation]" type="text"
+                               value="{{ depth.observation }}" class="form-control">
+                    </div>
+                </td>
+                <td class="text-center">
+                    {{ depth.createdat | date('m/d/Y H:m') }}
+                </td>
+                <td class="d-flex justify-content-center text-center">
+                    <button type="button" class="btn edit-depth-row" style="background-color: transparent;"><i
+                                class="fa fa-edit"></i></button>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block _agregarprofundidad2_custom_profundidad_widget %}
+    <div id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}">
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                A</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthA"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthA]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                B</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthB"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthB]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-number col-lg-4"><label class="control-label">Profundidad
+                C</label><input id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_depthC"
+                                name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][depthC]"
+                                class="form-control" type="text"></div>
+        <div class="form-group  field-text col-lg-12"><label class="control-label">Observación</label><input
+                    id="agregarprofundidad_depths_{{ easyadmin.item.depths | length }}_observation"
+                    name="agregarprofundidad[depths][{{ easyadmin.item.depths | length }}][observation]"
+                    class="form-control" type="text"></div>
+    </div>
+{% endblock %}
+
+{% block _neumatico_custom_tag_widget %}
+    <select id="neumatico_controlTag" name="neumatico[controlTag]" class="app-select2">
+        <option value="">Ninguno</option>
+        {% if form.vars.data is defined and form.vars.data is not null %}
+            <option value="{{ form.vars.data.id }}" selected>{{ form.vars.data.__toString() }}</option>
+        {% endif %}
+        {% for key,choice in choices %}
+            {% if choice.data.tire is null %}
+                <option value="{{ choice.value }}">{{ choice.label }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+{% endblock %}
+
+{% block _vehiculo_custom_device_widget %}
+    <select id="vehiculo_device" name="vehiculo[device]" class="app-select2">
+        <option value="">Ninguno</option>
+        {% if form.vars.data is defined and form.vars.data is not null %}
+            <option value="{{ form.vars.data.idDevice }}" selected>{{ form.vars.data.__toString() }}</option>
+        {% endif %}
+        {% for key,choice in choices %}
+            {% if choice.data.vehicle is null %}
+                <option value="{{ choice.value }}">{{ choice.label }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+{% endblock %}
+
+
+{% block _asignar_custom_vehicle_widget %}
+    {#{{ dump(choices) }}#}
+    <select id="asignar_vehicle" name="asignar[vehicle]" class="app-select2">
+        {% for key,choice in choices %}
+            <option value="{{ choice.value }}" positions="{{ choice.data.getPositions() | json_encode }}">{{ choice.label }}</option>
+        {% endfor %}
+    </select>
+{% endblock %}
