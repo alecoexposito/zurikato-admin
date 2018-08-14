@@ -171,6 +171,14 @@ class ControlTag
         return $this;
     }
 
+    public function getVehicleAndPos()
+    {
+        if(is_null($this->tire))
+            return "-";
+        else {
+            return $this->tire->getVehicleAndPos();
+        }
+    }
 
 
 

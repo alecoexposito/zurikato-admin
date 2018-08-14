@@ -418,9 +418,9 @@ class Tire
 
     public function __toString()
     {
-        if(is_null($this->serial))
-            return "";
-        return $this->getSerial();
+        if(is_null($this->internalCode))
+            return "-";
+        return $this->internalCode;
     }
 
     /**
