@@ -47,6 +47,13 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function updateAgregarProfundidad2Entity($tire)
+    {
+//        dump($tire);
+//        exit;
+        $this->setObservationsAndDepthsToTire($tire);
+        parent::updateEntity($tire);
+    }
 
     /**
      * @param Tire $entity
@@ -143,7 +150,6 @@ class AdminController extends BaseAdminController
     {
         $this->setObservationsAndDepthsToTire($tire);
         parent::updateEntity($tire);
-
     }
 
     public function listAgregarProfundidadAction()

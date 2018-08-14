@@ -226,6 +226,7 @@ easy_admin:
           - { property: 'rfid', label: 'RFID'}
           - { property: 'internalCode', label: 'Codigo Interno'}
           - { property: 'tire', label: 'Neumático'}
+          - { property: 'vehicleAndPos', label: Vehículo }
       form:
         fields:
           - { property: 'rfid', label: 'RFID', css_class: 'col-lg-4'}
