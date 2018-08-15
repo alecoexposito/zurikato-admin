@@ -156,9 +156,26 @@ label.required::after {
 .ti-tagExist span{
     background-color: #5bb75b !important;
 }
+.ti-tagExist-Orange{
+    background-color: orange !important;
+}
+.ti-tagExist-Orange span{
+    background-color: orange !important;
+}
+.ti-tag-Grey{
+    background-color: #888 !important;
+}
+.ti-tag-Grey span{
+    background-color: #888 !important;
+}
 .ti-setVisible{
     visibility: visible !important;
 }
+/*********end tires******************/
+/************************************/
+
+
+
 
 .select2-selection__rendered li {
     color: black !important;
