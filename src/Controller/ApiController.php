@@ -48,7 +48,7 @@ class ApiController extends FOSRestController
         $results = json_decode($body);
 //        echo count($results);
 //        return View::create($results, Response::HTTP_OK, [])->getResponse();
-        return new Response($serializer->serialize($body, "json"));
+        return new Response($serializer->serialize("{success: true}", "json"));
     }
 
 }
