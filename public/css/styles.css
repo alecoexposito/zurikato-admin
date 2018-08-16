@@ -66,7 +66,8 @@ label.required::after {
 #ti-container2-1 div, #ti-container2-2 div, #ti-container2-4 div,#ti-container2-5 div,
 #ti-container3-1 div, #ti-container3-2 div,#ti-container1-3 div, #ti-container2-3 div
 {
-    width: 80px;
+    max-width: 109px;
+    min-width: 109px;
     height: 34px;
     background-color: #999;
     margin: 2px;
@@ -78,7 +79,7 @@ label.required::after {
     color: #EEEEEE;
     text-align: center;
     font-weight: bold;
-    padding: 1px;
+    padding: 3px;
     font-size: 12px;
     vertical-align: top;
 
@@ -170,6 +171,11 @@ label.required::after {
 }
 .ti-setVisible{
     visibility: visible !important;
+}
+.ti-round div{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 /*********end tires******************/
 /************************************/
