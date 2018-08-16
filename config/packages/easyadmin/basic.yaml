@@ -20,6 +20,8 @@ easy_admin:
                 - '/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
                 - '/css/styles.css'
             js:
+                - '/js/socketcluster-client.min.js'
+                - '/js/custom-websocket.js'
                 - '/bootstrap-datepicker/js/bootstrap-datepicker.min.js'
                 - '/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'
                 - '/js/custom-js.js'
