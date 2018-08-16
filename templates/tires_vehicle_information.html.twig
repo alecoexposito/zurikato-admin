@@ -53,8 +53,8 @@
                 <div class="{% if tires['1'] is defined and tires['1'][0] == "1" %} {{ 'ti-tagExist-Orange ti-setVisible' }} {% elseif tires['1'] is defined and tires['1'][0] == "0" %}{{ 'ti-tagNoExist ti-setVisible' }}{% elseif tires['1'] is defined and tires['1'][0] == "2" %}{{ 'ti-setVisible ti-tag-Grey' }}{% endif %}">{% if tires['1'] is defined and tires['1'][1].internalCode is defined %}{{ tires['1'][1].internalCode }}{% else %}&nbsp;{% endif %}<span>1</span></div>
             </div>
             <div id = "ti-container3-2" class="ti-round">
-                {#<div class="{% if tires['2'] is defined and tires['2'][0] == "1" %} {{ 'ti-tagExist-Orange ti-setVisible' }} {% elseif tires['2'] is defined and tires['2'][0] == "0" %}{{ 'ti-tagNoExist ti-setVisible' }}{% elseif tires['2'] is defined and tires['2'][0] == "2" %}{{ 'ti-setVisible ti-tag-Grey' }}{% endif %}">{% if tires['2'] is defined and tires['2'][1].internalCode is defined %}{{ tires['2'][1].internalCode }}{% else %}&nbsp;{% endif %}<span>2</span></div>#}
-                <div class="ti-tagExist-Orange ti-setVisible">codigo interno 3<span>2</span></div>
+                <div class="{% if tires['2'] is defined and tires['2'][0] == "1" %} {{ 'ti-tagExist-Orange ti-setVisible' }} {% elseif tires['2'] is defined and tires['2'][0] == "0" %}{{ 'ti-tagNoExist ti-setVisible' }}{% elseif tires['2'] is defined and tires['2'][0] == "2" %}{{ 'ti-setVisible ti-tag-Grey' }}{% endif %}">{% if tires['2'] is defined and tires['2'][1].internalCode is defined %}{{ tires['2'][1].internalCode }}{% else %}&nbsp;{% endif %}<span>2</span></div>
+                {#<div class="ti-tagExist-Orange ti-setVisible">Codigo interno 3<span>2</span></div>#}
             </div>
         </div>
     </div>
