@@ -28,7 +28,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/admin/vehicle/2, role: IS_AUTHENTICATED_ANONYMOUSLY  }
         - { path: ^/admin/, role: ROLE_USER  }
-        - { path: ^/api/, role: ROLE_USER  }
+        - { path: ^/api/, role: IS_AUTHENTICATED_ANONYMOUSLY  }
 
 
 #    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
