@@ -180,6 +180,33 @@ class ControlTag
         }
     }
 
+    /**
+     * @var Client
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="client_id", referencedColumnName="idUser")
+     * })
+     */
+    private $client;
+
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param Client $client
+     * @return Vehicle
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+        return $this;
+    }
 
 
 }
