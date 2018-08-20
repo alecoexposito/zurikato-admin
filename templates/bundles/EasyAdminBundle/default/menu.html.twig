@@ -70,4 +70,7 @@
     {% endblock main_menu %}
 </ul>
 
-{% block main_menu_after %}{% endblock %}
+{% block main_menu_after %}
+    {{ parent() }}
+    <div id="antena-modal"></div>
+{% endblock %}
