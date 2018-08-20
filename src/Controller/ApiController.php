@@ -51,4 +51,27 @@ class ApiController extends FOSRestController
         return new Response($serializer->serialize("{success: true}", "json"));
     }
 
+    /**
+     * @Rest\Post("/resend", name="resend")
+     */
+    public function resend(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $body = $request->getContent();
+
+        $curl = curl_init("http://localhost:3007/api/v1/resend/");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt($curl, CURLOPT_POST,           1 );
+        curl_setopt($curl, CURLOPT_POSTFIELDS,     $body );
+//        curl_setopt($curl, CURLOPT_HTTPHEADER,     array('Content-Type: text/plain'));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($body))
+        );
+
+        $result = curl_exec($curl);
+//        $results = json_decode($body);
+        return new Response($body);
+    }
+
 }

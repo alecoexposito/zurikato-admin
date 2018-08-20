@@ -7,7 +7,7 @@ var customws = {
         // web sockets code
         var options = {
             secure: false,
-            hostname: 'localhost',
+            hostname: '187.162.125.161',
             port: 3007
         };
         var socket = socketCluster.connect(options);
