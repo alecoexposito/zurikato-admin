@@ -1,4 +1,10 @@
 {% extends '@EasyAdmin/default/list.html.twig' %}
+
+{% block delete_form %}
+    {{ parent() }}
+    <div id="antena-modal"></div>
+{% endblock %}
+
 {% block table_head %}
     <tr>
         <th class="string"><a href="#">#</a></th>
