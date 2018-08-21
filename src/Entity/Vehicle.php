@@ -507,4 +507,24 @@ class Vehicle
         return $positions;
     }
 
+    public function getTagsIds()
+    {
+        $result = array();
+        foreach ($this->getTires() as $index => $tire) {
+            if(is_object($tire->getControlTag()))
+                $result[] = $tire->getControlTag()->getId();
+        }
+        return $result;
+    }
+
+    public function getTagsRfids()
+    {
+        $result = array();
+        foreach ($this->getTires() as $index => $tire) {
+            if(is_object($tire->getControlTag()))
+                $result[] = $tire->getControlTag()->getRfid();
+        }
+        return $result;
+    }
+
 }

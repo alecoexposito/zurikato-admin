@@ -10,21 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
  * VehicleCheck
  *
  * @ORM\Table(name="vehicle_check")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\VehicleCheckRepository")
  */
-class Tire
+class VehicleCheck
 {
 
-    const STATUS_CURRENT = 'Actual';
-    const STATUS_PAUSED = 'Pausado';
-    const STATUS_ENDED = 'Terminado';
+    const STATUS_CURRENT = 'CURRENT';
+    const STATUS_PAUSED = 'PAUSED';
+    const STATUS_FINISHED = 'FINISHED';
+
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dot", type="string", nullable=true)
+     * @ORM\Column(name="arrived_tags", type="string", nullable=false)
      */
-    private $dot;
+    private $arrivedTags;
 
     /**
      * @var string
@@ -42,40 +44,6 @@ class Tire
      * })
      */
     private $vehicle;
-
-    /**
-     * @var string
-     * @ORM\Column(name="position", type="string", length=4, nullable=true)
-     */
-    private $position;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="back_renovated", type="boolean", nullable=false, options={"default" = 0})
-     */
-    private $backRenovated;
-
-    /**
-     * @return bool
-     */
-    public function isBackRenovated()
-    {
-        return $this->backRenovated;
-    }
-
-    /**
-     * @param boolean $backRenovated
-     * @return Tire
-     */
-    public function setBackRenovated($backRenovated): Tire
-    {
-        $this->backRenovated = $backRenovated;
-        return $this;
-    }
-
-
-
 
     /**
      * @var \DateTime
@@ -101,15 +69,14 @@ class Tire
     private $id;
 
     /**
-     * Tire constructor.
+     * VehicleCheck constructor.
      */
     public function __construct()
     {
-        $this->observations = new ArrayCollection();
-        $this->status = Tire::STATUS_ACTIVE;
-        $this->depths = new ArrayCollection();
-        $this->setBackRenovated(false);
-        $this->tireDepthTemp = new TireDepth();
+        $arrivedTagsArray = array();
+        $this->arrivedTags = json_encode($arrivedTagsArray);
+        $this->setCreatedat(new \DateTime());
+        $this->setUpdatedat(new \DateTime());
     }
 
     /**
@@ -122,65 +89,11 @@ class Tire
 
     /**
      * @param int $id
-     * @return Tire
+     * @return VehicleCheck
      */
     public function setId($id)
     {
         $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSerial()
-    {
-        return $this->serial;
-    }
-
-    /**
-     * @param string $serial
-     * @return Tire
-     */
-    public function setSerial(string $serial): Tire
-    {
-        $this->serial = $serial;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInternalCode()
-    {
-        return $this->internalCode;
-    }
-
-    /**
-     * @param string $internalCode
-     * @return Tire
-     */
-    public function setInternalCode(string $internalCode): Tire
-    {
-        $this->internalCode = $internalCode;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getNetPrice()
-    {
-        return $this->netPrice;
-    }
-
-    /**
-     * @param float $netPrice
-     * @return Tire
-     */
-    public function setNetPrice(float $netPrice): Tire
-    {
-        $this->netPrice = $netPrice;
         return $this;
     }
 
@@ -194,9 +107,9 @@ class Tire
 
     /**
      * @param \DateTime $createdat
-     * @return Tire
+     * @return VehicleCheck
      */
-    public function setCreatedat(\DateTime $createdat): Tire
+    public function setCreatedat(\DateTime $createdat): VehicleCheck
     {
         $this->createdat = $createdat;
         return $this;
@@ -212,127 +125,12 @@ class Tire
 
     /**
      * @param \DateTime $updatedat
-     * @return Tire
+     * @return VehicleCheck
      */
-    public function setUpdatedat(\DateTime $updatedat): Tire
+    public function setUpdatedat(\DateTime $updatedat): VehicleCheck
     {
         $this->updatedat = $updatedat;
         return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getWarranty()
-    {
-        return $this->warranty;
-    }
-
-    /**
-     * @param float $warranty
-     * @return Tire
-     */
-    public function setWarranty(float $warranty): Tire
-    {
-        $this->warranty = $warranty;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     * @return Tire
-     */
-    public function setType(string $type): Tire
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    /**
-     * @param string $brand
-     * @return Tire
-     */
-    public function setBrand(string $brand): Tire
-    {
-        $this->brand = $brand;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMeasure()
-    {
-        return $this->measure;
-    }
-
-    /**
-     * @param string $measure
-     * @return Tire
-     */
-    public function setMeasure(string $measure): Tire
-    {
-        $this->measure = $measure;
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getRenovatedNumber()
-    {
-        return $this->renovatedNumber;
-    }
-
-    /**
-     * @param integer $renovatedNumber
-     * @return Tire
-     */
-    public function setRenovatedNumber($renovatedNumber): Tire
-    {
-        $this->renovatedNumber = $renovatedNumber;
-        return $this;
-    }
-
-    /**
-     * @return ControlTag
-     */
-    public function getControlTag()
-    {
-        return $this->controlTag;
-    }
-
-    /**
-     * @param ControlTag $controlTag
-     * @return Tire
-     */
-    public function setControlTag($controlTag)
-    {
-        $this->controlTag = $controlTag;
-        return $this;
-    }
-
-    public function __toString()
-    {
-        if(is_null($this->internalCode))
-            return "-";
-        return $this->internalCode;
     }
 
     /**
@@ -345,95 +143,12 @@ class Tire
 
     /**
      * @param Vehicle $vehicle
-     * @return Tire
+     * @return VehicleCheck
      */
-    public function setVehicle($vehicle): Tire
+    public function setVehicle($vehicle): VehicleCheck
     {
         $this->vehicle = $vehicle;
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param string $position
-     * @return Tire
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDot()
-    {
-        return $this->dot;
-    }
-
-    /**
-     * @param string $dot
-     * @return Tire
-     */
-    public function setDot($dot)
-    {
-        $this->dot = $dot;
-        return $this;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getObservations()
-    {
-        return $this->observations;
-    }
-
-    /**
-     * Add observation
-     *
-     * @param TireObservation $observation
-     * @return Tire
-     */
-    public function addObservation(TireObservation $observation)
-    {
-        $this->observations[] = $observation;
-
-        return $this;
-    }
-
-    /**
-     * Remove observation
-     *
-     * @param TireObservation $observation
-     */
-    public function removeObservation(TireObservation $observation)
-    {
-        $this->observations->removeElement($observation);
-    }
-
-    public function setObservation($observation)
-    {
-        if(!is_null($observation)) {
-            $obs = new TireObservation();
-            $obs->setTire($this);
-            $obs->setObservation($observation);
-            $this->addObservation($obs);
-        }
-        return $this;
-    }
-
-    public function getObservation()
-    {
-        return "";
     }
 
     /**
@@ -446,129 +161,43 @@ class Tire
 
     /**
      * @param string $status
-     * @return Tire
+     * @return VehicleCheck
      */
-    public function setStatus(string $status): Tire
+    public function setStatus(string $status): VehicleCheck
     {
         $this->status = $status;
         return $this;
     }
 
     /**
-     * @var \App\Entity\Client
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Client")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_id", referencedColumnName="idUser")
-     * })
+     * @return string
      */
-    private $client;
-
-    /**
-     * @return Client
-     */
-    public function getClient()
+    public function getArrivedTags()
     {
-        return $this->client;
+        return $this->arrivedTags;
     }
 
     /**
-     * @param Client $client
-     * @return Tire
+     * @param string $arrivedTags
+     * @return VehicleCheck
      */
-    public function setClient($client): Tire
+    public function setArrivedTags(string $arrivedTags): VehicleCheck
     {
-        $this->client = $client;
+        $this->arrivedTags = $arrivedTags;
         return $this;
     }
 
     /**
-     * @return ArrayCollection
+     * @param array $tags
      */
-    public function getDepths()
+    public function addArrivedTags($tags)
     {
-        return $this->depths;
-    }
+        $arrivedTagsArray = json_decode($this->arrivedTags);
+        $matchedTags = array_intersect($tags, $this->vehicle->getTagsRfids());
 
-    /**
-     * Add depth
-     *
-     * @param TireDepth $depth
-     * @return Tire
-     */
-    public function addDepth(TireDepth $depth)
-    {
-        $this->depths[] = $depth;
-
+        $arrivedTagsArray = array_merge($arrivedTagsArray, $matchedTags);
+        $this->arrivedTags = json_encode($arrivedTagsArray);
         return $this;
     }
 
-    /**
-     * Remove depth
-     *
-     * @param TireDepth $depth
-     */
-    public function removeDepth(TireDepth $depth)
-    {
-        $this->depths->removeElement($depth);
-    }
-
-    public function setInitialDepth(TireDepth $depth)
-    {
-        $depth->setTire($this);
-        if($this->depths->count() > 0) {
-            $this->depths[0] = $depth;
-        } else {
-            $this->addDepth($depth);
-        }
-        return $this;
-    }
-
-    public function getInitialDepth()
-    {
-        if($this->depths->count() > 0) {
-            return $this->depths[0];
-        }
-        return new TireDepth();
-    }
-
-    public function getInitialObservation()
-    {
-        if($this->observations->count() > 0) {
-            return $this->observations[0];
-        }
-        return "";
-    }
-
-    public function setInitialObservation($observation)
-    {
-        if($this->observations->count() > 0) {
-            $this->observations[0]->setObservation($observation);
-        } else {
-            $this->setObservation($observation);
-        }
-        return $this;
-    }
-
-    public function getVehicleAndPos()
-    {
-        if(is_null($this->vehicle))
-            return "-";
-        else {
-            return $this->vehicle . "(" . $this->getPosition() . ")";
-        }
-    }
-
-//    public function setDepth($depth)
-//    {
-//        if(!is_null($depth)) {
-//            $this->addDepth($depth);
-//        }
-//        return $this;
-//    }
-//
-//    public function getDepth()
-//    {
-//        return "";
-//    }
 }

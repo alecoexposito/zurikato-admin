@@ -25,4 +25,14 @@ class VehicleRepository extends EntityRepository
 ////            ->from("App\Entity\Vehicle", "v")
 //            ->join('v.device', 'd');
 //    }
+
+    public function vehiclesWithTags($ids)
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->join('v.tires', 't')
+            ->join('t.controlTag', 'tag')
+            ->where('tag.id in (:ids)')
+            ->setParameter("ids", $ids);
+        return $qb->getQuery()->getResult();
+    }
 }
