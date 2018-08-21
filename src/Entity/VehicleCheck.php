@@ -194,10 +194,16 @@ class VehicleCheck
     {
         $arrivedTagsArray = json_decode($this->arrivedTags);
         $matchedTags = array_intersect($tags, $this->vehicle->getTagsRfids());
+        $result = false;
+        foreach ($matchedTags as $index => $matchedTag) {
+            if(!in_array($matchedTag, $arrivedTagsArray)) {
+                $arrivedTagsArray[] = $matchedTag;
+                $result = true;
+            }
 
-        $arrivedTagsArray = array_merge($arrivedTagsArray, $matchedTags);
+        }
         $this->arrivedTags = json_encode($arrivedTagsArray);
-        return $this;
+        return $result;
     }
 
 }

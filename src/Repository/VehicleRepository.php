@@ -31,7 +31,7 @@ class VehicleRepository extends EntityRepository
         $qb = $this->createQueryBuilder('v')
             ->join('v.tires', 't')
             ->join('t.controlTag', 'tag')
-            ->where('tag.id in (:ids)')
+            ->where('tag.rfid in (:ids)')
             ->setParameter("ids", $ids);
         return $qb->getQuery()->getResult();
     }

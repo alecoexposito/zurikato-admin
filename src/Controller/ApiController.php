@@ -39,7 +39,7 @@ class ApiController extends FOSRestController
          * @var VehicleCheck $existentVehicleCheck
          * @var VehicleCheckRepository $vehicleCheckRepository
          */
-        // getting the tags ids from body content
+        // getting the tags rfids from body content
         $body = $request->getContent();
         $tagsArray = json_decode($body);
 
@@ -55,9 +55,12 @@ class ApiController extends FOSRestController
                 'status' => array(VehicleCheck::STATUS_CURRENT, VehicleCheck::STATUS_PAUSED)
             ));
             if(is_object($existentVehicleCheck)) {
-                $existentVehicleCheck->addArrivedTags($tagsArray);
-                $existentVehicleCheck->setUpdatedat(new \DateTime());
-                $this->getDoctrine()->getManager()->merge($existentVehicleCheck);
+                $hasUpdated = $existentVehicleCheck->addArrivedTags($tagsArray);
+                if($hasUpdated) {
+                    $existentVehicleCheck->setUpdatedat(new \DateTime());
+                    $this->getDoctrine()->getManager()->merge($existentVehicleCheck);
+                    $this->sendVehicleCheckToSocket($existentVehicleCheck);
+                }
             } else {
                 $vehicleCheck = new VehicleCheck();
                 $vehicleCheck->setVehicle($vehicle);
@@ -68,16 +71,15 @@ class ApiController extends FOSRestController
             $this->getDoctrine()->getManager()->flush();
         }
         // if there isn't any current set to current next in pause
-        dump($vehicleCheckRepository->countCurrentVehicleChecks());
         if($vehicleCheckRepository->countCurrentVehicleChecks() == 0) {
             $vehicleCheckPaused = $vehicleCheckRepository->findBy(array(
                 'status' => VehicleCheck::STATUS_PAUSED
             ), array('id' => 'asc'), 1);
             if(count($vehicleCheckPaused) > 0) {
-                dump($vehicleCheckPaused);
                 $vehicleCheckPaused[0]->setStatus(VehicleCheck::STATUS_CURRENT);
                 $this->getDoctrine()->getManager()->merge($vehicleCheckPaused[0]);
                 $this->getDoctrine()->getManager()->flush();
+                $this->sendVehicleCheckToSocket($vehicleCheckPaused[0]);
             }
         }
 
@@ -135,6 +137,33 @@ class ApiController extends FOSRestController
         $result = curl_exec($curl);
 //        $results = json_decode($body);
         return new Response($body);
+    }
+
+    /**
+     * Sends data to nodejs webservice that sends data to socket
+     * @param $data
+     */
+    public function sendDataToSocket($data)
+    {
+        $curl = curl_init("http://localhost:3007/api/v1/resend/");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt($curl, CURLOPT_POST,           1 );
+        curl_setopt($curl, CURLOPT_POSTFIELDS,     $data );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data))
+        );
+        $result = curl_exec($curl);
+    }
+
+    public function sendVehicleCheckToSocket(VehicleCheck $vehicleCheck)
+    {
+        $data = array(
+            "vehicleCheckId" => $vehicleCheck->getId(),
+            "rfids" => json_decode($vehicleCheck->getArrivedTags()),
+            "status" => $vehicleCheck->getStatus()
+        );
+        $this->sendDataToSocket(json_encode($data));
     }
 
 }
