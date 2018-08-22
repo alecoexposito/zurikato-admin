@@ -7,8 +7,8 @@ var customws = {
         // web sockets code
         var options = {
             secure: false,
-            // hostname: '187.162.125.161',
-            hostname: 'localhost',
+            hostname: '187.162.125.161',
+            // hostname: 'localhost',
             port: 3007
         };
         var socket = socketCluster.connect(options);
@@ -20,7 +20,7 @@ console.log(data);
             localVehicleCheckId = $('#vehicleCheckId').val();
             socketVehicleCheckId = data.vehicleCheckId;
             console.log(localVehicleCheckId + ", " + socketVehicleCheckId);
-            if(localVehicleCheckId != socketVehicleCheckId) {
+            if(localVehicleCheckId == undefined || localVehicleCheckId != socketVehicleCheckId) {
                 //abrir el modal
 
                 $('#antena-modal-revisar-button').attr('href', $('#antena-modal-revisar-button').attr('href').replace('none',data.vehicleCheckId));

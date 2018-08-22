@@ -836,7 +836,12 @@ class AdminController extends BaseAdminController
     public function tiresVehiclesAction($id)
     {
         $vehicleCheck = $this->getEm()->getRepository('App\Entity\VehicleCheck')->find($id);
-        $arrayIdTags = array(1);
+        $arrayIdTags = [];
+        $arrivedTags = json_decode($vehicleCheck->getArrivedTags()) ;
+
+        foreach ($arrivedTags as $key => $arrivedTag) {
+            $arrayIdTags[] = $arrivedTag->getId();
+        }
 
         $returnTires = array();
         $vehicleTires = $vehicleCheck->getVehicle()->getTires();
