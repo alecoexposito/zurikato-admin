@@ -145,7 +145,7 @@ class ApiController extends FOSRestController
      */
     public function sendDataToSocket($data)
     {
-        $curl = curl_init("http://localhost:3007/api/v1/resend/");
+        $curl = curl_init("http://187.162.125.161:3007/api/v1/resend/");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1 );
         curl_setopt($curl, CURLOPT_POST,           1 );
         curl_setopt($curl, CURLOPT_POSTFIELDS,     $data );
