@@ -1,5 +1,23 @@
 {% extends '@EasyAdmin/default/layout.html.twig' %}
 {% block body %}
-    jeje
+    <div id="antena-modal" class="modal fade" role="dialog" aria-hidden="false" style="z-index:1140;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Un nuevo vehículo ha entrado en revisión.</h4>
+                    <p>Puede ir a la pantalla de revisión ahorita o ir mas tarde desde el menú.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn">
+                        Mas tarde
+                    </button>
+
+                    <a class="btn btn-primary" id="antena-modal-revisar-button" href="{{ path('tires_vehicle', {id:'none'}) }}">
+                        <i class="fa fa-arrow-right"></i>Revisar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     {{ parent() }}
 {% endblock %}

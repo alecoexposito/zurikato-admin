@@ -835,16 +835,20 @@ class AdminController extends BaseAdminController
      */
     public function tiresVehiclesAction($id)
     {
-        $vehicle = $this->getEm()->getRepository('App\Entity\Vehicle')->find($id);
+        $vehicleCheck = $this->getEm()->getRepository('App\Entity\VehicleCheck')->find($id);
         $arrayIdTags = array(1);
 
         $returnTires = array();
-        $vehicleTires = $vehicle->getTires();
+        $vehicleTires = $vehicleCheck->getVehicle()->getTires();
         $state = '1'; //comentar los estados ke estoy usando
+        $idTag = '-1';
+        $rfID = '-1';
 
         foreach ($vehicleTires as $tire){
             $tag = $tire->getControlTag();
             if($tag != null) {
+                $idTag = $tag->getId();
+                $rfID = $tag->getRfid();
                 $inArray = in_array($tag->getId(), $arrayIdTags);
                 if ($inArray == true) {
                     $state = '1';//Neumático con tag ok
@@ -853,12 +857,14 @@ class AdminController extends BaseAdminController
                 }
             }else {
                 $state = '2';//Neumático sin tag
+                $idTag = '-1';
+                $rfID = '-1';
             }
-            $returnTires[(string)$tire->getPosition()] = [$state,$tire];
+            $returnTires[(string)$tire->getPosition()] = [$state,$tire,$idTag,$rfID];
         }
 
         return array(
-            'vehicle' =>  $vehicle,
+            'vehicle' =>  $vehicleCheck,
             'tires' => $returnTires
         );
     }
