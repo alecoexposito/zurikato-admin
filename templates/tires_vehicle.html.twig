@@ -58,7 +58,7 @@
         </div>
     </div>
     {#{{ tires|length  }}#}
-    <input type="hidden" id="vehicleCheckId" name="vehicleCheck" value="-1">
+    <input type="hidden" id="vehicleCheckId" name="vehicleCheck" value="{{ vehicleCheckId }}">
 {% endblock %}
 
 {% block body_javascript %}

@@ -23,8 +23,17 @@ console.log(data);
             if(localVehicleCheckId == undefined || localVehicleCheckId != socketVehicleCheckId) {
                 //abrir el modal
 
-                $('#antena-modal-revisar-button').attr('href', $('#antena-modal-revisar-button').attr('href').replace('none',data.vehicleCheckId));
-                $('#antena-modal').modal();
+                var href = $('#antena-modal-revisar-button').attr('href');
+                var n = href.lastIndexOf('/');
+                s = href.substring(0, n != -1 ? n : s.length);
+
+                $('#antena-modal-revisar-button').attr('href',s + "/" + socketVehicleCheckId);
+                $('#antena-modal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+
+
             }
             else {//cambiar colores de los neumaticos ke llegan nuevos
                 //console.log(data)

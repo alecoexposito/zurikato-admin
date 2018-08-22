@@ -836,25 +836,23 @@ class AdminController extends BaseAdminController
     public function tiresVehiclesAction($id)
     {
         $vehicleCheck = $this->getEm()->getRepository('App\Entity\VehicleCheck')->find($id);
-        $arrayIdTags = [];
-        $arrivedTags = json_decode($vehicleCheck->getArrivedTags()) ;
+        $arrayRFIDS = [];
+        $arrivedRFIDS = json_decode($vehicleCheck->getArrivedTags()) ;
 
-        foreach ($arrivedTags as $key => $arrivedTag) {
-            $arrayIdTags[] = $arrivedTag->getId();
-        }
 
         $returnTires = array();
         $vehicleTires = $vehicleCheck->getVehicle()->getTires();
         $state = '1'; //comentar los estados ke estoy usando
         $idTag = '-1';
         $rfID = '-1';
+       // $arrayRFIDS = $vehicleCheck->getVehicle()->getTagsRfids();
 
         foreach ($vehicleTires as $tire){
             $tag = $tire->getControlTag();
             if($tag != null) {
                 $idTag = $tag->getId();
                 $rfID = $tag->getRfid();
-                $inArray = in_array($tag->getId(), $arrayIdTags);
+                $inArray = in_array($tag->getRfid(), $arrivedRFIDS);
                 if ($inArray == true) {
                     $state = '1';//Neumático con tag ok
                 } else if ($inArray == false) {
@@ -870,7 +868,8 @@ class AdminController extends BaseAdminController
 
         return array(
             'vehicle' =>  $vehicleCheck,
-            'tires' => $returnTires
+            'tires' => $returnTires,
+            'vehicleCheckId' => $id
         );
     }
 
