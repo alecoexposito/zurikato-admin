@@ -23,6 +23,7 @@ easy_admin:
             class: App\Entity\UserRole
         Cliente:
             class: App\Entity\Client
+            disabled_actions: ['show']
             list:
                 fields:
                     - { property: 'username', label: 'Cuenta' }

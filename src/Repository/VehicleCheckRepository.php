@@ -23,4 +23,11 @@ class VehicleCheckRepository extends EntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    public function changeVehicleCheckStatusCommand()
+    {
+        $query = "update vehicle_check set status = 'PAUSED' where status = 'CURRENT' and updatedAt < date_add(updatedAt, INTERVAL 30 SECOND)";
+        $affectedRows = $this->getEntityManager()->getConnection()->exec($query);
+        return $affectedRows;
+    }
+
 }

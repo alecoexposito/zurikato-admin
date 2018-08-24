@@ -229,5 +229,10 @@ class TireDepth
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getDepthA() . " - " . $this->getDepthB() . " - " . $this->getDepthC();
+    }
+
 
 }

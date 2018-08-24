@@ -206,4 +206,24 @@ class VehicleCheck
         return $result;
     }
 
+    public function getName()
+    {
+        return $this->vehicle->getName();
+    }
+
+    public function getPlateNumber()
+    {
+        return $this->vehicle->getPlateNumber();
+    }
+
+    public function getResult()
+    {
+        $arrivedtagsArray = json_decode($this->arrivedTags);
+        $vehicleTags = $this->vehicle->getTagsRfids();
+        if(count($arrivedtagsArray) == count($vehicleTags))
+            return 'OK';
+        if(count($arrivedtagsArray) < count($vehicleTags))
+            return 'Faltan Tags';
+    }
+
 }

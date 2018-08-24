@@ -51,6 +51,15 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function vehicleCheckAction()
+    {
+        $id = $this->request->query->get('id');
+
+        return $this->redirectToRoute('tires_vehicle', array(
+            'id' => $id,
+        ));
+    }
+
     public function updateAgregarProfundidad2Entity($tire)
     {
 //        dump($tire);

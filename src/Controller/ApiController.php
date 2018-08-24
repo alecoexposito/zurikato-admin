@@ -13,6 +13,7 @@ use App\Entity\Vehicle;
 use App\Entity\VehicleCheck;
 use App\Repository\VehicleCheckRepository;
 use App\Repository\VehicleRepository;
+use App\Service\AntenasManager;
 use Doctrine\Common\Collections\Collection;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
@@ -28,6 +29,15 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ApiController extends FOSRestController
 {
+    private $antenasManager;
+    /**
+     * ApiController constructor.
+     */
+    public function __construct(AntenasManager $antenasManager)
+    {
+        $this->antenasManager = $antenasManager;
+    }
+
 
     /**
      * @Rest\Post("/receive-tags", name="receive_tags")
@@ -59,7 +69,7 @@ class ApiController extends FOSRestController
                 if($hasUpdated) {
                     $existentVehicleCheck->setUpdatedat(new \DateTime());
                     $this->getDoctrine()->getManager()->merge($existentVehicleCheck);
-                    $this->sendVehicleCheckToSocket($existentVehicleCheck);
+                    $this->antenasManager->sendVehicleCheckToSocket($existentVehicleCheck);
                 }
             } else {
                 $vehicleCheck = new VehicleCheck();
@@ -79,7 +89,7 @@ class ApiController extends FOSRestController
                 $vehicleCheckPaused[0]->setStatus(VehicleCheck::STATUS_CURRENT);
                 $this->getDoctrine()->getManager()->merge($vehicleCheckPaused[0]);
                 $this->getDoctrine()->getManager()->flush();
-                $this->sendVehicleCheckToSocket($vehicleCheckPaused[0]);
+                $this->antenasManager->sendVehicleCheckToSocket($vehicleCheckPaused[0]);
             }
         }
 
@@ -138,32 +148,4 @@ class ApiController extends FOSRestController
 //        $results = json_decode($body);
         return new Response($body);
     }
-
-    /**
-     * Sends data to nodejs webservice that sends data to socket
-     * @param $data
-     */
-    public function sendDataToSocket($data)
-    {
-        $curl = curl_init("http://187.162.125.161:3007/api/v1/resend/");
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt($curl, CURLOPT_POST,           1 );
-        curl_setopt($curl, CURLOPT_POSTFIELDS,     $data );
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data))
-        );
-        $result = curl_exec($curl);
-    }
-
-    public function sendVehicleCheckToSocket(VehicleCheck $vehicleCheck)
-    {
-        $data = array(
-            "vehicleCheckId" => $vehicleCheck->getId(),
-            "rfids" => json_decode($vehicleCheck->getArrivedTags()),
-            "status" => $vehicleCheck->getStatus()
-        );
-        $this->sendDataToSocket(json_encode($data));
-    }
-
 }
