@@ -52,6 +52,25 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function listMantenimientoCostoAction()
+    {
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'Mantenimiento',
+        ));
+
+    }
+    public function maintenanceCostsAction()
+    {
+        $id = $this->request->query->get('id');
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'entity' => 'MantenimientoCosto',
+            'id' => $id
+        ));
+    }
+
     public function closeMaintenanceAction()
     {
         /**
@@ -71,7 +90,7 @@ class AdminController extends BaseAdminController
     /**
      * @param Maintenance $entity
      */
-    public function persistMantenimientoEntity($entity)
+    public function updateMantenimientoCostoEntity($entity)
     {
         $descriptionCosts = $entity->getDescriptionCosts();
         foreach ($descriptionCosts as $index => $descriptionCost) {

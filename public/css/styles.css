@@ -2,7 +2,11 @@ body {
     font-family: 'Source Sans Pro',sans-serif;
 }
 
-.field-description_cost [id*=mantenimiento_descriptionCosts] div.form-group {
+.timepicker-picker td a.btn {
+    background-color: transparent;
+}
+
+.field-description_cost [id*=mantenimientocosto_descriptionCosts] div.form-group {
     width: 50%;
     float: left;
     padding-right: 5px;
