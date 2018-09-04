@@ -52,6 +52,22 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
+    public function closeMaintenanceAction()
+    {
+        /**
+         * @var Maintenance $entity
+         */
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('App\Entity\Maintenance')->find($id);
+        $entity->setStatus(Maintenance::STATUS_CLOSED);
+        $this->updateEntity($entity);
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'MantenimientoCerrado',
+        ));
+    }
+
     /**
      * @param Maintenance $entity
      */

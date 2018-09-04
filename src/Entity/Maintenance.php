@@ -111,6 +111,7 @@ class Maintenance
      */
     public function __construct()
     {
+        $this->status = Maintenance::STATUS_PENDING;
         $this->observations = new ArrayCollection();
         $this->scheduledFor = new \DateTime();
     }
