@@ -1,0 +1,29 @@
+easy_admin:
+  entities:
+    Mantenimiento:
+      class: App\Entity\Maintenance
+#      disabled_actions: ['edit', 'delete', 'new', 'show']
+      list:
+#        actions:
+#        - { name: 'vehicleCheck', icon: 'file-text-o', label: '', title: 'Mapa de la revisión' }
+        fields:
+          - { property: 'serviceName', label: 'Nombre del servicio' }
+          - { property: 'description', label: 'Descripción' }
+          - { property: 'maintenanceType', label: 'Tipo' }
+          - { property: 'priority', label: 'Prioridad' }
+          - { property: 'vehicle', label: 'Vehículo' }
+          - { property: 'scheduledFor', label: 'Programado para' }
+          - { property: 'descriptionCosts', label: 'Costos' }
+      form:
+        fields:
+          - { property: 'serviceName', label: 'Nombre del servicio', css_class: 'col-lg-4' }
+          - { property: 'maintenanceType', label: 'Tipo', css_class: 'col-lg-4', type_options: { block_name: 'custom__mantenimiento_maintenanceType' } }
+          - { property: 'priority', label: 'Prioridad', css_class: 'col-lg-4', type_options: { block_name: 'custom_mantenimiento_priority' } }
+          - { property: 'description', label: 'Descripción', css_class: 'col-lg-8' }
+          - { property: 'scheduledFor', label: 'Programado para', css_class: 'col-lg-4 custom-date', type: 'date', type_options: { widget: 'single_text' } }
+
+          - { type: 'group', label: 'Vehículo', icon: 'truck', css_class: 'col-lg-6' }
+          - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-12' }
+          - { type: 'group', label: 'Costos', icon: 'dollar', css_class: 'col-lg-6' }
+          - { property: 'descriptionCosts', label: 'Costos', css_class: 'col-lg-12', type: 'collection', type_options: { entry_type: 'App\Form\DescriptionCostType', by_reference: false, block_name: 'custom_profundidades', allow_add: true } }
+

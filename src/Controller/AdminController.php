@@ -12,6 +12,7 @@ use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
 use App\Entity\Group;
+use App\Entity\Maintenance;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
 use App\Entity\TireDepth;
@@ -49,6 +50,32 @@ class AdminController extends BaseAdminController
     private function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    /**
+     * @param Maintenance $entity
+     */
+    public function persistMantenimientoEntity($entity)
+    {
+        $descriptionCosts = $entity->getDescriptionCosts();
+        foreach ($descriptionCosts as $index => $descriptionCost) {
+            $descriptionCost->setMaintenance($entity);
+        }
+
+        parent::persistEntity($entity);
+    }
+
+    /**
+     * @param Maintenance $entity
+     */
+    public function updateMantenimientoEntity($entity)
+    {
+        $descriptionCosts = $entity->getDescriptionCosts();
+        foreach ($descriptionCosts as $index => $descriptionCost) {
+            $descriptionCost->setMaintenance($entity);
+        }
+
+        parent::updateEntity($entity);
     }
 
     public function vehicleCheckAction()
