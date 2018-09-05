@@ -80,7 +80,7 @@ jQuery(document).ready(function() {
     jQuery(".custom-datetime input").datetimepicker({
         locale: 'ru',
         sideBySide: true,
-        format: 'DD/MM/YYYY H:mm',
+        format: 'MM/DD/YYYY HH:mm',
         icons: {
             time: 'fa fa-clock-o',
             date: 'fa fa-calendar',
