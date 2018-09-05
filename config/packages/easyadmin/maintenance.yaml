@@ -29,7 +29,7 @@ easy_admin:
           - { property: 'maintenanceType', label: 'Tipo', css_class: 'col-lg-4', type_options: { block_name: 'custom__mantenimiento_maintenanceType' } }
           - { property: 'priority', label: 'Prioridad', css_class: 'col-lg-4', type_options: { block_name: 'custom_mantenimiento_priority' } }
           - { property: 'description', label: 'Descripción', css_class: 'col-lg-8' }
-          - { property: 'scheduledFor', label: 'Programado para', css_class: 'col-lg-4 custom-datetime', type_options: { widget: 'single_text' } }
+          - { property: 'scheduledFor', label: 'Programado para', css_class: 'col-lg-4 custom-datetime', type_options: { widget: 'single_text', 'format': 'MM/dd/yyyy H:mm' } }
 
           - { type: 'group', label: 'Vehículo', icon: 'truck', css_class: 'col-lg-6' }
           - { property: 'vehicle', label: 'Vehículo', css_class: 'col-lg-12' }

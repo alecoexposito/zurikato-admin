@@ -287,6 +287,8 @@ class Maintenance
      */
     public function setScheduledFor($scheduledFor): Maintenance
     {
+        var_dump($scheduledFor);
+//        exit;
         $this->scheduledFor = $scheduledFor;
         return $this;
     }
