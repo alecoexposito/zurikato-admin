@@ -4,12 +4,20 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  */
 class Client extends User
 {
+
+    /**
+     * @var string
+     * @Assert\Valid()
+     * @Assert\Length(max=100, groups={"Default"})
+     */
+    protected $name;
 
     /**
      * @var string
@@ -20,6 +28,8 @@ class Client extends User
 
     /**
      * @var string
+     * @Assert\Valid()
+     * @Assert\Length(max=5, groups={"Default"})
      *
      * @ORM\Column(name="phone_number", type="string", length=30, nullable=true)
      */
@@ -121,5 +131,14 @@ class Client extends User
         return $this;
     }
 
+//    /**
+//     * @Assert\Valid()
+//     * @Assert\Length(max=5, groups={"Default"})
+//     * @return string
+//     */
+//    public function getName()
+//    {
+//        return $this->name;
+//    }
 
 }

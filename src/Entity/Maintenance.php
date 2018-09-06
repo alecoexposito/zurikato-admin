@@ -329,4 +329,9 @@ class Maintenance
         return $this;
     }
 
+    public function getClient()
+    {
+        return $this->vehicle->getClient();
+    }
+
 }
