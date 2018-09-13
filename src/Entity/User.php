@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Users
  *
@@ -142,8 +144,9 @@ class User extends BaseUser
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=30, nullable=true)
+     * @Assert\Valid()
+     * @Assert\Length(max=100, groups={"Default"})
+     * @ORM\Column(name="name", type="string", length=100, nullable=true)
      */
     protected $name;
 

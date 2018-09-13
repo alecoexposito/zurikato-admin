@@ -43,5 +43,11 @@ services:
         class: App\Form\TireDepthType
         tags:
             - { name: form.type, alias: tire_depth_type }
+    form_types.description_cost_type:
+       class: App\Form\DescriptionCostType
+       tags:
+           - { name: form.type, alias: description_cost_type }
+
+
 #    sensio_framework_extra.view.listener:
 #        alias: Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener

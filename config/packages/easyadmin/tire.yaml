@@ -137,6 +137,8 @@ easy_admin:
           - { name: 'adeposito', icon: 'send', label: '' }
           - { name: 'new', label: 'Alta Nuevo/Usado' }
           - { name: 'agregarprofundidad', icon: 'thermometer', label: '', title: 'Agregar profundidad' }
+          - { name: 'show', icon: 'eye', label: '', title: 'Información del neumático' }
+
         fields:
           - { property: 'type', label: 'Tipo' }
           - { property: 'brand', label: 'Marca' }
@@ -149,6 +151,23 @@ easy_admin:
           - { property: 'controlTag', label: 'Tag' }
           - { property: 'vehicleAndPos', label: 'Vehículo' }
           - { property: 'observations', label: 'Observaciones' }
+      show:
+        fields:
+          - { property: 'type', css_class: 'col-lg-6', label: 'Tipo', type_options: { block_name: 'custom_type_all' } }
+          - { property: 'brand', label: 'Marca', css_class: 'col-lg-6' }
+          - { property: 'serial', label: 'No. serie', css_class: 'col-lg-6' }
+          - { property: 'internal_code', label: 'Codigo interno', type: 'text', css_class: 'col-lg-6' }
+          - { property: 'measure', label: 'Medidas', css_class: 'col-lg-6' }
+          - { property: 'warranty', label: 'Garantía/Vida útil', css_class: 'col-lg-6' }
+          - { property: 'netPrice', label: 'Precio neto', css_class: 'col-lg-6' }
+          - { property: 'dot', label: 'DOT', css_class: 'col-lg-6' }
+          - { property: 'renovatedNumber', label: 'Número de renovado', css_class: 'col-lg-6' }
+#          - { type: 'group', label: 'Profundidad inicial', icon: 'thermometer', css_class: 'col-lg-6' }
+          - { property: 'initialDepth', label: 'Profundidad inicial', css_class: 'col-lg-6' }
+#          - { type: 'group', label: 'Tag asociado', icon: 'tag', css_class: 'col-lg-6' }
+          - { property: 'controlTag', label: 'Tag', css_class: 'col-lg-6' }
+#          - { type: 'group', label: 'Observación', icon: 'tag', css_class: 'col-lg-6' }
+          - { property: 'initialObservation', label: 'Observación inicial', css_class: 'col-lg-6' }
       new:
         actions: ['-list']
         title: 'Dar de alta a neumático nuevo/usado'
@@ -221,6 +240,7 @@ easy_admin:
           - { property: 'observation', label: ' ' }
     Tag:
       class: App\Entity\ControlTag
+      disabled_actions: ['show']
       list:
         fields:
           - { property: 'rfid', label: 'RFID'}

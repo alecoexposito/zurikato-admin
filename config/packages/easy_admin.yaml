@@ -7,3 +7,4 @@ imports:
   - { resource: easyadmin/tire.yaml }
   - { resource: easyadmin/vehicle.yaml }
   - { resource: easyadmin/employee.yaml }
+  - { resource: easyadmin/maintenance.yaml }

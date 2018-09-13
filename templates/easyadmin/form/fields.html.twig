@@ -285,3 +285,22 @@
         {% endfor %}
     </select>
 {% endblock %}
+{% block _mantenimiento_custom__mantenimiento_maintenanceType_widget %}
+    <div class="form-group  field-text">
+        <select id="mantenimiento_maintenanceType" name="mantenimiento[maintenanceType]" class="form-control" data-widget="select2" type="text">
+            <option value="Preventivo" {% if data == 'Preventivo' %} selected {% endif %}>Preventivo</option>
+            <option value="Correctivo" {% if data == 'Correctivo' %} selected {% endif %}>Correctivo</option>
+            <option value="Conservación" {% if data == 'Conservación' %} selected {% endif %}>Conservación</option>
+            <option value="Accidente" {% if data == 'Accidente' %} selected {% endif %}>Accidente</option>
+        </select>
+    </div>
+{% endblock %}
+{% block _mantenimiento_custom_mantenimiento_priority_widget %}
+    <div class="form-group  field-text">
+        <select id="mantenimiento_priority" name="mantenimiento[priority]" class="form-control" data-widget="select2" type="text">
+            <option value="Baja" {% if data == 'Baja' %} selected {% endif %}>Baja</option>
+            <option value="Media" {% if data == 'Media' %} selected {% endif %}>Media</option>
+            <option value="Alta" {% if data == 'Alta' %} selected {% endif %}>Alta</option>
+        </select>
+    </div>
+{% endblock %}

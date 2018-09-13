@@ -20,6 +20,8 @@ easy_admin:
 
       - { label: 'Vehículos', role: 'ROLE_CLIENT' }
       - { entity: 'Vehiculo', label: 'Vehículos', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
+      - { entity: 'Mantenimiento', label: 'Mantenimientos', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
+      - { entity: 'MantenimientoCerrado', label: 'Mant. Cerrados', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
 #      - { entity: 'Vehiculo', label: 'Adicionar vehículo', params: { action: 'new' }, icon: 'plus', role: 'ROLE_CLIENT'}
 
       - { label: 'Neumáticos', role: 'ROLE_CLIENT' }
@@ -33,3 +35,6 @@ easy_admin:
       - { label: 'Tags',  icon: 'tag', role: 'ROLE_CLIENT' }
       - { entity: 'Tag', label: 'Tags', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
 #      - { entity: 'Tag', label: 'Nuevo Tag', params: { action: 'new' }, icon: 'plus', role: 'ROLE_CLIENT'}
+
+      - { label: 'Revisiones', icon: 'list', role: 'ROLE_CLIENT' }
+      - { entity: 'Revision', label: 'Revisiones', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}

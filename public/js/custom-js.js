@@ -72,9 +72,27 @@ jQuery(document).ready(function() {
 
     jQuery(".app-select2").select2();
 
-    jQuery(".custom-date input").datepicker({
-        language: 'es',
-        format: 'mm/dd/yyyy'
+    // jQuery(".custom-date input").datepicker({
+    //     language: 'es',
+    //     format: 'mm/dd/yyyy'
+    // });
+
+    jQuery(".custom-datetime input").datetimepicker({
+        locale: 'ru',
+        sideBySide: true,
+        format: 'MM/DD/YYYY HH:mm',
+        icons: {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-screenshot',
+            clear: 'fa fa-trash',
+            close: 'fa fa-remove'
+        }
+        // minDate: 'now'
     });
 
     jQuery(".vehicle-select2").select2();
