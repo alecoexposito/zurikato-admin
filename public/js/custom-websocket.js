@@ -8,11 +8,10 @@ var customws = {
         var options = {
             secure: false,
             hostname: '187.162.125.161',
-            // hostname: 'localhost',
+            //hostname: 'localhost',
             port: 3007
         };
         var socket = socketCluster.connect(options);
-        // $localStorage.socket = socket;
         var apiChannel = socket.subscribe("bridgeSocket");
         apiChannel.watch(function(data) {
 console.log(data);
@@ -21,8 +20,6 @@ console.log(data);
             socketVehicleCheckId = data.vehicleCheckId;
             console.log(localVehicleCheckId + ", " + socketVehicleCheckId);
             if(localVehicleCheckId == undefined || localVehicleCheckId != socketVehicleCheckId) {
-                //abrir el modal
-
                 var href = $('#antena-modal-revisar-button').attr('href');
                 var n = href.lastIndexOf('/');
                 s = href.substring(0, n != -1 ? n : s.length);
@@ -32,8 +29,6 @@ console.log(data);
                     backdrop: 'static',
                     keyboard: false
                 });
-
-
             }
             else {//cambiar colores de los neumaticos ke llegan nuevos
                 //console.log(data)
