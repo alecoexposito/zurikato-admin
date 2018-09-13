@@ -59,6 +59,15 @@ class ControlTag
     private $updatedat;
 
     /**
+     * ControlTag constructor.
+     */
+    public function __construct()
+    {
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
+    }
+
+    /**
      * @return int
      */
     public function getId()
