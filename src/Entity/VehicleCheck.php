@@ -195,6 +195,8 @@ class VehicleCheck
         $arrivedTagsArray = json_decode($this->arrivedTags);
         $matchedTags = array_intersect($tags, $this->vehicle->getTagsRfids());
         $result = false;
+        if(count($matchedTags) > 0)
+            $this->updatedat = new \DateTime();
         foreach ($matchedTags as $index => $matchedTag) {
             if(!in_array($matchedTag, $arrivedTagsArray)) {
                 $arrivedTagsArray[] = $matchedTag;
