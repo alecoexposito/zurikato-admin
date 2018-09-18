@@ -46,6 +46,7 @@ console.log(data);
         for (i = 0 ; i < rfidArray.length ; i++)
         {
             visualTire = $('.'+rfidArray[i]);
+            console.log(visualTire);
             if(visualTire.length > 0){
                 visualTire.removeClass('ti-tagNoExist');
                 visualTire.addClass('ti-tagExist ti-setVisible');
