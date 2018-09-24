@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -119,6 +121,50 @@ class Device
      * @ORM\Column(name="activation_date", type="datetime", nullable=true)
      */
     private $activationDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PeripheralGpsData", mappedBy="iddevice", cascade={"persist", "merge", "remove"}, orphanRemoval=true)
+     */
+    private $gpsDatas;
+
+    /**
+     * Device constructor.
+     */
+    public function __construct()
+    {
+        $this->gpsDatas = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGpsDatas()
+    {
+        return $this->gpsDatas;
+    }
+
+    /**
+     * Add device
+     *
+     * @param PeripheralGpsData $gpsData
+     * @return Tire
+     */
+    public function addGpsData(PeripheralGpsData $gpsData)
+    {
+        $this->gpsDatas[] = $gpsData;
+
+        return $this;
+    }
+
+    /**
+     * Remove gpsData
+     *
+     * @param PeripheralGpsData $gpsData
+     */
+    public function removeGpsData(PeripheralGpsData $gpsData)
+    {
+        $this->gpsDatas->removeElement($gpsData);
+    }
 
     /**
      * @return string
@@ -662,6 +708,21 @@ class Device
         return $this;
     }
 
+    protected $lastGpsDate;
 
+    public function getLastGpsDate()
+    {
+        return $this->lastGpsDate;
+    }
+
+    public function setLastGpsDate($lastGpsDate)
+    {
+        $this->lastGpsDate = $lastGpsDate;
+    }
+
+    public function getLastGpsTime()
+    {
+        return $this->lastGpsDate;
+    }
 
 }

@@ -13,6 +13,7 @@ use App\Entity\Client;
 use App\Entity\Device;
 use App\Entity\Group;
 use App\Entity\Maintenance;
+use App\Entity\PeripheralGpsData;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
 use App\Entity\TireDepth;
@@ -50,6 +51,42 @@ class AdminController extends BaseAdminController
     private function getEm()
     {
         return $this->get("doctrine.orm.entity_manager");
+    }
+
+    protected function listDispositivoDeClienteAction()
+    {
+        /**
+         * @var Device $pageResult
+         * @var PeripheralGpsData $gpsData
+         */
+        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->dispatch(EasyAdminEvents::PRE_LIST);
+
+            $fields = $this->entity['list']['fields'];
+            $paginator = $this->findAll($this->entity['class'], $this->request->query->get('page', 1), $this->entity['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'), $this->entity['list']['dql_filter']);
+            $pageResults = $paginator->getCurrentPageResults();
+            foreach ($pageResults as $index => $pageResult) {
+                $id = $pageResult->getIddevice();
+                $gpsData = $this->em->getRepository('App\Entity\PeripheralGpsData')
+                    ->findOneBy(array(
+                        'iddevice' => $id
+                    ), array('idperipheralgps' => 'DESC'));
+                $gpsDataRepository =
+                $pageResult->setLastGpsDate($gpsData->getCreatedat());
+            }
+//            exit;
+            $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
+
+            $parameters = array(
+                'paginator' => $paginator,
+                'fields' => $fields,
+                'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            );
+
+            return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
+        } else {
+            return parent::listAction();
+        }
     }
 
     protected function createListQueryBuilder($entityClass, $sortDirection, $sortField = null, $dqlFilter = null)

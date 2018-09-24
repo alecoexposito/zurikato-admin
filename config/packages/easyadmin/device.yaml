@@ -71,6 +71,8 @@ easy_admin:
 #                - { property: 'economicNumber', label: 'Número económico' }
 #                - { property: 'vehiclePlate', label: 'Número de placa' }
                 - { property: 'vehicle', label: 'Vehículo' }
+                - { property: 'lastGpsDate', type: 'date', label: 'Última Fecha Recibido'}
+                - { property: 'lastGpsTime', type: 'time', label: 'Última Hora Recibido'}
 
 #                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:

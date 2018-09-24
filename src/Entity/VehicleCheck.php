@@ -24,7 +24,7 @@ class VehicleCheck
     /**
      * @var string
      *
-     * @ORM\Column(name="arrived_tags", type="string", nullable=false)
+     * @ORM\Column(name="arrived_tags", type="string", length=4000, nullable=false)
      */
     private $arrivedTags;
 
