@@ -71,7 +71,6 @@ class AdminController extends BaseAdminController
                     ->findOneBy(array(
                         'iddevice' => $id
                     ), array('idperipheralgps' => 'DESC'));
-                $gpsDataRepository =
                 $pageResult->setLastGpsDate($gpsData->getCreatedat());
             }
 //            exit;
