@@ -71,9 +71,9 @@ class AdminController extends BaseAdminController
                     ->findOneBy(array(
                         'iddevice' => $id
                     ), array('idperipheralgps' => 'DESC'));
-                $pageResult->setLastGpsDate($gpsData->getCreatedat());
+                if(!is_null($gpsData))
+                    $pageResult->setLastGpsDate($gpsData->getCreatedat());
             }
-//            exit;
             $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
 
             $parameters = array(
