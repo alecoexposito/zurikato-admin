@@ -45,11 +45,12 @@ console.log(data);
         if(rfidArray == undefined) return;
         for (i = 0 ; i < rfidArray.length ; i++)
         {
-            visualTire = $('.'+rfidArray[i]);
-            if(visualTire.length > 0){
+            visualTire = $('.'+rfidArray[i].replace(/\s+/g, ''));
+            console.log(visualTire);
+            //if(visualTire.length > 0){
                 visualTire.removeClass('ti-tagNoExist');
                 visualTire.addClass('ti-tagExist ti-setVisible');
-            }
+            //}
         }
     }
 }

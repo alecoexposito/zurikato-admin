@@ -1002,7 +1002,8 @@ class AdminController extends BaseAdminController
                 $idTag = '-1';
                 $rfID = '-1';
             }
-            $returnTires[(string)$tire->getPosition()] = [$state,$tire,$idTag,$rfID];
+            $returnTires[(string)$tire->getPosition()] = [$state,$tire, $idTag,preg_replace('/\s+/', '',$rfID)];
+            echo preg_replace('/\s+/', '',$rfID);
         }
 
         return array(
