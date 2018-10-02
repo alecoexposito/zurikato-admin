@@ -61,7 +61,7 @@ class AntenasManager
         $currentCountRS = $this->entityManager->getConnection()->query("select count(1) as currents_count from vehicle_check where status = 'CURRENT'");
         $currentsCount = $currentCountRS->fetch()['currents_count'];
         if($currentsCount > 0){
-            $finishQuery = "update vehicle_check set status = 'FINISHED' where status = 'CURRENT' and NOW() > date_add(updatedAt, INTERVAL 12 SECOND)";
+            $finishQuery = "update vehicle_check set status = 'FINISHED' where status = 'CURRENT' and NOW() > date_add(updatedAt, INTERVAL 50 SECOND)";
             $affectedFinishedRows = $this->entityManager->getConnection()->exec($finishQuery);
             $result['set_to_finished'] = $affectedFinishedRows;
             if($affectedFinishedRows > 0 && $currentsCount == 1) {

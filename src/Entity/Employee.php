@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Entity\File;
@@ -154,6 +155,22 @@ class Employee
      * })
      */
     private $vehicle;
+
+    /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\EmployeeVehicleLog", mappedBy="employee")
+     */
+    protected $employeeVehicleLogs;
+
+    /**
+     * @return Collection
+     */
+    public function getEmployeeVehicleLogs(): Collection
+    {
+        return $this->employeeVehicleLogs;
+    }
+
+
 
     /**
      * Tire constructor.

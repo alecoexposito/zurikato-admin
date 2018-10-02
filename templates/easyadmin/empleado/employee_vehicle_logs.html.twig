@@ -1,0 +1,8 @@
+<ul class="list-group">
+{% for employeeVehicleLog in value %}
+    <li class="list-group-item">{{ employeeVehicleLog.vehicle.name }}</li>
+
+{% endfor %}
+</ul>
+
+{#{{ dump(value) }}#}

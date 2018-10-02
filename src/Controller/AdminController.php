@@ -11,6 +11,8 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
+use App\Entity\Employee;
+use App\Entity\EmployeeVehicleLog;
 use App\Entity\Group;
 use App\Entity\Maintenance;
 use App\Entity\PeripheralGpsData;
@@ -360,23 +362,30 @@ class AdminController extends BaseAdminController
         /**
          * @var Employee $employee
          * @var Vehicle $vehicle
+         * @var EntityManager $em
          */
         $employeeId = $request->get('employeeId');
         $vehicleId = $request->get('vehicleId');
 
         $em = $this->getDoctrine()->getManager();
         $response = new JsonResponse();
+        $em->getConnection()->beginTransaction();
         try {
             $employee = $em->getRepository('App\Entity\Employee')->find($employeeId);
             $vehicle = $em->getRepository('App\Entity\Vehicle')->find($vehicleId);
+            $employeeVehicleLog =  new EmployeeVehicleLog();
+            $employeeVehicleLog->setVehicle($vehicle);
+            $employeeVehicleLog->setEmployee($employee);
+            $em->persist($employeeVehicleLog);
             $employee->setVehicle($vehicle);
             $em->merge($employee);
             $em->flush();
+            $em->getConnection()->commit();
             $response->setData(array(
                 'success' => true,
             ));
         } catch (\Exception $e) {
-
+            $em->getConnection()->rollBack();
             $response->setData(array(
                 'success' => false,
             ));

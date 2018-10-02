@@ -5,8 +5,8 @@ easy_admin:
       templates:
         list: 'easyadmin/empleado/list.html.twig'
       list:
-#        actions:
-#          - { name: 'employeeAsignVehicle', icon: 'car', label: '' }
+        actions:
+          - { name: 'show', icon: 'info', label: '' }
         fields:
           - { property: 'employeeNumber', label: 'No. empleado' }
           - { property: 'alias', label: 'Alias' }
@@ -44,3 +44,20 @@ easy_admin:
 
       edit:
         title: 'Editar empleado'
+      show:
+        fields:
+          - { property: 'employeeNumber', label: 'No. empleado', css_class: 'col-lg-4' }
+          - { property: 'alias', label: 'Alias', css_class: 'col-lg-4' }
+          - { property: 'name', label: 'Nombre', length: 40, type: 'text', css_class: 'col-lg-4' }
+          - { property: 'fatherLastname', label: 'Apellido paterno', type: text, length: 40, css_class: 'col-lg-4' }
+          - { property: 'motherLastname', label: 'Apellido materno', length: 40, css_class: 'col-lg-4' }
+          - { property: 'sex', label: 'sexo', css_class: 'col-lg-4', type_options: { block_name: 'custom_sex' } }
+          - { property: 'civilState', label: 'Estado civil', length: 40, css_class: 'col-lg-4' }
+          - { property: 'curp', label: 'Curp', css_class: 'col-lg-4' }
+          - { property: 'socialNumber', label: 'No. seguridad social', css_class: 'col-lg-4' }
+          - { property: 'movileNumber', label: 'Teléfono celular', length: 20, css_class: 'col-lg-4' }
+          - { property: 'homeNumber', label: 'Teléfono particular', length: 20, type: text, css_class: 'col-lg-4' }
+          - { property: 'licenseNumber', label: 'No. licencia', length: 40, css_class: 'col-lg-4' }
+          - { property: 'licenseExpirationDate', label: 'Fecha expiración licencia', type_options: { widget: 'single_text' }, length: 40, css_class: 'col-lg-4 custom-date', default: null }
+          - { property: 'photoFile', label: 'Foto', type: 'vich_image', css_class: 'col-lg-4' }
+          - { property: 'employeeVehicleLogs', label: 'Historial de vehículos', css_class: 'col-lg-6', template: 'easyadmin/empleado/employee_vehicle_logs.html.twig'}
