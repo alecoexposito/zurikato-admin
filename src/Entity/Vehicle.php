@@ -125,6 +125,8 @@ class Vehicle
     {
         $this->tires = new ArrayCollection();
         $this->employees = new ArrayCollection();
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
     }
 
     /**
@@ -345,7 +347,7 @@ class Vehicle
 
     public function __toString()
     {
-        return is_null($this->getName()) ? '' : $this->getName();
+        return is_null($this->getName()) ? $this->getPlateNumber() : $this->getName();
     }
 
     /**

@@ -90,3 +90,24 @@ easy_admin:
 #                - { property: 'devicesGroup', type_options: {by_reference: false} }
             edit:
               title: 'Modificar Dispositivo'
+        DispositivoMDVR:
+            disabled_actions: ['show', 'delete', 'edit']
+            class: App\Entity\Device
+#            disabled_actions: ['delete', 'show']
+            templates:
+              list: 'easyadmin/mdvr/list.html.twig'
+            list:
+              title: 'Dispositivos MDVR'
+              dql_filter: "(entity.iddevicemodel = 3) and entity.trashed != 1 or entity.trashed is null"
+              fields:
+                - { property: 'authDevice', label: 'Imei' }
+                - { property: 'label', label: 'Nombre' }
+                - { property: 'iddevicemodel', label: 'Modelo' }
+                - { property: 'client', label: 'Cliente' }
+                - { property: 'sim', label: 'Número de teléfono' }
+#                - { property: 'routeName', label: 'Ruta' }
+#                - { property: 'economicNumber', label: 'Número económico' }
+#                - { property: 'vehiclePlate', label: 'Número de placa' }
+                - { property: 'vehicle', label: 'Vehículo' }
+#                - { property: 'lastGpsDate', type: 'date', label: 'Última Fecha Recibido'}
+#                - { property: 'lastGpsTime', type: 'time', label: 'Última Hora Recibido'}

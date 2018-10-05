@@ -1,0 +1,11 @@
+{% extends 'easyadmin/default/list.html.twig' %}
+
+{% block new_action %}
+    {#{{ parent() }}#}
+    <div class="button-action">
+        <a class="btn btn-primary action-new" href="{{ path('mdvr_load') }}">
+            {#<i class="fa fa-plus"></i>#}
+            {{ 'Cargar dispositivos MDVR' }}
+        </a>
+    </div>
+{% endblock new_action %}

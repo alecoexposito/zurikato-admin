@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
+use App\Entity\DeviceModel;
 use App\Entity\Employee;
 use App\Entity\EmployeeVehicleLog;
 use App\Entity\Group;
@@ -40,6 +41,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -48,6 +50,114 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 class AdminController extends BaseAdminController
 {
     /**
+     * @Route("/mdvr-load", name="mdvr_load")
+     */
+    public function mdvrLoad()
+    {
+        /**
+         * @var \JMS\Serializer\Serializer $serializer
+         */
+        $serializer = $this->get('jms_serializer');
+//        $body = $request->getContent();
+        $apiUrl = getenv('MDVR_API_URL');
+        $apiUser = getenv('MDVR_API_USER');
+        $apiPass = getenv('MDVR_API_PASS');
+
+        // loging in to the api with the user zurikato
+        $curlLogin = curl_init($apiUrl . "/StandardApiAction_login.action?account=$apiUser&password=$apiPass");
+        curl_setopt($curlLogin, CURLOPT_RETURNTRANSFER, 1);
+        $loginResult = curl_exec($curlLogin);
+        $loginArray = json_decode($loginResult, true);
+//        var_dump($loginArray);
+//        exit;
+        $jsession = array_key_exists('jsession', $loginArray) ? $loginArray['jsession'] : null;
+
+        if (is_null($jsession)) {
+            $this->addFlash('error', "No ha sido posible conectarse al servidor de MDVR, por favor, contacte al soporte técnico.");
+        } else {
+            $curl = curl_init($apiUrl . "/StandardApiAction_queryUserVehicle.action?jsession=$jsession");
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            $result = curl_exec($curl);
+            $results = json_decode($result, true);
+            $vehicles = $results['vehicles'];
+            $vehicleAdded = false;
+            $deviceAdded = false;
+
+            $this->getEm()->getConnection()->beginTransaction();
+
+            try {
+                $vehicleRepository = $this->getEm()->getRepository(Vehicle::class);
+                foreach ($vehicles as $index => $vehicle) {
+                    if (!is_null($vehicle['nm']) && !empty($vehicle['nm'])) {
+                        $vehicleTmp = $vehicleRepository->findOneBy(array(
+                            'plateNumber' => $vehicle['nm']
+                        ));
+                        $client = $this->getCurrentClient();
+
+                        // si no existe el vehiculo lo agrego
+                        if (is_null($vehicleTmp)) {
+                            $vehicleTmp = new Vehicle();
+                            $vehicleTmp->setPlateNumber($vehicle['nm']);
+                            $vehicleTmp->setClient($client);
+                            $this->getEm()->persist($vehicleTmp);
+                            $this->getEm()->flush();
+                            $vehicleAdded = true;
+                        }
+                        $devices = $vehicle['dl'];
+                        $deviceRepository = $this->getEm()->getRepository(Device::class);
+                        foreach ($devices as $index => $device) {
+                            $deviceTmp = $deviceRepository->findOneBy(array(
+                                'mdvrNumber' => $device['id']
+                            ));
+
+                            if (is_null($deviceTmp)) {
+                                $deviceTmp = new Device();
+                                $deviceTmp->setClient($client);
+                                $deviceTmp->setMdvrNumber($device['id']);
+                                $deviceModelMdvr = $this->getEm()->getRepository(DeviceModel::class)->findOneBy(array(
+                                    'label' => 'MDVR'
+                                ));
+                                $deviceTmp->setIddevicemodel($deviceModelMdvr);
+                                $deviceTmp->setAuthDevice(" ");
+                                $this->getEm()->persist($deviceTmp);
+                                $vehicleTmp->setDevice($deviceTmp);
+                                $this->getEm()->merge($vehicleTmp);
+                                $this->getEm()->flush();
+                                $deviceAdded = true;
+                            }
+
+                        }
+
+                    }
+                }
+                $this->getEm()->getConnection()->commit();
+            } catch (\Exception $e) {
+                $vehicleAdded = false;
+                $deviceAdded = false;
+                $this->getEm()->getConnection()->rollBack();
+            }
+        }
+
+        if($vehicleAdded && $deviceAdded)
+            $this->addFlash('success', "Se han adicionado vehículos y dispositivos nuevos, se deben editar para completar su información.");
+        elseif ($vehicleAdded)
+            $this->addFlash('success', "Se han adicionado vehículos nuevos, se deben editar para completar su información.");
+        elseif ($deviceAdded)
+            $this->addFlash('success', "Se han adicionado dispositivos nuevos, se deben editar para completar su información.");
+        else
+            $this->addFlash('success', "No se han encontrado vehículos o dispositivos nuevos.");
+
+
+
+
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'DispositivoMDVR',
+        ));
+
+    }
+
+    /**
      * @return EntityManager
      */
     private function getEm()
@@ -55,67 +165,23 @@ class AdminController extends BaseAdminController
         return $this->get("doctrine.orm.entity_manager");
     }
 
-    protected function listDispositivoDeClienteAction()
+    /**
+     * @return null|Client
+     */
+    private function getCurrentClient()
     {
-        /**
-         * @var Device $pageResult
-         * @var PeripheralGpsData $gpsData
-         */
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
-            $this->dispatch(EasyAdminEvents::PRE_LIST);
-
-            $fields = $this->entity['list']['fields'];
-            $paginator = $this->findAll($this->entity['class'], $this->request->query->get('page', 1), $this->entity['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'), $this->entity['list']['dql_filter']);
-            $pageResults = $paginator->getCurrentPageResults();
-            foreach ($pageResults as $index => $pageResult) {
-                $id = $pageResult->getIddevice();
-                $gpsData = $this->em->getRepository('App\Entity\PeripheralGpsData')
-                    ->findOneBy(array(
-                        'iddevice' => $id
-                    ), array('idperipheralgps' => 'DESC'));
-                if(!is_null($gpsData))
-                    $pageResult->setLastGpsDate($gpsData->getCreatedat());
-            }
-            $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
-
-            $parameters = array(
-                'paginator' => $paginator,
-                'fields' => $fields,
-                'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
-            );
-
-            return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
-        } else {
-            return parent::listAction();
+        $user = $this->getUser();
+        if ($user->hasRole('ROLE_CLIENT')) {
+            $id = $user->getId();
+            $client = $this->getEm()->getRepository('App\Entity\Client')->find($id);
+            return $client;
         }
+        return null;
     }
-
-    protected function createListQueryBuilder($entityClass, $sortDirection, $sortField = null, $dqlFilter = null)
-    {
-
-        if($entityClass == Maintenance::class) {
-            $em = $this->getEm();
-            $queryBuilder = $em->createQueryBuilder()
-                ->select('entity')
-                ->from($this->entity['class'], 'entity')
-                ->leftJoin('entity.vehicle','vehicle');
-
-            if (!empty($dqlFilter)) {
-                $queryBuilder->andWhere($dqlFilter);
-            }
-            if (null !== $sortField) {
-                $queryBuilder->orderBy('entity.'.$sortField, $sortDirection ?: 'DESC');
-            }
-
-            return $queryBuilder;
-        }
-        return parent::createListQueryBuilder($entityClass, $sortDirection, $sortField, $dqlFilter); // TODO: Change the autogenerated stub
-    }
-
 
     public function listMantenimientoAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.status = 'Pendiente' and vehicle.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
@@ -129,6 +195,7 @@ class AdminController extends BaseAdminController
         ));
 
     }
+
     public function maintenanceCostsAction()
     {
         $id = $this->request->query->get('id');
@@ -200,6 +267,22 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * @param Tire $tire
+     */
+    private function setObservationsAndDepthsToTire($tire)
+    {
+        $observations = $tire->getObservations();
+        foreach ($observations as $index => $observation) {
+            $observation->setTire($tire);
+        }
+
+        $depths = $tire->getDepths();
+        foreach ($depths as $index => $depth) {
+            $depth->setTire($tire);
+        }
+    }
+
+    /**
      * @param Tire $entity
      */
     public function updateDepositoEntity($entity)
@@ -231,7 +314,7 @@ class AdminController extends BaseAdminController
 
     public function listNeumaticosVehiculoAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.vehicle = " . $this->request->query->get("idVehicle");
         }
         return parent::listAction();
@@ -275,6 +358,7 @@ class AdminController extends BaseAdminController
             'entity' => 'AgregarProfundidad',
         ));
     }
+
     /**
      * @param Vehicle $vehicle
      */
@@ -373,7 +457,7 @@ class AdminController extends BaseAdminController
         try {
             $employee = $em->getRepository('App\Entity\Employee')->find($employeeId);
             $vehicle = $em->getRepository('App\Entity\Vehicle')->find($vehicleId);
-            $employeeVehicleLog =  new EmployeeVehicleLog();
+            $employeeVehicleLog = new EmployeeVehicleLog();
             $employeeVehicleLog->setVehicle($vehicle);
             $employeeVehicleLog->setEmployee($employee);
             $em->persist($employeeVehicleLog);
@@ -405,22 +489,6 @@ class AdminController extends BaseAdminController
     /**
      * @param Tire $tire
      */
-    private function setObservationsAndDepthsToTire($tire)
-    {
-        $observations = $tire->getObservations();
-        foreach ($observations as $index => $observation) {
-            $observation->setTire($tire);
-        }
-
-        $depths = $tire->getDepths();
-        foreach ($depths as $index => $depth) {
-            $depth->setTire($tire);
-        }
-    }
-
-    /**
-     * @param Tire $tire
-     */
     public function updateNeumaticoRenovadoEntity($tire)
     {
         $tire->setStatus("Activo");
@@ -437,13 +505,14 @@ class AdminController extends BaseAdminController
             'entity' => 'NeumaticoRenovado',
         ));
     }
+
     /**
      * @param Tire $entity
      */
     public function persistNeumaticoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -456,7 +525,7 @@ class AdminController extends BaseAdminController
     public function persistNeumaticoRenovadoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -473,7 +542,7 @@ class AdminController extends BaseAdminController
     public function persistVehiculoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -490,7 +559,7 @@ class AdminController extends BaseAdminController
     public function persistEmpleadoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -499,14 +568,7 @@ class AdminController extends BaseAdminController
         parent::persistEntity($entity);
     }
 
-    /**
-     * @param Tire $entity
-     */
-//    public function updateNeumaticoEntity($entity)
-//    {
-//        var_dump($entity);
-//        exit;
-//    }
+
     public function removeAction()
     {
         $id = $this->request->query->get('id');
@@ -531,6 +593,14 @@ class AdminController extends BaseAdminController
         ));
     }
 
+    /**
+     * @param Tire $entity
+     */
+//    public function updateNeumaticoEntity($entity)
+//    {
+//        var_dump($entity);
+//        exit;
+//    }
     public function adepositoAction()
     {
         $id = $this->request->query->get('id');
@@ -554,6 +624,7 @@ class AdminController extends BaseAdminController
             'entity' => 'Asignar',
         ));
     }
+
     /**
      * @Route("/dashboard", name="backend_dashboard")
      * @Template("dashboard.html.twig")
@@ -577,8 +648,8 @@ class AdminController extends BaseAdminController
             $chart1Labels[] = $clientDevice['cliente'];
             $chart1Data[] = $clientDevice['cantidad'];
         }
-        $result['chart1']['labels'] =  $chart1Labels;
-        $result['chart1']['data'] =  $chart1Data;
+        $result['chart1']['labels'] = $chart1Labels;
+        $result['chart1']['data'] = $chart1Data;
 //        chart2
         $qb = $this->getEm()->createQueryBuilder();
         $qb->select('ru.name as usuario')
@@ -593,8 +664,8 @@ class AdminController extends BaseAdminController
             $chart2Labels[] = $userDevice['usuario'];
             $chart2Data[] = $userDevice['cantidad'];
         }
-        $result['chart2']['labels'] =  $chart2Labels;
-        $result['chart2']['data'] =  $chart2Data;
+        $result['chart2']['labels'] = $chart2Labels;
+        $result['chart2']['data'] = $chart2Data;
 //        chart3
         $qb = $this->getEm()->createQueryBuilder();
         $qb->select('g.label as grupo')
@@ -609,8 +680,8 @@ class AdminController extends BaseAdminController
             $chart3Labels[] = $groupDevice['grupo'];
             $chart3Data[] = $groupDevice['cantidad'];
         }
-        $result['chart3']['labels'] =  $chart3Labels;
-        $result['chart3']['data'] =  $chart3Data;
+        $result['chart3']['labels'] = $chart3Labels;
+        $result['chart3']['data'] = $chart3Data;
 
 
 //        var_dump($result);
@@ -618,8 +689,7 @@ class AdminController extends BaseAdminController
         return $result;
     }
 
-
-        public function createNewUserEntity()
+    public function createNewUserEntity()
     {
         return $this->get('fos_user.user_manager')->createUser();
     }
@@ -652,7 +722,7 @@ class AdminController extends BaseAdminController
      */
     public function persistClienteEntity($user)
     {
-        if(!$user->hasRole('ROLE_CLIENT'))
+        if (!$user->hasRole('ROLE_CLIENT'))
             $user->setRoles(['ROLE_CLIENT']);
         $user->setEnabled(true);
         $this->get('fos_user.user_manager')->updateUser($user, false);
@@ -664,7 +734,7 @@ class AdminController extends BaseAdminController
      */
     public function updateClienteEntity($user)
     {
-        if(!$user->hasRole('ROLE_CLIENT'))
+        if (!$user->hasRole('ROLE_CLIENT'))
             $user->addRole('ROLE_CLIENT');
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::updateEntity($user);
@@ -676,31 +746,11 @@ class AdminController extends BaseAdminController
     public function persistDispositivoEntity($device)
     {
         $client = $device->getClient();
-        if(!is_null($client)){
+        if (!is_null($client)) {
             $userDevice = new UserDevice();
             $userDevice->setIduser($client->getId());
             $userDevice->setIddevice($device->getIddevice());
             $this->persistEntity($userDevice);
-        }
-    }
-
-    public function updateDispositivoEntity($device)
-    {
-        $client = $device->getClient();
-        if(!is_null($client)){
-            $repository = $this->getDoctrine()->getManager()->getRepository('App\Entity\UserDevice');
-            $userDevice = $repository->findOneBy(array(
-                'iddevice' => $device->getIddevice()
-            ));
-            if(is_null($userDevice)) {
-                $userDevice = new UserDevice();
-                $userDevice->setIduser($client);
-                $userDevice->setIddevice($device);
-                $this->persistEntity($userDevice);
-            }else {
-                $userDevice->setIduser($client);
-                $this->updateEntity($userDevice);
-            }
         }
     }
 
@@ -709,7 +759,7 @@ class AdminController extends BaseAdminController
      */
     public function persistAdminEntity($user)
     {
-        if(!$user->hasRole('ROLE_ADMIN'))
+        if (!$user->hasRole('ROLE_ADMIN'))
             $user->setRoles(['ROLE_ADMIN']);
         $user->setEnabled(true);
         $this->get('fos_user.user_manager')->updateUser($user, false);
@@ -721,7 +771,7 @@ class AdminController extends BaseAdminController
      */
     public function updateAdminEntity($user)
     {
-        if(!$user->hasRole('ROLE_ADMIN'))
+        if (!$user->hasRole('ROLE_ADMIN'))
             $user->addRole('ROLE_ADMIN');
 //        $newPass = $user->getPlainPassword();
 //        if(!is_null($newPass) || $newPass != "" ) {
@@ -744,7 +794,7 @@ class AdminController extends BaseAdminController
      */
     public function persistUsuarioEntity($user)
     {
-        if(!$user->hasRole('ROLE_REGULAR_USER'))
+        if (!$user->hasRole('ROLE_REGULAR_USER'))
             $user->setRoles(['ROLE_REGULAR_USER']);
         $user->setEnabled(false);
 
@@ -760,7 +810,7 @@ class AdminController extends BaseAdminController
      */
     public function updateUsuarioEntity($user)
     {
-        if(!$user->hasRole('ROLE_REGULAR_USER'))
+        if (!$user->hasRole('ROLE_REGULAR_USER'))
             $user->setRoles(['ROLE_REGULAR_USER']);
 //        $newPass = $user->getPlainPassword();
 //        if(!is_null($newPass) || $newPass != "" ) {
@@ -787,7 +837,7 @@ class AdminController extends BaseAdminController
         $loggedUser = $this->getUser();
 //        var_dump($entity);
 //        exit;
-        if(is_object($loggedUser)){
+        if (is_object($loggedUser)) {
             $entity->setClient($loggedUser);
         }
         return $entity;
@@ -796,7 +846,7 @@ class AdminController extends BaseAdminController
     public function deleteDispositivoAction()
     {
         $keepData = $this->request->query->get('keep_data');
-        if($keepData == "0")
+        if ($keepData == "0")
             parent::deleteAction();
         else {
 //            $device = $easyadmin['item'];
@@ -811,9 +861,29 @@ class AdminController extends BaseAdminController
         return $this->redirectToReferrer();
     }
 
+    public function updateDispositivoEntity($device)
+    {
+        $client = $device->getClient();
+        if (!is_null($client)) {
+            $repository = $this->getDoctrine()->getManager()->getRepository('App\Entity\UserDevice');
+            $userDevice = $repository->findOneBy(array(
+                'iddevice' => $device->getIddevice()
+            ));
+            if (is_null($userDevice)) {
+                $userDevice = new UserDevice();
+                $userDevice->setIduser($client);
+                $userDevice->setIddevice($device);
+                $this->persistEntity($userDevice);
+            } else {
+                $userDevice->setIduser($client);
+                $this->updateEntity($userDevice);
+            }
+        }
+    }
+
     public function listNeumaticoAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.status = 'Activo' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
@@ -822,7 +892,7 @@ class AdminController extends BaseAdminController
 
     public function listDepositoAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.status = 'En depósito' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
@@ -830,7 +900,7 @@ class AdminController extends BaseAdminController
 
     public function listRenovarAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.status = 'Enviado a renovar' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
@@ -839,7 +909,7 @@ class AdminController extends BaseAdminController
 
     public function listBajaAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.status = 'Dado de baja' and entity.client = " . $this->getUser()->getId();
         }
         return parent::listAction();
@@ -858,7 +928,7 @@ class AdminController extends BaseAdminController
         $qb->setParameter("clientId", $this->getUser()->getId());
         $employees = $qb->getQuery()->getResult();
 
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
         }
 
@@ -891,7 +961,7 @@ class AdminController extends BaseAdminController
         $qb->setParameter("clientId", $this->getUser()->getId());
         $vehicles = $qb->getQuery()->getResult();
 
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
         }
 
@@ -923,7 +993,7 @@ class AdminController extends BaseAdminController
         $qb->setParameter("clientId", $this->getUser()->getId());
         $vehicles = $qb->getQuery()->getResult();
 
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['search']['dql_filter'] = "entity.client = " . $this->getUser()->getId();
         }
         $this->dispatch(EasyAdminEvents::PRE_SEARCH);
@@ -984,7 +1054,7 @@ class AdminController extends BaseAdminController
     {
         $vehicleCheck = $this->getEm()->getRepository('App\Entity\VehicleCheck')->find($id);
         $arrayRFIDS = [];
-        $arrivedRFIDS = json_decode($vehicleCheck->getArrivedTags()) ;
+        $arrivedRFIDS = json_decode($vehicleCheck->getArrivedTags());
 
 
         $returnTires = array();
@@ -992,11 +1062,11 @@ class AdminController extends BaseAdminController
         $state = '1'; //comentar los estados ke estoy usando
         $idTag = '-1';
         $rfID = '-1';
-       // $arrayRFIDS = $vehicleCheck->getVehicle()->getTagsRfids();
+        // $arrayRFIDS = $vehicleCheck->getVehicle()->getTagsRfids();
 
-        foreach ($vehicleTires as $tire){
+        foreach ($vehicleTires as $tire) {
             $tag = $tire->getControlTag();
-            if($tag != null) {
+            if ($tag != null) {
                 $idTag = $tag->getId();
                 $rfID = $tag->getRfid();
                 $inArray = in_array($tag->getRfid(), $arrivedRFIDS);
@@ -1005,17 +1075,17 @@ class AdminController extends BaseAdminController
                 } else if ($inArray == false) {
                     $state = '0';//Neumático que tiene tag pero no es un tag autorizado
                 }
-            }else {
+            } else {
                 $state = '2';//Neumático sin tag
                 $idTag = '-1';
                 $rfID = '-1';
             }
-            $returnTires[(string)$tire->getPosition()] = [$state,$tire, $idTag,preg_replace('/\s+/', '',$rfID)];
-            echo preg_replace('/\s+/', '',$rfID);
+            $returnTires[(string)$tire->getPosition()] = [$state, $tire, $idTag, preg_replace('/\s+/', '', $rfID)];
+//            echo preg_replace('/\s+/', '',$rfID);
         }
 
         return array(
-            'vehicle' =>  $vehicleCheck,
+            'vehicle' => $vehicleCheck,
             'tires' => $returnTires,
             'vehicleCheckId' => $id
         );
@@ -1033,20 +1103,77 @@ class AdminController extends BaseAdminController
         $vehicleTires = $vehicle->getTires();
         $state = '1'; //comentar los estados ke estoy usando
 
-        foreach ($vehicleTires as $tire){
+        foreach ($vehicleTires as $tire) {
             $tag = $tire->getControlTag();
-            if($tag != null) {
-                    $state = '1';//Neumático con tag ok
-            }else {
+            if ($tag != null) {
+                $state = '1';//Neumático con tag ok
+            } else {
                 $state = '2';//Neumático sin tag
             }
-            $returnTires[(string)$tire->getPosition()] = [$state,$tire];
+            $returnTires[(string)$tire->getPosition()] = [$state, $tire];
         }
 
         return array(
-            'vehicle' =>  $vehicle,
+            'vehicle' => $vehicle,
             'tires' => $returnTires
         );
+    }
+
+    protected function listDispositivoDeClienteAction()
+    {
+        /**
+         * @var Device $pageResult
+         * @var PeripheralGpsData $gpsData
+         */
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
+            $this->dispatch(EasyAdminEvents::PRE_LIST);
+
+            $fields = $this->entity['list']['fields'];
+            $paginator = $this->findAll($this->entity['class'], $this->request->query->get('page', 1), $this->entity['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'), $this->entity['list']['dql_filter']);
+            $pageResults = $paginator->getCurrentPageResults();
+            foreach ($pageResults as $index => $pageResult) {
+                $id = $pageResult->getIddevice();
+                $gpsData = $this->em->getRepository('App\Entity\PeripheralGpsData')
+                    ->findOneBy(array(
+                        'iddevice' => $id
+                    ), array('idperipheralgps' => 'DESC'));
+                if (!is_null($gpsData))
+                    $pageResult->setLastGpsDate($gpsData->getCreatedat());
+            }
+            $this->dispatch(EasyAdminEvents::POST_LIST, array('paginator' => $paginator));
+
+            $parameters = array(
+                'paginator' => $paginator,
+                'fields' => $fields,
+                'delete_form_template' => $this->createDeleteForm($this->entity['name'], '__id__')->createView(),
+            );
+
+            return $this->executeDynamicMethod('render<EntityName>Template', array('list', $this->entity['templates']['list'], $parameters));
+        } else {
+            return parent::listAction();
+        }
+    }
+
+    protected function createListQueryBuilder($entityClass, $sortDirection, $sortField = null, $dqlFilter = null)
+    {
+
+        if ($entityClass == Maintenance::class) {
+            $em = $this->getEm();
+            $queryBuilder = $em->createQueryBuilder()
+                ->select('entity')
+                ->from($this->entity['class'], 'entity')
+                ->leftJoin('entity.vehicle', 'vehicle');
+
+            if (!empty($dqlFilter)) {
+                $queryBuilder->andWhere($dqlFilter);
+            }
+            if (null !== $sortField) {
+                $queryBuilder->orderBy('entity.' . $sortField, $sortDirection ?: 'DESC');
+            }
+
+            return $queryBuilder;
+        }
+        return parent::createListQueryBuilder($entityClass, $sortDirection, $sortField, $dqlFilter); // TODO: Change the autogenerated stub
     }
 
 }

@@ -9,6 +9,8 @@ easy_admin:
 #      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
       - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_ADMIN'}
       - { entity: 'DispositivoDeCliente', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_CLIENT'}
+      - { label: 'MDVR', icon: 'list', role: 'ROLE_CLIENT' }
+      - { entity: 'DispositivoMDVR', label: 'Dispositivos MDVR', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
 #      - { entity: 'Usuario', label: 'Usuarios',  icon: 'users', role: 'ROLE_CLIENT'}
 #      - { entity: 'Grupo', label: 'Grupos',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}

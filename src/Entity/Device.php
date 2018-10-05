@@ -128,12 +128,41 @@ class Device
     private $gpsDatas;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mdvr_number", type="text", nullable=true)
+     */
+    private $mdvrNumber;
+
+    /**
      * Device constructor.
      */
     public function __construct()
     {
         $this->gpsDatas = new ArrayCollection();
+        $this->createdat = new \DateTime();
+        $this->updatedat = new \DateTime();
     }
+
+    /**
+     * @return string
+     */
+    public function getMdvrNumber(): string
+    {
+        return $this->mdvrNumber;
+    }
+
+    /**
+     * @param string $mdvrNumber
+     * @return Device
+     */
+    public function setMdvrNumber(string $mdvrNumber): Device
+    {
+        $this->mdvrNumber = $mdvrNumber;
+        return $this;
+    }
+
+
 
     /**
      * @return ArrayCollection
@@ -525,7 +554,7 @@ class Device
 
     function __toString()
     {
-        return is_null($this->getLabel()) ? '' : $this->getLabel();
+        return is_null($this->getLabel()) ? $this->getMdvrNumber() : $this->getLabel();
     }
 
     /**
