@@ -8,6 +8,7 @@ easy_admin:
         - { name: 'vehicleCheck', icon: 'file-text-o', label: '', title: 'Mapa de la revisión' }
         fields:
           - { property: 'name', label: 'Nombre o número económico', type_options: { block_name: 'custom_type' } }
+          - { property: 'createdat', label: 'Fecha y hora', type: 'datetime' }
           - { property: 'plateNumber', label: 'Número de placa' }
           - { property: 'status', label: 'Estado' }
           - { property: 'result', label: 'Resultado' }
