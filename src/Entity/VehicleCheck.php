@@ -156,7 +156,14 @@ class VehicleCheck
      */
     public function getStatus()
     {
-        return $this->status;
+        $statusTranslated = $this->status;
+        if($this->status == 'FINISHED')
+            $statusTranslated = 'Terminado';
+        elseif ($this->status == 'CURRENT')
+            $statusTranslated = 'En proceso';
+        elseif ($this->status == 'PAUSED')
+            $statusTranslated = 'Pausado';
+        return $statusTranslated;
     }
 
     /**
