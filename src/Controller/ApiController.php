@@ -90,6 +90,7 @@ class ApiController extends FOSRestController
                 $this->getDoctrine()->getManager()->merge($vehicleCheckPaused[0]);
                 $this->getDoctrine()->getManager()->flush();
                 $this->antenasManager->sendVehicleCheckToSocket($vehicleCheckPaused[0]);
+                $this->getDoctrine()->getManager()->flush();
             }
         }
 
