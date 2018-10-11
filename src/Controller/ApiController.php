@@ -15,6 +15,7 @@ use App\Repository\VehicleCheckRepository;
 use App\Repository\VehicleRepository;
 use App\Service\AntenasManager;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManager;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -61,6 +62,7 @@ class ApiController extends FOSRestController
         // for each vehicle will check if it is being processed or in pause, it either updates or creates if it doesn't exists
         foreach ($vehicles as $index => $vehicle) {
 //            $this->getDoctrine()->getManager()->getConnection()->commit();
+            $this->getEm()->commit();
             $existentVehicleCheck = $vehicleCheckRepository->findOneBy(array(
                 'vehicle' => $vehicle,
                 'status' => array(VehicleCheck::STATUS_CURRENT, VehicleCheck::STATUS_PAUSED)
@@ -149,5 +151,13 @@ class ApiController extends FOSRestController
         $result = curl_exec($curl);
 //        $results = json_decode($body);
         return new Response($body);
+    }
+
+    /**
+     * @return EntityManager
+     */
+    private function getEm()
+    {
+        return $this->get("doctrine.orm.entity_manager");
     }
 }
