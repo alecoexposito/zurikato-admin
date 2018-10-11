@@ -60,7 +60,7 @@ class ApiController extends FOSRestController
 
         // for each vehicle will check if it is being processed or in pause, it either updates or creates if it doesn't exists
         foreach ($vehicles as $index => $vehicle) {
-            $this->getDoctrine()->getManager()->getConnection()->commit();
+//            $this->getDoctrine()->getManager()->getConnection()->commit();
             $existentVehicleCheck = $vehicleCheckRepository->findOneBy(array(
                 'vehicle' => $vehicle,
                 'status' => array(VehicleCheck::STATUS_CURRENT, VehicleCheck::STATUS_PAUSED)
