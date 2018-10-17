@@ -41,7 +41,7 @@ class FinishVehicleChecksCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-//        $this->antenasManager->deletedDoubleVehicles();
+        $this->antenasManager->deletedDoubleVehicles();
         $result = $this->antenasManager->changeVehicleCheckStatusCommand();
         if($result['set_to_current'] > 0) {
             $vehicleCheck = $this->antenasManager->getCurrentVehicleCheck();
