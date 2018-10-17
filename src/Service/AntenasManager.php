@@ -98,7 +98,8 @@ class AntenasManager
         $results = $qb->getQuery()->getScalarResult();
         foreach ($results as $index => $result) {
             $vehicleId = $result['vehicle'];
-            if($result['count'] > 1) {
+            $countNumber = (int)$result['count'];
+            if($countNumber > 1) {
                 $deleteVehicleQuery = "delete from vehicle_check where status = 'PAUSED' and vehicle_id = $vehicleId";
                 $this->entityManager->getConnection()->exec($deleteVehicleQuery);
                 $this->entityManager->flush();
