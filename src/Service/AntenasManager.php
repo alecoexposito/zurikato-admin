@@ -84,4 +84,25 @@ class AntenasManager
             'status' => VehicleCheck::STATUS_CURRENT
         ));
     }
+
+    public function deletedDoubleVehicles()
+    {
+        $repository = $this->entityManager->getRepository('App\Entity\VehicleCheck');
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->select('count(vc.id) as count')
+            ->addSelect('v.id as vehicle')
+            ->from(VehicleCheck::class, 'vc')
+            ->join('vc.vehicle', 'v')
+            ->where($qb->expr()->in('vc.status', [VehicleCheck::STATUS_CURRENT, VehicleCheck::STATUS_PAUSED]))
+            ->groupBy('vc.vehicle');
+        $results = $qb->getQuery()->getScalarResult();
+        foreach ($results as $index => $result) {
+            $vehicleId = $result['vehicle'];
+            if($result['count'] > 1) {
+                $deleteVehicleQuery = "delete from vehicle_check where status = 'PAUSED' and vehicle_id = $vehicleId";
+                $this->entityManager->getConnection()->exec($deleteVehicleQuery);
+                $this->entityManager->flush();
+            }
+        }
+    }
 }
