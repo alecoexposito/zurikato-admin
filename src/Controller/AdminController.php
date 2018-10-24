@@ -1085,7 +1085,7 @@ class AdminController extends BaseAdminController
         }
 
         return array(
-            'vehicle' => $vehicleCheck,
+            'vehicleCheck ' => $vehicleCheck,
             'tires' => $returnTires,
             'vehicleCheckId' => $id
         );
