@@ -97,11 +97,11 @@ jQuery(document).ready(function() {
 
     jQuery(".vehicle-select2").select2();
     jQuery("body").on("change", ".vehicle-select2", function() {
-        let employeeId = $(this).closest("tr").attr("data-id");
-        let vehicleId = $(this).val();
-        let vehicleSelect = $(this).closest("tr").find(".vehicle-select select");
-        let text = vehicleSelect.find("option[value=" + vehicleId + "]").html();
-        let _this = this;
+        var employeeId = $(this).closest("tr").attr("data-id");
+        var vehicleId = $(this).val();
+        var vehicleSelect = $(this).closest("tr").find(".vehicle-select select");
+        var text = vehicleSelect.find("option[value=" + vehicleId + "]").html();
+        var _this = this;
         $.post("/admin/custom/employee-update-vehicle", { employeeId: employeeId, vehicleId: vehicleId }, function(data) {
             $(_this).closest("tr").find(".vehicle-select").hide();
             $(_this).closest("tr").find(".vehicle-name").html(text).show();

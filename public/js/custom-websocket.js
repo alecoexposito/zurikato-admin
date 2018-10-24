@@ -14,11 +14,11 @@ var customws = {
         var socket = socketCluster.connect(options);
         var apiChannel = socket.subscribe("bridgeSocket");
         apiChannel.watch(function(data) {
-console.log(data);
+//console.log(data);
             data.rfids = eval(data.rfids);
             localVehicleCheckId = $('#vehicleCheckId').val();
             socketVehicleCheckId = data.vehicleCheckId;
-            console.log(localVehicleCheckId + ", " + socketVehicleCheckId);
+          //  console.log(localVehicleCheckId + ", " + socketVehicleCheckId);
             if(localVehicleCheckId == undefined || localVehicleCheckId != socketVehicleCheckId) {
                 var href = $('#antena-modal-revisar-button').attr('href');
                 var n = href.lastIndexOf('/');
@@ -30,7 +30,11 @@ console.log(data);
                     keyboard: false
                 });
             }
-            else {//cambiar colores de los neumaticos ke llegan nuevos
+            else {//cambiar colores de los neumaticos ke llegan nuevos tambien cambiar campo resultado
+                //cambiar campo resultado
+                if($('.ti-tagNoExist').length > 0 && $('.ti-setVisible').length > 0)
+                    $('#ti-resultado-revision').text('Faltan Tags');
+                else ($('#ti-resultado-revision').text('OK'));
                 //console.log(data)
                 customws.setNewTiresTags(data.rfids);
                 $("vehicleCheckId").val(data.vehicleCheckId);
