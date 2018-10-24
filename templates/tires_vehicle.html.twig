@@ -68,7 +68,7 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong class="font-weight-bold">Número económico:</strong> {{ vehicleCheck.getVehicle().name }}  </li>
            {#<li class="list-group-item"><strong class="font-weight-bold">Estado:</strong> {{ vehicleCheck.getStatus() }} </li>#}
-            <li class="list-group-item"><strong class="font-weight-bold">Resultado:</strong> <span id="ti-resultado-revision">{{ vehicleCheck.getResult() }}</span></li>
+            <li class="list-group-item"><strong class="font-weight-bold">Resultado:</strong> <span id="ti-resultado-revision">{{ vehicleCheck.result }}</span></li>
             <li class="list-group-item"><strong class="font-weight-bold">Fecha:</strong> {{ vehicleCheck.createdat|date('d-m-Y') }} </li>
         </ul>
     </div>
