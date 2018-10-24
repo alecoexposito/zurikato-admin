@@ -30,15 +30,15 @@ var customws = {
                     keyboard: false
                 });
             }
-            else {//cambiar colores de los neumaticos ke llegan nuevos tambien cambiar campo resultado
-                //cambiar campo resultado
-                if($('.ti-tagNoExist').length > 0 && $('.ti-setVisible').length > 0)
-                    $('#ti-resultado-revision').text('Faltan Tags');
-                else ($('#ti-resultado-revision').text('OK'));
+            else {//cambiar colores de los neumaticos ke llegan nuevos
                 //console.log(data)
                 customws.setNewTiresTags(data.rfids);
                 $("vehicleCheckId").val(data.vehicleCheckId);
             }
+            //cambiar campo resultado
+            if($('.ti-tagNoExist').length > 0 && $('.ti-setVisible').length > 0)
+                $('#ti-resultado-revision').text('Faltan Tags');
+            else if($('.ti-tagNoExist').length == 0)($('#ti-resultado-revision').text('OK'));
         });
         socket.on('connect', function () {
             console.log("conectado al socket");
