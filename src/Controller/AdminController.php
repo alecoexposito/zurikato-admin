@@ -120,6 +120,7 @@ class AdminController extends BaseAdminController
                                 $deviceTmp->setTrashed(false);
                                 $deviceTmp->setPanicButton(true);
                                 $deviceTmp->setAuthDevice($device['id']);
+                                $deviceTmp->setLabel($device['id']);
                                 $deviceModelMdvr = $this->getEm()->getRepository(DeviceModel::class)->findOneBy(array(
                                     'label' => 'MDVR'
                                 ));
@@ -141,16 +142,16 @@ class AdminController extends BaseAdminController
                 $deviceAdded = false;
                 $this->getEm()->getConnection()->rollBack();
             }
+            if($vehicleAdded && $deviceAdded)
+                $this->addFlash('success', "Se han adicionado vehículos y dispositivos nuevos, se deben editar para completar su información.");
+            elseif ($vehicleAdded)
+                $this->addFlash('success', "Se han adicionado vehículos nuevos, se deben editar para completar su información.");
+            elseif ($deviceAdded)
+                $this->addFlash('success', "Se han adicionado dispositivos nuevos, se deben editar para completar su información.");
+            else
+                $this->addFlash('success', "No se han encontrado vehículos o dispositivos nuevos.");
         }
 
-        if($vehicleAdded && $deviceAdded)
-            $this->addFlash('success', "Se han adicionado vehículos y dispositivos nuevos, se deben editar para completar su información.");
-        elseif ($vehicleAdded)
-            $this->addFlash('success', "Se han adicionado vehículos nuevos, se deben editar para completar su información.");
-        elseif ($deviceAdded)
-            $this->addFlash('success', "Se han adicionado dispositivos nuevos, se deben editar para completar su información.");
-        else
-            $this->addFlash('success', "No se han encontrado vehículos o dispositivos nuevos.");
 
 
 
