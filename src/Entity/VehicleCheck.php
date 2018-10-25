@@ -231,8 +231,10 @@ class VehicleCheck
         $vehicleTags = $this->vehicle->getTagsRfids();
         if(count($arrivedtagsArray) == count($vehicleTags))
             return 'OK';
-        if(count($arrivedtagsArray) < count($vehicleTags))
-            return 'Faltan Tags';
+        return 'Faltan Tags';
+//        if(count($arrivedtagsArray) < count($vehicleTags))
+//            return 'Faltan Tags';
+
     }
 
 }
