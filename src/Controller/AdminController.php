@@ -129,6 +129,11 @@ class AdminController extends BaseAdminController
                                 $vehicleTmp->setDevice($deviceTmp);
                                 $this->getEm()->merge($vehicleTmp);
                                 $this->getEm()->flush();
+                                $userDevice = new UserDevice();
+                                $userDevice->setIduser($client);
+                                $userDevice->setIddevice($deviceTmp);
+                                $this->getEm()->persist($userDevice);
+                                $this->getEm()->flush();
                                 $deviceAdded = true;
                             }
 
