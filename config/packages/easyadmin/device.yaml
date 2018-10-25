@@ -91,7 +91,7 @@ easy_admin:
             edit:
               title: 'Modificar Dispositivo'
         DispositivoMDVR:
-            disabled_actions: ['show', 'delete', 'edit']
+            disabled_actions: ['show', 'edit']
             class: App\Entity\Device
 #            disabled_actions: ['delete', 'show']
             templates:

@@ -88,6 +88,8 @@ class AdminController extends BaseAdminController
             try {
                 $vehicleRepository = $this->getEm()->getRepository(Vehicle::class);
                 foreach ($vehicles as $index => $vehicle) {
+//                    var_dump($vehicle);
+//                    exit;
                     if (!is_null($vehicle['nm']) && !empty($vehicle['nm'])) {
                         $vehicleTmp = $vehicleRepository->findOneBy(array(
                             'plateNumber' => $vehicle['nm']
@@ -98,6 +100,7 @@ class AdminController extends BaseAdminController
                         if (is_null($vehicleTmp)) {
                             $vehicleTmp = new Vehicle();
                             $vehicleTmp->setPlateNumber($vehicle['nm']);
+                            $vehicleTmp->setName($vehicle['nm']);
                             $vehicleTmp->setClient($client);
                             $this->getEm()->persist($vehicleTmp);
                             $this->getEm()->flush();
@@ -114,11 +117,13 @@ class AdminController extends BaseAdminController
                                 $deviceTmp = new Device();
                                 $deviceTmp->setClient($client);
                                 $deviceTmp->setMdvrNumber($device['id']);
+                                $deviceTmp->setTrashed(false);
+                                $deviceTmp->setPanicButton(true);
+                                $deviceTmp->setAuthDevice($device['id']);
                                 $deviceModelMdvr = $this->getEm()->getRepository(DeviceModel::class)->findOneBy(array(
                                     'label' => 'MDVR'
                                 ));
                                 $deviceTmp->setIddevicemodel($deviceModelMdvr);
-                                $deviceTmp->setAuthDevice(" ");
                                 $this->getEm()->persist($deviceTmp);
                                 $vehicleTmp->setDevice($deviceTmp);
                                 $this->getEm()->merge($vehicleTmp);
