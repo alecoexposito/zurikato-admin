@@ -13,7 +13,7 @@ easy_admin:
       - { entity: 'DispositivoMDVR', label: 'Dispositivos MDVR', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
 #      - { entity: 'Usuario', label: 'Usuarios',  icon: 'users', role: 'ROLE_CLIENT'}
       - { label: 'GRUPOS', icon: 'list', role: 'ROLE_CLIENT' }
-      - { entity: 'Grupo', label: 'Grupos',  icon: 'truck', role: 'ROLE_CLIENT'}
+      - { entity: 'Grupo', label: 'Grupos',  icon: 'list', role: 'ROLE_CLIENT'}
 #      - { entity: 'GovernmentData', label: 'Government Forms',  icon: 'file-o', role: 'ROLE_ADMIN'}
       - { label: 'CAMARAS', icon: 'list', role: 'ROLE_ADMIN' }
       - { entity: 'Camara', label: 'Camaras',  icon: 'camera', role: 'ROLE_ADMIN'}
