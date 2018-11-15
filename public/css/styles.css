@@ -193,13 +193,13 @@ label.required::after {
 
 
 
-.select2-selection__rendered li {
-    color: black !important;
-}
+/*.select2-selection__rendered li {*/
+    /*color: black !important;*/
+/*}*/
 .select2-selection {
     border: 1px solid #d2d6de !important;
     border-radius: 0 !important;
-    padding: 6px 12px !important;
+    /*padding: 6px 12px !important;*/
     height: 34px !important;
 }
 

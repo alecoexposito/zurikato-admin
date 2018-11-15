@@ -1,6 +1,6 @@
 easy_admin:
     entities:
-        Camera:
+        Camara:
             class: App\Entity\Camera
             list:
               fields:

@@ -147,16 +147,16 @@ class Device
     /**
      * @return string
      */
-    public function getMdvrNumber(): string
+    public function getMdvrNumber()
     {
-        return $this->mdvrNumber;
+        return is_null($this->mdvrNumber) ? '' : $this->mdvrNumber;
     }
 
     /**
      * @param string $mdvrNumber
      * @return Device
      */
-    public function setMdvrNumber(string $mdvrNumber): Device
+    public function setMdvrNumber($mdvrNumber): Device
     {
         $this->mdvrNumber = $mdvrNumber;
         return $this;
