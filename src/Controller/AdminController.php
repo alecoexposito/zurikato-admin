@@ -163,7 +163,7 @@ class AdminController extends BaseAdminController
 
         return $this->redirectToRoute('easyadmin', array(
             'action' => 'list',
-            'entity' => 'DispositivoMDVR',
+            'entity' => 'Dispositivo',
         ));
 
     }

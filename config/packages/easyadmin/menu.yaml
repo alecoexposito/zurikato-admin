@@ -7,10 +7,15 @@ easy_admin:
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
       - { entity: 'Cliente', label: 'Clientes',  icon: 'users', role: 'ROLE_ADMIN'}
 #      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
+
+#      - { label: 'Crear Dispositivo', icon: 'list', role: 'ROLE_ADMIN' }
+#      - { entity: 'DispositivoMDVR', label: 'API (MDVR)', params: { action: 'list' }, icon: 'plus', role: 'ROLE_ADMIN'}
+#      - { entity: 'Dispositivo', label: 'Formulario', params: { action: 'new' }, icon: 'plus', role: 'ROLE_ADMIN'}
+
+      - { label: 'Dispositivos', icon: 'list', role: 'ROLE_ADMIN' }
       - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_ADMIN'}
       - { entity: 'DispositivoDeCliente', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_CLIENT'}
-      - { label: 'MDVR', icon: 'list', role: 'ROLE_CLIENT' }
-      - { entity: 'DispositivoMDVR', label: 'Dispositivos MDVR', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
+#      - { label: 'MDVR', icon: 'list', role: 'ROLE_CLIENT' }
 #      - { entity: 'Usuario', label: 'Usuarios',  icon: 'users', role: 'ROLE_CLIENT'}
       - { label: 'GRUPOS', icon: 'list', role: 'ROLE_CLIENT' }
       - { entity: 'Grupo', label: 'Grupos',  icon: 'list', role: 'ROLE_CLIENT'}
