@@ -94,14 +94,14 @@ class AdminController extends BaseAdminController
                         $vehicleTmp = $vehicleRepository->findOneBy(array(
                             'plateNumber' => $vehicle['nm']
                         ));
-                        $client = $this->getCurrentClient();
+//                        $client = $this->getCurrentClient();
 
                         // si no existe el vehiculo lo agrego
                         if (is_null($vehicleTmp)) {
                             $vehicleTmp = new Vehicle();
                             $vehicleTmp->setPlateNumber($vehicle['nm']);
                             $vehicleTmp->setName($vehicle['nm']);
-                            $vehicleTmp->setClient($client);
+//                            $vehicleTmp->setClient($client);
                             $this->getEm()->persist($vehicleTmp);
                             $this->getEm()->flush();
                             $vehicleAdded = true;
@@ -115,7 +115,7 @@ class AdminController extends BaseAdminController
 
                             if (is_null($deviceTmp)) {
                                 $deviceTmp = new Device();
-                                $deviceTmp->setClient($client);
+//                                $deviceTmp->setClient($client);
                                 $deviceTmp->setMdvrNumber($device['id']);
                                 $deviceTmp->setTrashed(false);
                                 $deviceTmp->setPanicButton(true);
@@ -130,7 +130,7 @@ class AdminController extends BaseAdminController
                                 $this->getEm()->merge($vehicleTmp);
                                 $this->getEm()->flush();
                                 $userDevice = new UserDevice();
-                                $userDevice->setIduser($client);
+//                                $userDevice->setIduser($client);
                                 $userDevice->setIddevice($deviceTmp);
                                 $this->getEm()->persist($userDevice);
                                 $this->getEm()->flush();

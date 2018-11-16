@@ -22,7 +22,7 @@ class Device
      * Devuelve el Vehículo al que está asociado este dispositivo
      * @var Vehicle
      *
-     * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="device")
+     * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="device", cascade={"remove"})
      */
     private $vehicle;
 
