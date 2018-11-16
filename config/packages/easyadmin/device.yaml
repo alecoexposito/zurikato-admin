@@ -20,7 +20,7 @@ easy_admin:
 #                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
               fields:
-                - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei' }
+                - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei', type_options: {disabled: true} }
                 - { property: 'label', label: 'Nombre', css_class: 'col-lg-6', type_options: {required: true} }
                 - { property: 'iddevicemodel', label: 'Modelo', css_class: 'col-lg-6' }
                 - { property: 'client', label: 'Cliente', css_class: 'col-lg-6' }
