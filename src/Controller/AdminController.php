@@ -878,6 +878,7 @@ class AdminController extends BaseAdminController
     public function updateDispositivoEntity($device)
     {
         $client = $device->getClient();
+        $this->updateEntity($device);
         if (!is_null($client)) {
             $repository = $this->getDoctrine()->getManager()->getRepository('App\Entity\UserDevice');
             $userDevice = $repository->findOneBy(array(
