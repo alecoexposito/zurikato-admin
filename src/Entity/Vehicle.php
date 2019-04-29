@@ -85,6 +85,14 @@ class Vehicle
     private $odometer;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="vin", type="string", nullable=true)
+     */
+    private $vin;
+
+
+    /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="App\Entity\Tire", mappedBy="vehicle", cascade="all")
      */
@@ -306,6 +314,24 @@ class Vehicle
     public function setOdometer(string $odometer): Vehicle
     {
         $this->odometer = $odometer;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVin()
+    {
+        return $this->vin;
+    }
+
+    /**
+     * @param string $vin
+     * @return Vehicle
+     */
+    public function setVin(string $vin): Vehicle
+    {
+        $this->vin = $vin;
         return $this;
     }
 

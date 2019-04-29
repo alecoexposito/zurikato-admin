@@ -23,6 +23,7 @@ easy_admin:
           - { name: 'vehicleTiresList', icon: 'thermometer', label: '', title: 'Agregar profundidad a neumatico' }
         fields:
           - { property: 'name', label: 'Nombre o número económico', type_options: { block_name: 'custom_type' } }
+          - { property: 'vin', label: 'Serive Vehicular VIN' }
           - { property: 'plateNumber', label: 'Número de placa' }
           - { property: 'model', label: 'Modelo' }
           - { property: 'type', label: 'Tipo', type: 'text' }
@@ -37,6 +38,7 @@ easy_admin:
         title: 'Adicionar vehículo'
         fields:
           - { property: 'name', css_class: 'col-lg-4', label: 'Nombre o número económico', type_options: { block_name: 'custom_type' } }
+          - { property: 'vin', label: 'Serie Vehicular VIN', css_class: 'col-lg-4' }
           - { property: 'plateNumber', label: 'Número de placa', css_class: 'col-lg-4' }
           - { property: 'model', label: 'Modelo', css_class: 'col-lg-4' }
           - { property: 'type', label: 'Tipo', type: 'text', css_class: 'col-lg-4' }
