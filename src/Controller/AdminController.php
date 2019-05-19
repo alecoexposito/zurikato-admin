@@ -875,6 +875,9 @@ class AdminController extends BaseAdminController
         return $this->redirectToReferrer();
     }
 
+    /**
+     * @param Device $device
+     */
     public function updateDispositivoEntity($device)
     {
         $client = $device->getClient();
@@ -892,6 +895,9 @@ class AdminController extends BaseAdminController
             } else {
                 $userDevice->setIduser($client);
                 $this->updateEntity($userDevice);
+
+                $device->setVehicle(null);
+                $this->updateEntity($device);
             }
         }
     }
