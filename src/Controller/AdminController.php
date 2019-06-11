@@ -893,8 +893,8 @@ class AdminController extends BaseAdminController
                 $userDevice->setIddevice($device);
                 $this->persistEntity($userDevice);
             } else {
-                echo 'estuve aqui';
-                exit;
+//                echo 'estuve aqui';
+//                exit;
                 $userDevice->setIduser($client);
                 $this->updateEntity($userDevice);
                 $device->setVehicle(null);
