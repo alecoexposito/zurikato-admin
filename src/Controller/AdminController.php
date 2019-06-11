@@ -897,6 +897,9 @@ class AdminController extends BaseAdminController
 //                exit;
                 $userDevice->setIduser($client);
                 $this->updateEntity($userDevice);
+                $vehicle = $device->getVehicle();
+                $vehicle->setDevice(null);
+                $this->updateEntity($vehicle);
                 $device->setVehicle(null);
 
                 $this->updateEntity($device);
