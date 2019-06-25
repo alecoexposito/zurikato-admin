@@ -3,8 +3,8 @@ easy_admin:
         SemovLog:
             class: App\Entity\SemovLog
             list:
-              title: 'Trazas de llamadas hechas a web api SEMOV'
-              actions: ['show']
+              title: 'Trazas SEMOV'
+              disabled_actions: ['new', 'edit', 'delete']
               fields:
                 - { property: 'id', label: 'Id' }
                 - { property: 'createdAt', label: 'Fecha' }
