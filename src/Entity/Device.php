@@ -495,6 +495,11 @@ class Device
     private $trashed;
 
     /**
+     * @ORM\ManyToMany(targetEntity="RegularUser", mappedBy="devices")
+     */
+    private $users;
+
+    /**
      * @return bool
      */
     public function isTrashed(): bool
