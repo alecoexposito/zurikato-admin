@@ -1,5 +1,9 @@
-pppppppppppppppppp
-{{ dump() }}
+{% if app.environment == 'dev' %}
+    {{ dump() }}
+{% else %}
+    adsñflkljasdñfkljsadfñllkj
+{% endif %}
+
 {#{{ value }}#}
 {#{% set list = value | json_encode %}#}
 {#{{ list | length }}#}
