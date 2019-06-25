@@ -8,3 +8,4 @@ imports:
   - { resource: easyadmin/vehicle.yaml }
   - { resource: easyadmin/employee.yaml }
   - { resource: easyadmin/maintenance.yaml }
+  - { resource: easyadmin/semov_log.yaml }
