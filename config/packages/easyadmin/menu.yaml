@@ -24,7 +24,7 @@ easy_admin:
       - { entity: 'Camara', label: 'Camaras',  icon: 'camera', role: 'ROLE_ADMIN'}
 
       - { label: 'SEMOV', icon: 'list', role: 'ROLE_ADMIN' }
-      - { entity: 'SemovLog', label: 'Trazas de llamadas a la web api SEMOV',  icon: 'list', role: 'ROLE_ADMIN'}
+      - { entity: 'SemovLog', label: 'Trazas SEMOV',  icon: 'list', role: 'ROLE_ADMIN'}
 
       - { label: 'Empleados', role: 'ROLE_CLIENT' }
       - { entity: 'Empleado', label: 'Empleados', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
