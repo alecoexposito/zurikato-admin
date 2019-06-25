@@ -1,2 +1,49 @@
 adf
 {{ value.ArrayOfVehiclesOnlyGps_Result | length }}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <th>Provider</th>
+        <th>IDCompany</th>
+        <th>CompanyName</th>
+        <th>RouteName</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>VIN</th>
+        <th>EconomicNumber</th>
+        <th>VehiculePlate</th>
+        <th>IMEI</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Altitude</th>
+        <th>Speed</th>
+        <th>Direction</th>
+        <th>PanicButton</th>
+        <th>UrlCamera</th>
+    </thead>
+    <tbody>
+        {% for r in value.ArrayOfVehiclesOnlyGps_Result %}
+            <tr>
+                <td>
+                    {{ r.Provider }}
+                    {{ r.IDCompany }}
+                    {{ r.CompanyName }}
+                    {{ r.RouteName }}
+                    {{ r.Date }}
+                    {{ r.Time }}
+                    {{ r.VIN }}
+                    {{ r.EconomicNumber }}
+                    {{ r.VehiculePlate }}
+                    {{ r.IMEI }}
+                    {{ r.Latitude }}
+                    {{ r.Longitude }}
+                    {{ r.Altitude }}
+                    {{ r.Speed }}
+                    {{ r.Direction }}
+                    {{ r.PanicButton }}
+                    {{ r.UrlCamera }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
