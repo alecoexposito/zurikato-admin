@@ -2,9 +2,11 @@ easy_admin:
     entities:
         SemovLog:
             class: App\Entity\SemovLog
+            disabled_actions: ['new', 'edit', 'delete']
             list:
               title: 'Trazas SEMOV'
-              disabled_actions: ['new', 'edit', 'delete']
+              actions:
+                - { name: 'show', icon: 'show' }
               fields:
                 - { property: 'id', label: 'Id' }
                 - { property: 'createdAt', label: 'Fecha' }
