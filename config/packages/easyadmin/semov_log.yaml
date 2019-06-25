@@ -4,9 +4,14 @@ easy_admin:
             class: App\Entity\SemovLog
             disabled_actions: ['new', 'edit', 'delete']
             list:
-              title: 'Trazas SEMOV'
-              actions:
-                - { name: 'show', icon: 'show' }
-              fields:
-                - { property: 'id', label: 'Id' }
-                - { property: 'createdAt', label: 'Fecha' }
+                title: 'Trazas SEMOV'
+                actions:
+                  - { name: 'show', icon: 'search', label: false, title: 'Ver Resultados' }
+                fields:
+                  - { property: 'id', label: 'Id' }
+                  - { property: 'createdAt', label: 'Fecha' }
+            show:
+                title: 'Resultado de la api SEMOV'
+                fields:
+                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
+                  - { property: 'dataJson', label: 'Información', template: 'easyadmin/templates/semov_data.html.twig' }
