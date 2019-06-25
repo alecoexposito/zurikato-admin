@@ -1,0 +1,8 @@
+easy_admin:
+    entities:
+        SemovLog:
+            class: App\Entity\SemovLog
+            list:
+              fields:
+                - { property: 'id', label: 'Id' }
+                - { property: 'createdAt', label: 'Fecha' }
