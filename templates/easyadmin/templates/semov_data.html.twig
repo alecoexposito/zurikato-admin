@@ -1,9 +1,9 @@
 {% if app.environment == 'dev' %}
-    {{ value | json_encode }}
+    {{ value | json_decode }}
 {% else %}
     adsñflkljasdñfkljsadfñllkj
 {% endif %}
 
 {#{{ value }}#}
-{#{% set list = value | json_encode %}#}
-{#{{ list | length }}#}
+{% set list = value | json_decode %}
+{{ list | length }}
