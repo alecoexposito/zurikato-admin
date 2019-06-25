@@ -3,6 +3,7 @@ easy_admin:
         SemovLog:
             class: App\Entity\SemovLog
             list:
+              actions: 'show'
               fields:
                 - { property: 'id', label: 'Id' }
                 - { property: 'createdAt', label: 'Fecha' }
