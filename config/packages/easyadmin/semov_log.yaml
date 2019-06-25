@@ -11,6 +11,14 @@ easy_admin:
                   - { property: 'id', label: 'Id' }
                   - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
             show:
+                design:
+                  assets:
+                    css:
+                      #                - '/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
+                      - '/Datatables/datatables.css'
+                    js:
+                      - '/Datatables/datatables.js'
+
                 title: 'Resultado de la api SEMOV'
                 fields:
                   - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
