@@ -9,7 +9,7 @@ easy_admin:
                   - { name: 'show', icon: 'search', label: false, title: 'Ver Resultados' }
                 fields:
                   - { property: 'id', label: 'Id' }
-                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s', template: 'easyadmin/templates/semov_data.html.twig' }
+                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
             show:
                 title: 'Resultado de la api SEMOV'
                 fields:
