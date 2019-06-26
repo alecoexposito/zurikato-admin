@@ -5,6 +5,17 @@
 
     table.dataTable thead .sorting_asc_disabled { content: none; background: url('/DataTables/DataTables-1.10.18/images/sort_asc_disabled.png') no-repeat center right; }
     table.dataTable thead .sorting_desc_disabled { content: none; background: url('/DataTables/DataTables-1.10.18/images/sort_desc_disabled.png') no-repeat center right; }
+
+    table.dataTable thead .sorting::after { content: none }
+    table.dataTable thead .sorting_asc::after { content: none }
+    table.dataTable thead .sorting_desc::after { content: none }
+
+    table.dataTable thead .sorting_asc_disabled::after { content: none }
+    table.dataTable thead .sorting_desc_disabled::after { content: none }
+
+
+
+
 </style>
 <div style="overflow-x: auto;">
     <table id="table-semov" class="table table-bordered table-striped">
