@@ -13,5 +13,5 @@ easy_admin:
             show:
                 title: 'Resultado de la api SEMOV'
                 fields:
-                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s', class: 'col-sm-4' }
+                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s', css_class: 'col-sm-4' }
                   - { property: 'dataArray', label: 'Información', template: 'easyadmin/templates/semov_data.html.twig' }
