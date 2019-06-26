@@ -22,7 +22,7 @@ easy_admin:
 #                - '/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
                 - '/css/bootstrap-datetimepicker-standalone.css'
                 - '/css/bootstrap-datetimepicker.min.css'
-                - '/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css'
+                - '/DataTables/datatables.min.css'
                 - '/css/styles.css'
             js:
                 - '/js/socketcluster-client.min.js'
