@@ -22,7 +22,7 @@ easy_admin:
 #                - '/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
                 - '/css/bootstrap-datetimepicker-standalone.css'
                 - '/css/bootstrap-datetimepicker.min.css'
-                - '/DataTables//Datatables-1.10.18/css/dataTables.bootstrap.min.css'
+                - '/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css'
                 - '/css/styles.css'
             js:
                 - '/js/socketcluster-client.min.js'
@@ -31,7 +31,7 @@ easy_admin:
 #                - '/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'
                 - '/js/moment.min.js'
                 - '/js/bootstrap-datetimepicker.min.js'
-                - '/DataTables/Datatables-1.10.18/js/dataTables.bootstrap.min.js'
+                - '/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js'
                 - '/js/custom-js.js'
 #    entities:
 #         List the entity class name you want to manage
