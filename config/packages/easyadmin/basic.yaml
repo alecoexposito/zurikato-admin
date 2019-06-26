@@ -31,7 +31,7 @@ easy_admin:
 #                - '/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'
                 - '/js/moment.min.js'
                 - '/js/bootstrap-datetimepicker.min.js'
-                - '/DataTables/dataTables.min.js'
+                - '/DataTables/datatables.min.js'
                 - '/js/custom-js.js'
 #    entities:
 #         List the entity class name you want to manage
