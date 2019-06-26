@@ -1,5 +1,6 @@
-<table class="table table-bordered table-striped">
-    <thead>
+<div style="overflow-x: auto;">
+    <table id="table-semov" class="table table-bordered table-striped">
+        <thead>
         <th>Provider</th>
         <th>IDCompany</th>
         <th>CompanyName</th>
@@ -17,8 +18,8 @@
         <th>Direction</th>
         <th>PanicButton</th>
         <th>UrlCamera</th>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         {% for r in value.ArrayOfVehiclesOnlyGps_Result %}
             <tr>
                 <td>
@@ -74,5 +75,11 @@
                 </td>
             </tr>
         {% endfor %}
-    </tbody>
-</table>
+        </tbody>
+    </table>    
+</div>
+<script>
+    $(document).ready(function() {
+        $("#table-semov").dataTable();
+    });
+</script>
