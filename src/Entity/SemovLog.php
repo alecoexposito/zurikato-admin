@@ -113,12 +113,12 @@ class SemovLog
     }
 
     public function convert_from_another_time($source, $source_timezone, $dest_timezone){
-        $offset = $dest_timezone - $source_timezone;
-        if($offset == 0)
-            return $source;
-        $target = new \DateTime($source->format('Y-m-d H:i:s'));
-        $target->modify($offset . ' hours');
-        return $target;
+
+
+        $source->setTimezone(new \DateTimeZone('America/Mexico_City'));
+
+        return $source->format('Y-m-d H:i:s T');
+
     }
 
 
