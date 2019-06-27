@@ -122,7 +122,7 @@ class SemovLog
         $dt = new \DateTime($source->format('Y-m-d H:i:s'), new \DateTimeZone('UTC'));
         $dt->setTimezone(new \DateTimeZone('America/Mexico_City'));
 
-        return new \DateTime($dt->format('Y-m-d H:i:s'), new \DateTimeZone('America/Mexico_City'));
+        return $dt->format('m/d/Y H:i:s T');
 
     }
 
