@@ -112,12 +112,17 @@ class SemovLog
         return $this->convert_from_another_time($this->createdAt, 0, -5);
     }
 
-    public function convert_from_another_time($source, $source_timezone, $dest_timezone){
+    /**
+     * @param \DateTime $source
+     * @return mixed
+     */
+    public function convert_from_another_time($source){
 
 
-        $source->setTimezone(new \DateTimeZone('America/Mexico_City'));
+        $dt = new \DateTime($source->format('Y-m-d H:i:s'), new \DateTimeZone('UTC'));
+        $dt->setTimezone(new \DateTimeZone('America/Mexico_City'));
 
-        return $source->format('Y-m-d H:i:s T');
+        return $dt->format('Y-m-d H:i:s T');
 
     }
 
