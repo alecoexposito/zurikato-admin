@@ -109,7 +109,7 @@ class SemovLog
     }
 
     public function getMexicoCreatedAt() {
-        return $this->convert_from_another_time($this->createdAt, 0, -5);
+        return $this->convert_from_another_time($this->createdAt);
     }
 
     /**
@@ -124,6 +124,10 @@ class SemovLog
 
         return $dt->format('Y-m-d H:i:s T');
 
+    }
+
+    public function getDataArray() {
+        return json_decode($this->dataJson);
     }
 
 
