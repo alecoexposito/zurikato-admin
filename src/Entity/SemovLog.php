@@ -43,13 +43,6 @@ class SemovLog
      */
     private $updatedAt;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="created_at_str", type="string", nullable=true)
-     */
-    private $createdAtStr;
-
 
     /**
      * @return int
@@ -112,22 +105,6 @@ class SemovLog
      */
     public function setUpdatedAt(\DateTime $updatedAt): SemovLog {
         $this->updatedAt = $updatedAt;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreatedAtStr(): string {
-        return $this->createdAtStr;
-    }
-
-    /**
-     * @param string $createdAtStr
-     * @return SemovLog
-     */
-    public function setCreatedAtStr(string $createdAtStr): SemovLog {
-        $this->createdAtStr = $createdAtStr;
         return $this;
     }
 
