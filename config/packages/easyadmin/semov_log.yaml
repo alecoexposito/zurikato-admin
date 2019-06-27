@@ -18,7 +18,7 @@ easy_admin:
               fields:
                 - { property: 'id', label: 'Id' }
                 - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
-    - { property: 'createdAtString', label: 'Fecha String' }
+                - { property: 'createdAtString', label: 'Fecha String' }
             show:
                 title: 'Resultado de la api SEMOV'
                 fields:
