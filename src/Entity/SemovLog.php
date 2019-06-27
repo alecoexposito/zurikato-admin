@@ -107,8 +107,8 @@ class SemovLog
         return $this;
     }
 
-    public function getDataArray() {
-        return json_decode($this->dataJson);
+    public function createdAtString() {
+         return date_format($this->createdAt, "Ymd");
     }
 
 }
