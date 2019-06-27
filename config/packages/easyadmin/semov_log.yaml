@@ -2,23 +2,17 @@ easy_admin:
     entities:
         SemovLog:
             class: App\Entity\SemovLog
-            disabled_actions: ['new', 'edit', 'delete']
+            disabled_actions: ['new', 'edit', 'delete', 'search']
+            templates:
+                list: 'easyadmin/semovlog/list.html.twig'
             list:
                 title: 'Trazas SEMOV'
                 actions:
                   - { name: 'show', icon: 'search', label: false, title: 'Ver Resultados' }
                 fields:
                   - { property: 'id', label: 'Id' }
-                  - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
-                  - { property: 'createdAtString', label: 'Fecha String' }
-            search:
-              title: 'Trazas SEMOV'
-              actions:
-                - { name: 'show', icon: 'search', label: false, title: 'Ver Resultados' }
-              fields:
-                - { property: 'id', label: 'Id' }
-                - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
-                - { property: 'createdAtString', label: 'Fecha String' }
+                  - { property: 'createdAt', label: 'Fecha (UTC)', format: 'm/d/Y H:i:s' }
+                  - { property: 'mexicoCreatedAt', label: 'Fecha(Mexico)', format: 'm/d/Y H:i:s' }
             show:
                 title: 'Resultado de la api SEMOV'
                 fields:

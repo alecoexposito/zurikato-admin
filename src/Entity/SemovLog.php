@@ -44,6 +44,14 @@ class SemovLog
     private $updatedAt;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="created_at_str", type="string", nullable=true)
+     */
+    private $createdAtStr;
+
+
+    /**
      * @return int
      */
     public function getId(): int {
@@ -107,8 +115,35 @@ class SemovLog
         return $this;
     }
 
-    public function createdAtString() {
-         return date_format($this->createdAt, "Ymd");
+    /**
+     * @return string
+     */
+    public function getCreatedAtStr(): string {
+        return $this->createdAtStr;
     }
+
+    /**
+     * @param string $createdAtStr
+     * @return SemovLog
+     */
+    public function setCreatedAtStr(string $createdAtStr): SemovLog {
+        $this->createdAtStr = $createdAtStr;
+        return $this;
+    }
+
+    public function getMexicoCreatedAt() {
+        return $this->convert_from_another_time($this->createdAt, 0, -5);
+    }
+
+    public function convert_from_another_time($source, $source_timezone, $dest_timezone){
+        $offset = $dest_timezone - $source_timezone;
+        if($offset == 0)
+            return $source;
+        $target = new DateTime($source->format('Y-m-d H:i:s'));
+        $target->modify($offset+' hours');
+        return $target;
+    }
+
+
 
 }
