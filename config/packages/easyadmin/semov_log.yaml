@@ -11,6 +11,14 @@ easy_admin:
                   - { property: 'id', label: 'Id' }
                   - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
                   - { property: 'createdAtString', label: 'Fecha String' }
+            search:
+              title: 'Trazas SEMOV'
+              actions:
+                - { name: 'show', icon: 'search', label: false, title: 'Ver Resultados' }
+              fields:
+                - { property: 'id', label: 'Id' }
+                - { property: 'createdAt', label: 'Fecha', format: 'm/d/Y H:i:s' }
+    - { property: 'createdAtString', label: 'Fecha String' }
             show:
                 title: 'Resultado de la api SEMOV'
                 fields:
