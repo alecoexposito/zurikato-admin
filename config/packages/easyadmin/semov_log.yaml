@@ -17,5 +17,5 @@ easy_admin:
                 title: 'Resultado de la api SEMOV'
                 fields:
                   - { property: 'createdAt', label: 'Fecha (UTC)', format: 'm/d/Y H:i:s', css_class: 'col-sm-4' }
-                  - { property: 'createdAt', label: 'Fecha (Mexico)', format: 'm/d/Y H:i:s', css_class: 'col-sm-4' }
+                  - { property: 'mexicoCreatedAt', label: 'Fecha (Mexico)', format: 'm/d/Y H:i:s', css_class: 'col-sm-4' }
                   - { property: 'dataArray', label: 'Información', template: 'easyadmin/templates/semov_data.html.twig', css_class: 'col-sm-12' }
