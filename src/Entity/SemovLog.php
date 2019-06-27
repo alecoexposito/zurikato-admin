@@ -116,8 +116,8 @@ class SemovLog
         $offset = $dest_timezone - $source_timezone;
         if($offset == 0)
             return $source;
-        $target = new \DateTime($source);
-        $target->modify($offset+' hours');
+        $target = new \DateTime($source->format('Y-m-d H:i:s'));
+        $target->modify($offset . ' hours');
         return $target;
     }
 
