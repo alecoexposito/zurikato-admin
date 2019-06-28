@@ -27,7 +27,7 @@
     <div class="row">
         {% set startdate = app.request.query.get('startdate') %}
         {% if startdate is defined and startdate is not empty %}
-            {% set enddate = app.request.query.get('startdate') %}
+            {% set enddate = app.request.query.get('enddate') %}
             <div class="col-sm-5">
                 <h4><b>Trazas entre {{ startdate }} y {{ enddate }}</b></h4>
             </div>
