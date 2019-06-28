@@ -1203,7 +1203,7 @@ class AdminController extends BaseAdminController
         } elseif ($entityClass == SemovLog::class) {
 
             $startDate = $this->request->query->get("startdate");
-            if(!is_null($startDate)) {
+            if($startDate) {
                 $startDate = date_create_from_format("m/d/Y H:i", $startDate);
                 $startDate = $startDate->format('Y-m-d H:i:00');
 
