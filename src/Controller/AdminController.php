@@ -860,20 +860,14 @@ class AdminController extends BaseAdminController
 
     public function deleteDispositivoAction()
     {
-        $keepData = $this->request->query->get('keep_data');
-        if ($keepData == "0")
-            parent::deleteAction();
-        else {
-//            $device = $easyadmin['item'];
-//            echo "todavia";
-//            $id = $this->request->query->get('id');
-            $easyadmin = $this->request->attributes->get('easyadmin');
-            $device = $easyadmin['item'];
+        $easyadmin = $this->request->attributes->get('easyadmin');
+        $device = $easyadmin['item'];
 //            $device = $this->findBy('Device', $id);
-            $device->setTrashed(true);
-            $this->updateDispositivoEntity($device);
-        }
+        $device->setTrashed(true);
+        $device->setAuthDevice($device->getAuthDevice() . "_old");
+        $this->updateDispositivoEntity($device);
         return $this->redirectToReferrer();
+
     }
 
     /**

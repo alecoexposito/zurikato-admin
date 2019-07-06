@@ -1,5 +1,5 @@
 {{ form(delete_form, {
-    action: delete_form.vars.action ~ ('?' in delete_form.vars.action ? '&keep_data=1&' : '?') ~ 'referer=' ~ referer,
+    action: delete_form.vars.action ~ '?' ~ 'referer=' ~ referer,
     method: 'DELETE',
     attr: { id: 'delete-form', style: 'display: none' }
 }) }}
@@ -9,8 +9,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4>{{ '¿Está seguro que desea eliminar?' }}</h4>
-                <p>{{ 'Si desmarca la opción de abajo no se podrán recuperar los datos' }}</p>
-                <label><input id="keepData" checked="true" type="checkbox"> Mantener los datos</label>
+                {#<p>{{ 'Si desmarca la opción de abajo no se podrán recuperar los datos' }}</p>#}
+                {#<label><input id="keepData" checked="true" type="checkbox"> Mantener los datos</label>#}
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn">
