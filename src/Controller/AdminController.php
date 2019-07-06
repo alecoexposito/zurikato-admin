@@ -865,6 +865,8 @@ class AdminController extends BaseAdminController
 //            $device = $this->findBy('Device', $id);
         $device->setTrashed(true);
         $device->setAuthDevice($device->getAuthDevice() . "_old");
+        if(is_null($device->getMdvrNumber()))
+            $device->setMdvrNumber($device->getMdvrNumber() . "_old");
         $this->updateDispositivoEntity($device);
         return $this->redirectToReferrer();
 
