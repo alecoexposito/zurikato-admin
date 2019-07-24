@@ -36,7 +36,7 @@ class PeripheralGpsData
     /**
      * @var string
      *
-     * @ORM\Column(name="orientation_plain", type="string", length=100, nullable=false)
+     * @ORM\Column(name="orientation_plain", type="string", length=100, nullable=true)
      */
     private $orientationPlain;
 
