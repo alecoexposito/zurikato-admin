@@ -43,7 +43,7 @@ class Camera
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=30)
+     * @ORM\Column(name="username", type="string", length=30, nullable=true)
      */
     private $username;
 
@@ -71,7 +71,7 @@ class Camera
     /**
      * @var string
      *
-     * @ORM\Column(name="serial", type="string", length=240)
+     * @ORM\Column(name="serial", type="string", length=240, nullable=true)
      */
     private $serial;
 
