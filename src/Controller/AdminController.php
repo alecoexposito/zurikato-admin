@@ -74,7 +74,7 @@ class AdminController extends BaseAdminController
         $loginArray = json_decode($loginResult, true);
 //        var_dump($loginArray);
 //        exit;
-        $jsession = array_key_exists('jsession', $loginArray) ? $loginArray['jsession'] : null;
+        $jsession = (is_array($loginArray) && array_key_exists('jsession', $loginArray)) ? $loginArray['jsession'] : null;
 
         if (is_null($jsession)) {
             $this->addFlash('error', "No ha sido posible conectarse al servidor de MDVR, por favor, contacte al soporte técnico.");
