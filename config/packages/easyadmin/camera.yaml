@@ -13,10 +13,11 @@ easy_admin:
                 - { property: 'urlCamera' }
             form:
               fields:
-                - { property: 'device', css_class: 'col-lg-6', label: 'Device' }
+                - { property: 'name', css_class: 'col-lg-6', label: 'Nombre' }
+                - { property: 'device', css_class: 'col-lg-6', label: 'Dispositivo' }
                 - { property: 'ip', label: 'IP', css_class: 'col-lg-6' }
-                - { property: 'username', css_class: 'col-lg-6', label: 'Camera username' }
-                - { property: 'password', label: 'Camera password', css_class: 'col-lg-6' }
+                - { property: 'username', css_class: 'col-lg-6', label: 'Usuario Camara' }
+                - { property: 'password', label: 'Password Camara', css_class: 'col-lg-6' }
                 - { property: 'port', label: 'Port', css_class: 'col-lg-6' }
                 - { property: 'serial', css_class: 'col-lg-6' }
                 - { property: 'urlCamera', css_class: 'col-lg-6' }
