@@ -4,8 +4,8 @@ easy_admin:
             class: App\Entity\Camera
             list:
               fields:
-                - { property: 'name', label: 'Dispositivo' }
-                - { property: 'device', label: 'Device' }
+                - { property: 'name', label: 'Nombre' }
+                - { property: 'device', label: 'Dispositivo' }
                 - { property: 'ip', label: 'IP' }
                 - { property: 'username', label: 'Camera username' }
                 - { property: 'password', label: 'Camera password' }
