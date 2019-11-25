@@ -22,3 +22,5 @@ easy_admin:
                 - { property: 'port', label: 'Port', css_class: 'col-lg-6' }
                 - { property: 'serial', css_class: 'col-lg-6' }
                 - { property: 'urlCamera', css_class: 'col-lg-6' }
+                - { property: 'inAutoplay', css_class: 'col-lg-6' }
+                - { property: 'autoplayInterval', css_class: 'col-lg-6' }
