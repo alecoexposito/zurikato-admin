@@ -104,6 +104,54 @@ class Camera
     private $name;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="in_autoplay", type="boolean", length=150, nullable=true)
+     */
+    private $inAutoplay;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="autoplay_interval", type="integer", length=150, nullable=true)
+     */
+    private $autoplayInterval;
+
+    /**
+     * @return bool
+     */
+    public function isInAutoplay(): bool {
+        return $this->inAutoplay;
+    }
+
+    /**
+     * @param bool $inAutoplay
+     * @return Camera
+     */
+    public function setInAutoplay(bool $inAutoplay): Camera {
+        $this->inAutoplay = $inAutoplay;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAutoplayInterval(): int {
+        return $this->autoplayInterval;
+    }
+
+    /**
+     * @param int $autoplayInterval
+     * @return Camera
+     */
+    public function setAutoplayInterval(int $autoplayInterval): Camera {
+        $this->autoplayInterval = $autoplayInterval;
+        return $this;
+    }
+
+
+
+    /**
      * @return string
      */
     public function getName()
