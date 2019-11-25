@@ -120,7 +120,7 @@ class Camera
     /**
      * @return bool
      */
-    public function isInAutoplay(): bool {
+    public function isInAutoplay() {
         return $this->inAutoplay;
     }
 
@@ -128,7 +128,7 @@ class Camera
      * @param bool $inAutoplay
      * @return Camera
      */
-    public function setInAutoplay(bool $inAutoplay): Camera {
+    public function setInAutoplay($inAutoplay): Camera {
         $this->inAutoplay = $inAutoplay;
         return $this;
     }
@@ -136,7 +136,7 @@ class Camera
     /**
      * @return int
      */
-    public function getAutoplayInterval(): int {
+    public function getAutoplayInterval() {
         return $this->autoplayInterval;
     }
 
@@ -144,7 +144,7 @@ class Camera
      * @param int $autoplayInterval
      * @return Camera
      */
-    public function setAutoplayInterval(int $autoplayInterval): Camera {
+    public function setAutoplayInterval($autoplayInterval): Camera {
         $this->autoplayInterval = $autoplayInterval;
         return $this;
     }
