@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "regularUser" = "RegularUser", "admin" = "Admin" })
+ * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "regularUser" = "RegularUser", "admin" = "Admin", "adminUser" = "AdminUser" })
  * @ORM\AttributeOverrides({
  *      @ORM\AttributeOverride(name="email",
  *          column=@ORM\Column(
