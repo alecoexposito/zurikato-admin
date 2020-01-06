@@ -55,7 +55,7 @@ class AdminUser extends User
     /**
      * @return Collection
      */
-    public function getDevices(): Collection {
+    public function getDevices() {
         return $this->devices;
     }
 
@@ -63,7 +63,7 @@ class AdminUser extends User
      * @param Collection $devices
      * @return AdminUser
      */
-    public function setDevices(Collection $devices): AdminUser {
+    public function setDevices(Collection $devices) {
         $this->devices = $devices;
         return $this;
     }
@@ -79,7 +79,7 @@ class AdminUser extends User
      * @param Collection $clients
      * @return AdminUser
      */
-    public function setClients(Collection $clients): AdminUser {
+    public function setClients(Collection $clients) {
         $this->clients = $clients;
         return $this;
     }
@@ -87,7 +87,7 @@ class AdminUser extends User
     /**
      * @return string
      */
-    public function getCompanyName(): string {
+    public function getCompanyName() {
         return $this->companyName;
     }
 
@@ -95,7 +95,7 @@ class AdminUser extends User
      * @param string $companyName
      * @return AdminUser
      */
-    public function setCompanyName(string $companyName): AdminUser {
+    public function setCompanyName(string $companyName) {
         $this->companyName = $companyName;
         return $this;
     }
@@ -103,7 +103,7 @@ class AdminUser extends User
     /**
      * @return string
      */
-    public function getPhoneNumber(): string {
+    public function getPhoneNumber() {
         return $this->phoneNumber;
     }
 
@@ -111,7 +111,7 @@ class AdminUser extends User
      * @param string $phoneNumber
      * @return AdminUser
      */
-    public function setPhoneNumber(string $phoneNumber): AdminUser {
+    public function setPhoneNumber(string $phoneNumber) {
         $this->phoneNumber = $phoneNumber;
         return $this;
     }
