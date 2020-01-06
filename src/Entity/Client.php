@@ -67,20 +67,6 @@ class Client extends User
     }
 
     /**
-     * @return string
-     */
-    public function getName() {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name) {
-        $this->name = $name;
-    }
-
-    /**
      * @return AdminUser
      */
     public function getAdmin() {
