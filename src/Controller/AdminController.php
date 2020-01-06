@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Admin;
+use App\Entity\AdminUser;
 use App\Entity\Client;
 use App\Entity\Device;
 use App\Entity\DeviceModel;
@@ -1252,6 +1253,43 @@ class AdminController extends BaseAdminController
 
         return $this->redirect("/");
 
+    }
+
+    public function createNewAdministradorEntity()
+    {
+//        $user = $this->get('fos_user.user_manager')->createUser();
+        $adminUser = new AdminUser();
+
+        return $adminUser;
+    }
+
+    /**
+     * @param AdminUser $user
+     */
+    public function persistAdministradorEntity($user)
+    {
+        if (!$user->hasRole('ROLE_ADMIN_USER'))
+            $user->setRoles(['ROLE_ADMIN_USER']);
+        $user->setEnabled(true);
+        $this->get('fos_user.user_manager')->updateUser($user, false);
+        parent::persistEntity($user);
+    }
+
+    /**
+     * @param AdminUser $user
+     */
+    public function updateAdministradorEntity($user)
+    {
+        if (!$user->hasRole('ROLE_ADMIN_USER'))
+            $user->addRole('ROLE_ADMIN_USER');
+
+        $clients = $user->getClients();
+        foreach ($clients as $index => $client) {
+            $client->setAdmin($user);
+
+        }
+        $this->get('fos_user.user_manager')->updateUser($user, false);
+        parent::updateEntity($user);
     }
 
 }
