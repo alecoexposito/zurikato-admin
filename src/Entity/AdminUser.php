@@ -13,6 +13,22 @@ class AdminUser extends User
 {
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="company_name", type="string", length=500, nullable=true)
+     */
+    protected $companyName;
+
+    /**
+     * @var string
+     * @Assert\Valid()
+     * @Assert\Length(max=5, groups={"Default"})
+     *
+     * @ORM\Column(name="phone_number", type="string", length=30, nullable=true)
+     */
+    protected $phoneNumber;
+
+    /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="App\Entity\Device", mappedBy="admin")
      */
