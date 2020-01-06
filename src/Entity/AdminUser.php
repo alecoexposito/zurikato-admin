@@ -84,6 +84,38 @@ class AdminUser extends User
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getCompanyName(): string {
+        return $this->companyName;
+    }
+
+    /**
+     * @param string $companyName
+     * @return AdminUser
+     */
+    public function setCompanyName(string $companyName): AdminUser {
+        $this->companyName = $companyName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber(): string {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     * @return AdminUser
+     */
+    public function setPhoneNumber(string $phoneNumber): AdminUser {
+        $this->phoneNumber = $phoneNumber;
+        return $this;
+    }
+
 
 
 }
