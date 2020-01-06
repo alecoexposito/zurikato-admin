@@ -63,6 +63,8 @@ easy_admin:
                     - { property: 'lastName', label: 'Apellidos' }
                     - { property: 'email', label: 'Correo electrónico' }
                     - { property: 'phoneNumber', label: 'Número de teléfono' }
+                    - { property: 'clients', label: 'Clientes' }
+                    - { property: 'devices', label: 'Dispositivos' }
             form:
                 form_options: { validation_groups: ['Default'] }
                 fields:
@@ -72,6 +74,8 @@ easy_admin:
                     - { property: 'email', label: 'Correo electrónico', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'phoneNumber', label: 'Número de teléfono', css_class: 'col-md-6', type_options: { required: false}}
                     - { property: 'companyName', label: 'Compañía', css_class: 'col-md-6', type_options: { required: false}}
+                    - { property: 'clients', label: 'Clientes' }
+                    - { property: 'devices', label: 'Dispositivos' }
 
             edit:
                 fields:
@@ -81,7 +85,7 @@ easy_admin:
             new:
                 fields:
                     # ...
-                    - { property: 'plainPassword', css_class: 'col-md-6', type: 'password', type_options: { required: true} }
+                    - { property: 'plainPassword', label: 'Contraseña', css_class: 'col-md-6', type: 'password', type_options: { required: true} }
                     # ...
                 form_options: { validation_groups: ['Registration', 'Default'] }
         Usuario:
