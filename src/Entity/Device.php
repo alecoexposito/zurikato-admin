@@ -155,6 +155,20 @@ class Device
     }
 
     /**
+     * @return AdminUser
+     */
+    public function getAdmin() {
+        return $this->admin;
+    }
+
+    /**
+     * @param AdminUser $admin
+     */
+    public function setAdmin(AdminUser $admin) {
+        $this->admin = $admin;
+    }
+
+    /**
      * @return string
      */
     public function getMdvrNumber()

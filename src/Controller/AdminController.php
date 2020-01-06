@@ -1288,6 +1288,12 @@ class AdminController extends BaseAdminController
             $client->setAdmin($user);
 
         }
+        $devices = $user->getDevices();
+        foreach ($devices as $index => $device) {
+            $device->setAdmin($user);
+
+        }
+
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::updateEntity($user);
     }
