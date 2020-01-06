@@ -5,7 +5,7 @@ easy_admin:
       - { label: 'Dashboard', route: 'backend_dashboard', default: true, icon: 'dashboard ', role: ROLE_USER }
 #      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
-      - { entity: 'AdminUser', label: 'Admins',  icon: 'vcard', role: 'ROLE_ADMIN'}
+      - { entity: 'Administrador', label: 'Admins',  icon: 'vcard', role: 'ROLE_ADMIN'}
       - { entity: 'Cliente', label: 'Clientes',  icon: 'users', role: 'ROLE_ADMIN'}
 #      - { entity: 'ClientDevice', label: 'Devices Assigned',  icon: 'truck', role: 'ROLE_CLIENT'}
 
