@@ -48,6 +48,16 @@ class Client extends User
     protected $vehicles;
 
     /**
+     * @var \App\Entity\AdminUser
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\AdminUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
+     * })
+     */
+    private $admin;
+
+    /**
      * Client constructor.
      * @param string $companyName
      */
