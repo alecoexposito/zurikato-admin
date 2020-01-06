@@ -139,7 +139,7 @@ class Device
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\AdminUser")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="admin_id", referencedColumnName="idUser")
      * })
      */
     private $admin;
