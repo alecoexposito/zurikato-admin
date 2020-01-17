@@ -1308,4 +1308,19 @@ class AdminController extends BaseAdminController
         parent::updateEntity($user);
     }
 
+    public function startvpnAction()
+    {
+        $apiUrl = getenv('ZURIKATO_API_URL');
+        $id = $this->request->query->get('id');
+
+        $curl = curl_init($apiUrl . "/start-vpn/$id");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($curl);
+        $results = json_decode($result, true);
+        if($result['success'] == true)
+            $this->addFlash('success', "Se ha iniciado la vpn");
+        $this->addFlash('error', "Ha ocurrido un problema iniciando la vpn");
+    }
+
+
 }

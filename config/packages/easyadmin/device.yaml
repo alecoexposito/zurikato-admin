@@ -19,6 +19,8 @@ easy_admin:
                 - { property: 'vehicle', label: 'Vehículo' }
 #                - { property: 'iconMap', type: 'image', base_path: '%app.path.map_icons%' }
             form:
+              actions:
+                - { name: 'startvpn', icon: 'network', label: '', title: 'Iniciar VPN' }
               fields:
                 - { property: 'authDevice', css_class: 'col-lg-6', label: 'Imei', type_options: {disabled: true} }
                 - { property: 'label', label: 'Nombre', css_class: 'col-lg-6', type_options: {required: true} }
