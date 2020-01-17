@@ -1317,8 +1317,6 @@ class AdminController extends BaseAdminController
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_POST, 1);
         $result = curl_exec($curl);
-        var_dump($result);
-        exit;
         $results = json_decode($result, true);
         if($results['success'] == true)
             $this->addFlash('success', "Se ha iniciado la vpn");
