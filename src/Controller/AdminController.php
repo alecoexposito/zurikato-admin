@@ -1320,6 +1320,11 @@ class AdminController extends BaseAdminController
         if($result['success'] == true)
             $this->addFlash('success', "Se ha iniciado la vpn");
         $this->addFlash('error', "Ha ocurrido un problema iniciando la vpn");
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Dispositivo',
+        ));
     }
 
 

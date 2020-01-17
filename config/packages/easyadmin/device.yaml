@@ -33,7 +33,7 @@ easy_admin:
 #                - { property: 'devicesGroup', type_options: {by_reference: false} }
             edit:
               actions:
-                - { name: 'startvpn', icon: 'network-wired', label: 'Iniciar VPN', title: 'Iniciar VPN' }
+                - { name: 'startvpn', icon: 'wifi', label: 'Iniciar VPN', title: 'Iniciar VPN' }
 
         DeviceModel:
             class: App\Entity\DeviceModel
