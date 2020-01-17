@@ -1315,6 +1315,7 @@ class AdminController extends BaseAdminController
 
         $curl = curl_init($apiUrl . "/start-vpn/$id");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_POST, 1);
         $result = curl_exec($curl);
         $results = json_decode($result, true);
         if($result['success'] == true)
