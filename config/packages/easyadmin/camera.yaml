@@ -4,23 +4,25 @@ easy_admin:
             class: App\Entity\Camera
             list:
               fields:
+                - { property: 'id', label: 'ID' }
                 - { property: 'name', label: 'Nombre' }
                 - { property: 'device', label: 'Dispositivo' }
                 - { property: 'ip', label: 'IP' }
                 - { property: 'username', label: 'Camera username' }
                 - { property: 'password', label: 'Camera password' }
                 - { property: 'port', label: 'Port' }
-                - { property: 'serial' }
+                - { property: 'serial', label: 'Cloud ID' }
                 - { property: 'urlCamera' }
             form:
               fields:
+                - { property: 'ID', css_class: 'col-lg-6 readonly', label: 'ID',  }
                 - { property: 'name', css_class: 'col-lg-6', label: 'Nombre' }
                 - { property: 'device', css_class: 'col-lg-6', label: 'Dispositivo' }
                 - { property: 'ip', label: 'IP', css_class: 'col-lg-6' }
                 - { property: 'username', css_class: 'col-lg-6', label: 'Usuario Camara' }
                 - { property: 'password', label: 'Password Camara', css_class: 'col-lg-6' }
                 - { property: 'port', label: 'Port', css_class: 'col-lg-6' }
-                - { property: 'serial', css_class: 'col-lg-6' }
+                - { property: 'serial', css_class: 'col-lg-6', label: 'Cloud ID' }
                 - { property: 'urlCamera', css_class: 'col-lg-6' }
                 - { property: 'inAutoplay', css_class: 'col-lg-6' }
                 - { property: 'autoplayInterval', css_class: 'col-lg-6' }
