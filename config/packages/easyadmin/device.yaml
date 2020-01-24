@@ -6,6 +6,8 @@ easy_admin:
             templates:
               list: 'easyadmin/device/list.html.twig'
             list:
+              actions:
+                - { name: 'startvpn', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: 'Iniciar VPN', title: 'Iniciar VPN' }
               dql_filter: "entity.trashed != 1 or entity.trashed is null"
               fields:
                 - { property: 'authDevice', label: 'Imei' }
@@ -32,8 +34,8 @@ easy_admin:
                 - { property: 'panicButton', label: 'Transporte público', css_class: 'col-lg-6' }
 #                - { property: 'devicesGroup', type_options: {by_reference: false} }
             edit:
-              actions:
-                - { name: 'startvpn', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: 'Iniciar VPN', title: 'Iniciar VPN' }
+#              actions:
+#                - { name: 'startvpn', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: 'Iniciar VPN', title: 'Iniciar VPN' }
 
         DeviceModel:
             class: App\Entity\DeviceModel
