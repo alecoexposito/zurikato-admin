@@ -15,7 +15,7 @@ easy_admin:
                 - { property: 'urlCamera' }
             form:
               fields:
-                - { property: 'ID', css_class: 'col-lg-6 readonly', label: 'ID', type: 'text', type_options: {readonly: true} }
+                - { property: 'ID', css_class: 'col-lg-6 readonly', label: 'ID', type: 'text', type_options: {attr: {readonly: true} } }
                 - { property: 'name', css_class: 'col-lg-6', label: 'Nombre' }
                 - { property: 'device', css_class: 'col-lg-6', label: 'Dispositivo' }
                 - { property: 'ip', label: 'IP', css_class: 'col-lg-6' }
