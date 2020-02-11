@@ -10,6 +10,7 @@ easy_admin:
                 - { name: 'startvpnlist', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: '', title: 'Iniciar VPN' }
               dql_filter: "entity.trashed != 1 or entity.trashed is null"
               fields:
+                - { property: 'idDevice', label: 'ID' }
                 - { property: 'authDevice', label: 'Imei' }
                 - { property: 'label', label: 'Nombre' }
                 - { property: 'iddevicemodel', label: 'Modelo' }
