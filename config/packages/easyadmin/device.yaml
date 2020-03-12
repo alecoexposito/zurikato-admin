@@ -37,6 +37,7 @@ easy_admin:
             edit:
               actions:
                 - { name: 'startvpn', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: 'Iniciar VPN', title: 'Iniciar VPN' }
+                - { name: 'restartbb', icon: 'wifi', css_class: 'btn btn-sm btn-primary', label: 'Reiniciar BB', title: 'Reiniciar BB' }
 
         DeviceModel:
             class: App\Entity\DeviceModel

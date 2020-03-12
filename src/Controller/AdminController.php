@@ -1329,6 +1329,27 @@ class AdminController extends BaseAdminController
         ));
     }
 
+    public function restartbbAction()
+    {
+        $apiUrl = getenv('ZURIKATO_API_URL');
+        $id = $this->request->query->get('id');
+
+        $curl = curl_init($apiUrl . "/restart-bb/$id");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_POST, 1);
+        $result = curl_exec($curl);
+        $results = json_decode($result, true);
+        if($results['success'] == true)
+            $this->addFlash('success', "Se ha reiniciado la bb");
+        else
+            $this->addFlash('error', "Ha ocurrido un problema reiniciando la bb");
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => 'Dispositivo',
+        ));
+    }
+
     public function startvpnlistAction()
     {
         $apiUrl = getenv('ZURIKATO_API_URL');
