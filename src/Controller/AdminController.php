@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Admin;
 use App\Entity\AdminUser;
+use App\Entity\ApiOptions;
 use App\Entity\Client;
 use App\Entity\Device;
 use App\Entity\DeviceModel;
@@ -59,6 +60,9 @@ class AdminController extends BaseAdminController
      */
     public function mdvrLoad()
     {
+
+        $apiOptionsRepository = $this->getEm()->getRepository(ApiOptions::class);
+
         /**
          * @var \JMS\Serializer\Serializer $serializer
          */
@@ -66,7 +70,8 @@ class AdminController extends BaseAdminController
 //        $body = $request->getContent();
         $apiUrl = getenv('MDVR_API_URL');
         $apiUser = getenv('MDVR_API_USER');
-        $apiPass = getenv('MDVR_API_PASS');
+//        $apiPass = getenv('MDVR_API_PASS');
+        $apiPass = $apiOptionsRepository->findAll()[0];
 
         // loging in to the api with the user zurikato
         $curlLogin = curl_init($apiUrl . "/StandardApiAction_login.action?account=$apiUser&password=$apiPass");
