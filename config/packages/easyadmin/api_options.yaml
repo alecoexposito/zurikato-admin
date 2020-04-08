@@ -3,9 +3,11 @@ easy_admin:
         ApiOptions:
             class: App\Entity\ApiOptions
             label: 'Cambiar Contraseña de API'
+            disabled_actions: ['new', 'delete', 'list']
             list:
               fields:
                 - { property: 'api_pass', label: 'Contraseña' }
             form:
+              actions: ['edit']
               fields:
                 - { property: 'api_pass', css_class: 'col-lg-6', label: 'Contraseña' }
