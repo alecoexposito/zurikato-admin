@@ -2,7 +2,7 @@ easy_admin:
   design:
     menu:
       - { label: 'GPS', role: 'ROLE_USER' }
-      - { label: 'Ir al Mapa', icon: 'map', url: 'http://69.64.32.172', role: 'ROLE_USER' }
+      - { label: 'Ir al Mapa', icon: 'map', url: 'http://69.64.32.172', role: 'ROLE_USER', target: '_blank' }
       - { label: 'Dashboard', route: 'backend_dashboard', default: true, icon: 'dashboard ', role: ROLE_USER }
 #      - { label: 'Dashboard', default: true, icon: 'dashboard ' }
 #      - { entity: 'Admin', label: 'Admins',  icon: 'users', role: 'ROLE_ADMIN'}
