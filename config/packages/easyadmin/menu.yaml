@@ -15,6 +15,7 @@ easy_admin:
 
       - { label: 'Dispositivos', icon: 'list', role: 'ROLE_ADMIN' }
       - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_ADMIN'}
+      - { entity: 'Dispositivo', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_ADMIN_USER'}
       - { entity: 'DispositivoDeCliente', label: 'Dispositivos',  icon: 'truck', role: 'ROLE_CLIENT'}
 #      - { label: 'MDVR', icon: 'list', role: 'ROLE_CLIENT' }
 #      - { entity: 'Usuario', label: 'Usuarios',  icon: 'users', role: 'ROLE_CLIENT'}
@@ -51,3 +52,5 @@ easy_admin:
 
       - { label: 'Revisiones', icon: 'list', role: 'ROLE_CLIENT' }
       - { entity: 'Revision', label: 'Revisiones', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
+
+      - { entity: 'ApiOptions', label: 'Contraseña API', params: { action: 'edit' }, icon: 'edit', role: 'ROLE_CLIENT'}
