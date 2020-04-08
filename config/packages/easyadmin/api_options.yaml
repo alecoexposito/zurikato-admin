@@ -1,0 +1,11 @@
+easy_admin:
+    entities:
+        Camara:
+            class: App\Entity\ApiOptions
+            label: 'Cambiar Contraseña de API'
+            list:
+              fields:
+                - { property: 'api_pass', label: 'Contraseña' }
+            form:
+              fields:
+                - { property: 'api_pass', css_class: 'col-lg-6', label: 'Contraseña' }
