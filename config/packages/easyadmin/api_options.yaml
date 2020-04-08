@@ -8,6 +8,6 @@ easy_admin:
               fields:
                 - { property: 'api_pass', label: 'Contraseña' }
             form:
-              label: 'Modificar Contraseña'
+              title: 'Modificar Contraseña'
               fields:
                 - { property: 'api_pass', css_class: 'col-lg-6', label: 'Contraseña' }
