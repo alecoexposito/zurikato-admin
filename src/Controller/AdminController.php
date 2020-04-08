@@ -71,7 +71,7 @@ class AdminController extends BaseAdminController
         $apiUrl = getenv('MDVR_API_URL');
         $apiUser = getenv('MDVR_API_USER');
 //        $apiPass = getenv('MDVR_API_PASS');
-        $apiPass = $apiOptionsRepository->findAll()[0]->getPass();
+        $apiPass = $apiOptionsRepository->findAll()[0]->getApiPass();
 
         // loging in to the api with the user zurikato
         $curlLogin = curl_init($apiUrl . "/StandardApiAction_login.action?account=$apiUser&password=$apiPass");
