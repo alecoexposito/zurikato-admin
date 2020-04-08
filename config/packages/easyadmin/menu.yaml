@@ -54,4 +54,4 @@ easy_admin:
       - { entity: 'Revision', label: 'Revisiones', params: { action: 'list' }, icon: 'list', role: 'ROLE_CLIENT'}
 
       - { label: 'API', icon: 'list', role: 'ROLE_ADMIN' }
-      - { entity: 'ApiOptions', label: 'Contraseña API', params: { action: 'list' }, icon: 'list', role: 'ROLE_ADMIN'}
+      - { entity: 'ApiOptions', label: 'Contraseña API', params: { action: 'list' }, icon: 'list', role: 'ROLE_USER'}
