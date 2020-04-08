@@ -1,6 +1,6 @@
 easy_admin:
     entities:
-        Camara:
+        ApiOptions:
             class: App\Entity\ApiOptions
             label: 'Cambiar Contraseña de API'
             list:
