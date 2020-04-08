@@ -1,139 +1,276 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e099753-f9d1-47c6-8094-987c4b6f4604" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/custom-websocket.js" afterPath="$PROJECT_DIR$/public/js/custom-websocket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/menu.html.twig" afterPath="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig" afterPath="$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tires_vehicle.html.twig" afterPath="$PROJECT_DIR$/templates/tires_vehicle.html.twig" />
+    <list default="true" id="7e099753-f9d1-47c6-8094-987c4b6f4604" name="Default" comment="adding database file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="4a9f2c65-ee8f-46b4-936f-b08e8e56edbd" name="nosubir" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/zurikato-admin.iml" afterPath="$PROJECT_DIR$/.idea/zurikato-admin.iml" />
+    <list id="9c63bb74-a5d7-447b-b39a-830478ffd61d" name="excluded" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/zurikato-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/zurikato-admin.iml" afterDir="false" />
     </list>
-    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FavoritesManager">
-    <favorites_list name="zurikato-admin" />
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/menu.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="844" column="21" selection-start-line="844" selection-start-column="21" selection-end-line="844" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegularUser.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/RegularUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="351">
+              <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vehicle.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Vehicle.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/basic.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8712">
-              <caret line="401" column="6" selection-start-line="401" selection-start-column="6" selection-end-line="401" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="351">
+              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControlTag.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/ControlTag.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2574">
-              <caret line="117" column="27" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tires_vehicle.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tires_vehicle.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="60" column="36" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="1170">
+              <caret line="80" column="5" selection-start-line="68" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
+              <folding>
+                <element signature="e#30#73#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom-websocket.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/custom-websocket.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/menu.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="9240">
+              <caret line="1340" column="46" selection-start-line="1340" selection-start-column="46" selection-end-line="1340" selection-end-column="46" />
+              <folding>
+                <element signature="e#114#135#0#PHP" expanded="true" />
+                <element signature="e#10270#10466#0#PHP" />
+                <element signature="e#10513#10874#0#PHP" />
+                <element signature="e#10923#11054#0#PHP" />
+                <element signature="e#11060#11303#0#PHP" />
+                <element signature="e#11667#11941#0#PHP" />
+                <element signature="e#11947#12306#0#PHP" />
+                <element signature="e#12312#12498#0#PHP" />
+                <element signature="e#12504#12729#0#PHP" />
+                <element signature="e#13138#13497#0#PHP" />
+                <element signature="e#13503#13659#0#PHP" />
+                <element signature="e#13665#13908#0#PHP" />
+                <element signature="e#13960#14656#0#PHP" />
+                <element signature="e#14662#15534#0#PHP" />
+                <element signature="e#15679#16969#0#PHP" />
+                <element signature="e#17016#17163#0#PHP" />
+                <element signature="e#17210#17401#0#PHP" />
+                <element signature="e#17407#17674#0#PHP" />
+                <element signature="e#17723#18123#0#PHP" />
+                <element signature="e#18129#18538#0#PHP" />
+                <element signature="e#19094#19437#0#PHP" />
+                <element signature="e#19444#19768#0#PHP" />
+                <element signature="e#19774#20100#0#PHP" />
+                <element signature="e#20263#20594#0#PHP" />
+                <element signature="e#20600#20930#0#PHP" />
+                <element signature="e#21046#23479#0#PHP" />
+                <element signature="e#23485#23600#0#PHP" />
+                <element signature="e#23606#23767#0#PHP" />
+                <element signature="e#23773#23932#0#PHP" />
+                <element signature="e#25223#25506#0#PHP" />
+                <element signature="e#25554#25916#0#PHP" />
+                <element signature="e#25922#26115#0#PHP" />
+                <element signature="e#26169#26602#0#PHP" />
+                <element signature="e#26656#27037#0#PHP" />
+                <element signature="e#27059#27241#0#PHP" />
+                <element signature="e#27284#27581#0#PHP" />
+                <element signature="e#27587#28113#0#PHP" />
+                <element signature="e#28164#29311#0#PHP" />
+                <element signature="e#29317#29597#0#PHP" />
+                <element signature="e#29603#29886#0#PHP" />
+                <element signature="e#29892#30181#0#PHP" />
+                <element signature="e#30187#30468#0#PHP" />
+                <element signature="e#30474#31910#0#PHP" />
+                <element signature="e#31916#33302#0#PHP" />
+                <element signature="e#33308#35600#0#PHP" />
+                <element signature="e#35606#35815#0#PHP" />
+                <element signature="e#35934#37443#0#PHP" />
+                <element signature="e#37603#38333#0#PHP" />
+                <element signature="e#38339#40012#0#PHP" />
+                <element signature="e#40018#42167#0#PHP" />
+                <element signature="e#42244#43160#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Alarm.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/ApiOptions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="165">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Camera.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>AppBundle</find>
-      <find>D</find>
-      <find>DeviceMol</find>
-      <find>DeviceMod</find>
-      <find>DeviceModels</find>
+      <find>custom_show</find>
+      <find>template</find>
+      <find>datetimepicke</find>
+      <find>design:</find>
+      <find>custom-datetime</find>
+      <find>javascript</find>
+      <find>startDate</find>
+      <find>app.request.que</find>
+      <find>Mantener los</find>
+      <find>keepData</find>
+      <find>la candela es</find>
+      <find>trigger</find>
+      <find>manytomany</find>
+      <find>manytoone</find>
+      <find>Dispositivos</find>
+      <find>Plain password</find>
+      <find>REGULAR</find>
+      <find>roles</find>
+      <find>DispositivoDeCliente</find>
+      <find>agregarprofundidad2</find>
+      <find>$this-&gt;addFlash</find>
+      <find>curl</find>
+      <find>cargar desde api</find>
+      <find>actions</find>
+      <find>$this-&gt;addFlash('success</find>
+      <find>$results</find>
+      <find>readonly</find>
+      <find>attr:</find>
+      <find>startvpn</find>
+      <find>Alarm</find>
     </findStrings>
     <replaceStrings>
-      <replace>App</replace>
-      <replace>protected</replace>
+      <replace>DevicesGroup</replace>
+      <replace>Camera</replace>
+      <replace>GovernmentData</replace>
+      <replace>Dispositivo</replace>
+      <replace>DispositivoDeCliente</replace>
+      <replace>RegularUser</replace>
+      <replace>Usuario</replace>
+      <replace>Cliente</replace>
+      <replace>ControlTag</replace>
+      <replace>Vehicle</replace>
+      <replace>Photo</replace>
+      <replace>tires</replace>
+      <replace>tire</replace>
+      <replace>Tire</replace>
+      <replace>col-lg-4</replace>
+      <replace>apellido paterno</replace>
+      <replace>integer</replace>
+      <replace>float</replace>
+      <replace>easyadmin.item.depths | length</replace>
+      <replace>$curl</replace>
+      <replace>VehicleCheck</replace>
+      <replace>col-lg-6</replace>
+      <replace>DescriptionCost</replace>
+      <replace>Maintenance</replace>
+      <replace>gpsDatas</replace>
+      <replace>PeripheralGpsData</replace>
+      <replace>gpsData</replace>
+      <replace>EmployeeVehicleLog</replace>
+      <replace>endDate</replace>
+      <replace>ApiOptions</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/Entity</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="php bin/console cache:clear" />
-      <command text="php -S 127.0.0.1:8003 -t public" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
+      <command text="php bin/console doctrine:schema:update --force" />
+      <command text="php bin/console doctrine:schema:update --dump-sql" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -142,208 +279,215 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/.env.dist" />
-        <option value="$PROJECT_DIR$/src/Entity/DeviceModels.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Devices.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserDevices.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserDevicesGroups.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserRoles.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Users.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserDevicesGroup.php" />
-        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
-        <option value="$PROJECT_DIR$/src/Entity/Alarm.php" />
-        <option value="$PROJECT_DIR$/src/Entity/AlarmCode.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Device.php" />
-        <option value="$PROJECT_DIR$/src/Entity/PeripheralGpsData.php" />
-        <option value="$PROJECT_DIR$/src/Entity/PeripheralTicketssellerData.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Rawdata.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserAuthToken.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserDevice.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserDeviceGroup.php" />
-        <option value="$PROJECT_DIR$/src/Entity/UserRole.php" />
-        <option value="$PROJECT_DIR$/src/Entity/DeviceModel.php" />
-        <option value="$PROJECT_DIR$/config/packages/fos_user.yaml" />
-        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/Entity/Maintenance.php" />
+        <option value="$PROJECT_DIR$/src/Entity/ControlTag.php" />
+        <option value="$PROJECT_DIR$/templates/tires_vehicle_information.html.twig" />
+        <option value="$PROJECT_DIR$/public/js/custom-websocket.js" />
+        <option value="$PROJECT_DIR$/src/Entity/EmployeeVehicleLog.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Employee.php" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/form/fields.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/employee_vehicle_logs.html.twig" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/empleado/employee_vehicle_logs.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/employee.yaml" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/mdvr/list.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
+        <option value="$PROJECT_DIR$/translations/messages.es.xlf" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
-        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/Service/AntenasManager.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ApiController.php" />
+        <option value="$PROJECT_DIR$/src/Command/FinishVehicleChecksCommand.php" />
+        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/VehicleCheck.php" />
+        <option value="$PROJECT_DIR$/public/css/styles.css" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/device/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Vehicle.php" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/vehicle.yaml" />
+        <option value="$PROJECT_DIR$/templates/semov_data.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/semov_data.html.twig" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/basic.yaml" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/templates/semov_data.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/semov_log.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/SemovLog.php" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/semovlog/list.html.twig" />
+        <option value="$PROJECT_DIR$/templates/easyadmin/device/includes/_delete_form.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/PeripheralGpsData.php" />
+        <option value="$PROJECT_DIR$/public/.htaccess" />
+        <option value="$PROJECT_DIR$/src/Entity/Camera.php" />
+        <option value="$PROJECT_DIR$/src/Entity/AdminUser.php" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/user.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/Client.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Tire.php" />
-        <option value="$PROJECT_DIR$/templates/tires_vehicle_information.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/styles.css" />
-        <option value="$PROJECT_DIR$/templates/easyadmin/default/list.html.twig" />
-        <option value="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/RegularUser.php" />
-        <option value="$PROJECT_DIR$/config/packages/easyadmin/basic.yaml" />
-        <option value="$PROJECT_DIR$/templates/tires_vehicle.html.twig" />
-        <option value="$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Device.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/camera.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/device.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
-        <option value="$PROJECT_DIR$/public/js/custom-websocket.js" />
+        <option value="$PROJECT_DIR$/src/Entity/ApiOptions.php" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/api_options.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/easyadmin/menu.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/RegularUser.php" />
+        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/templating" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/profiler-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/phpcollection/phpcollection" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/jms/parser-lib" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
+    </include_path>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="240" />
+    <option name="y" value="27" />
+    <option name="width" value="1211" />
+    <option name="height" value="666" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="packages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zurikato-admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="packages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyadmin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="zurikato-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zurikato-admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zurikato-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zurikato-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zurikato-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zurikato-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zurikato-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zurikato-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="easyadmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zurikato-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zurikato-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="menu.&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/config/packages/easyadmin/menu.yaml&#10;Device.php&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/Device.php&#10;Kernel.php&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Kernel.php&#10;services&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/config/services.yaml&#10;login.html.tw&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/templates/bundles/FOSUserBundle/Security/login.html.twig&#10;UserDevi&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/UserDevice.php&#10;Regular&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/RegularUser.php&#10;Client.php&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/Client.php&#10;user.php&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/User.php&#10;User.php&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/src/Entity/User.php&#10;security&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/config/packages/security.yaml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/var/www/html/easy-forms/app" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="SearchEverywhereHistoryKey" value="security&#9;FILE&#9;file:///home/aleco/symfony-projects/zurikato-admin/config/packages/security.yaml" />
-    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\zurikato-admin\zurikato-admin\templates" />
+      <recent name="$PROJECT_DIR$/config/packages/easyadmin" />
       <recent name="$PROJECT_DIR$/src/Entity" />
+      <recent name="$PROJECT_DIR$/templates/easyadmin/semovlog" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/easyadmin/templates" />
+      <recent name="$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default" />
+      <recent name="$PROJECT_DIR$/templates/easyadmin/empleado" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -359,55 +503,15 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
-      <method />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -415,7 +519,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7e099753-f9d1-47c6-8094-987c4b6f4604" name="Default" comment="" />
-      <changelist id="4a9f2c65-ee8f-46b4-936f-b08e8e56edbd" name="nosubir" comment="" />
+      <changelist id="9c63bb74-a5d7-447b-b39a-830478ffd61d" name="excluded" comment="" />
       <created>1521577798110</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -434,521 +538,1596 @@
       <workItem from="1521667584550" duration="1032000" />
       <workItem from="1521723773482" duration="644000" />
       <workItem from="1521743279581" duration="1374000" />
-      <workItem from="1533656065704" duration="78000" />
-      <workItem from="1533656498263" duration="6889000" />
-      <workItem from="1533668224338" duration="27858000" />
-      <workItem from="1533832412544" duration="14000" />
-      <workItem from="1533842489199" duration="2267000" />
-      <workItem from="1534274641322" duration="9977000" />
-      <workItem from="1534379532150" duration="25302000" />
-      <workItem from="1534890294449" duration="5010000" />
+      <workItem from="1521745461136" duration="1706000" />
+      <workItem from="1521749392220" duration="647000" />
+      <workItem from="1521812415534" duration="1716000" />
+      <workItem from="1521814191121" duration="1253000" />
+      <workItem from="1521816004853" duration="1792000" />
+      <workItem from="1521819243930" duration="1787000" />
+      <workItem from="1521828397721" duration="1788000" />
+      <workItem from="1521834586755" duration="1791000" />
+      <workItem from="1521836821814" duration="489000" />
+      <workItem from="1522074930880" duration="2229000" />
+      <workItem from="1522074278652" duration="54000" />
+      <workItem from="1522074399398" duration="1761000" />
+      <workItem from="1522076186875" duration="1794000" />
+      <workItem from="1522079493326" duration="601000" />
+      <workItem from="1522091683108" duration="1782000" />
+      <workItem from="1522093490273" duration="1813000" />
+      <workItem from="1522095349857" duration="1763000" />
+      <workItem from="1522097140191" duration="1678000" />
+      <workItem from="1522098950014" duration="1783000" />
+      <workItem from="1522100760932" duration="985000" />
+      <workItem from="1522195053184" duration="1033000" />
+      <workItem from="1522196872427" duration="1788000" />
+      <workItem from="1522198687153" duration="1784000" />
+      <workItem from="1522200524721" duration="1596000" />
+      <workItem from="1522202394081" duration="1785000" />
+      <workItem from="1522204205613" duration="1422000" />
+      <workItem from="1522239088127" duration="1783000" />
+      <workItem from="1522240913418" duration="1788000" />
+      <workItem from="1522242732299" duration="1412000" />
+      <workItem from="1522244540215" duration="529000" />
+      <workItem from="1522251403404" duration="1200000" />
+      <workItem from="1522253370549" duration="1750000" />
+      <workItem from="1522255244280" duration="1783000" />
+      <workItem from="1522257287174" duration="225000" />
+      <workItem from="1522287203478" duration="1187000" />
+      <workItem from="1522289034555" duration="835000" />
+      <workItem from="1522291935252" duration="1106000" />
+      <workItem from="1522293916449" duration="1797000" />
+      <workItem from="1522295826893" duration="916000" />
+      <workItem from="1522297785576" duration="1790000" />
+      <workItem from="1522300794839" duration="1791000" />
+      <workItem from="1522302604705" duration="1794000" />
+      <workItem from="1522304425340" duration="1788000" />
+      <workItem from="1522306231067" duration="1790000" />
+      <workItem from="1522308041293" duration="1474000" />
+      <workItem from="1522318428227" duration="1604000" />
+      <workItem from="1522320261094" duration="1302000" />
+      <workItem from="1522322100861" duration="406000" />
+      <workItem from="1522324616183" duration="1306000" />
+      <workItem from="1522326433775" duration="1493000" />
+      <workItem from="1522328242144" duration="1790000" />
+      <workItem from="1522330049434" duration="1090000" />
+      <workItem from="1522342375335" duration="598000" />
+      <workItem from="1522438335884" duration="776000" />
+      <workItem from="1522497326973" duration="1244000" />
+      <workItem from="1522499108932" duration="351000" />
+      <workItem from="1522503713486" duration="652000" />
+      <workItem from="1522505400975" duration="603000" />
+      <workItem from="1522532945485" duration="19000" />
+      <workItem from="1522673611021" duration="1342000" />
+      <workItem from="1522676576158" duration="721000" />
+      <workItem from="1522682794862" duration="1789000" />
+      <workItem from="1522684602589" duration="1791000" />
+      <workItem from="1522686410892" duration="1222000" />
+      <workItem from="1522689633200" duration="1791000" />
+      <workItem from="1522691451122" duration="1591000" />
+      <workItem from="1522693447959" duration="1764000" />
+      <workItem from="1522695256071" duration="1791000" />
+      <workItem from="1522697099852" duration="1791000" />
+      <workItem from="1522700468890" duration="658000" />
+      <workItem from="1522705090974" duration="1788000" />
+      <workItem from="1522708248345" duration="1679000" />
+      <workItem from="1522848926531" duration="1656000" />
+      <workItem from="1522850981830" duration="1790000" />
+      <workItem from="1522852819519" duration="1790000" />
+      <workItem from="1522854628967" duration="1439000" />
+      <workItem from="1522856435475" duration="1790000" />
+      <workItem from="1522858411397" duration="819000" />
+      <workItem from="1522862995976" duration="1790000" />
+      <workItem from="1522864803972" duration="1282000" />
+      <workItem from="1522866728438" duration="1789000" />
+      <workItem from="1522868729208" duration="1790000" />
+      <workItem from="1522870536026" duration="1790000" />
+      <workItem from="1522872357176" duration="1789000" />
+      <workItem from="1522936413846" duration="1942000" />
+      <workItem from="1522938477993" duration="1556000" />
+      <workItem from="1522940291198" duration="1442000" />
+      <workItem from="1522942099854" duration="1791000" />
+      <workItem from="1522943951782" duration="1790000" />
+      <workItem from="1522945761580" duration="907000" />
+      <workItem from="1522953897668" duration="25000" />
+      <workItem from="1523283847672" duration="1744000" />
+      <workItem from="1523287735791" duration="705000" />
+      <workItem from="1523462866656" duration="1725000" />
+      <workItem from="1523464612239" duration="1792000" />
+      <workItem from="1523540466688" duration="1795000" />
+      <workItem from="1523542281164" duration="653000" />
+      <workItem from="1523544129780" duration="1863000" />
+      <workItem from="1523546946602" duration="1232000" />
+      <workItem from="1523567333726" duration="1756000" />
+      <workItem from="1523569120877" duration="882000" />
+      <workItem from="1523621773881" duration="601000" />
+      <workItem from="1523627101240" duration="1608000" />
+      <workItem from="1523638163739" duration="258000" />
+      <workItem from="1523830745562" duration="1724000" />
+      <workItem from="1523832487361" duration="971000" />
+      <workItem from="1523836467266" duration="677000" />
+      <workItem from="1523885037340" duration="612000" />
+      <workItem from="1523885804701" duration="774000" />
+      <workItem from="1523888545887" duration="1343000" />
+      <workItem from="1523890361010" duration="748000" />
+      <workItem from="1523895500936" duration="986000" />
+      <workItem from="1523910679854" duration="1793000" />
+      <workItem from="1523912494320" duration="1047000" />
+      <workItem from="1523914597919" duration="26000" />
+      <workItem from="1523973583800" duration="45000" />
+      <workItem from="1523979080215" duration="283000" />
+      <workItem from="1524064092950" duration="1196000" />
+      <workItem from="1524077074317" duration="876000" />
+      <workItem from="1524079546312" duration="74000" />
+      <workItem from="1524159848496" duration="661000" />
+      <workItem from="1524167592122" duration="275000" />
+      <workItem from="1524493492956" duration="1077000" />
+      <workItem from="1524495013672" duration="1021000" />
+      <workItem from="1524662992118" duration="20000" />
+      <workItem from="1524676261263" duration="599000" />
+      <workItem from="1524678412639" duration="1791000" />
+      <workItem from="1524681715892" duration="5000" />
+      <workItem from="1524684175776" duration="672000" />
+      <workItem from="1524778850737" duration="863000" />
+      <workItem from="1525028420715" duration="137000" />
+      <workItem from="1525101502716" duration="1082000" />
+      <workItem from="1525112043679" duration="1795000" />
+      <workItem from="1525114410522" duration="596000" />
+      <workItem from="1525117714813" duration="606000" />
+      <workItem from="1525268704884" duration="15000" />
+      <workItem from="1525702731412" duration="11556000" />
+      <workItem from="1525784233141" duration="14312000" />
+      <workItem from="1525879662798" duration="20000" />
+      <workItem from="1529353232798" duration="700000" />
+      <workItem from="1529355038182" duration="603000" />
+      <workItem from="1529415072417" duration="43000" />
+      <workItem from="1529518391311" duration="1397000" />
+      <workItem from="1529520105367" duration="1797000" />
+      <workItem from="1529522029588" duration="1604000" />
+      <workItem from="1529526352324" duration="1288000" />
+      <workItem from="1529528796073" duration="1862000" />
+      <workItem from="1529530683774" duration="805000" />
+      <workItem from="1529548197027" duration="40000" />
+      <workItem from="1529588340188" duration="992000" />
+      <workItem from="1529590108737" duration="1492000" />
+      <workItem from="1529615896056" duration="803000" />
+      <workItem from="1529623929874" duration="451000" />
+      <workItem from="1530287724139" duration="1600000" />
+      <workItem from="1530289491895" duration="1804000" />
+      <workItem from="1530291320940" duration="1398000" />
+      <workItem from="1530298799569" duration="886000" />
+      <workItem from="1530300700445" duration="1270000" />
+      <workItem from="1530828020070" duration="1717000" />
+      <workItem from="1530829891595" duration="1127000" />
+      <workItem from="1530831378240" duration="1803000" />
+      <workItem from="1530833211372" duration="1809000" />
+      <workItem from="1530835893533" duration="1221000" />
+      <workItem from="1530838855871" duration="522000" />
+      <workItem from="1530844497037" duration="389000" />
+      <workItem from="1530884467350" duration="1635000" />
+      <workItem from="1530886292819" duration="602000" />
+      <workItem from="1530904018715" duration="147000" />
+      <workItem from="1531139732144" duration="158000" />
+      <workItem from="1531423030045" duration="599000" />
+      <workItem from="1531497452137" duration="774000" />
+      <workItem from="1531501228623" duration="770000" />
+      <workItem from="1531509895534" duration="166000" />
+      <workItem from="1531750275361" duration="377000" />
+      <workItem from="1531750675903" duration="1207000" />
+      <workItem from="1531754326667" duration="1801000" />
+      <workItem from="1531759707252" duration="603000" />
+      <workItem from="1531763788317" duration="664000" />
+      <workItem from="1531765766334" duration="1733000" />
+      <workItem from="1531767856155" duration="2303000" />
+      <workItem from="1531770277016" duration="1800000" />
+      <workItem from="1531772104960" duration="1803000" />
+      <workItem from="1531796376328" duration="18000" />
+      <workItem from="1531833121094" duration="1707000" />
+      <workItem from="1531835639260" duration="1793000" />
+      <workItem from="1531837458277" duration="1668000" />
+      <workItem from="1531839339879" duration="688000" />
+      <workItem from="1531844663584" duration="1827000" />
+      <workItem from="1531846539448" duration="1790000" />
+      <workItem from="1531848558560" duration="1757000" />
+      <workItem from="1531850381947" duration="1281000" />
+      <workItem from="1531857365165" duration="670000" />
+      <workItem from="1531918096453" duration="1775000" />
+      <workItem from="1531920938946" duration="1804000" />
+      <workItem from="1531922812776" duration="1431000" />
+      <workItem from="1531924753766" duration="865000" />
+      <workItem from="1531926678929" duration="1567000" />
+      <workItem from="1531928507599" duration="2010000" />
+      <workItem from="1531930557962" duration="661000" />
+      <workItem from="1531932400816" duration="646000" />
+      <workItem from="1531934215431" duration="665000" />
+      <workItem from="1531939035566" duration="1794000" />
+      <workItem from="1531940854277" duration="1803000" />
+      <workItem from="1531943871703" duration="1805000" />
+      <workItem from="1531945767936" duration="1065000" />
+      <workItem from="1531947594990" duration="1033000" />
+      <workItem from="1532007828542" duration="1969000" />
+      <workItem from="1532010139005" duration="1798000" />
+      <workItem from="1532012787974" duration="1857000" />
+      <workItem from="1532014670718" duration="1827000" />
+      <workItem from="1532016666635" duration="1167000" />
+      <workItem from="1532019302873" duration="1806000" />
+      <workItem from="1532021132282" duration="1800000" />
+      <workItem from="1532026265559" duration="1563000" />
+      <workItem from="1532029883819" duration="654000" />
+      <workItem from="1532092490451" duration="62000" />
+      <workItem from="1532357061705" duration="1672000" />
+      <workItem from="1532358758884" duration="1792000" />
+      <workItem from="1532360574293" duration="1807000" />
+      <workItem from="1532362535858" duration="1797000" />
+      <workItem from="1532364382307" duration="824000" />
+      <workItem from="1532366809878" duration="1799000" />
+      <workItem from="1532368634409" duration="1853000" />
+      <workItem from="1532370536316" duration="1853000" />
+      <workItem from="1532372409649" duration="1290000" />
+      <workItem from="1532374282078" duration="1674000" />
+      <workItem from="1532438399631" duration="1383000" />
+      <workItem from="1532440218677" duration="1805000" />
+      <workItem from="1532442077052" duration="1008000" />
+      <workItem from="1532443929874" duration="1675000" />
+      <workItem from="1532445752365" duration="1788000" />
+      <workItem from="1532447574744" duration="1165000" />
+      <workItem from="1532455160375" duration="825000" />
+      <workItem from="1532456987328" duration="1803000" />
+      <workItem from="1532458816732" duration="1792000" />
+      <workItem from="1532460630568" duration="2305000" />
+      <workItem from="1532463276462" duration="1880000" />
+      <workItem from="1532465178389" duration="845000" />
+      <workItem from="1532466043977" duration="826000" />
+      <workItem from="1532523346577" duration="1517000" />
+      <workItem from="1532525173437" duration="2154000" />
+      <workItem from="1532527350401" duration="950000" />
+      <workItem from="1532531761667" duration="1895000" />
+      <workItem from="1532533713580" duration="1795000" />
+      <workItem from="1532535531842" duration="1885000" />
+      <workItem from="1532537971230" duration="1834000" />
+      <workItem from="1532539828380" duration="1801000" />
+      <workItem from="1532541896519" duration="1114000" />
+      <workItem from="1532543723799" duration="1824000" />
+      <workItem from="1532545571180" duration="1820000" />
+      <workItem from="1532548554086" duration="1092000" />
+      <workItem from="1532617589726" duration="77000" />
+      <workItem from="1532618296012" duration="1314000" />
+      <workItem from="1532698123165" duration="1771000" />
+      <workItem from="1532699918039" duration="1739000" />
+      <workItem from="1532701749950" duration="1404000" />
+      <workItem from="1532707629545" duration="1811000" />
+      <workItem from="1532709984092" duration="509000" />
+      <workItem from="1532960493332" duration="1612000" />
+      <workItem from="1532962268949" duration="1695000" />
+      <workItem from="1532968973802" duration="1222000" />
+      <workItem from="1532971218023" duration="833000" />
+      <workItem from="1532972645173" duration="610000" />
+      <workItem from="1533044733601" duration="1779000" />
+      <workItem from="1533046659205" duration="1797000" />
+      <workItem from="1533048481229" duration="1500000" />
+      <workItem from="1533050312608" duration="1822000" />
+      <workItem from="1533052211664" duration="1119000" />
+      <workItem from="1533057493234" duration="1464000" />
+      <workItem from="1533059313099" duration="1790000" />
+      <workItem from="1533061743657" duration="2044000" />
+      <workItem from="1533063811440" duration="1800000" />
+      <workItem from="1533065632224" duration="1806000" />
+      <workItem from="1533067577246" duration="1800000" />
+      <workItem from="1533132779572" duration="1379000" />
+      <workItem from="1533135572157" duration="1321000" />
+      <workItem from="1533137428849" duration="1800000" />
+      <workItem from="1533139284011" duration="1684000" />
+      <workItem from="1533141652499" duration="1809000" />
+      <workItem from="1533143485838" duration="1223000" />
+      <workItem from="1533149596639" duration="1896000" />
+      <workItem from="1533151664367" duration="1697000" />
+      <workItem from="1533153518146" duration="5000" />
+      <workItem from="1533220730635" duration="1608000" />
+      <workItem from="1533222858315" duration="1537000" />
+      <workItem from="1533224690236" duration="1883000" />
+      <workItem from="1533228032757" duration="1778000" />
+      <workItem from="1533229854356" duration="1036000" />
+      <workItem from="1533231683560" duration="1407000" />
+      <workItem from="1533234400149" duration="1801000" />
+      <workItem from="1533236726553" duration="414000" />
+      <workItem from="1533237418134" duration="1780000" />
+      <workItem from="1533239221387" duration="1588000" />
+      <workItem from="1533241539267" duration="941000" />
+      <workItem from="1533303613887" duration="630000" />
+      <workItem from="1533305443086" duration="1740000" />
+      <workItem from="1533307651943" duration="1793000" />
+      <workItem from="1533309468677" duration="1794000" />
+      <workItem from="1533311458561" duration="603000" />
+      <workItem from="1533314948167" duration="1249000" />
+      <workItem from="1533328029099" duration="687000" />
+      <workItem from="1533561541167" duration="1126000" />
+      <workItem from="1533563297213" duration="602000" />
+      <workItem from="1533565127301" duration="604000" />
+      <workItem from="1533567747575" duration="500000" />
+      <workItem from="1533568671463" duration="1118000" />
+      <workItem from="1533573031086" duration="1802000" />
+      <workItem from="1533574868146" duration="1224000" />
+      <workItem from="1533577223300" duration="1527000" />
+      <workItem from="1533579221166" duration="1558000" />
+      <workItem from="1533581062198" duration="953000" />
+      <workItem from="1533583616134" duration="1793000" />
+      <workItem from="1533586411796" duration="613000" />
+      <workItem from="1533651335729" duration="950000" />
+      <workItem from="1533653720355" duration="1344000" />
+      <workItem from="1533655576132" duration="1789000" />
+      <workItem from="1533658126130" duration="1801000" />
+      <workItem from="1533663630917" duration="622000" />
+      <workItem from="1533666218523" duration="1736000" />
+      <workItem from="1533668822332" duration="1468000" />
+      <workItem from="1533673158776" duration="1477000" />
+      <workItem from="1533735382305" duration="1811000" />
+      <workItem from="1533737219055" duration="1800000" />
+      <workItem from="1533739463578" duration="1896000" />
+      <workItem from="1533741452866" duration="1825000" />
+      <workItem from="1533743315087" duration="998000" />
+      <workItem from="1533747032184" duration="1791000" />
+      <workItem from="1533748846434" duration="938000" />
+      <workItem from="1533751826595" duration="2164000" />
+      <workItem from="1533754013021" duration="1230000" />
+      <workItem from="1533755600923" duration="1796000" />
+      <workItem from="1533757533500" duration="1791000" />
+      <workItem from="1533759429779" duration="885000" />
+      <workItem from="1533820092552" duration="76000" />
+      <workItem from="1533820312283" duration="965000" />
+      <workItem from="1533822212167" duration="1626000" />
+      <workItem from="1533824219176" duration="1745000" />
+      <workItem from="1533825999191" duration="1822000" />
+      <workItem from="1533827948976" duration="1790000" />
+      <workItem from="1533829759977" duration="882000" />
+      <workItem from="1533832210356" duration="1516000" />
+      <workItem from="1533834042019" duration="1799000" />
+      <workItem from="1533835870390" duration="1170000" />
+      <workItem from="1533838774809" duration="1901000" />
+      <workItem from="1533840962869" duration="1861000" />
+      <workItem from="1533842847378" duration="1891000" />
+      <workItem from="1533844844535" duration="1943000" />
+      <workItem from="1533846841078" duration="1852000" />
+      <workItem from="1533848941575" duration="1313000" />
+      <workItem from="1533907986316" duration="811000" />
+      <workItem from="1533911132189" duration="1751000" />
+      <workItem from="1533913031253" duration="41000" />
+      <workItem from="1533913931896" duration="1750000" />
+      <workItem from="1533915731906" duration="1232000" />
+      <workItem from="1533922010063" duration="1800000" />
+      <workItem from="1533923840186" duration="624000" />
+      <workItem from="1533926745983" duration="1363000" />
+      <workItem from="1533928867943" duration="1774000" />
+      <workItem from="1533930800263" duration="1853000" />
+      <workItem from="1533932676429" duration="1831000" />
+      <workItem from="1533934531425" duration="1910000" />
+      <workItem from="1533936520287" duration="1893000" />
+      <workItem from="1533938571452" duration="1830000" />
+      <workItem from="1533940439053" duration="1789000" />
+      <workItem from="1533942273725" duration="1595000" />
+      <workItem from="1533944168817" duration="1749000" />
+      <workItem from="1534165333213" duration="1602000" />
+      <workItem from="1534167228793" duration="1543000" />
+      <workItem from="1534169690137" duration="1797000" />
+      <workItem from="1534172421848" duration="1576000" />
+      <workItem from="1534174858381" duration="1327000" />
+      <workItem from="1534177622462" duration="1841000" />
+      <workItem from="1534179487778" duration="1795000" />
+      <workItem from="1534181470554" duration="1800000" />
+      <workItem from="1534183301101" duration="728000" />
+      <workItem from="1534187347403" duration="1822000" />
+      <workItem from="1534189393261" duration="1848000" />
+      <workItem from="1534191338340" duration="1938000" />
+      <workItem from="1534193304760" duration="1790000" />
+      <workItem from="1534195116600" duration="1800000" />
+      <workItem from="1534196998950" duration="195000" />
+      <workItem from="1534253825294" duration="1284000" />
+      <workItem from="1534255598513" duration="1804000" />
+      <workItem from="1534260644999" duration="1793000" />
+      <workItem from="1534262722291" duration="1805000" />
+      <workItem from="1534265704917" duration="795000" />
+      <workItem from="1534267523341" duration="1490000" />
+      <workItem from="1534269339996" duration="1792000" />
+      <workItem from="1534273337735" duration="1167000" />
+      <workItem from="1534337595780" duration="1249000" />
+      <workItem from="1534340115786" duration="1739000" />
+      <workItem from="1534343025713" duration="936000" />
+      <workItem from="1534357394523" duration="880000" />
+      <workItem from="1534359898531" duration="1205000" />
+      <workItem from="1534361974634" duration="1143000" />
+      <workItem from="1534364304317" duration="1893000" />
+      <workItem from="1534366223904" duration="1793000" />
+      <workItem from="1534368041864" duration="1598000" />
+      <workItem from="1534432675183" duration="1740000" />
+      <workItem from="1534435263885" duration="1177000" />
+      <workItem from="1534437094034" duration="1909000" />
+      <workItem from="1534448600680" duration="1733000" />
+      <workItem from="1534450852988" duration="216000" />
+      <workItem from="1534515856971" duration="1782000" />
+      <workItem from="1534521585052" duration="1808000" />
+      <workItem from="1534538848807" duration="1708000" />
+      <workItem from="1534777921831" duration="1472000" />
+      <workItem from="1534780431792" duration="1628000" />
+      <workItem from="1534782172210" duration="1012000" />
+      <workItem from="1534784125391" duration="1803000" />
+      <workItem from="1534785953510" duration="1798000" />
+      <workItem from="1534787790003" duration="1788000" />
+      <workItem from="1534789603608" duration="1802000" />
+      <workItem from="1534791521924" duration="1833000" />
+      <workItem from="1534793415618" duration="1718000" />
+      <workItem from="1534795597433" duration="1798000" />
+      <workItem from="1534857214399" duration="1536000" />
+      <workItem from="1534858978196" duration="2090000" />
+      <workItem from="1534861103080" duration="1813000" />
+      <workItem from="1534862937301" duration="1881000" />
+      <workItem from="1534864840695" duration="1787000" />
+      <workItem from="1534866669305" duration="1808000" />
+      <workItem from="1534868499411" duration="1610000" />
+      <workItem from="1534870450783" duration="1726000" />
+      <workItem from="1534872649221" duration="1811000" />
+      <workItem from="1534874484446" duration="1335000" />
+      <workItem from="1534876872487" duration="1607000" />
+      <workItem from="1534878813652" duration="903000" />
+      <workItem from="1534881450067" duration="1232000" />
+      <workItem from="1534946037046" duration="1754000" />
+      <workItem from="1534948767742" duration="1030000" />
+      <workItem from="1534950595957" duration="602000" />
+      <workItem from="1534956256556" duration="1390000" />
+      <workItem from="1534958088279" duration="1644000" />
+      <workItem from="1534959902768" duration="1793000" />
+      <workItem from="1534961940341" duration="1862000" />
+      <workItem from="1534963826768" duration="2024000" />
+      <workItem from="1534965880424" duration="1098000" />
+      <workItem from="1535032191356" duration="913000" />
+      <workItem from="1535033974323" duration="1844000" />
+      <workItem from="1535037475990" duration="760000" />
+      <workItem from="1535039300038" duration="754000" />
+      <workItem from="1535042014300" duration="513000" />
+      <workItem from="1535053862098" duration="1820000" />
+      <workItem from="1535055704383" duration="1805000" />
+      <workItem from="1535057561411" duration="1814000" />
+      <workItem from="1535121669496" duration="1202000" />
+      <workItem from="1535129113330" duration="1667000" />
+      <workItem from="1535138320335" duration="1799000" />
+      <workItem from="1535724865752" duration="1887000" />
+      <workItem from="1535726797947" duration="1892000" />
+      <workItem from="1535728750793" duration="1804000" />
+      <workItem from="1535730578471" duration="607000" />
+      <workItem from="1535736976398" duration="1414000" />
+      <workItem from="1535738829301" duration="1426000" />
+      <workItem from="1535740640666" duration="1830000" />
+      <workItem from="1535742501730" duration="1437000" />
+      <workItem from="1535744330748" duration="1796000" />
+      <workItem from="1536070549708" duration="1752000" />
+      <workItem from="1536072328290" duration="1860000" />
+      <workItem from="1536074214395" duration="1799000" />
+      <workItem from="1536076096273" duration="1753000" />
+      <workItem from="1536079372615" duration="1648000" />
+      <workItem from="1536082803771" duration="1537000" />
+      <workItem from="1536084801423" duration="1784000" />
+      <workItem from="1536086612602" duration="1833000" />
+      <workItem from="1536088471103" duration="1390000" />
+      <workItem from="1536091771300" duration="1696000" />
+      <workItem from="1536095315685" duration="659000" />
+      <workItem from="1536155317200" duration="1745000" />
+      <workItem from="1536157089020" duration="1230000" />
+      <workItem from="1536175544368" duration="1622000" />
+      <workItem from="1536177437699" duration="1799000" />
+      <workItem from="1536179306119" duration="1880000" />
+      <workItem from="1536181220656" duration="1792000" />
+      <workItem from="1536183038131" duration="952000" />
+      <workItem from="1536238340713" duration="1672000" />
+      <workItem from="1536240240294" duration="894000" />
+      <workItem from="1536242162296" duration="1794000" />
+      <workItem from="1536245158061" duration="1799000" />
+      <workItem from="1536246990446" duration="1931000" />
+      <workItem from="1536249052340" duration="643000" />
+      <workItem from="1536847268636" duration="1232000" />
+      <workItem from="1536849868173" duration="1140000" />
+      <workItem from="1536858243241" duration="1685000" />
+      <workItem from="1536860135767" duration="1821000" />
+      <workItem from="1536862705947" duration="649000" />
+      <workItem from="1536937605747" duration="1127000" />
+      <workItem from="1536939769475" duration="1576000" />
+      <workItem from="1536945100239" duration="1429000" />
+      <workItem from="1536946990110" duration="1228000" />
+      <workItem from="1536948817463" duration="673000" />
+      <workItem from="1536950646447" duration="1163000" />
+      <workItem from="1537291215649" duration="1735000" />
+      <workItem from="1537303765380" duration="1237000" />
+      <workItem from="1537539899561" duration="1752000" />
+      <workItem from="1537541680562" duration="1038000" />
+      <workItem from="1537543504137" duration="1972000" />
+      <workItem from="1537545497185" duration="953000" />
+      <workItem from="1537552037967" duration="983000" />
+      <workItem from="1537553943683" duration="1380000" />
+      <workItem from="1537799099383" duration="1221000" />
+      <workItem from="1537800857184" duration="1877000" />
+      <workItem from="1537803961183" duration="2117000" />
+      <workItem from="1537808547617" duration="1864000" />
+      <workItem from="1537810433027" duration="1731000" />
+      <workItem from="1537812295706" duration="1268000" />
+      <workItem from="1537899641027" duration="1828000" />
+      <workItem from="1537902087588" duration="408000" />
+      <workItem from="1537969414559" duration="1781000" />
+      <workItem from="1537971622446" duration="1802000" />
+      <workItem from="1537973452976" duration="809000" />
+      <workItem from="1538054496021" duration="1791000" />
+      <workItem from="1538056325877" duration="1831000" />
+      <workItem from="1538058196360" duration="1835000" />
+      <workItem from="1538068867978" duration="195000" />
+      <workItem from="1538511712653" duration="335000" />
+      <workItem from="1538573499038" duration="896000" />
+      <workItem from="1538575267658" duration="603000" />
+      <workItem from="1538581411889" duration="1796000" />
+      <workItem from="1538583236758" duration="1790000" />
+      <workItem from="1538585234365" duration="1430000" />
+      <workItem from="1538591275349" duration="1598000" />
+      <workItem from="1538593202508" duration="1998000" />
+      <workItem from="1538595264697" duration="1809000" />
+      <workItem from="1538597098987" duration="1803000" />
+      <workItem from="1538665315905" duration="730000" />
+      <workItem from="1538672133565" duration="1796000" />
+      <workItem from="1538673985835" duration="1876000" />
+      <workItem from="1538675930515" duration="1853000" />
+      <workItem from="1538677833098" duration="2261000" />
+      <workItem from="1538746178891" duration="1838000" />
+      <workItem from="1538748047475" duration="610000" />
+      <workItem from="1538750687605" duration="1419000" />
+      <workItem from="1538752523056" duration="1346000" />
+      <workItem from="1538761544776" duration="1163000" />
+      <workItem from="1538766229861" duration="723000" />
+      <workItem from="1539012140957" duration="1749000" />
+      <workItem from="1539014080177" duration="1485000" />
+      <workItem from="1539098088694" duration="1093000" />
+      <workItem from="1539099898229" duration="1658000" />
+      <workItem from="1539110181422" duration="920000" />
+      <workItem from="1539119319413" duration="1804000" />
+      <workItem from="1539266985871" duration="1740000" />
+      <workItem from="1539269024209" duration="1142000" />
+      <workItem from="1539271166080" duration="1258000" />
+      <workItem from="1539273241676" duration="1208000" />
+      <workItem from="1539275525869" duration="831000" />
+      <workItem from="1539289288599" duration="1791000" />
+      <workItem from="1539292104154" duration="658000" />
+      <workItem from="1539299266909" duration="22000" />
+      <workItem from="1539355475799" duration="644000" />
+      <workItem from="1539367154111" duration="1015000" />
+      <workItem from="1539785519189" duration="1459000" />
+      <workItem from="1539787746023" duration="1399000" />
+      <workItem from="1539790376087" duration="635000" />
+      <workItem from="1539794159414" duration="2077000" />
+      <workItem from="1539796287904" duration="782000" />
+      <workItem from="1540258462144" duration="123000" />
+      <workItem from="1540393174421" duration="1431000" />
+      <workItem from="1540395394094" duration="764000" />
+      <workItem from="1540397963570" duration="817000" />
+      <workItem from="1540404733940" duration="1411000" />
+      <workItem from="1540406994526" duration="1824000" />
+      <workItem from="1540408849153" duration="1805000" />
+      <workItem from="1540410708915" duration="1698000" />
+      <workItem from="1540417251791" duration="26000" />
+      <workItem from="1540486111560" duration="627000" />
+      <workItem from="1540487907702" duration="1297000" />
+      <workItem from="1540490716479" duration="1801000" />
+      <workItem from="1540492762521" duration="761000" />
+      <workItem from="1540494603812" duration="1218000" />
+      <workItem from="1540515219166" duration="56000" />
+      <workItem from="1540570429046" duration="619000" />
+      <workItem from="1540818899545" duration="270000" />
+      <workItem from="1540823258290" duration="36000" />
+      <workItem from="1540823383143" duration="703000" />
+      <workItem from="1541514964264" duration="1140000" />
+      <workItem from="1541516129249" duration="1638000" />
+      <workItem from="1541519586609" duration="60000" />
+      <workItem from="1541524518334" duration="611000" />
+      <workItem from="1541536854318" duration="40000" />
+      <workItem from="1541541727220" duration="1205000" />
+      <workItem from="1541543710398" duration="31000" />
+      <workItem from="1541606577976" duration="1738000" />
+      <workItem from="1541623152526" duration="985000" />
+      <workItem from="1541634992734" duration="26000" />
+      <workItem from="1542312783991" duration="1805000" />
+      <workItem from="1542314955163" duration="1847000" />
+      <workItem from="1542318225842" duration="18000" />
+      <workItem from="1542378954139" duration="746000" />
+      <workItem from="1542380073696" duration="612000" />
+      <workItem from="1542385722761" duration="957000" />
+      <workItem from="1542387867257" duration="1803000" />
+      <workItem from="1542390206121" duration="1431000" />
+      <workItem from="1542400476985" duration="38000" />
+      <workItem from="1542656626250" duration="1260000" />
+      <workItem from="1542658909281" duration="1365000" />
+      <workItem from="1542660770996" duration="1302000" />
+      <workItem from="1542662681502" duration="679000" />
+      <workItem from="1542664709078" duration="593000" />
+      <workItem from="1542666528100" duration="908000" />
+      <workItem from="1542668559061" duration="680000" />
+      <workItem from="1542748940209" duration="915000" />
+      <workItem from="1542817327913" duration="1126000" />
+      <workItem from="1542819696611" duration="1795000" />
+      <workItem from="1542821552410" duration="1891000" />
+      <workItem from="1546022713803" duration="214000" />
+      <workItem from="1546032455066" duration="39000" />
+      <workItem from="1553622653479" duration="824000" />
+      <workItem from="1553653025175" duration="1301000" />
+      <workItem from="1553654842725" duration="599000" />
+      <workItem from="1553656656952" duration="599000" />
+      <workItem from="1553658467222" duration="599000" />
+      <workItem from="1553660280983" duration="599000" />
+      <workItem from="1553697739479" duration="55000" />
+      <workItem from="1554405481253" duration="1740000" />
+      <workItem from="1554925223803" duration="49000" />
+      <workItem from="1556544612884" duration="1694000" />
+      <workItem from="1556554703023" duration="770000" />
+      <workItem from="1556575266593" duration="19000" />
+      <workItem from="1556742316860" duration="1647000" />
+      <workItem from="1557113141131" duration="110000" />
+      <workItem from="1557757405845" duration="192000" />
+      <workItem from="1558233251116" duration="1482000" />
+      <workItem from="1558560310768" duration="62000" />
+      <workItem from="1558708013535" duration="1480000" />
+      <workItem from="1558709522641" duration="603000" />
+      <workItem from="1558719024579" duration="599000" />
+      <workItem from="1558722535373" duration="618000" />
+      <workItem from="1558910895033" duration="710000" />
+      <workItem from="1558911846763" duration="1087000" />
+      <workItem from="1559095831858" duration="214000" />
+      <workItem from="1559166590002" duration="431000" />
+      <workItem from="1559167051355" duration="617000" />
+      <workItem from="1559168861268" duration="3000" />
+      <workItem from="1559795757893" duration="45000" />
+      <workItem from="1560283143541" duration="1162000" />
+      <workItem from="1560285564438" duration="687000" />
+      <workItem from="1560669860850" duration="854000" />
+      <workItem from="1560670842891" duration="761000" />
+      <workItem from="1560672657466" duration="605000" />
+      <workItem from="1560674472290" duration="597000" />
+      <workItem from="1560691802205" duration="15000" />
+      <workItem from="1560979520603" duration="865000" />
+      <workItem from="1560981022126" duration="28000" />
+      <workItem from="1561477286014" duration="831000" />
+      <workItem from="1561479143288" duration="1798000" />
+      <workItem from="1561484781693" duration="72000" />
+      <workItem from="1561487587920" duration="1867000" />
+      <workItem from="1561489475230" duration="1789000" />
+      <workItem from="1561491284456" duration="1838000" />
+      <workItem from="1561493153696" duration="1785000" />
+      <workItem from="1561494970733" duration="1784000" />
+      <workItem from="1561496788059" duration="1787000" />
+      <workItem from="1561498609353" duration="1415000" />
+      <workItem from="1561574155993" duration="1721000" />
+      <workItem from="1561576137122" duration="599000" />
+      <workItem from="1561580466257" duration="1772000" />
+      <workItem from="1561582302786" duration="304000" />
+      <workItem from="1561583099139" duration="1134000" />
+      <workItem from="1561584911269" duration="1822000" />
+      <workItem from="1561586870138" duration="694000" />
+      <workItem from="1561590500150" duration="610000" />
+      <workItem from="1561602097760" duration="995000" />
+      <workItem from="1561603991715" duration="1846000" />
+      <workItem from="1561605862862" duration="1790000" />
+      <workItem from="1561607676137" duration="1191000" />
+      <workItem from="1561638633028" duration="1552000" />
+      <workItem from="1561640463908" duration="1783000" />
+      <workItem from="1561642327993" duration="1785000" />
+      <workItem from="1561644142520" duration="1783000" />
+      <workItem from="1561645948019" duration="1053000" />
+      <workItem from="1561668875570" duration="599000" />
+      <workItem from="1561670802740" duration="31000" />
+      <workItem from="1561731592857" duration="1905000" />
+      <workItem from="1561733521461" duration="1988000" />
+      <workItem from="1561739252027" duration="625000" />
+      <workItem from="1561741511673" duration="1404000" />
+      <workItem from="1561747482450" duration="1264000" />
+      <workItem from="1561945926288" duration="42000" />
+      <workItem from="1562374640175" duration="1962000" />
+      <workItem from="1562378495338" duration="1482000" />
+      <workItem from="1562509544030" duration="36000" />
+      <workItem from="1564004825022" duration="1253000" />
+      <workItem from="1564101688196" duration="670000" />
+      <workItem from="1564150557911" duration="1143000" />
+      <workItem from="1564197798682" duration="708000" />
+      <workItem from="1564204266720" duration="133000" />
+      <workItem from="1564600503678" duration="1576000" />
+      <workItem from="1564695349582" duration="1026000" />
+      <workItem from="1565208054765" duration="70000" />
+      <workItem from="1565708497969" duration="690000" />
+      <workItem from="1565717536512" duration="636000" />
+      <workItem from="1566451037699" duration="23000" />
+      <workItem from="1570852602138" duration="749000" />
+      <workItem from="1570855854682" duration="328000" />
+      <workItem from="1571093094302" duration="1033000" />
+      <workItem from="1571237690118" duration="37000" />
+      <workItem from="1571279469430" duration="868000" />
+      <workItem from="1572842429697" duration="29000" />
+      <workItem from="1574710553394" duration="1223000" />
+      <workItem from="1574712705020" duration="900000" />
+      <workItem from="1574789879397" duration="487000" />
+      <workItem from="1574823716255" duration="119000" />
+      <workItem from="1574899756035" duration="158000" />
+      <workItem from="1575004323547" duration="614000" />
+      <workItem from="1575006298542" duration="8000" />
+      <workItem from="1577999936573" duration="1727000" />
+      <workItem from="1578321346938" duration="1723000" />
+      <workItem from="1578323156267" duration="1883000" />
+      <workItem from="1578325064754" duration="1389000" />
+      <workItem from="1578326877596" duration="1851000" />
+      <workItem from="1578328751625" duration="1757000" />
+      <workItem from="1578330561898" duration="1187000" />
+      <workItem from="1578333465280" duration="1711000" />
+      <workItem from="1578938754337" duration="1058000" />
+      <workItem from="1579230845867" duration="923000" />
+      <workItem from="1579271536368" duration="1794000" />
+      <workItem from="1579273478590" duration="1562000" />
+      <workItem from="1579275423466" duration="1969000" />
+      <workItem from="1579277496158" duration="2300000" />
+      <workItem from="1579280716810" duration="1233000" />
+      <workItem from="1579545480742" duration="914000" />
+      <workItem from="1579730419880" duration="738000" />
+      <workItem from="1579874808893" duration="26000" />
+      <workItem from="1579875340882" duration="1944000" />
+      <workItem from="1579877311363" duration="823000" />
+      <workItem from="1580873849063" duration="63000" />
+      <workItem from="1581452014132" duration="1555000" />
+      <workItem from="1581794150857" duration="12000" />
+      <workItem from="1584045759256" duration="660000" />
+      <workItem from="1584047676060" duration="1190000" />
+      <workItem from="1586363027578" duration="1610000" />
+      <workItem from="1586364856754" duration="953000" />
     </task>
-    <task id="LOCAL-00001" summary="Composer serializer installed">
-      <created>1533668417939</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00288" summary="adding database file">
+      <created>1574711120574</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
       <option name="project" value="LOCAL" />
-      <updated>1533668417939</updated>
+      <updated>1574711120575</updated>
     </task>
-    <task id="LOCAL-00002" summary="Composer serializer installed">
-      <created>1534275106084</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00289" summary="adding database file">
+      <created>1574711174602</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
       <option name="project" value="LOCAL" />
-      <updated>1534275106084</updated>
+      <updated>1574711174602</updated>
     </task>
-    <task id="LOCAL-00003" summary="Styles.css with tires section from Gilbert">
-      <created>1534276392268</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00290" summary="adding database file">
+      <created>1574712875641</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
       <option name="project" value="LOCAL" />
-      <updated>1534276392268</updated>
+      <updated>1574712875647</updated>
     </task>
-    <task id="LOCAL-00004" summary="2 Actions for vehicle map rendering">
-      <created>1534285212792</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00291" summary="adding database file">
+      <created>1574712918253</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
       <option name="project" value="LOCAL" />
-      <updated>1534285212792</updated>
+      <updated>1574712918253</updated>
     </task>
-    <task id="LOCAL-00005" summary="2 Actions for vehicle map rendering">
-      <created>1534285328800</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00292" summary="adding database file">
+      <created>1574713002745</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
       <option name="project" value="LOCAL" />
-      <updated>1534285328800</updated>
+      <updated>1574713002745</updated>
     </task>
-    <task id="LOCAL-00006" summary="Changes on tires section">
-      <created>1534356981336</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00293" summary="adding database file">
+      <created>1574899778508</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
       <option name="project" value="LOCAL" />
-      <updated>1534356981336</updated>
+      <updated>1574899778509</updated>
     </task>
-    <task id="LOCAL-00007" summary="Tires information, static page">
-      <created>1534357062517</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00294" summary="adding database file">
+      <created>1574899837210</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
       <option name="project" value="LOCAL" />
-      <updated>1534357062517</updated>
+      <updated>1574899837211</updated>
     </task>
-    <task id="LOCAL-00008" summary="Setting bigger vehicles squares">
-      <created>1534380767501</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00295" summary="adding database file">
+      <created>1578324375962</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
       <option name="project" value="LOCAL" />
-      <updated>1534380767501</updated>
+      <updated>1578324375963</updated>
     </task>
-    <task id="LOCAL-00009" summary="Setting bigger vehicles squares">
-      <created>1534382581017</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00296" summary="adding database file">
+      <created>1578324687819</created>
+      <option name="number" value="00296" />
+      <option name="presentableId" value="LOCAL-00296" />
       <option name="project" value="LOCAL" />
-      <updated>1534382581017</updated>
+      <updated>1578324687819</updated>
     </task>
-    <task id="LOCAL-00010" summary="Setting bigger vehicles squares">
-      <created>1534382629364</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00297" summary="adding database file">
+      <created>1578325268191</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
       <option name="project" value="LOCAL" />
-      <updated>1534382629364</updated>
+      <updated>1578325268192</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00298" summary="adding database file">
+      <created>1578326568979</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1578326568979</updated>
+    </task>
+    <task id="LOCAL-00299" summary="adding database file">
+      <created>1578326636467</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1578326636467</updated>
+    </task>
+    <task id="LOCAL-00300" summary="adding database file">
+      <created>1578326669338</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1578326669338</updated>
+    </task>
+    <task id="LOCAL-00301" summary="adding database file">
+      <created>1578327534320</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1578327534321</updated>
+    </task>
+    <task id="LOCAL-00302" summary="adding database file">
+      <created>1578329089503</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1578329089505</updated>
+    </task>
+    <task id="LOCAL-00303" summary="adding database file">
+      <created>1578329173858</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1578329173858</updated>
+    </task>
+    <task id="LOCAL-00304" summary="adding database file">
+      <created>1578329324428</created>
+      <option name="number" value="00304" />
+      <option name="presentableId" value="LOCAL-00304" />
+      <option name="project" value="LOCAL" />
+      <updated>1578329324428</updated>
+    </task>
+    <task id="LOCAL-00305" summary="adding database file">
+      <created>1578329633472</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1578329633473</updated>
+    </task>
+    <task id="LOCAL-00306" summary="adding database file">
+      <created>1578329723978</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1578329723978</updated>
+    </task>
+    <task id="LOCAL-00307" summary="adding database file">
+      <created>1578330165372</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1578330165372</updated>
+    </task>
+    <task id="LOCAL-00308" summary="adding database file">
+      <created>1578333817179</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1578333817180</updated>
+    </task>
+    <task id="LOCAL-00309" summary="adding database file">
+      <created>1578333833026</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1578333833027</updated>
+    </task>
+    <task id="LOCAL-00310" summary="adding database file">
+      <created>1578333922951</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1578333922951</updated>
+    </task>
+    <task id="LOCAL-00311" summary="adding database file">
+      <created>1578334159691</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1578334159691</updated>
+    </task>
+    <task id="LOCAL-00312" summary="adding database file">
+      <created>1578334766483</created>
+      <option name="number" value="00312" />
+      <option name="presentableId" value="LOCAL-00312" />
+      <option name="project" value="LOCAL" />
+      <updated>1578334766483</updated>
+    </task>
+    <task id="LOCAL-00313" summary="adding database file">
+      <created>1578335002729</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1578335002729</updated>
+    </task>
+    <task id="LOCAL-00314" summary="adding database file">
+      <created>1579230957062</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1579230957070</updated>
+    </task>
+    <task id="LOCAL-00315" summary="adding database file">
+      <created>1579231166665</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1579231166665</updated>
+    </task>
+    <task id="LOCAL-00316" summary="adding start-vpn action">
+      <created>1579272973356</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1579272973357</updated>
+    </task>
+    <task id="LOCAL-00317" summary="adding database file">
+      <created>1579274011881</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1579274011882</updated>
+    </task>
+    <task id="LOCAL-00318" summary="adding database file">
+      <created>1579276401107</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1579276401108</updated>
+    </task>
+    <task id="LOCAL-00319" summary="adding database file">
+      <created>1579276609160</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1579276609160</updated>
+    </task>
+    <task id="LOCAL-00320" summary="vpn changes">
+      <created>1579277802062</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1579277802063</updated>
+    </task>
+    <task id="LOCAL-00321" summary="adding database file">
+      <created>1579278164395</created>
+      <option name="number" value="00321" />
+      <option name="presentableId" value="LOCAL-00321" />
+      <option name="project" value="LOCAL" />
+      <updated>1579278164395</updated>
+    </task>
+    <task id="LOCAL-00322" summary="adding database file">
+      <created>1579279023623</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1579279023623</updated>
+    </task>
+    <task id="LOCAL-00323" summary="adding database file">
+      <created>1579279194857</created>
+      <option name="number" value="00323" />
+      <option name="presentableId" value="LOCAL-00323" />
+      <option name="project" value="LOCAL" />
+      <updated>1579279194857</updated>
+    </task>
+    <task id="LOCAL-00324" summary="finishing vpn">
+      <created>1579280750286</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1579280750287</updated>
+    </task>
+    <task id="LOCAL-00325" summary="adding database file">
+      <created>1579545751704</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1579545751705</updated>
+    </task>
+    <task id="LOCAL-00326" summary="adding database file">
+      <created>1579875857088</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1579875857089</updated>
+    </task>
+    <task id="LOCAL-00327" summary="adding database file">
+      <created>1579876062218</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1579876062218</updated>
+    </task>
+    <task id="LOCAL-00328" summary="adding database file">
+      <created>1579877019469</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1579877019469</updated>
+    </task>
+    <task id="LOCAL-00329" summary="adding action to list">
+      <created>1579877531995</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1579877531996</updated>
+    </task>
+    <task id="LOCAL-00330" summary="adding id on device">
+      <created>1581452632767</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1581452632768</updated>
+    </task>
+    <task id="LOCAL-00331" summary="adding restart bb action">
+      <created>1584048386627</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1584048386628</updated>
+    </task>
+    <task id="LOCAL-00332" summary="adding database file">
+      <created>1586364661821</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1586364661822</updated>
+    </task>
+    <task id="LOCAL-00333" summary="adding database file">
+      <created>1586364882681</created>
+      <option name="number" value="00333" />
+      <option name="presentableId" value="LOCAL-00333" />
+      <option name="project" value="LOCAL" />
+      <updated>1586364882682</updated>
+    </task>
+    <task id="LOCAL-00334" summary="adding database file">
+      <created>1586365471594</created>
+      <option name="number" value="00334" />
+      <option name="presentableId" value="LOCAL-00334" />
+      <option name="project" value="LOCAL" />
+      <updated>1586365471594</updated>
+    </task>
+    <task id="LOCAL-00335" summary="adding database file">
+      <created>1586365553476</created>
+      <option name="number" value="00335" />
+      <option name="presentableId" value="LOCAL-00335" />
+      <option name="project" value="LOCAL" />
+      <updated>1586365553476</updated>
+    </task>
+    <task id="LOCAL-00336" summary="adding database file">
+      <created>1586365701144</created>
+      <option name="number" value="00336" />
+      <option name="presentableId" value="LOCAL-00336" />
+      <option name="project" value="LOCAL" />
+      <updated>1586365701144</updated>
+    </task>
+    <option name="localTasksCounter" value="337" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93357000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="970477000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="-2" width="1366" height="722" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.141258" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1744312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14084508" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" order="0" visible="true" weight="0.34063444" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32738096" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5058565" side_tool="true" weight="0.32738096" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32884902" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329582" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.31946754" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4941435" weight="0.3061564" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" id="Project" order="0" visible="true" weight="0.33157098" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32738096" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5058565" side_tool="true" weight="0.32738096" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32884902" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329582" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.31993568" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4941435" weight="0.3061564" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Composer serializer installed" />
-    <MESSAGE value="Styles.css with tires section from Gilbert" />
-    <MESSAGE value="2 Actions for vehicle map rendering" />
-    <MESSAGE value="Changes on tires section" />
-    <MESSAGE value="Tires information, static page" />
-    <MESSAGE value="Setting bigger vehicles squares" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setting bigger vehicles squares" />
-    <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
-    <watches-manager />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="addin a filter for devices group" />
+    <MESSAGE value="creating camera entity" />
+    <MESSAGE value="making changes for the government webservice" />
+    <MESSAGE value="making changes in db for gilbert" />
+    <MESSAGE value="changes" />
+    <MESSAGE value="excluded" />
+    <MESSAGE value="adding antenas business" />
+    <MESSAGE value="removing : string from getFences in User.php" />
+    <MESSAGE value="adding support for websockets and creating an api" />
+    <MESSAGE value="creating layout for modal" />
+    <MESSAGE value="adding maintenance module" />
+    <MESSAGE value="addin validations" />
+    <MESSAGE value="adding SerieVehicularVIN field to vehicle" />
+    <MESSAGE value="temp commenting manytomany" />
+    <MESSAGE value="temp commenting manytomany back to normal" />
+    <MESSAGE value="fixing error in label" />
+    <MESSAGE value="arreglando que cuando se cambiba de cliente se dejaba con el vehiculo que tuviera, ahora se le quita el vehiculo" />
+    <MESSAGE value="adding semov log functionality" />
+    <MESSAGE value="adding start-vpn action" />
+    <MESSAGE value="vpn changes" />
+    <MESSAGE value="finishing vpn" />
+    <MESSAGE value="adding action to list" />
+    <MESSAGE value="adding id on device" />
+    <MESSAGE value="adding restart bb action" />
+    <MESSAGE value="adding database file" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding database file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/templates/semov_data.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        <state relative-caret-position="240">
+          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
+    <entry file="file://$PROJECT_DIR$/public/DataTables/datatables.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="7800">
+          <caret line="547" selection-start-line="547" selection-end-line="547" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+    <entry file="file://$PROJECT_DIR$/var/cache/prod/ContainerCl7A7FW/getEasyadmin_QueryBuilderService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/employee.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="33" column="98" selection-start-line="33" selection-start-column="98" selection-end-line="33" selection-end-column="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/bundles/FOSUserBundle/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Search/QueryBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/prod/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Alarm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="158" column="2" selection-start-line="158" selection-start-column="2" selection-end-line="158" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/AlarmCode.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Device.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6228">
-          <caret line="346" column="15" selection-start-line="346" selection-start-column="15" selection-end-line="346" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/PeripheralGpsData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="70" column="29" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/PeripheralTicketssellerData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Rawdata.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/UserAuthToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2232">
-          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/UserDevice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2232">
-          <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/UserDeviceGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/UserRole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="117" column="32" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/DeviceModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4806">
-          <caret line="267" column="33" selection-start-line="267" selection-start-column="33" selection-end-line="267" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/fos_user.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/public/DataTables/datatables.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/neumatico/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/empleado/employee_vehicle_logs.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+    <entry file="file://$PROJECT_DIR$/src/Entity/SemovLog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/bundles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/custom-js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="198" column="19" selection-start-line="198" selection-start-column="19" selection-end-line="198" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Tire.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9768">
-          <caret line="446" column="20" selection-start-line="446" selection-start-column="20" selection-end-line="446" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
-          <caret line="77" column="23" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tires_vehicle_information.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Vehicle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8712">
-          <caret line="401" column="6" selection-start-line="401" selection-start-column="6" selection-end-line="401" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="1815">
+          <caret line="121" column="86" selection-start-line="121" selection-start-column="86" selection-end-line="121" selection-end-column="86" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/easyadmin/default/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        <state relative-caret-position="90">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/jms/serializer/tests/Fixtures/Tag.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/semov_log.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        <state relative-caret-position="165">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ControlTag.php">
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2574">
-          <caret line="117" column="27" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="2925">
+          <caret line="195" column="24" selection-start-line="195" selection-start-column="14" selection-end-line="195" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/RegularUser.php">
+    <entry file="file://$PROJECT_DIR$/public/js/custom-js.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1395">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/semovlog/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/basic.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/default/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bundles/EasyAdminBundle/default/menu.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Entity/PeripheralGpsData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="555">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/easyadmin/default/layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="15">
+          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tires_vehicle.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Filter/DevicesGroupFilter.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/device/includes/_delete_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="60" column="36" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="420">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/zurikato_api.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5085">
+          <caret line="339" column="5" selection-start-line="339" selection-start-column="5" selection-end-line="339" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/user.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Vehicle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/AdminUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Device.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11415">
+          <caret line="765" column="21" selection-start-line="765" selection-start-column="21" selection-end-line="765" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Admin.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.dist">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/tire.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="105" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/device.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/vehicle.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/easyadmin/device/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/camera.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/api_options.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="80" column="5" selection-start-line="68" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="e#30#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="844" column="21" selection-start-line="844" selection-start-column="21" selection-end-line="844" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="9240">
+          <caret line="1340" column="46" selection-start-line="1340" selection-start-column="46" selection-end-line="1340" selection-end-column="46" />
+          <folding>
+            <element signature="e#114#135#0#PHP" expanded="true" />
+            <element signature="e#10270#10466#0#PHP" />
+            <element signature="e#10513#10874#0#PHP" />
+            <element signature="e#10923#11054#0#PHP" />
+            <element signature="e#11060#11303#0#PHP" />
+            <element signature="e#11667#11941#0#PHP" />
+            <element signature="e#11947#12306#0#PHP" />
+            <element signature="e#12312#12498#0#PHP" />
+            <element signature="e#12504#12729#0#PHP" />
+            <element signature="e#13138#13497#0#PHP" />
+            <element signature="e#13503#13659#0#PHP" />
+            <element signature="e#13665#13908#0#PHP" />
+            <element signature="e#13960#14656#0#PHP" />
+            <element signature="e#14662#15534#0#PHP" />
+            <element signature="e#15679#16969#0#PHP" />
+            <element signature="e#17016#17163#0#PHP" />
+            <element signature="e#17210#17401#0#PHP" />
+            <element signature="e#17407#17674#0#PHP" />
+            <element signature="e#17723#18123#0#PHP" />
+            <element signature="e#18129#18538#0#PHP" />
+            <element signature="e#19094#19437#0#PHP" />
+            <element signature="e#19444#19768#0#PHP" />
+            <element signature="e#19774#20100#0#PHP" />
+            <element signature="e#20263#20594#0#PHP" />
+            <element signature="e#20600#20930#0#PHP" />
+            <element signature="e#21046#23479#0#PHP" />
+            <element signature="e#23485#23600#0#PHP" />
+            <element signature="e#23606#23767#0#PHP" />
+            <element signature="e#23773#23932#0#PHP" />
+            <element signature="e#25223#25506#0#PHP" />
+            <element signature="e#25554#25916#0#PHP" />
+            <element signature="e#25922#26115#0#PHP" />
+            <element signature="e#26169#26602#0#PHP" />
+            <element signature="e#26656#27037#0#PHP" />
+            <element signature="e#27059#27241#0#PHP" />
+            <element signature="e#27284#27581#0#PHP" />
+            <element signature="e#27587#28113#0#PHP" />
+            <element signature="e#28164#29311#0#PHP" />
+            <element signature="e#29317#29597#0#PHP" />
+            <element signature="e#29603#29886#0#PHP" />
+            <element signature="e#29892#30181#0#PHP" />
+            <element signature="e#30187#30468#0#PHP" />
+            <element signature="e#30474#31910#0#PHP" />
+            <element signature="e#31916#33302#0#PHP" />
+            <element signature="e#33308#35600#0#PHP" />
+            <element signature="e#35606#35815#0#PHP" />
+            <element signature="e#35934#37443#0#PHP" />
+            <element signature="e#37603#38333#0#PHP" />
+            <element signature="e#38339#40012#0#PHP" />
+            <element signature="e#40018#42167#0#PHP" />
+            <element signature="e#42244#43160#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/custom-websocket.js">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Alarm.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ApiOptions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="165">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/menu.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RegularUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easyadmin/basic.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
       </provider>
     </entry>
