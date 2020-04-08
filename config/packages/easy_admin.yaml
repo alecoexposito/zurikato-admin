@@ -9,3 +9,4 @@ imports:
   - { resource: easyadmin/employee.yaml }
   - { resource: easyadmin/maintenance.yaml }
   - { resource: easyadmin/semov_log.yaml }
+  - { resource: easyadmin/api_options.yaml }
