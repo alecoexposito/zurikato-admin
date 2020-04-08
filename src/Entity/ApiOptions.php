@@ -101,7 +101,7 @@ class ApiOptions
     /**
      * @return string
      */
-    public function getApiPass(): string {
+    public function getApiPass() {
         return $this->api_pass;
     }
 
