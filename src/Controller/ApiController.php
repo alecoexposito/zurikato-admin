@@ -51,6 +51,9 @@ class ApiController extends FOSRestController
          */
         // getting the tags rfids from body content
         $body = $request->getContent();
+        $myfile = fopen("/home/dipepsa/antenas-log.log", "w");
+        fwrite($myfile, $body);
+        fclose($myfile);
         $tagsArray = json_decode($body);
 
         // getting the vehicles to where the tags belong
