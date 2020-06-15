@@ -11,8 +11,11 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Entity\Client;
 use App\Entity\Device;
+use App\Entity\DeviceModel;
+use App\Entity\Employee;
 use App\Entity\Group;
 use App\Entity\Maintenance;
+use App\Entity\PeripheralGpsData;
 use App\Entity\RegularUser;
 use App\Entity\Tire;
 use App\Entity\TireDepth;
@@ -162,6 +165,22 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * @param Tire $tire
+     */
+    private function setObservationsAndDepthsToTire($tire)
+    {
+        $observations = $tire->getObservations();
+        foreach ($observations as $index => $observation) {
+            $observation->setTire($tire);
+        }
+
+        $depths = $tire->getDepths();
+        foreach ($depths as $index => $depth) {
+            $depth->setTire($tire);
+        }
+    }
+
+    /**
      * @param Tire $entity
      */
     public function updateDepositoEntity($entity)
@@ -193,7 +212,7 @@ class AdminController extends BaseAdminController
 
     public function listNeumaticosVehiculoAction()
     {
-        if($this->getUser()->hasRole("ROLE_CLIENT")) {
+        if ($this->getUser()->hasRole("ROLE_CLIENT")) {
             $this->entity['list']['dql_filter'] = "entity.vehicle = " . $this->request->query->get("idVehicle");
         }
         return parent::listAction();
@@ -237,6 +256,7 @@ class AdminController extends BaseAdminController
             'entity' => 'AgregarProfundidad',
         ));
     }
+
     /**
      * @param Vehicle $vehicle
      */
@@ -360,18 +380,18 @@ class AdminController extends BaseAdminController
     /**
      * @param Tire $tire
      */
-    private function setObservationsAndDepthsToTire($tire)
-    {
-        $observations = $tire->getObservations();
-        foreach ($observations as $index => $observation) {
-            $observation->setTire($tire);
-        }
-
-        $depths = $tire->getDepths();
-        foreach ($depths as $index => $depth) {
-            $depth->setTire($tire);
-        }
-    }
+//    private function setObservationsAndDepthsToTire($tire)
+//    {
+//        $observations = $tire->getObservations();
+//        foreach ($observations as $index => $observation) {
+//            $observation->setTire($tire);
+//        }
+//
+//        $depths = $tire->getDepths();
+//        foreach ($depths as $index => $depth) {
+//            $depth->setTire($tire);
+//        }
+//    }
 
     /**
      * @param Tire $tire
@@ -392,13 +412,14 @@ class AdminController extends BaseAdminController
             'entity' => 'NeumaticoRenovado',
         ));
     }
+
     /**
      * @param Tire $entity
      */
     public function persistNeumaticoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -411,7 +432,7 @@ class AdminController extends BaseAdminController
     public function persistNeumaticoRenovadoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -428,7 +449,7 @@ class AdminController extends BaseAdminController
     public function persistVehiculoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -445,7 +466,7 @@ class AdminController extends BaseAdminController
     public function persistEmpleadoEntity($entity)
     {
         $user = $this->getUser();
-        if($user->hasRole('ROLE_CLIENT')) {
+        if ($user->hasRole('ROLE_CLIENT')) {
             $id = $user->getId();
             $client = $this->em->getRepository('App\Entity\Client')->find($id);
             $entity->setClient($client);
@@ -938,41 +959,46 @@ class AdminController extends BaseAdminController
     public function tiresVehiclesAction($id)
     {
         $vehicleCheck = $this->getEm()->getRepository('App\Entity\VehicleCheck')->find($id);
-        $arrayIdTags = array(1);
+        $arrayRFIDS = [];
+        $arrivedRFIDS = json_decode($vehicleCheck->getArrivedTags());
+
 
         $returnTires = array();
         $vehicleTires = $vehicleCheck->getVehicle()->getTires();
         $state = '1'; //comentar los estados ke estoy usando
         $idTag = '-1';
         $rfID = '-1';
+        // $arrayRFIDS = $vehicleCheck->getVehicle()->getTagsRfids();
 
-        foreach ($vehicleTires as $tire){
+        foreach ($vehicleTires as $tire) {
             $tag = $tire->getControlTag();
-            if($tag != null) {
+            if ($tag != null) {
                 $idTag = $tag->getId();
                 $rfID = $tag->getRfid();
-                $inArray = in_array($tag->getId(), $arrayIdTags);
+                $inArray = in_array($tag->getRfid(), $arrivedRFIDS);
                 if ($inArray == true) {
                     $state = '1';//Neumático con tag ok
                 } else if ($inArray == false) {
                     $state = '0';//Neumático que tiene tag pero no es un tag autorizado
                 }
-            }else {
+            } else {
                 $state = '2';//Neumático sin tag
                 $idTag = '-1';
                 $rfID = '-1';
             }
-            $returnTires[(string)$tire->getPosition()] = [$state,$tire,$idTag,$rfID];
+            $returnTires[(string)$tire->getPosition()] = [$state, $tire, $idTag, preg_replace('/\s+/', '', $rfID)];
+//            echo preg_replace('/\s+/', '',$rfID);
         }
 
-        var_dump($returnTires['1'][0]);
-        var_dump($returnTires['1'][2]);
-        var_dump($returnTires['1'][3]);
-        exit;
+//        var_dump($returnTires['1'][0]);
+//        var_dump($returnTires['1'][2]);
+//        var_dump($returnTires['1'][3]);
+//        exit;
 
         return array(
-            'vehicle' =>  $vehicleCheck,
-            'tires' => $returnTires
+            'vehicleCheck' =>$vehicleCheck,
+            'tires' => $returnTires,
+            'vehicleCheckId' => $id
         );
     }
 
