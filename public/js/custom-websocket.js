@@ -39,6 +39,7 @@ console.log(data);
     ,
     setNewTiresTags: function(rfidArray){
         if(rfidArray == undefined) return;
+        console.log("rfids: ", rfidArray);
         for (i = 0 ; i < rfidArray.length ; i++)
         {
             // visualTire = $('.'+rfidArray[i]);
