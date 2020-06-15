@@ -7,7 +7,7 @@ var customws = {
         // web sockets code
         var options = {
             secure: false,
-            hostname: '187.162.125.161',
+            hostname: '187.217.220.34',
             // hostname: 'localhost',
             port: 3007
         };
