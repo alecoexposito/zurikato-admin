@@ -39,11 +39,10 @@ console.log(data);
     ,
     setNewTiresTags: function(rfidArray){
         if(rfidArray == undefined) return;
-        console.log("rfids: ", rfidArray);
         for (i = 0 ; i < rfidArray.length ; i++)
         {
-            // visualTire = $('.'+rfidArray[i]);
-            visualTire = $("div[rfid*='" + rfidArray[i] + "']");
+            visualTire = $('.'+rfidArray[i]);
+            // visualTire = $("div[rfid*='" + rfidArray[i] + "']");
             console.log("selector: ", "div[rfid*='" + rfidArray[i] + "']");
             console.log("visual tire: ", visualTire);
             if(visualTire.length > 0){
