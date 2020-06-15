@@ -966,6 +966,8 @@ class AdminController extends BaseAdminController
         }
 
         var_dump($returnTires['1'][0]);
+        var_dump($returnTires['1'][2]);
+        var_dump($returnTires['1'][3]);
         exit;
 
         return array(
