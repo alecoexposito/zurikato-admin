@@ -964,6 +964,9 @@ class AdminController extends BaseAdminController
             }
             $returnTires[(string)$tire->getPosition()] = [$state,$tire,$idTag,$rfID];
         }
+        
+        var_dump($returnTires['1']);
+        exit;
 
         return array(
             'vehicle' =>  $vehicleCheck,
