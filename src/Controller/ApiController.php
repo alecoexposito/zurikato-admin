@@ -61,6 +61,8 @@ class ApiController extends FOSRestController
             $newTags[] = $new_str;
         }
 
+        $tagsArray = $newTags;
+
         // getting the vehicles to where the tags belong
         $vehicleRepository = $this->getDoctrine()->getRepository(Vehicle::class);
         $vehicles = $vehicleRepository->vehiclesWithTags($newTags);
