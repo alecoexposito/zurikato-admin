@@ -52,8 +52,6 @@ class ApiController extends FOSRestController
         // getting the tags rfids from body content
         $body = $request->getContent();
         $myfile = fopen("/home/dipepsa/antenas-log.log", "a");
-        fwrite($myfile, $body);
-        fclose($myfile);
         $tagsArray = json_decode($body);
         $newTags = [];
         for ($i = 0; $i < count($tagsArray); $i++) {
@@ -62,6 +60,8 @@ class ApiController extends FOSRestController
         }
 
         $tagsArray = $newTags;
+        fwrite($myfile, json_decode($tagsArray));
+        fclose($myfile);
 
         // getting the vehicles to where the tags belong
         $vehicleRepository = $this->getDoctrine()->getRepository(Vehicle::class);
