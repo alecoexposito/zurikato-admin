@@ -66,8 +66,8 @@ class ApiController extends FOSRestController
         } catch (\Exception $e) {
             fwrite($myfile,$e->getMessage());
         }
-        fwrite($myfile, json_decode($tagsArray));
-        fwrite($myfile, '\n----------------\n');
+        fwrite($myfile, json_decode($newTags));
+        fwrite($myfile, 'segundooooooooooooooooooo');
 
         fclose($myfile);
 
