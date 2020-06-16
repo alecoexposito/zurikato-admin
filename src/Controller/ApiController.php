@@ -55,13 +55,17 @@ class ApiController extends FOSRestController
         fwrite($myfile, $body);
         fwrite($myfile, '\n----------------\n');
         $tagsArray = json_decode($body);
-        $newTags = [];
-        for ($i = 0; $i < count($tagsArray); $i++) {
-            $new_str = str_replace(' ', '', $tagsArray[$i]);
-            $newTags[] = $new_str;
-        }
 
-        $tagsArray = $newTags;
+        try {
+            $newTags = [];
+            for ($i = 0; $i < count($tagsArray); $i++) {
+                $new_str = str_replace(' ', '', $tagsArray[$i]);
+                $newTags[] = $new_str;
+            }
+            $tagsArray = $newTags;
+        } catch (\Exception $e) {
+            fwrite($myfile,$e->getMessage());
+        }
         fwrite($myfile, json_decode($tagsArray));
         fwrite($myfile, '\n----------------\n');
 
