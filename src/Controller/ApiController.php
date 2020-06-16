@@ -55,10 +55,15 @@ class ApiController extends FOSRestController
         fwrite($myfile, $body);
         fclose($myfile);
         $tagsArray = json_decode($body);
+        $newTags = [];
+        for ($i = 0; $i < count($tagsArray); $i++) {
+            $new_str = str_replace(' ', '', $tagsArray[$i]);
+            $newTags[] = $new_str;
+        }
 
         // getting the vehicles to where the tags belong
         $vehicleRepository = $this->getDoctrine()->getRepository(Vehicle::class);
-        $vehicles = $vehicleRepository->vehiclesWithTags($tagsArray);
+        $vehicles = $vehicleRepository->vehiclesWithTags($newTags);
         $vehicleCheckRepository = $this->getDoctrine()->getRepository(VehicleCheck::class);
 
         // for each vehicle will check if it is being processed or in pause, it either updates or creates if it doesn't exists
