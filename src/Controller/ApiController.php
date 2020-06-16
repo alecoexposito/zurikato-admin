@@ -61,6 +61,8 @@ class ApiController extends FOSRestController
 
         $tagsArray = $newTags;
         fwrite($myfile, json_decode($tagsArray));
+        fwrite($myfile, '\n----------------\n');
+
         fclose($myfile);
 
         // getting the vehicles to where the tags belong
