@@ -52,7 +52,7 @@ class ApiController extends FOSRestController
         // getting the tags rfids from body content
         $body = $request->getContent();
         $myfile = fopen("/home/dipepsa/antenas-log.log", "a");
-        fwrite($myfile, $body);
+//        fwrite($myfile, $body);
         fwrite($myfile, '\n----------------\n');
         $tagsArray = json_decode($body);
 
@@ -60,13 +60,15 @@ class ApiController extends FOSRestController
             $newTags = [];
             for ($i = 0; $i < count($tagsArray); $i++) {
                 $new_str = str_replace(' ', '', $tagsArray[$i]);
+                fwrite($myfile, $new_str);
+                fwrite($myfile, 'primeroooooooooooooooo');
                 $newTags[] = $new_str;
             }
             $tagsArray = $newTags;
         } catch (\Exception $e) {
             fwrite($myfile,$e->getMessage());
         }
-        fwrite($myfile, json_decode($newTags));
+//        fwrite($myfile, json_decode($newTags));
         fwrite($myfile, 'segundooooooooooooooooooo');
 
         fclose($myfile);
