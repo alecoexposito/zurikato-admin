@@ -1,6 +1,9 @@
-{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% extends 'easyadmin/default/layout.html.twig' %}
 {% block main %}
-    <div id="ti-generalContainer">
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div id="ti-generalContainer">
         <div id = "ti-container1">
             <div id = "ti-container1-1" class="ti-round">
                 <div class="{% if tires['19'] is defined and tires['19'][0] == "1" %} {{ 'ti-tagExist-Orange ti-setVisible' }} {% elseif tires['19'] is defined and tires['19'][0] == "0" %}{{ 'ti-tagNoExist ti-setVisible' }}{% elseif tires['19'] is defined and tires['19'][0] == "2" %}{{ 'ti-setVisible ti-tag-Grey' }}{% endif %}">{% if tires['19'] is defined and tires['19'][1].internalCode is defined %}{{ tires['19'][1].internalCode }}{% else %}&nbsp;{% endif %}<span>19</span></div>
@@ -59,6 +62,18 @@
         </div>
     </div>
     {#{{ tires|length  }}#}
+    </ul>
+</div>
+
+
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong class="font-weight-bold">Número económico:</strong> {{ vehicle.name }}  </li>
+            <li class="list-group-item"><strong class="font-weight-bold">Número de placa:</strong> {{ vehicle.plateNumber }} </li>
+            {#<li class="list-group-item"><strong class="font-weight-bold">Resultado:</strong> <span id="ti-resultado-revision">{{ vehicleCheck.result }}</span></li>#}
+            {#<li class="list-group-item"><strong class="font-weight-bold">Fecha:</strong> {{ vehicleCheck.createdat|date('d-m-Y') }} </li>#}
+        </ul>
+    </div>
 {% endblock %}
 
 {% block body_javascript %}
